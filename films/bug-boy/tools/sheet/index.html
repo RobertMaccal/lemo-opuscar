@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><title>model sheet</title>
+<style>html,body{margin:0;background:#2a2f3a}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+import * as K from '../../chars.js';
+const cv = document.getElementById('c'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
+const rows = [
+  ['boy', K.atlas(K.BOY_W, K.BOY_H, K.BOY, K.drawBoy), 4],
+  ['satoshi', (()=>{const T={};for(const[k,v] of Object.entries(K.SIT))T[k]={...v,pal:'satoshi'};return K.atlas(K.SIT_W,K.SIT_H,T,K.drawSit)})(), 3],
+  ['devA', (()=>{const T={};for(const[k,v] of Object.entries(K.SIT))T[k]={...v,pal:'devA'};return K.atlas(K.SIT_W,K.SIT_H,T,K.drawSit)})(), 3],
+  ['devB', (()=>{const T={};for(const[k,v] of Object.entries(K.SIT))T[k]={...v,pal:'devB'};return K.atlas(K.SIT_W,K.SIT_H,T,K.drawSit)})(), 3],
+  ['beetle', K.beetleAtlas(), 5], ['glow', K.glowAtlas(), 6],
+  ...Object.entries(K.creatureAtlases()).map(([k,a])=>[k,a,6]), ...Object.entries(K.smallFlyers()).map(([k,a])=>[k,a,6]),
+];
+g.fillStyle='#3a6a3a'; g.fillRect(0,0,1080,1920);
+let y = 10; g.font = '16px monospace'; g.fillStyle = '#fff';
+for (const [name, A, s] of rows) {
+  const perRow = Math.max(1, Math.floor(1060 / (A.FW * s + 6)));
+  for (let i = 0; i < A.n; i++) { const r = Math.floor(i / perRow), c = i % perRow;
+    g.drawImage(A.canvas, i * A.FW, 0, A.FW, A.FH, 10 + c * (A.FW * s + 6), y + 18 + r * (A.FH * s + 22), A.FW * s, A.FH * s);
+    g.fillStyle='#fff'; g.fillText(A.names[i], 10 + c * (A.FW * s + 6), y + 14 + r * (A.FH * s + 22)); }
+  y += Math.ceil(A.n / perRow) * (A.FH * s + 22) + 10;
+}
+window.DUR = 1; window.render = () => {}; window.READY = true;
+</script></body></html>
