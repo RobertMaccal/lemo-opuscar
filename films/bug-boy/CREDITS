@@ -1,0 +1,31 @@
+The Boy Who Caught Bugs — credits for third-party material
+===========================================================
+
+Narration
+- Voice: ElevenLabs, "Tyler – Natural American Narrator" (voice ID xS4rWdm7XjmSzwmzOl3j), model eleven_v4,
+  generated with the commissioning user's own ElevenLabs account (use governed by that account's ElevenLabs plan/terms).
+
+Music (original score, music.py) — sample libraries
+- Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+- Samples (CC0): VS Chamber Orchestra: Community Edition (Versilian Studios); Versilian Community Sample Library (Versilian Studios)
+- Chip-tune voices, all ambience and all sound effects: synthesised in code (core/audio/sfx.py and mix.py).
+
+Fonts (SIL Open Font License 1.1; licence texts in fonts/)
+- Cinzel — Natanael Gama
+- Cormorant Garamond — Christian Thalmann
+
+Software
+- three.js r170 (MIT). Rendering, post (depth of field, tilt-shift, bloom) and pixel tools adapted from the Lemo-Opuscar library's
+  HD-2D engine (styles/hd-2d/demo, MIT). Rendered with headless Chromium; encoded with FFmpeg.
+
+Pictures
+- Every image in the film is drawn in code for this film: characters, creatures, sets, handhelds and cards are original designs.
+  No photograph, logo, game footage, official character, card artwork or console branding is used.
+
+Facts
+- Sources for every factual claim: FACTS.md.
+
+Trademarks
+- Pokémon, Pokémon Red & Green, Pokémon Winds and Waves, Pikachu, Mew, Game Boy, Nintendo Switch 2, Game Freak, CoroCoro Comic,
+  Star Wars and Mickey Mouse are trademarks of their respective owners. This is an independent, unofficial documentary short; it is
+  not affiliated with or endorsed by The Pokémon Company, Nintendo, Game Freak, Creatures, Shogakukan or anyone named in it.

@@ -1,6 +1,5 @@
 // Render a time range of the film: node tools/render_range.mjs <a> <b> [--fps 30] [--workers 2] [--q ''] [--size 1080x1920] [--out out/range.mp4]
-// Same frame-capture pipeline as core/render/video.mjs (same JPEG q95 → x264 crf14), only the frame range is [round(a*fps), round(b*fps)).
-// Use: after changing the end card, re-render only the last few seconds, then join them to the front of the original video_tilt.mp4 (see the Partial re-render in "Build notes" in ../../DEMO.md).
+// Same frame-capture pipeline as core/render/video.mjs (JPEG q95 → x264 crf14); frames [round(a*fps), round(b*fps)). Used to re-render a range and splice it.
 import fs from 'fs'; import path from 'path'; import { spawn, execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 const LIB = process.env.LIB || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');

@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { makePost } from './post_ts.js';
 import { DUR, SHOTS, XF, shotAt } from './timeline.js';
 import { drawOverlay, overlayReady, textsAt, EVENTS, drawBezel } from './ui.js';
+import * as UI from './ui.js';
 
 const W = innerWidth || 1080, H = innerHeight || 1920, Q = new URLSearchParams(location.search);
 const SS = +(Q.get('ss') ?? 1);
@@ -31,6 +32,7 @@ const first = Object.values(sets)[0];
 const post = makePost(renderer, first.scene, camera, W, H, { ssaa: SS });
 const V = post.vig.uniforms;
 await overlayReady();
+window.CUES = UI.CUES;   // the subtitle cues as drawn (≤ 2 lines each), for the .srt
 
 const snap = document.createElement('canvas'); snap.width = W; snap.height = H; const sg = snap.getContext('2d');
 const _v = new THREE.Vector3();

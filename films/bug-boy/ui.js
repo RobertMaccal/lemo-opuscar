@@ -26,7 +26,7 @@ export function splitCues(lines) {
   for (const v of lines) {
     if (balance(v.sub, SUB_MAXW()).length <= 2 && !v.split) { out.push({ id: v.id, t: v.t, d: v.d, sub: v.sub }); continue; }
     const words = v.sub.split(' '); let cut = Math.round(words.length / 2), best = 1e9;
-    for (let i = 2; i < words.length - 1; i++) { const score = Math.abs(words.slice(0, i).join(' ').length - v.sub.length / 2) - (/[,?…]$/.test(words[i - 1]) ? 14 : 0); if (score < best) { best = score; cut = i; } }
+    for (let i = 2; i < words.length - 1; i++) { const w = words[i - 1], score = Math.abs(words.slice(0, i).join(' ').length - v.sub.length / 2) - (/[.!?…”"]$/.test(w) ? 34 : /[,:]$/.test(w) ? 16 : 0); if (score < best) { best = score; cut = i; } }
     const a = words.slice(0, cut).join(' '), b = words.slice(cut).join(' ');
     let tb = v.t + v.d * a.length / v.sub.length;
     if (v.words && v.words.length >= words.length) tb = v.t + v.words[cut].t0 - .08;   // word times are relative to the line start
