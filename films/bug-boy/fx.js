@@ -88,7 +88,7 @@ export function particles(n, fn, o = {}) {
   g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('a', new THREE.BufferAttribute(a, 1)); g.setAttribute('sz', new THREE.BufferAttribute(sz, 1)); g.setAttribute('col', new THREE.BufferAttribute(col, 3));
   const m = new THREE.ShaderMaterial({
     uniforms: { scale: { value: o.scale ?? 1 }, soft: { value: o.soft ?? 0 } }, transparent: true, depthWrite: false, blending: o.blend ?? THREE.AdditiveBlending,
-    vertexShader: `attribute float a, sz; attribute vec3 col; varying float vA; varying vec3 vC; uniform float scale; void main(){ vec4 mv = modelViewMatrix * vec4(position,1.); gl_Position = projectionMatrix * mv; gl_PointSize = sz * scale * 400. / -mv.z; vA = a; vC = col; }`,
+    vertexShader: `attribute float a, sz; attribute vec3 col; varying float vA; varying vec3 vC; uniform float scale; void main(){ vec4 mv = modelViewMatrix * vec4(position,1.); gl_Position = projectionMatrix * mv; gl_PointSize = min(sz * scale * 400. / -mv.z, 48.); vA = a; vC = col; }`,
     fragmentShader: `varying float vA; varying vec3 vC; uniform float soft; void main(){ vec2 d = gl_PointCoord - .5; float r = length(d) * 2.; float m = soft > .5 ? pow(max(0., 1. - r), 1.6) : step(max(abs(d.x), abs(d.y)), .5); gl_FragColor = vec4(vC * vA * m, soft > .5 ? m * vA : vA); }`,
   });
   const p = new THREE.Points(g, m); p.frustumCulled = false;

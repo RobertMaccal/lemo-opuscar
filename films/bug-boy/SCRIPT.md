@@ -1,4 +1,4 @@
-# Narration — "Did You Know Pokémon Started With a Boy Catching Bugs?" (160 s)
+# Narration — "Did You Know Pokémon Started With a Boy Catching Bugs?" (≈ 3 min, revision 3)
 
 Voice: ElevenLabs **Tyler – Natural American Narrator** (voice ID `xS4rWdm7XjmSzwmzOl3j`), model `eleven_v4`, one continuous take so the delivery flows. Tags in [brackets] direct the delivery and are not spoken. ≈ 360 words → ≈ 150–158 s of speech inside 160 s.
 
@@ -24,11 +24,23 @@ Two Game Boys… connected by a cable.
 
 What if children could collect, battle, and trade creatures… just like he once collected insects?
 
-[warmly] Together with his team at Game Freak, he spent six years bringing that idea to life. [sighs] Money got tight. VERY tight. The studio almost didn't make it.
+[warmly] Together with his team at Game Freak, he spent six years bringing that idea to life. [sighs] Money got tight. VERY tight.
+
+[softly] Satoshi stopped paying himself. Five members of the team quit.  ⟵ insert A (new recording)
+
+The studio almost didn't make it.
 
 ## Act III — The phenomenon (≈ 68–98 s)
 
 [excited] Then, on February 27, 1996, Pokémon Red and Green were released in Japan.
+
+[cautiously] But at first… sales were modest.  ⟵ insert B (new recording, four lines)
+
+[mischievously] Then came a secret. Just before launch, programmer Shigeki Morimoto had sneaked one extra creature into the game, as a prank: Mew.
+
+[excited] In 1996, CoroCoro Comic offered Mew to just 20 lucky readers… and more than 78,000 kids entered!
+
+Suddenly, everybody wanted to know what else was hiding in the game. And sales took off.
 
 And a childhood fascination became a worldwide phenomenon.
 

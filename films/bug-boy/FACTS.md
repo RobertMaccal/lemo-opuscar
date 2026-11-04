@@ -18,6 +18,10 @@ Checked 2026-11-04. This session's network blocks direct page fetches from time.
 | 12 | Logan Paul bought a PSA 10 copy in 2021 for about $5.3 million (reported $5.275M) and sold it in February 2026 for $16.49 million (incl. buyer's premium) at Goldin — a Guinness world record | ✔ | Guinness (above) · https://www.japantimes.co.jp/life/2026/02/16/digital/pokemon-card-sale-most-expensive-pikachu-illustrator/ |
 | 13 | Pokémon Winds and Waves, a new generation, announced 27 Feb 2026 for Nintendo Switch 2 in 2027 | ✔ (no exact date announced) | https://www.nintendo.com/my/news/article/7exdME3HEo60PDMCF8DyQ2 · https://gameinformer.com/pokemon-presents/2026/02/27/pokemon-winds-and-waves-is-arriving-next-year |
 | 14 | Development was financially hard for Game Freak ("the studio almost didn't make it") | ✔ (widely reported; Tajiri and staff went unpaid at times) | https://www.gamepro.de/artikel/pokemon-entstehungsgeschichte,3352444.html · https://techraptor.net/content/game-changers-pokemon |
+| 15 | Satoshi Tajiri went without a salary during development; five employees quit over the studio's finances | ✔ | https://en.wikipedia.org/wiki/Game_Freak · https://bulbapedia.bulbagarden.net/wiki/History_of_Pok%C3%A9mon · https://remptongames.com/2022/02/26/why-pokemon-red-and-green-almost-failed/ |
+| 16 | Red and Green's initial sales were modest/slow | ✔ (Iwata Asks, as reported) | https://www.gamespot.com/articles/how-mew-saved-pokemon/1100-6490812/ · https://screenrant.com/pokemon-mew-popular-japan-promotion-iwata-asks-giveaway/ |
+| 17 | Programmer Shigeki Morimoto secretly added Mew as a prank just before release | ✔ | https://en.wikipedia.org/wiki/Shigeki_Morimoto · https://www.cbr.com/mew-secretly-programmed-pokemon-red-blue-green/ |
+| 18 | April 1996: CoroCoro Comic's "Legendary Pokémon Offer" — Mew for 20 winners; more than 78,000 entries; Iwata called it the turning point, after which sales took off | ✔ | GameSpot (above) · https://time.com/6796536/history-origins-pokemon/ · https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_I |
 
 How the film words it, to stay accurate:
 

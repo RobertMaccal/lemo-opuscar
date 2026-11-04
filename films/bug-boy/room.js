@@ -8,7 +8,9 @@ import { makeSitter, glowAtlas, sprite, COLORS } from './chars.js';
 import { handheld, cable } from './props.js';
 import { lcd, overworld, spr, BUG } from './screens.js';
 import { clamp, seg, ss, eio, eo, lerp, track } from '/core/lib.js';
-import { T } from './timeline.js';
+// choreographed on a first 60 s clock; each shot is mapped onto it
+const T = { spark: 30.9, dive: 31.5, popOut: 34.4, wow: 35.0, rack: 37.4 };
+const OLD = { desk: [28.0, 31.6], eureka: [34.6, 39.6] };
 import { concrete } from './art.js';
 
 export function buildRoom() {
@@ -110,6 +112,7 @@ export function buildRoom() {
 
   function update(t, shot, camera, post, renderer) {
     const id = shot.id;
+    if (OLD[id]) { const [oa, ob] = OLD[id]; t = oa + (t - shot.a) / (shot.b - shot.a) * (ob - oa); shot = { ...shot, a: oa, b: ob }; }
     // screens: both on; screen 1 shows the bug walking toward the cable side, screen 2 receives it (eureka)
     screenOn(L1, H1, t, id === 'desk' && t < T.spark ? [100 + (t - 28) * 12, 60] : null);
     const bug2 = id === 'eureka' && t < T.popOut + .15 ? [40, 60] : null;

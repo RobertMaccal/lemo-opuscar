@@ -6,7 +6,10 @@ import { mat, mesh, house, mats } from './kit.js';
 import { sky, sea, particles, beamCard } from './fx.js';
 import { makeBoy, beetleAtlas, smallFlyers, sprite } from './chars.js';
 import { clamp, seg, ss, eio, eo, lerp, track, monotone } from '/core/lib.js';
-import { T } from './timeline.js';
+import { T as TN } from './timeline.js';
+// The set was choreographed on a first 60 s clock; each shot is mapped onto that clock (OLD), new beats use real time (TN)
+const T = { dewSlide: .5, dewDrop: 2.6, boyIn: 3.0, kneel: 8.4, write: 12.6, changeStart: 16.6, changeEnd: 23.4, netLower: 21.4, smile: 57.2, fly: 58.4 };
+const OLD = { leaf: [0, 5.6], path: [5.6, 10.6], stream: [10.6, 16], change: [16, 24.2], wire: [24.2, 28], home: [55.6, 60.2] };
 import { bark, canopy, grassTuft, flowers, bigLeaf, summerGround, townGround, concrete, facade, ridgeTex } from './art.js';
 
 // —— world masks ——
@@ -170,7 +173,7 @@ export function buildCountry() {
   }
   [[15, -14, 12, 3.6, 7.5, 0], [16, -20, 12, 3.6, 9, 1], [24, -12, 3.6, 12, 8.4, 2, 0], [12, -30, 14, 3.6, 10.5, 2], [26, -26, 10, 3.6, 12, 0], [22, -2, 8, 3.2, 6, 1], [-8, -34, 12, 3.6, 9, 1], [4, -36, 14, 3.6, 11, 0], [-22, -30, 10, 3.6, 8, 2], [32, -6, 3.6, 10, 9, 1]].forEach(([x, z, w, d, h, k]) => slab(x, z, w, d, h, k));
   const homes = [];
-  [[11, -6.8], [14.5, -8.9], [18.4, -7.3], [10.2, -24], [-15, -14], [-19, -17], [-12, -18.5], [20, 1.4]].forEach(([x, z], i) => {
+  [[11, -10.4], [14.5, -11.6], [18.4, -10.6], [10.2, -24], [-15, -14], [-19, -17], [-12, -18.5], [20, 1.4]].forEach(([x, z], i) => {
     const hh = house({ x, z, w: 3.6, d: 3, h: 2.4, wall: ['wall2', 'wall3', 'wall2'][i % 3], roof: ['roof2', 'roof', 'roof2'][i % 3], chimney: false, windows: [[-.8, 1.2], [.8, 1.2]], door: false });
     hh.userData.windows.forEach(w => w.material = w.material.clone()); town.add(hh); buildings.push({ g: hh, h: 6, d: cityD(x, z) }); homes.push(hh);
   });
@@ -209,6 +212,22 @@ export function buildCountry() {
   const shafts = [[-7.5, -1.2, 1], [-2.2, -.4, .8], [-9.8, .8, .7], [.6, -1.8, .7]].map(([x, z, k]) => { const top = new THREE.Vector3(x, 0, z).addScaledVector(sunDir, -12); const b = beamCard(12.8, .9, 2.0, '#ffe6a8', { k: .3 * k, fall: .5 }); scene.add(b); return { b, top, k }; });
   const SUNP = new THREE.Vector3(60, 22, -70);
 
+  // —— the garbage truck (mom gag) and a shoebox of cards on its roof ——
+  const truck = new THREE.Group(); scene.add(truck);
+  { const cab = new THREE.MeshStandardMaterial({ color: '#d8dce0', roughness: .6 }), body = new THREE.MeshStandardMaterial({ color: '#4e7a5a', roughness: .7 }), dark = new THREE.MeshStandardMaterial({ color: '#222228', roughness: .8 }), glass = new THREE.MeshStandardMaterial({ color: '#2a3a50', emissive: '#ffb060', emissiveIntensity: .25, roughness: .2 });
+    const add = (g, m, x, y, z) => { const me = new THREE.Mesh(g, m); me.position.set(x, y, z); me.castShadow = me.receiveShadow = true; truck.add(me); return me; };
+    add(new THREE.BoxGeometry(1.5, 1.45, 1.7), cab, 1.55, 1.05, 0); add(new THREE.BoxGeometry(.05, .6, 1.4), glass, 2.31, 1.35, 0);
+    add(new THREE.BoxGeometry(3.0, 1.85, 1.8), body, -.8, 1.25, 0); add(new THREE.BoxGeometry(3.1, .12, 1.85), dark, -.8, .3, 0);
+    for (const [x, z] of [[1.6, .85], [1.6, -.85], [-1.4, .85], [-1.4, -.85], [-.4, .85], [-.4, -.85]]) { const w = add(new THREE.CylinderGeometry(.36, .36, .26, 14), dark, x, .36, z); w.rotation.x = Math.PI / 2; }
+    const box = add(new THREE.BoxGeometry(.55, .26, .38), new THREE.MeshStandardMaterial({ color: '#b08a5a', roughness: .9 }), -1.0, 2.31, .1); add(new THREE.BoxGeometry(.58, .06, .41), new THREE.MeshStandardMaterial({ color: '#c49a68', roughness: .9 }), -1.0, 2.47, .1).rotation.z = .25;
+    const hl = glow('#ffe0a0', .9, 1.2); hl.position.set(2.35, .8, .55); truck.add(hl); const hl2 = glow('#ffe0a0', .9, 1.2); hl2.position.set(2.35, .8, -.55); truck.add(hl2); }
+  const cardTex = texOf((() => { const c = document.createElement('canvas'); c.width = 10; c.height = 14; const x = c.getContext('2d'); x.fillStyle = '#e8c860'; x.fillRect(0, 0, 10, 14); x.fillStyle = '#2a4a9a'; x.fillRect(1, 1, 8, 12); x.fillStyle = '#e8c860'; x.fillRect(4, 5, 2, 4); x.fillRect(3, 6, 4, 2); return c; })());
+  const flyCard = new THREE.Mesh(new THREE.PlaneGeometry(.22, .3), new THREE.MeshStandardMaterial({ map: cardTex, side: THREE.DoubleSide, roughness: .6, emissive: '#ffffff', emissiveMap: cardTex, emissiveIntensity: .25 })); scene.add(flyCard);
+  // insects leaving as the town arrives ("…and so did the bugs")
+  const SW = [...Array(120)].map(() => [R() * 20 - 10, R() * 10 - 8, R(), R() * 6.28]);
+  const swarm = particles(SW.length, (i, t, o) => { const s = SW[i], k = clamp((t - TN.bugsGone + 1.4 + s[2] * .8) / 2.5); o.x = 2 + s[0] + k * 14 * Math.cos(s[3] * .3); o.y = .6 + s[2] * 2 + k * k * 9; o.z = s[1] - k * 10; o.a = (k > 0 && k < 1 ? 1 - k * .6 : 0) * 1.4; o.s = .07; const b = s[2] > .7; o.r = b ? 1.8 : .25; o.g = b ? 1.4 : .2; o.b = b ? .4 : .18; }, { soft: 0, blend: THREE.NormalBlending });
+  scene.add(swarm);
+
   // —— the boy ——
   const boy = makeBoy(); scene.add(boy.root);
 
@@ -225,7 +244,7 @@ export function buildCountry() {
   const C_stream = { p: track([[10.6, [7.6, 4.6, 6.4]], [13.0, [5.8, 3.0, 4.2]], [16.0, [4.6, 1.9, 2.6]]]), l: track([[10.6, [4.4, .3, -2.2]], [13.0, [3.6, .55, -1.9]], [16.0, [3.25, .7, -1.75]]]) };
   const C_change = { p: track([[16.0, [4.4, 2.2, 2.4]], [18.0, [3.0, 5.5, 6.2]], [24.2, [-2.0, 19, 21]]]), l: track([[16.0, [3.6, .9, -1.4]], [18.0, [5.0, 1.0, -4.0]], [24.2, [9.0, 1.0, -12]]]) };
   const C_wire = { p: track([[24.2, [12.6, 2.2, -1.2]], [28.0, [3.8, 4.2, -2.6]]]), l: track([[24.2, [10.0, 7.0, -8.3]], [28.0, [-1.0, 7.2, -8.3]]]) };
-  const C_home = { p: track([[55.6, [LK.x + .09, LK.y + .36, LK.z + .62]], [57.4, [LK.x - .2, LK.y + .5, LK.z + 1.25]], [60.0, [LK.x - .32, LK.y + .62, LK.z + 1.6]]]), l: track([[55.6, [LK.x, LK.y + .02, LK.z]], [57.4, [LK.x - .35, LK.y + .2, LK.z - .1]], [60.0, [LK.x - .35, LK.y + .28, LK.z - .1]]]) };
+  const C_home = { p: track([[55.6, [LK.x + .09, LK.y + .36, LK.z + .62]], [57.4, [LK.x - .25, LK.y + .7, LK.z + 2.2]], [60.2, [LK.x - .4, LK.y + 1.1, LK.z + 3.4]]]), l: track([[55.6, [LK.x, LK.y + .02, LK.z]], [57.4, [LK.x - .35, LK.y + .22, LK.z - .1]], [60.2, [LK.x - .3, LK.y + .45, LK.z - .2]]]) };
   const CAMS = { leaf: C_leaf, path: C_path, stream: C_stream, change: C_change, wire: C_wire, home: C_home };
 
   // light keys (morning → hazy noon → dusk; home = golden late afternoon)
@@ -246,7 +265,9 @@ export function buildCountry() {
   }
 
   function update(t, shot, camera, post, renderer) {
-    U.time.value = t; const id = shot.id;
+    const tReal = t, id0 = shot.id, id = id0 === 'truck' ? 'wire' : id0;
+    U.time.value = t;
+    if (OLD[id0]) { const [oa, ob] = OLD[id0]; t = oa + (t - shot.a) / (shot.b - shot.a) * (ob - oa); }
     // —— town progress: grows during the change shot, complete at dusk, absent in memory shots ——
     const prog = id === 'change' ? ss(seg(t, T.changeStart, T.changeEnd)) : id === 'wire' ? 1 : 0;
     U.prog.value = prog;
@@ -281,12 +302,24 @@ export function buildCountry() {
     let bp = null, fr = 'idle0', flip = false;
     if (id === 'leaf') { const x = -18.6 + 1.05 * (t - T.boyIn); bp = [x, 0, pathZ(x)]; fr = t > T.boyIn ? walkFrame(t) : 'idle0'; boy.root.visible = t > T.boyIn - .5; }
     else if (id === 'path') { const x = Math.min(-4.95, -8.3 + 1.2 * (t - 5.6)); bp = [x, 0, pathZ(x) - .05]; fr = t < T.kneel ? walkFrame(t) : (t % 2.6 < .12 ? 'kneelB' : 'kneel'); }
-    else if (id === 'stream') { bp = [ROCK.x - .05, .32, ROCK.z + .32]; fr = t < T.write ? 'writeL' : (Math.floor(t * 5) % 2 ? 'write1' : 'write0'); }
+    else if (id === 'stream') { bp = [ROCK.x - .05, .32, ROCK.z + .32]; fr = t < T.write ? 'writeL' : (Math.floor(t * 5) % 2 ? 'write1' : 'write0');
+      if (tReal > TN.standUp) { bp = [ROCK.x + .62, 0, ROCK.z + .55]; fr = tReal > TN.rareTitle - .2 ? 'up' : 'idle0'; } }
     else if (id === 'change') { bp = [ROCK.x + .5, 0, ROCK.z + .55]; fr = t < 17.2 ? 'idle0' : t < T.netLower ? (t % 3 < .12 ? 'blink' : 'calm') : 'lower'; flip = false; }
     else if (id === 'home') { bp = [LEAF.x - .62, 0, LEAF.z - .2]; fr = t < T.smile ? idle(t) : t < T.fly + .3 ? 'smile' : 'smileUp'; }
     boy.root.visible = !!bp && (id !== 'leaf' || t > T.boyIn - .5);
     if (bp) { boy.root.position.set(...bp); boy.frame(fr); boy.face(camera, flip); fill.position.set(bp[0] + .3, bp[1] + 1.6, bp[2] + 1.8); fill.intensity = id === 'wire' ? 0 : 1.4; }
 
+    // —— truck gag (dusk town) ——
+    truck.visible = id0 === 'truck'; flyCard.visible = id0 === 'truck';
+    if (id0 === 'truck') {
+      const u = seg(tReal, shot.a, shot.b), tx = lerp(4.5, 17.5, ss(seg(tReal, shot.a + .6, shot.b - .2)));
+      truck.position.set(tx, 0, ROADZ + .85); boy.root.visible = false;
+      const fk = clamp((tReal - (TN.mom + 1.6)) / 3.2), cp = new THREE.Vector3(tx - 1.0, 2.31, ROADZ + .95);
+      flyCard.position.copy(cp).add(new THREE.Vector3(-fk * 4.2 + Math.sin(fk * 9) * .3, Math.sin(fk * 3.14) * 1.4 - fk * 1.8 + .2, fk * 3.4)); flyCard.rotation.set(tReal * 4.1, tReal * 2.7, tReal * 3.3); flyCard.visible = fk > 0;
+      camera.position.set(tx - 3.6, 6.4, ROADZ + 13.5); camera.lookAt(tx - .6, 1.0, ROADZ - .4);
+      cam.l.set(tx - .4, 1.0, ROADZ); camera.fov = 38;
+    }
+    swarm.visible = id === 'change'; swarm.userData.update(tReal);
     // —— beetle on the leaf: still, dew slides; at the end it opens its wings and flies to the sun ——
     beetle.root.visible = id === 'leaf' || id === 'home';
     if (beetle.root.visible) {
@@ -347,7 +380,7 @@ export function buildCountry() {
     if (id === 'leaf') { const k = ss(seg(t, 2.6, 4.8)); const fl = camera.position.distanceTo(LEAF), fb = camera.position.distanceTo(new THREE.Vector3(...bp).setY(.7)); fd = lerp(fl, fb, k); aper = lerp(5, 260, ss(seg(t, 1.4, 5.4))); }
     else if (id === 'home') { const k = ss(seg(t, 56.4, 57.6)); const fl = camera.position.distanceTo(LEAF), fb = camera.position.distanceTo(new THREE.Vector3(...bp).setY(1.1)); fd = lerp(fl, lerp(fl, fb, .5), k); aper = lerp(5, 28, ss(seg(t, 55.6, 58))); if (t > T.fly) fd = camera.position.distanceTo(beetle.root.position); }
     else if (id === 'change') { fd = camera.position.distanceTo(cam.l); aper = lerp(220, 520, ss(seg(t, 16, 24))); post.dof.tiltAmt = 14 * ss(seg(t, 18, 21)); post.dof.track = new THREE.Vector3(...bp).setY(.8); }
-    else if (id === 'wire') { fd = camera.position.distanceTo(cam.l); aper = 120; }
+    else if (id === 'wire') { fd = camera.position.distanceTo(cam.l); aper = 120; if (id0 === 'truck') { fd = camera.position.distanceTo(truck.position); aper = 160; post.dof.tiltAmt = 10; post.dof.tiltC = .42; } }
     else { fd = camera.position.distanceTo(new THREE.Vector3(...bp).setY(.75)); aper = id === 'stream' ? lerp(260, 120, ss(seg(t, 11, 16))) : 280; }
     post.dof.focus = fd; post.dof.aper = aper; post.dof.maxCoc = id === 'leaf' && t < 2 ? 30 : 22;
   }

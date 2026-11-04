@@ -1,0 +1,430 @@
+{
+ "DUR": 194.7,
+ "SHOTS": [
+  {
+   "id": "leaf",
+   "set": "country",
+   "a": 0,
+   "b": 5.3
+  },
+  {
+   "id": "path",
+   "set": "country",
+   "a": 5.3,
+   "b": 14.3
+  },
+  {
+   "id": "stream",
+   "set": "country",
+   "a": 14.3,
+   "b": 22.6
+  },
+  {
+   "id": "change",
+   "set": "country",
+   "a": 22.6,
+   "b": 31.4
+  },
+  {
+   "id": "wire",
+   "set": "country",
+   "a": 31.4,
+   "b": 35
+  },
+  {
+   "id": "desk",
+   "set": "room",
+   "a": 35,
+   "b": 40.2
+  },
+  {
+   "id": "tunnel",
+   "set": "tunnel",
+   "a": 40.2,
+   "b": 43.6
+  },
+  {
+   "id": "eureka",
+   "set": "room",
+   "a": 43.6,
+   "b": 48
+  },
+  {
+   "id": "studio",
+   "set": "studio",
+   "a": 48,
+   "b": 57.4
+  },
+  {
+   "id": "quit",
+   "set": "studio",
+   "a": 57.4,
+   "b": 64.2
+  },
+  {
+   "id": "boot",
+   "set": "studio",
+   "a": 64.2,
+   "b": 68.6
+  },
+  {
+   "id": "world",
+   "set": "world",
+   "a": 68.6,
+   "b": 76.4
+  },
+  {
+   "id": "secret",
+   "set": "world",
+   "a": 76.4,
+   "b": 79.6
+  },
+  {
+   "id": "prank",
+   "set": "studio",
+   "a": 79.6,
+   "b": 86.3
+  },
+  {
+   "id": "mail",
+   "set": "studio",
+   "a": 86.3,
+   "b": 95
+  },
+  {
+   "id": "rush",
+   "set": "world",
+   "a": 95,
+   "b": 101
+  },
+  {
+   "id": "phenom",
+   "set": "world",
+   "a": 101,
+   "b": 106
+  },
+  {
+   "id": "lights",
+   "set": "world",
+   "a": 106,
+   "b": 110.6
+  },
+  {
+   "id": "cards",
+   "set": "cardcity",
+   "a": 110.6,
+   "b": 117.2
+  },
+  {
+   "id": "pockets",
+   "set": "cardcity",
+   "a": 117.2,
+   "b": 119.4
+  },
+  {
+   "id": "no1",
+   "set": "cardcity",
+   "a": 119.4,
+   "b": 127.2
+  },
+  {
+   "id": "hall",
+   "set": "auction",
+   "a": 127.2,
+   "b": 141.4
+  },
+  {
+   "id": "sale",
+   "set": "auction",
+   "a": 141.4,
+   "b": 154.1
+  },
+  {
+   "id": "crayon",
+   "set": "auction",
+   "a": 154.1,
+   "b": 159
+  },
+  {
+   "id": "truck",
+   "set": "country",
+   "a": 159,
+   "b": 164.7
+  },
+  {
+   "id": "coast",
+   "set": "world",
+   "a": 164.7,
+   "b": 172.3
+  },
+  {
+   "id": "graph",
+   "set": "graph",
+   "a": 172.3,
+   "b": 181.3
+  },
+  {
+   "id": "kids",
+   "set": "world",
+   "a": 181.3,
+   "b": 188.9
+  },
+  {
+   "id": "home",
+   "set": "country",
+   "a": 188.9,
+   "b": 194.7
+  }
+ ],
+ "T": {
+  "dewSlide": 0.5,
+  "dewDrop": 2.6,
+  "boyIn": 2.9,
+  "nameIn": 5.6,
+  "kneel": 11.6,
+  "write": 15.4,
+  "standUp": 18.6,
+  "rareTitle": 19.9,
+  "changeStart": 23.2,
+  "changeEnd": 30.4,
+  "netLower": 27,
+  "bugsGone": 28.8,
+  "spark": 38.8,
+  "dive": 40.2,
+  "popOut": 43.8,
+  "wow": 44.3,
+  "rack": 44.7,
+  "devCap": 49,
+  "coin0": 53.1,
+  "coin1": 55.1,
+  "wallet": 57.7,
+  "quit1": 59.9,
+  "quit2": 60.5,
+  "dark": 63.8,
+  "boot": 65,
+  "dateIn": 66.4,
+  "modest": 72.6,
+  "tumble": 73.4,
+  "secret": 76.7,
+  "prog": 79.8,
+  "mew": 85.4,
+  "mailIn": 86.7,
+  "entries": 91.8,
+  "rushIn": 95.1,
+  "games": 106.4,
+  "cardsCap": 110.9,
+  "perPerson": 113.7,
+  "where": 117.4,
+  "no1": 120.2,
+  "slab": 128,
+  "prize98": 133.3,
+  "buy21": 141.7,
+  "sold26": 148.5,
+  "gavel": 152.1,
+  "record": 154.6,
+  "crayonDrop": 157.5,
+  "mom": 159.9,
+  "gen2027": 168.3,
+  "climb": 172.7,
+  "rocker": 175.4,
+  "fog": 176.8,
+  "crash": 178.5,
+  "shrink": 187.6,
+  "smile": 190,
+  "fly": 191.8
+ },
+ "VO": [
+  {
+   "id": "v01",
+   "t": 0.5,
+   "d": 3.62,
+   "sub": "Did you know Pokémon was inspired by a little boy… catching bugs?"
+  },
+  {
+   "id": "v02",
+   "t": 5.5,
+   "d": 1.72,
+   "sub": "His name was Satoshi Tajiri."
+  },
+  {
+   "id": "v03",
+   "t": 7.66,
+   "d": 6.28,
+   "sub": "Growing up near Tokyo, Satoshi spent his summers exploring the countryside, hunting for beetles and collecting insects."
+  },
+  {
+   "id": "v04",
+   "t": 14.62,
+   "d": 7.22,
+   "sub": "He was so good at it, his friends called him \"Doctor Bug.\" Which, honestly, is the coolest nickname a kid could ask for."
+  },
+  {
+   "id": "v05",
+   "t": 23.02,
+   "d": 6,
+   "sub": "But as the city expanded, the forests and fields he loved began disappearing… and so did the bugs."
+  },
+  {
+   "id": "v06",
+   "t": 31.78,
+   "d": 2.92,
+   "sub": "Years later, Satoshi discovered something fascinating."
+  },
+  {
+   "id": "v07",
+   "t": 35.28,
+   "d": 2.26,
+   "sub": "Two Game Boys… connected by a cable."
+  },
+  {
+   "id": "v08",
+   "t": 38.58,
+   "d": 2.76,
+   "sub": "And he imagined tiny creatures traveling between them!"
+  },
+  {
+   "id": "v09",
+   "t": 41.76,
+   "d": 4.96,
+   "sub": "What if children could collect, battle, and trade creatures… just like he once collected insects?"
+  },
+  {
+   "id": "v10",
+   "t": 47.96,
+   "d": 4.34,
+   "sub": "Together with his team at Game Freak, he spent six years bringing that idea to life."
+  },
+  {
+   "id": "v11",
+   "t": 53.121,
+   "d": 3.46,
+   "sub": "Money got tight. VERY tight."
+  },
+  {
+   "id": "v12",
+   "t": 57.671,
+   "d": 3.78,
+   "sub": "Satoshi stopped paying himself. Five members of the team quit."
+  },
+  {
+   "id": "v13",
+   "t": 62.221,
+   "d": 1.44,
+   "sub": "The studio almost didn't make it."
+  },
+  {
+   "id": "v14",
+   "t": 66.061,
+   "d": 5.66,
+   "sub": "Then, on February 27, 1996, Pokémon Red and Green were released in Japan."
+  },
+  {
+   "id": "v15",
+   "t": 72.64,
+   "d": 2.72,
+   "sub": "But at first… sales were modest."
+  },
+  {
+   "id": "v16",
+   "t": 76.64,
+   "d": 8.8,
+   "sub": "Then came a secret. Just before launch, programmer Shigeki Morimoto had sneaked one extra creature into the game, as a prank: Mew."
+  },
+  {
+   "id": "v17",
+   "t": 86.68,
+   "d": 7.42,
+   "sub": "In 1996, CoroCoro Comic offered Mew to just 20 lucky readers… and more than 78,000 kids entered!"
+  },
+  {
+   "id": "v18",
+   "t": 95.04,
+   "d": 4.78,
+   "sub": "Suddenly, everybody wanted to know what else was hiding in the game. And sales took off."
+  },
+  {
+   "id": "v19",
+   "t": 101.241,
+   "d": 2.98,
+   "sub": "And a childhood fascination became a worldwide phenomenon."
+  },
+  {
+   "id": "v20",
+   "t": 106.061,
+   "d": 3.88,
+   "sub": "Today, more than 515 million Pokémon games have been sold."
+  },
+  {
+   "id": "v21",
+   "t": 110.641,
+   "d": 7.42,
+   "sub": "Over 85 billion cards have been printed. That's about ten cards for every person on Earth. So… where are yours?"
+  },
+  {
+   "id": "v22",
+   "t": 119.601,
+   "d": 6.6,
+   "sub": "Pokémon is often called the highest-grossing media franchise in history. Bigger than Star Wars. Bigger than Mickey Mouse."
+  },
+  {
+   "id": "v23",
+   "t": 127.421,
+   "d": 3.96,
+   "sub": "And some of those little pieces of cardboard… got very, VERY expensive."
+  },
+  {
+   "id": "v24",
+   "t": 133.141,
+   "d": 8.12,
+   "sub": "In 1998, a Japanese magazine gave away a special Pikachu card as a prize for a drawing contest. Only 39 were ever handed out."
+  },
+  {
+   "id": "v25",
+   "t": 141.601,
+   "d": 6.2,
+   "sub": "In 2021, YouTuber Logan Paul bought a perfect copy for about 5.3 million dollars."
+  },
+  {
+   "id": "v26",
+   "t": 148.421,
+   "d": 4.82,
+   "sub": "In February 2026, he sold it… for 16.5 million."
+  },
+  {
+   "id": "v27",
+   "t": 154.441,
+   "d": 3.9,
+   "sub": "A world record! For a prize from a drawing contest."
+  },
+  {
+   "id": "v28",
+   "t": 159.441,
+   "d": 4.12,
+   "sub": "So if your mom threw out your old cards… maybe don't tell her what they're worth now."
+  },
+  {
+   "id": "v29",
+   "t": 165.081,
+   "d": 7,
+   "sub": "And the story isn't over. A brand-new generation, Pokémon Winds and Waves, is coming to Nintendo Switch 2 in 2027."
+  },
+  {
+   "id": "v30",
+   "t": 172.641,
+   "d": 7.56,
+   "sub": "Will the cards keep climbing? Could a childhood binder become a retirement plan? Nobody knows. Prices can crash just as fast as they soar."
+  },
+  {
+   "id": "v31",
+   "t": 181.621,
+   "d": 6.06,
+   "sub": "But one thing's for sure: kids everywhere will keep exploring, collecting, and trading… just like Satoshi did."
+  },
+  {
+   "id": "v32",
+   "t": 189.281,
+   "d": 2.7,
+   "sub": "All because one little boy… loved catching bugs."
+  }
+ ]
+}

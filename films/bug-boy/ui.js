@@ -38,9 +38,20 @@ export function splitCues(lines) {
 
 // —— label plates (upper third) ——
 export const LABELS = [
-  { id: 'name', a: T.nameIn, b: T.nameIn + 4.4, lines: ['SATOSHI TAJIRI', '“DR. BUG”'], type: 'plate' },
+  { id: 'name', a: T.nameIn, b: T.nameIn + 4.6, lines: ['SATOSHI TAJIRI', '“DR. BUG”'], type: 'plate' },
+  { id: 'rare', a: T.rareTitle - .3, b: T.rareTitle + 3.3, lines: ['★ RARE TITLE UNLOCKED ★'], type: 'small' },
   { id: 'dev', a: T.devCap, b: T.devCap + 4.2, lines: ['YEARS OF DEVELOPMENT'], type: 'plate' },
-  { id: 'date', a: T.dateIn, b: T.dateIn + 4.2, lines: ['JAPAN — FEBRUARY 27, 1996', 'POKÉMON RED & GREEN'], type: 'title' },
+  { id: 'date', a: T.dateIn, b: T.dateIn + 5.2, lines: ['JAPAN — FEBRUARY 27, 1996', 'POKÉMON RED & GREEN'], type: 'title' },
+  { id: 'secret', a: T.secret + .3, b: T.prog - .25, lines: ['? ? ?'], type: 'small' },
+  { id: 'entries', a: T.entries - .9, b: T.rushIn + .3, lines: ['78,000+', 'ENTRIES · ONLY 20 WINNERS'], type: 'count', n: 78000, suffix: '+', dur: 1.2 },
+  { id: 'games', a: T.games - .1, b: T.games + 4.4, lines: ['515,000,000+', 'POKÉMON GAMES SOLD'], type: 'count', n: 515000000, suffix: '+' },
+  { id: 'cards', a: T.cardsCap - .1, b: T.where - .2, lines: ['85,000,000,000+', 'CARDS PRINTED · ≈ 10 PER PERSON'], type: 'count', n: 85000000000, suffix: '+' },
+  { id: 'no1', a: T.no1, b: T.no1 + 6.4, lines: ['No. 1', 'HIGHEST-GROSSING MEDIA FRANCHISE (EST.)'], type: 'plate' },
+  { id: 't98', a: T.prize98, b: T.buy21 - .4, lines: ['1998', 'DRAWING-CONTEST PRIZE · ONLY 39 GIVEN'], type: 'ticker' },
+  { id: 't21', a: T.buy21, b: T.gavel - .2, lines: ['2021', 'BOUGHT FOR $5,275,000'], type: 'ticker' },
+  { id: 't26', a: T.gavel, b: T.crayonDrop + 1.4, lines: ['$16,492,000', 'FEB 2026 · GUINNESS WORLD RECORD'], type: 'count', n: 16492000, prefix: '$', dur: .9 },
+  { id: 'gen', a: T.gen2027 - 1.0, b: T.gen2027 + 3.9, lines: ['NEW GENERATION', 'POKÉMON WINDS & WAVES · 2027'], type: 'plate' },
+  { id: 'nfa', a: T.fog + .2, b: T.fog + 4.4, lines: ['(NOT FINANCIAL ADVICE)'], type: 'small' },
 ];
 function spaced(text, x, y, sp) {
   const ws = [...text].map(c => g.measureText(c).width), tot = ws.reduce((a, b) => a + b, 0) + sp * (ws.length - 1);
@@ -91,6 +102,43 @@ function title(t, L) {
   return { x0: 40, y0: cy - 90, x1: W - 40, y1: cy + 90 };
 }
 
+function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+function count(t, L) {
+  const a = ss(seg(t, L.a, L.a + .35)) * (1 - ss(seg(t, L.b - .45, L.b)));
+  if (a <= 0) return null;
+  const k = 1 - Math.pow(1 - clamp((t - L.a - .1) / (L.dur ?? 1.7)), 3);
+  const shown = (L.prefix || '') + fmt(L.n * k) + (k >= 1 ? (L.suffix || '') : '');
+  const cy = Y_LABEL();
+  g.save(); g.globalAlpha = a; g.textAlign = 'center'; g.textBaseline = 'middle';
+  const bg = g.createLinearGradient(0, cy - 150, 0, cy + 150); bg.addColorStop(0, 'rgba(6,8,16,0)'); bg.addColorStop(.5, 'rgba(6,8,16,.6)'); bg.addColorStop(1, 'rgba(6,8,16,0)');
+  g.fillStyle = bg; g.fillRect(0, cy - 150, W, 300);
+  g.font = '700 84px Cinzel'; const gr = g.createLinearGradient(0, cy - 70, 0, cy + 10); gr.addColorStop(0, '#fff6d6'); gr.addColorStop(.6, '#ecc878'); gr.addColorStop(1, '#b88a40');
+  g.fillStyle = gr; g.shadowColor = 'rgba(255,210,120,.6)'; g.shadowBlur = 26 * (1 + (k < 1 ? .5 : 0)); spaced(shown, W / 2, cy - 26, 2); g.shadowBlur = 0;
+  const b2 = ss(seg(t, L.a + .3, L.a + .7)); g.globalAlpha = a * b2; g.font = '500 32px Cinzel'; g.fillStyle = '#f3e3b4'; spaced(L.lines[1], W / 2, cy + 44, 5);
+  g.restore(); return true;
+}
+function ticker(t, L) {
+  const a = ss(seg(t, L.a, L.a + .3)) * (1 - ss(seg(t, L.b - .35, L.b)));
+  if (a <= 0) return null;
+  const cy = Y_LABEL(), slide = (1 - ss(seg(t, L.a, L.a + .35))) * 40;
+  g.save(); g.globalAlpha = a; g.textAlign = 'center'; g.textBaseline = 'middle';
+  const bw = 860, bh = 150, x = W / 2 - bw / 2 + slide, y = cy - bh / 2;
+  g.fillStyle = 'rgba(10,12,22,.86)'; g.fillRect(x, y, bw, bh); g.strokeStyle = 'rgba(222,196,132,.95)'; g.lineWidth = 2.5; g.strokeRect(x + .5, y + .5, bw - 1, bh - 1);
+  g.font = '700 60px Cinzel'; g.fillStyle = '#f3e3b4'; spaced(L.lines[0], W / 2 + slide, cy - 24, 6);
+  g.font = 'italic 600 40px "Cormorant Garamond"'; g.fillStyle = '#fbf3de'; g.fillText(L.lines[1], W / 2 + slide, cy + 38);
+  g.restore(); return true;
+}
+function small(t, L) {
+  const a = ss(seg(t, L.a, L.a + .2)) * (1 - ss(seg(t, L.b - .3, L.b)));
+  if (a <= 0) return null;
+  const pop = 1 + .25 * Math.exp(-(t - L.a) / .12);
+  g.save(); g.globalAlpha = a; g.textAlign = 'center'; g.textBaseline = 'middle'; g.translate(W / 2, H * .3); g.scale(pop, pop);
+  g.font = '700 38px Cinzel'; const w = spacedW(L.lines[0], 4) + 70;
+  g.fillStyle = 'rgba(16,14,30,.85)'; g.fillRect(-w / 2, -36, w, 72); g.strokeStyle = '#ecc878'; g.lineWidth = 2; g.strokeRect(-w / 2 + .5, -35.5, w - 1, 71);
+  g.fillStyle = '#ffe9a8'; g.shadowColor = 'rgba(255,210,120,.7)'; g.shadowBlur = 14; spaced(L.lines[0], 0, 2, 4);
+  g.restore(); return true;
+}
+
 // —— subtitles: lower area, max two lines, never over the subject band ——
 function wrap(text, maxW) { const words = text.split(' '), lines = []; let cur = ''; for (const w of words) { const n = cur ? cur + ' ' + w : w; if (g.measureText(n).width > maxW && cur) { lines.push(cur); cur = w; } else cur = n; } if (cur) lines.push(cur); return lines; }
 function balance(text, maxW) {   // two lines of similar length read better than a long line and a widow
@@ -114,10 +162,27 @@ function subtitle(t, v) {
   g.restore();
 }
 
+// The handheld's bezel closing in around the picture: the world shrinks back into the screen (kids shot, from T.shrink)
+export function drawBezel(ctx, t) {
+  const k = ss(seg(t, T.shrink, T.shrink + 1.2)); if (k <= 0) return;
+  const sw = W * lerp(1.35, .74, k), sh = sw * 144 / 160, cx = W / 2, cy = H * .44, x0 = cx - sw / 2, y0 = cy - sh / 2;
+  const bw = sw * 1.5, bh = sw * 2.5, bx = cx - bw / 2, by = y0 - sw * .2;
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(x0, y0, sw, sh); ctx.clip('evenodd');
+  ctx.fillStyle = `rgba(8,10,14,${.9 * k})`; ctx.fillRect(0, 0, W, H);
+  const grd = ctx.createLinearGradient(bx, 0, bx + bw, 0); grd.addColorStop(0, '#9a9aa2'); grd.addColorStop(.5, '#c4c4ca'); grd.addColorStop(1, '#8a8a92');
+  ctx.fillStyle = grd; ctx.fillRect(bx, by, bw, bh);
+  ctx.fillStyle = '#34343e'; ctx.fillRect(x0 - sw * .1, y0 - sw * .1, sw * 1.2, sh + sw * .2);
+  const s = sw / 40;   // buttons in the face's pixel grid
+  ctx.fillStyle = '#2a2a32'; ctx.fillRect(cx - sw * .42, y0 + sh + sw * .35, s * 11, s * 3); ctx.fillRect(cx - sw * .42 + s * 4, y0 + sh + sw * .35 - s * 4, s * 3, s * 11);
+  ctx.fillStyle = '#3a4058'; for (const [dx, dy] of [[.26, .4], [.4, .3]]) { ctx.beginPath(); ctx.arc(cx + sw * dx, y0 + sh + sw * dy, s * 2.8, 0, 7); ctx.fill(); }
+  ctx.restore();
+}
+function lerp(a, b, t) { return a + (b - a) * t; }
 export function drawOverlay(t, shot, xf) {
   g.clearRect(0, 0, W, H);
+  if (shot.id === 'kids') drawBezel(g, t);
   if (xf) { g.globalAlpha = xf.a; g.drawImage(xf.img, 0, 0); g.globalAlpha = 1; }
-  for (const L of LABELS) L.type === 'title' ? title(t, L) : plate(t, L);
+  for (const L of LABELS) ({ title, plate, count, ticker, small })[L.type](t, L);
   if (!new URLSearchParams(location.search).has('nosub')) for (const v of CUES) subtitle(t, v);
   // first frame comes in from a warm white (the film's light), no logo
   const fin = 1 - ss(seg(t, 0, .35)); if (fin > 0) { g.fillStyle = `rgba(255,248,230,${fin})`; g.fillRect(0, 0, W, H); }
@@ -126,6 +191,6 @@ export function drawOverlay(t, shot, xf) {
 // every label on screen, for readcheck (full text from the first visible frame)
 export function textsAt(t) {
   const out = [];
-  for (const L of LABELS) { if (t >= L.a + .35 && t <= L.b - .45) out.push({ id: L.id, text: L.lines.join(' / '), x0: 40, y0: Y_LABEL() - 90, x1: W - 40, y1: Y_LABEL() + 90 }); }
+  for (const L of LABELS) { if (t >= L.a + .35 && t <= L.b - .45) out.push({ id: L.id, text: L.lines.join(' / '), x0: 40, y0: Y_LABEL() - 120, x1: W - 40, y1: Y_LABEL() + 120 }); }
   return out;
 }

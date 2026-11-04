@@ -2,7 +2,7 @@
 import * as THREE from 'three';
 import { makePost } from './post_ts.js';
 import { DUR, SHOTS, XF, shotAt } from './timeline.js';
-import { drawOverlay, overlayReady, textsAt, EVENTS } from './ui.js';
+import { drawOverlay, overlayReady, textsAt, EVENTS, drawBezel } from './ui.js';
 
 const W = innerWidth || 1080, H = innerHeight || 1920, Q = new URLSearchParams(location.search);
 const SS = +(Q.get('ss') ?? 1);
@@ -21,6 +21,9 @@ const builders = {
   tunnel: () => import('./tunnel.js').then(m => m.buildTunnel()),
   studio: () => import('./studio.js').then(m => m.buildStudio()),
   world: () => import('./world.js').then(m => m.buildWorld()),
+  cardcity: () => import('./cardcity.js').then(m => m.buildCardCity()),
+  auction: () => import('./auction.js').then(m => m.buildAuction()),
+  graph: () => import('./graph.js').then(m => m.buildGraph()),
 };
 const sets = {};
 for (const k of Object.keys(builders)) if (need.has(k)) sets[k] = await builders[k]();
@@ -38,7 +41,7 @@ function renderSet(id, shot, t) {
   V.fade.value = 1; V.gb.value = 0; V.amt.value = .55; V.warm.value = .08; V.sat.value = 1.08; V.contrast.value = .18;
   post.bloom.strength = .5; post.bloom.radius = .7; post.bloom.threshold = .82; renderer.toneMappingExposure = 1.1;
   post.dof.tiltAmt = 0; post.dof.tiltC = .5; post.dof.tiltW = .09; post.dof.tiltF = .3;
-  camera.near = .05; camera.far = 900;
+  camera.near = .05; camera.far = 900; camera.up.set(0, 1, 0);
   S.update(t, shot, camera, post, renderer);
   camera.updateProjectionMatrix();
   if (post.dof.track) {   // tilt band follows a subject's projected height
@@ -59,7 +62,7 @@ window.render = t => {
   if (x && !Q.has('noxf')) {
     const a = t < x.t ? shot : shotAt(x.t - 1e-3), b = t < x.t ? shotAt(x.t + 1e-3) : shot;
     const k = (t - (x.t - x.d)) / (2 * x.d), ks = k * k * (3 - 2 * k);
-    renderSet(a.set, { ...a, xf: 'out', xk: ks }, t); sg.clearRect(0, 0, W, H); sg.drawImage(renderer.domElement, 0, 0, W, H);
+    renderSet(a.set, { ...a, xf: 'out', xk: ks }, t); sg.clearRect(0, 0, W, H); sg.drawImage(renderer.domElement, 0, 0, W, H); if (a.id === 'kids') drawBezel(sg, t);
     renderSet(b.set, { ...b, xf: 'in', xk: ks }, t);
     blend = 1 - ks;
   } else renderSet(shot.set, shot, t);

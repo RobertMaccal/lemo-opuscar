@@ -70,8 +70,8 @@ export function buildTunnel() {
     motes.userData.update(t); trail.userData.update(t);
     // entry flash decays, exit flash grows (hides the cuts)
     const fin = Math.exp(-(t - shot.a) / .16), fout = Math.pow(ss(seg(t, shot.b - .5, shot.b)), 2);
-    renderer.toneMappingExposure = 1.1 * (1 + fin * 5 + fout * 7);
-    post.bloom.strength = 1.0 + fout; post.bloom.threshold = .55; post.bloom.radius = .8;
+    renderer.toneMappingExposure = .95 * (1 + fin * 5 + fout * 7);
+    post.bloom.strength = .7 + fout; post.bloom.threshold = .7; post.bloom.radius = .8;
     const V = post.vig.uniforms; V.amt.value = .7; V.warm.value = 0; V.sat.value = 1.15;
     post.dof.focus = camera.position.distanceTo(hp); post.dof.aper = 3; post.dof.maxCoc = 14;
   }

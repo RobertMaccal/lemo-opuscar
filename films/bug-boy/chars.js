@@ -173,10 +173,11 @@ export const PALS = {
   satoshi: { top: 'verm', pants: R(['#1a1a22', '#2c2c38', '#40404e']), hair: 'short', glasses: 1 },
   devA: { top: R(['#16283a', '#244260', '#3a6288', '#5a86ae']), pants: R(['#20201e', '#3a3832', '#56524a']), hair: 'long' },
   devB: { top: R(['#2a3a24', '#465e3a', '#6a8656', '#93ae7a']), pants: R(['#1c1c26', '#30304a', '#484868']), hair: 'cap', glasses: 0 },
+  elder: { top: R(['#3a2a20', '#5a4232', '#7a5c46', '#9a7a5e']), pants: R(['#20201e', '#3a3832', '#56524a']), hair: 'short', glasses: 1, beard: 1, hairR: R(['#8a8a90', '#b0b0b6', '#d4d4d8', '#f0f0f2']) },
   devC: { top: R(['#3e3a46', '#5e5868', '#827c8e', '#aaa4b6']), pants: R(['#1a1612', '#30281e', '#4a3e2e']), hair: 'short', glasses: 1, beard: 1 },
 };
 function drawSit(P, E, p) {
-  const pal = PALS[p.pal || 'satoshi'], TOP = pal.top === 'verm' ? C.verm : pal.top, lean = p.lean || 0, by = p.bob || 0;
+  const pal = PALS[p.pal || 'satoshi'], HAIR = pal.hairR || C.hair, TOP = pal.top === 'verm' ? C.verm : pal.top, lean = p.lean || 0, by = p.bob || 0;
   // chair: seat + back + leg
   P.rect(8, 40, 16, 3, C.chair(.6, 0, 0)); P.rect(8, 40, 16, 1, C.chair(.9, 0, 0)); P.rect(6, 22, 3, 21, C.chair(.45, 0, 0)); P.rect(14, 43, 2, 13, C.chair(.3, 0, 0)); P.rect(9, 55, 12, 2, C.chair(.2, 0, 0));
   // legs: thighs forward, shins down
@@ -196,17 +197,17 @@ function drawSit(P, E, p) {
   }
   // head
   const hx = tx + 6 + lean * .6, hy = top - 6 + (lean > 1 ? 1 : 0) - (p.look || 0);
-  P.ellipse(hx - 1, hy, 5.6, 5.8, (x, y, dx, dy) => C.hair(.5 - dy * .2, x, y));
+  P.ellipse(hx - 1, hy, 5.6, 5.8, (x, y, dx, dy) => HAIR(.5 - dy * .2, x, y));
   const fx = hx + 1.6, fy = hy + 1;
   P.ellipse(fx, fy, 4.6, 5, (x, y, dx, dy) => C.skin(.62 - dx * .08 - dy * .26 + (dx > .6 ? -.15 : 0), x, y));
   // hair styles
-  if (pal.hair === 'short') { for (let x = Math.floor(fx - 4); x <= fx + 3; x++) P.set(x, Math.floor(fy - 4.5), C.hair(.55, 0, 0)); for (let x = Math.floor(fx - 4); x <= fx + 1; x++) P.set(x, Math.floor(fy - 3.5), C.hair(.4, 0, 0)); }
-  if (pal.hair === 'long') { for (let y = Math.floor(hy - 2); y < hy + 9; y++) { P.set(Math.floor(hx - 5), y, C.hair(.35, 0, 0)); P.set(Math.floor(hx - 4), y, C.hair(.5, 0, 0)); } for (let x = Math.floor(fx - 4); x <= fx + 3; x++) P.set(x, Math.floor(fy - 4.5), C.hair(.55, 0, 0)); }
+  if (pal.hair === 'short') { for (let x = Math.floor(fx - 4); x <= fx + 3; x++) P.set(x, Math.floor(fy - 4.5), HAIR(.55, 0, 0)); for (let x = Math.floor(fx - 4); x <= fx + 1; x++) P.set(x, Math.floor(fy - 3.5), HAIR(.4, 0, 0)); }
+  if (pal.hair === 'long') { for (let y = Math.floor(hy - 2); y < hy + 9; y++) { P.set(Math.floor(hx - 5), y, HAIR(.35, 0, 0)); P.set(Math.floor(hx - 4), y, HAIR(.5, 0, 0)); } for (let x = Math.floor(fx - 4); x <= fx + 3; x++) P.set(x, Math.floor(fy - 4.5), HAIR(.55, 0, 0)); }
   if (pal.hair === 'cap') { P.ellipse(hx, hy - 3.5, 5.5, 3, (x, y) => pal.top(.55, x, y)); P.rect(Math.round(hx + 2), Math.round(hy - 2), 6, 1, pal.top(.3, 0, 0)); }
   P.set(Math.floor(fx - 3), Math.round(fy + 1), C.skin(.4, 0, 0));
   const ey = Math.round(fy), e1 = Math.round(fx + 2), e2 = Math.round(fx - 1), mood = p.mood || 'calm';
   if (p.blink) { P.set(e1, ey, C.skin(.2, 0, 0)); P.set(e2, ey, C.skin(.2, 0, 0)); }
-  else if (mood === 'wow') { P.rect(e1, ey - 1, 1, 2, INK); P.rect(e2, ey - 1, 1, 2, INK); P.set(e1 + 1, ey - 1, hex('#ffffff')); P.set(e1, ey - 3, C.hair(.5, 0, 0)); P.set(e2, ey - 3, C.hair(.5, 0, 0)); }
+  else if (mood === 'wow') { P.rect(e1, ey - 1, 1, 2, INK); P.rect(e2, ey - 1, 1, 2, INK); P.set(e1 + 1, ey - 1, hex('#ffffff')); P.set(e1, ey - 3, HAIR(.5, 0, 0)); P.set(e2, ey - 3, HAIR(.5, 0, 0)); }
   else if (mood === 'smile') { P.set(e1 - 1, ey, INK); P.set(e1, ey - 1, INK); P.set(e1 + 1, ey, INK); P.set(e2, ey - 1, INK); P.set(e2 - 1, ey, INK); }
   else { P.set(e1, ey, INK); P.set(e1, ey - 1, INK); P.set(e2, ey, INK); P.set(e2, ey - 1, INK); }
   if (pal.glasses) { P.rect(e1 - 1, ey - 2, 3, 1, C.glass(.3, 0, 0)); P.rect(e2 - 1, ey - 2, 3, 1, C.glass(.3, 0, 0)); P.set(e1 - 1, ey + 1, C.glass(.3, 0, 0)); P.set(e1 + 1, ey + 1, C.glass(.3, 0, 0)); P.set(e2 + 1, ey - 1, C.glass(.6, 0, 0)); }
@@ -214,7 +215,7 @@ function drawSit(P, E, p) {
   if (mood === 'wow') { P.rect(e1 - 1, my, 2, 2, hex('#6a2a28')); }
   else if (mood === 'smile') { P.set(e1, my, hex('#8a3a30')); P.set(e1 - 1, my + 1, hex('#8a3a30')); P.set(e1 - 2, my, hex('#8a3a30')); }
   else P.rect(e1 - 1, my, 2, 1, hex('#8a4a40'));
-  if (pal.beard) for (let x = Math.floor(fx - 2); x <= fx + 3; x++) { P.set(x, Math.round(fy + 4), C.hair(.35, 0, 0)); if (x % 2) P.set(x, Math.round(fy + 3), C.hair(.45, 0, 0)); }
+  if (pal.beard) for (let x = Math.floor(fx - 2); x <= fx + 3; x++) { P.set(x, Math.round(fy + 4), HAIR(.35, 0, 0)); if (x % 2) P.set(x, Math.round(fy + 3), HAIR(.45, 0, 0)); }
   P.set(Math.round(fx + 4.5), ey + 1, C.skin(.45, 0, 0));
   if (arm === 'up') { P.line(tx + 2, top + 2, tx - 2, top - 8, TOP(.6, 0, 0)); P.rect(tx - 3, top - 10, 2, 2, C.skin(.6, 0, 0)); }
 }
