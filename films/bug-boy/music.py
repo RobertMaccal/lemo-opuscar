@@ -86,8 +86,8 @@ melody(57.8, 70, [('D5', 1), ('C5', 1), ('A4', 2), ('Bb4', 1), ('A4', 1), ('E4',
 w0 = shot['world'][0]
 for k, p in enumerate(['F2', 'C3', 'A3', 'F4']): ev(w0, 'cellos' if k < 2 else 'violins', p, 3.4, .42, -.2 + .15 * k)
 ev(w0, 'timpani', 'F2', 2, .55); ev(w0, 'crash', None, None, .3)
-theme(w0 + .1, 108, lambda t, p, d: (ev(t, 'horn', p - 12, d * 1.1, .4, -.1), chip(t, p, d * .9, .28, 'sq25'), ev(t, 'violins', p, d * 1.1, .32, .2)) if t < T['modest'] - .2 else None)
-melody(T['modest'] + .1, 70, [('C4', 1), ('B3', 1), ('Bb3', 1), ('A3', 3)], lambda t, p, d: ev(t, 'trombone', p, d, .38, 0))   # comic deflate
+theme(w0 + .1, 108, lambda t, p, d: (ev(t, 'horn', p - 12, d * 1.1, .4, -.1), chip(t, p, d * .9, .28, 'sq25'), ev(t, 'violins', p, d * 1.1, .32, .2)) if t < T['modest'] - .35 else None)
+melody(T['modest'] + 2.85, 76, [('C4', 1), ('B3', 1), ('Bb3', 1), ('A3', 3)], lambda t, p, d: ev(t, 'trombone', p, d, .38, 0))   # comic deflate
 # the secret 76.4 – 95: a sneaky staccato ostinato, sparkles, the flood of postcards builds
 bpm = 120; bt = .5
 for k in range(int((T['mailIn'] - 76.6) / (bt / 2))):
@@ -144,7 +144,7 @@ ev(T['crash'] + .75, 'timpani', 'C2', 1.2, .35)
 k0 = shot['kids'][0]        # finale: the theme in full, then the shrink and the leaf: last notes, the final chord
 end = theme(k0, 100, lambda t, p, d: (ev(t, 'violins', p, d * 1.1, .42, .15), ev(t, 'horn', p - 12, d * 1.1, .4, -.15), ev(t, 'piano', p, d * 1.4, .35, 0), chip(t, p + 12, d * .85, .16, 'sq25')) if t < T['shrink'] + .5 else None)
 pad(k0, 100, 3, v=.28); arp(k0, T['shrink'], 100, 'harp', .3, step=.5)
-melody(shot['home'][0] + .9, 72, [('A4', 1), ('C5', 1), ('F5', 3)], lambda t, p, d: (ev(t, 'piano', p, d * 2, .36, 0), chip(t, p, d * .9, .14, 'tri')))
+melody(shot['home'][0] + .9, 72, [('A4', 1), ('C5', 1), ('F5', 3)], lambda t, p, d: (ev(t, 'piano', p, d * 2, .22, 0), chip(t, p, d * .9, .07, 'tri')))
 fin = T['fly'] + .1
 for k, p in enumerate(['F2', 'C3', 'F3', 'A3', 'C4', 'F4', 'A4']): ev(fin, 'violins' if k > 3 else ('cellos' if k > 1 else 'contrabass'), p, DUR - fin + 1.2, .3, -.3 + .1 * k)
 for i, p in enumerate(['F5', 'A5', 'C6', 'F6']): ev(fin + .1 + i * .12, 'glockenspiel', p, 3, .25, .2)

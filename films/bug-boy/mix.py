@@ -112,7 +112,7 @@ for sid in ['hall', 'sale']: a, b = SH[sid]; bed(crowd, a, b, .8 if sid == 'hall
 bed(roomtone, *SH['crayon'], .7)
 bed(waves, *SH['coast'], 1.4); bed(lambda d: wind(d, 900), *SH['coast'], .7)
 bed(lambda d: wind(d, 700), *SH['graph'], .8)
-a, b = SH['home']; bed(birds, a, b, 1.0); bed(cicadas, a, b, .5); bed(wind, a, b, .4)
+a, b = SH['home']; bed(birds, a, b, .6); bed(cicadas, a, b, .35); bed(wind, a, b, .3)
 
 # ======================= foley events =======================
 fol = np.zeros((N, 2), np.float32)
@@ -139,7 +139,7 @@ F(thump(.6, 90), T['quit1'], .35, -.4); F(thump(.6, 80), T['quit2'], .35, .4)
 F(click(1.6, .8), T['boot'] - .25, .5); F(startchime(), T['boot'], .9)
 # Act III
 F(whoosh(.9, .6), SH['world'][0] - .3, .5)
-F(lambda_ := wind(2.4, 1200) * np.sin(np.pi * tt(2.4) / 2.4), T['tumble'], .6); F(crickets(2.0) * 2.2, T['tumble'] + 1.6, .6)   # the comic cricket
+F(wind(2.4, 900) * np.sin(np.pi * tt(2.4) / 2.4), T['tumble'], .22); F(crickets(2.0) * 2.2, T['modest'] + 3.0, .5)   # the comic cricket
 F(sparkle(1.5, .5), T['secret'] + .2, .6, -.2)
 F(typing(T['mew'] - SH['prank'][0] - .3, .4, 11), SH['prank'][0] + .1, .6, .1)
 F(sparkle(1.0, 1.0), T['mew'], .8); F(chime((2093, 2637, 3136, 4186), .5, .05), T['mew'], .6)
@@ -174,19 +174,36 @@ F(flutter(1.6, .5, 70), T['fly'] - .6, .6, .3)
 
 # ======================= voice, music, ducking =======================
 vo, _ = sf.read(os.path.join(HERE, 'voice', 'vo.wav'), dtype='float32'); vo = vo[:N] if len(vo) >= N else np.pad(vo, (0, N - len(vo)))
-vo = hp(vo, 70); vo = compress(vo, thr=.18, ratio=3.0)
+# voice chain: high-pass, two gentle compressors (steady level), a little presence around 3 kHz so it cuts through
+vo = hp(vo, 80); vo = compress(vo, thr=.2, ratio=3.0); vo = compress(vo, thr=.32, ratio=2.0, att=.002, rel=.05)
+vo = vo + bp(vo, 2200, 5000, 2) * .45
 mu, _ = sf.read(os.path.join(HERE, 'out', 'music.wav'), dtype='float32'); mu = mu[:N] if len(mu) >= N else np.pad(mu, ((0, N - len(mu)), (0, 0)))
-# levels by RMS (voice where it speaks)
+# levels by RMS (voice where it speaks): the narrator leads, the score sits underneath
 act = np.abs(vo) > .01
-vo *= db(-17) / rms(vo[act]); mu *= db(-22) / rms(mu); amb *= db(-33) / rms(amb); fol *= db(-29) / rms(fol[np.abs(fol).sum(1) > 1e-4])
-# per-line duck: an envelope of the voice (attack 60 ms, release 450 ms) pulls music −8 dB and ambience −5 dB
+vo *= db(-16) / rms(vo[act]); mu *= db(-26) / rms(mu); amb *= db(-36) / rms(amb); fol *= db(-30) / rms(fol[np.abs(fol).sum(1) > 1e-4])
+# voice-activity envelope with 80 ms look-ahead (the duck starts just before each word), attack 40 ms, release 500 ms
 e = np.abs(vo); win = int(.03 * SR); e = np.convolve(e, np.ones(win) / win, 'same')
-g = (e > .004).astype(float)
-k_att, k_rel = 1 - np.exp(-1 / (.06 * SR)), 1 - np.exp(-1 / (.45 * SR)); d = np.zeros_like(g); s = 0.0
-for i in range(0, len(g), 64):      # block-wise smoothing (fast enough)
-    tgt = g[i]; s += (tgt - s) * (1 - (1 - (k_att if tgt > s else k_rel)) ** 64); d[i:i + 64] = s
-duck_m = db(-8 * d)[:, None]; duck_a = db(-5 * d)[:, None]
-mix = stereo(vo) + mu * duck_m + amb * duck_a + fol
+g = (e > .004).astype(float); la = int(.08 * SR); g = np.maximum(g, np.concatenate([g[la:], np.zeros(la)]))
+k_att, k_rel = 1 - np.exp(-1 / (.04 * SR)), 1 - np.exp(-1 / (.5 * SR)); d = np.zeros_like(g); s_ = 0.0
+for i in range(0, len(g), 64):
+    tgt = g[i]; s_ += (tgt - s_) * (1 - (1 - (k_att if tgt > s_ else k_rel)) ** 64); d[i:i + 64] = s_
+# music: −12 dB under speech, and a further −6 dB in the voice band (250 Hz–5 kHz) so nothing masks the words
+def split3(x):
+    lo = np.stack([lp(x[:, c], 250, 2) for c in range(2)], 1); hi = np.stack([hp(x[:, c], 5000, 2) for c in range(2)], 1)
+    return lo, x - lo - hi, hi
+m_lo, m_mid, m_hi = split3(mu)
+D = d[:, None]
+mu_d = (m_lo * db(-10 * D) + m_mid * db(-18 * D) + m_hi * db(-12 * D))
+mix = stereo(vo) + mu_d + amb * db(-8 * D) + fol * db(-4 * D)
+# report: voice vs everything else, per narration line, in the speech band (target ≥ 15 dB)
+bg = mu_d + amb * db(-8 * D) + fol * db(-4 * D)
+def band(x): return bp(x if x.ndim == 1 else x.mean(1), 300, 4000, 2)
+gaps = []
+for L in TL['VO']:
+    i0, i1 = int(L['t'] * SR), int((L['t'] + L['d']) * SR)
+    gaps.append(20 * np.log10(rms(band(vo[i0:i1])) / rms(band(bg[i0:i1]))))
+print('voice over background per line (dB, speech band): min %.1f  median %.1f  max %.1f' % (min(gaps), np.median(gaps), max(gaps)))
+print('  lowest lines:', ', '.join(f"{TL['VO'][k]['id']} {gaps[k]:.1f}" for k in np.argsort(gaps)[:4]))
 mix = np.tanh(mix * 1.1) / 1.1
 mix = np.stack([lp(mix[:, 0], 16000, 2), lp(mix[:, 1], 16000, 2)], 1)   # nothing useful above 16 kHz; keeps the AAC encoder from overshooting
 # master to ≈ −14 LUFS here, with a 4× oversampled peak limiter at −3.2 dB (AAC adds overshoot), so mux.sh's loudnorm has almost nothing left to do
