@@ -188,6 +188,26 @@ for i in range(0, len(g), 64):      # block-wise smoothing (fast enough)
 duck_m = db(-8 * d)[:, None]; duck_a = db(-5 * d)[:, None]
 mix = stereo(vo) + mu * duck_m + amb * duck_a + fol
 mix = np.tanh(mix * 1.1) / 1.1
-mix = limit(mix, .95)
+mix = np.stack([lp(mix[:, 0], 16000, 2), lp(mix[:, 1], 16000, 2)], 1)   # nothing useful above 16 kHz; keeps the AAC encoder from overshooting
+# master to ≈ −14 LUFS here, with a 4× oversampled peak limiter at −3.2 dB (AAC adds overshoot), so mux.sh's loudnorm has almost nothing left to do
+import subprocess, json as _j, soxr
+def lufs(x):
+    tmp = os.path.join(HERE, 'out', '_lufs.wav'); sf.write(tmp, x.astype(np.float32), SR)
+    r = subprocess.run(['ffmpeg', '-hide_banner', '-i', tmp, '-af', 'loudnorm=print_format=json', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    return float(_j.loads(r[r.rindex('{'):r.rindex('}') + 1])['input_i'])
+def tp_limit(x, ceil_db=-3.2, look=.004, rel=.12):
+    up = soxr.resample(x, SR, SR * 4); pk = np.abs(up).reshape(-1, 4, 2).max(axis=(1, 2))   # true-peak estimate per sample
+    c = db(ceil_db); need = np.minimum(1, c / np.maximum(pk, 1e-9))
+    # look-ahead minimum (block-wise), then smooth release
+    blk = 64; nb = (len(need) + blk - 1) // blk; nb_min = np.array([need[i * blk:(i + 1) * blk].min() for i in range(nb)])
+    la = int(np.ceil(look * SR / blk)); m2 = np.array([nb_min[i:i + la + 1].min() for i in range(nb)])
+    a = np.exp(-blk / (rel * SR)); gs = np.empty(nb); cur = 1.0
+    for i in range(nb): cur = m2[i] if m2[i] < cur else m2[i] + (cur - m2[i]) * a; gs[i] = cur
+    gain = np.repeat(gs, blk)[:len(x)]
+    return x * gain[:, None]
+L0 = lufs(mix); mix = mix * db(-14.0 - L0)
+for _ in range(2): mix = tp_limit(mix); L1 = lufs(mix); mix = mix * db(-14.0 - L1)
+mix = tp_limit(mix)
+print('mastered mix:', round(lufs(mix), 2), 'LUFS')
 sf.write(os.path.join(HERE, 'out', 'mix.wav'), mix.astype(np.float32), SR)
 print('mix', DUR, 's  peak', np.abs(mix).max().round(3), ' voice rms', round(20 * np.log10(rms(vo[act])), 1), 'dB')
