@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Instagram cover</title>
+<link rel="stylesheet" href="/core/fonts/fonts.css"><link rel="stylesheet" href="../../fonts/fonts.css">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js"}}</script>
+</head><body><canvas id="c"></canvas>
+<script type="module">
+import { beetleAtlas } from '../../chars.js';
+const W = innerWidth, H = innerHeight, cv = document.getElementById('c'); cv.width = W; cv.height = H; const g = cv.getContext('2d');
+const S = W / 1080;                                   // layout in 1080-wide units
+const Y0 = (H - 1920 * S) / 2 + (H < 1900 * S ? 55 * S : 0);   // 9:16 cover; a 4:5 render keeps the centre, nudged down so the title clears the top
+await Promise.all(['400 100px "Lilita One"', '700 60px Cinzel'].map(f => document.fonts.load(f)));
+const bg = new Image(); bg.src = 'bg.jpg'; await bg.decode();
+// —— background: the boy, pushed in a little and lower, colours lifted ——
+g.filter = 'saturate(1.25) contrast(1.08) brightness(1.04)';
+const bw = W, bh = bw * bg.height / bg.width, dy = 230 * S;
+g.filter = 'saturate(1.25) brightness(.8) blur(14px)'; g.drawImage(bg, 0, 0, bg.width, 140, -40, -40, bw + 80, Y0 + dy + 140 * S);   // soft treetops above
+g.filter = 'saturate(1.25) contrast(1.08) brightness(1.04)';
+const fade = g.createLinearGradient(0, Y0 + dy, 0, Y0 + dy + 120 * S);
+g.drawImage(bg, 0, Y0 + dy, bw, bh); g.filter = 'none';
+{ const t = document.createElement('canvas'); t.width = W; t.height = 160 * S; const tg = t.getContext('2d'); tg.filter = 'saturate(1.25) brightness(.8) blur(14px)'; tg.drawImage(bg, 0, 0, bg.width, 140, -40, -40, bw + 80, 220 * S); const m = tg.createLinearGradient(0, 0, 0, 160 * S); m.addColorStop(0, 'rgba(0,0,0,1)'); m.addColorStop(1, 'rgba(0,0,0,0)'); tg.globalCompositeOperation = 'destination-in'; tg.filter = 'none'; tg.fillStyle = m; tg.fillRect(0, 0, W, 160 * S); g.drawImage(t, 0, Y0 + dy - 10 * S); }
+// top shade for the title, warm light from the right
+let gr = g.createLinearGradient(0, 0, 0, H * .52); gr.addColorStop(0, 'rgba(8,10,20,.92)'); gr.addColorStop(.7, 'rgba(8,10,20,.6)'); gr.addColorStop(1, 'rgba(8,10,20,0)'); g.fillStyle = gr; g.fillRect(0, 0, W, H * .52);
+gr = g.createRadialGradient(W * .85, H * .55, 0, W * .85, H * .55, W * .7); gr.addColorStop(0, 'rgba(255,214,120,.35)'); gr.addColorStop(1, 'rgba(255,214,120,0)'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+gr = g.createLinearGradient(0, H * .8, 0, H); gr.addColorStop(0, 'rgba(8,10,20,0)'); gr.addColorStop(1, 'rgba(8,10,20,.6)'); g.fillStyle = gr; g.fillRect(0, H * .8, W, H * .2);
+// —— the giant pixel beetle (the film's own sprite), glowing, on the right ——
+const A = beetleAtlas(), fi = A.names.indexOf('b0'), sc = 17 * S, bx = 590 * S, by = Y0 + 960 * S;
+gr = g.createRadialGradient(bx + 14 * sc, by + 11 * sc, 0, bx + 14 * sc, by + 11 * sc, 260 * S); gr.addColorStop(0, 'rgba(255,240,170,.75)'); gr.addColorStop(.45, 'rgba(255,200,90,.28)'); gr.addColorStop(1, 'rgba(255,200,90,0)');
+g.fillStyle = gr; g.fillRect(bx - 200 * S, by - 220 * S, 820 * S, 760 * S);
+g.imageSmoothingEnabled = false; g.save(); g.translate(bx + 14 * sc, by + 11 * sc); g.rotate(-.18); g.shadowColor = 'rgba(0,0,0,.55)'; g.shadowBlur = 30 * S; g.shadowOffsetY = 18 * S;
+g.drawImage(A.canvas, fi * A.FW, 0, A.FW, A.FH, -14 * sc, -11 * sc, A.FW * sc, A.FH * sc); g.restore();
+// sparkles
+g.fillStyle = '#fff6c8'; for (const [x, y, s] of [[600, 900, 16], [1020, 960, 12], [990, 1260, 18], [640, 1270, 10], [1040, 860, 9]]) { const X = x * S, Y = Y0 + y * S, r = s * S; g.beginPath(); g.moveTo(X, Y - r * 2); g.lineTo(X + r * .45, Y - r * .45); g.lineTo(X + r * 2, Y); g.lineTo(X + r * .45, Y + r * .45); g.lineTo(X, Y + r * 2); g.lineTo(X - r * .45, Y + r * .45); g.lineTo(X - r * 2, Y); g.lineTo(X - r * .45, Y - r * .45); g.fill(); }
+// hand-drawn circle around the beetle + arrow from the title
+g.strokeStyle = '#ffd23a'; g.lineWidth = 13 * S; g.lineCap = 'round'; g.shadowColor = 'rgba(0,0,0,.6)'; g.shadowBlur = 12 * S;
+g.beginPath(); for (let i = 0; i <= 64; i++) { const a = -2.6 + i / 64 * 6.6, r = (1 + .05 * Math.sin(i * .7)); g.lineTo(bx + 14 * sc + Math.cos(a) * 300 * S * r, by + 11 * sc + Math.sin(a) * 225 * S * r); } g.stroke();
+g.beginPath(); g.moveTo(700 * S, Y0 + 735 * S); g.quadraticCurveTo(820 * S, Y0 + 770 * S, 830 * S, Y0 + 905 * S); g.stroke();
+g.beginPath(); g.moveTo(785 * S, Y0 + 868 * S); g.lineTo(830 * S, Y0 + 912 * S); g.lineTo(866 * S, Y0 + 858 * S); g.stroke(); g.shadowBlur = 0;
+// —— title ——
+function word(text, x, y, size, fill, rot = 0, stroke = 16) {
+  g.save(); g.translate(x * S, Y0 + y * S); g.rotate(rot); g.font = `400 ${size * S}px "Lilita One"`; g.textAlign = 'center'; g.textBaseline = 'alphabetic';
+  g.lineJoin = 'round'; g.shadowColor = 'rgba(0,0,0,.6)'; g.shadowBlur = 24 * S; g.shadowOffsetY = 10 * S; g.lineWidth = stroke * S; g.strokeStyle = '#1a0e14'; g.strokeText(text, 0, 0); g.shadowBlur = 0; g.shadowOffsetY = 0;
+  if (Array.isArray(fill)) { const lg = g.createLinearGradient(0, -size * S * .8, 0, 0); fill.forEach((c, i) => lg.addColorStop(i / (fill.length - 1), c)); g.fillStyle = lg; } else g.fillStyle = fill;
+  g.fillText(text, 0, 0); g.restore();
+}
+word('POKÉMON', 540, 440, 196, ['#fff7b0', '#ffd23a', '#f59a12'], -.035, 20);
+word('STARTED WITH A', 540, 560, 92, '#ffffff', -.035, 14);
+word('BUG?!', 375, 790, 236, ['#ffffff', '#ffe36a', '#ff8a1a'], -.06, 22);
+// —— price tag (second curiosity hook), inside the 4:5 crop ——
+g.save(); g.translate(540 * S, Y0 + 1490 * S); g.rotate(.035);
+const tw = 820 * S, th = 132 * S; g.shadowColor = 'rgba(0,0,0,.6)'; g.shadowBlur = 26 * S; g.fillStyle = 'rgba(14,12,26,.92)'; g.fillRect(-tw / 2, -th / 2, tw, th); g.shadowBlur = 0;
+g.strokeStyle = '#ecc878'; g.lineWidth = 5 * S; g.strokeRect(-tw / 2 + 2, -th / 2 + 2, tw - 4, th - 4);
+g.font = `400 ${70 * S}px "Lilita One"`; g.textBaseline = 'middle'; g.textAlign = 'left';
+const t1 = '…AND A ', t2 = '$16.5M CARD', w1 = g.measureText(t1).width, w2 = g.measureText(t2).width, x0 = -(w1 + w2) / 2;
+g.fillStyle = '#ffffff'; g.fillText(t1, x0, 4 * S);
+const lg = g.createLinearGradient(0, -40 * S, 0, 40 * S); lg.addColorStop(0, '#fff3c0'); lg.addColorStop(1, '#e8a830'); g.fillStyle = lg; g.fillText(t2, x0 + w1, 4 * S); g.restore();
+window.DUR = 1; window.render = () => {}; window.READY = true;
+</script></body></html>
