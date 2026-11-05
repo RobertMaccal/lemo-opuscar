@@ -14,6 +14,7 @@ node tools/export_timeline.mjs
 $PY music.py
 $PY mix.py
 cd "$LIB"
-node core/render/video.mjs "$HERE" --fps 30 --workers 3 --size 1080x1920 --out "$HERE/out/video.mp4"
-sh core/render/mux.sh "$HERE/out/video.mp4" "$HERE/out/mix.wav" "$HERE/bug-boy.mp4" 30 0
+# picture in finished 2 s chunks (re-run after any interruption: it renders only what is missing), then join + master
+node "$HERE/tools/chunks.mjs" --workers 3 --chunk 60
+sh "$HERE/tools/assemble.sh"
 cd "$HERE" && node tools/export_srt.mjs
