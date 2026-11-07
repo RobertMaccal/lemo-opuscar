@@ -1,0 +1,490 @@
+<!doctype html><html><head><meta charset="utf-8"><title>The Death of Beautiful Art?</title>
+<style>
+html,body{margin:0;background:#0B0C0E;overflow:hidden}canvas{display:block}
+@font-face{font-family:Sans;src:url(fonts/sans400.ttf);font-weight:400}
+@font-face{font-family:Sans;src:url(fonts/sans600.ttf);font-weight:600}
+@font-face{font-family:Sans;src:url(fonts/sans700.ttf);font-weight:700}
+@font-face{font-family:Mono;src:url(fonts/mono400.ttf);font-weight:400}
+@font-face{font-family:Mono;src:url(fonts/mono600.ttf);font-weight:600}
+@font-face{font-family:SerifI;src:url(fonts/serifi.ttf);font-style:italic;font-weight:400}
+</style></head><body><canvas id="c" width="1920" height="1080"></canvas><script>
+// THE DEATH OF BEAUTIFUL ART? — Visual Investigation, 1920×1080 @ 30 fps.
+// One Canvas-2D page drawn deterministically by window.render(t). All timing comes from film.json
+// (voice starts, Whisper word times, sections, subtitles), shared with the mix and the .srt.
+const W = 1920, H = 1080, x = document.getElementById('c').getContext('2d');
+const C = { bg:'#0B0C0E', panel:'#141619', line:'#2E3238', text:'#ECEAE4', dim:'#8B9097', faint:'#4A4F57', acc:'#FF4A2E', paper:'#E4E0D4', ink:'#1D1D1B' };
+const F = { sans:'Sans', mono:'Mono', it:'SerifI' };
+let FILM = null, SEC = {}, FR = 0, REC = null, K = {};
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const eo = k => 1 - Math.pow(1 - k, 3), eio = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const lerp = (a, b, k) => a + (b - a) * k;
+function rnd(s) { return function () { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const on = (t, a) => t >= a;
+
+// ── word clock: absolute time of the n-th spoken occurrence of a word in a sequence ──
+const clean = s => s.toLowerCase().replace(/[^a-z0-9']/g, '');
+function T(sid, w, n = 1, end = false) { const ws = FILM.words[sid]; let c = 0;
+  for (const q of ws) if (clean(q.w) === clean(w) && ++c === n) return end ? q.t1 : q.t0;
+  console.warn('word not found', sid, w, n); return FILM.vo[sid]; }
+
+// ── assets ──
+const IM = {}; let GRAIN = [];
+function load(src) { return new Promise(r => { const i = new Image(); i.onload = () => r(i); i.onerror = () => { console.warn('missing', src); r(null); }; i.src = src; }); }
+async function boot() {
+  FILM = await (await fetch('film.json')).json(); SEC = FILM.sections; window.DUR = FILM.dur;
+  const files = { starry:'assets/starry.jpg', comedian:'assets/comedian.jpg', fountain:'assets/fountain.jpg', blind:'assets/blindman.jpg', banana:'assets/banana.jpg',
+    guernica:'assets/guernica2x.jpg', demoiselles:'assets/demoiselles.jpg', brillo:'assets/brillo.jpg', gallery:'assets/gallery.jpg', lewitt:'assets/lewitt.jpg' };
+  const L = Object.entries(files).map(([k, s]) => load(s).then(i => IM[k] = i));
+  for (const f of ['700 40px Sans', '600 20px Sans', '400 20px Sans', '400 20px Mono', '600 20px Mono', 'italic 24px SerifI']) L.push(document.fonts.load(f));
+  await Promise.all(L);
+  GRAIN = []; for (let g = 0; g < 6; g++) { const c = document.createElement('canvas'); c.width = c.height = 256; const gx = c.getContext('2d'); const d = gx.createImageData(256, 256); const r = rnd(g * 99 + 7);
+    for (let i = 0; i < d.data.length; i += 4) { const v = 128 + (r() + r() + r() - 1.5) * 120; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } gx.putImageData(d, 0, 0); GRAIN.push(c); }
+  keys(); window.EV = events(); window.READY = true;
+}
+
+// ── key times (all derived from the spoken words) ──
+function keys() {
+  const V = FILM.vo;
+  K = {
+    price: 1.2, item1: T('1', 'banana'), item2: T('1', 'tape'), six: T('1', 'six'),
+    split: T('1', "that's") - .15, ring1: T('1', 'comedian') - .1, rowsEnd: T('1', "sotheby's"), grocery: T('1', 'sold') - .1,
+    rewind: T('1', 'so') - .1, pairRing: T('1', 'fruit'),
+    s2: SEC.s2[0], skill: T('2', 'skill'), obs: T('2', 'observation'), imag: T('2', 'imagination'),
+    vg: T('2', 'van') + .7, vgRing: T('2', 'window'), loupe: T('2', 'into'),
+    pic: T('2', 'picasso') - .15, sides: T('2', 'picasso') + .9, gue: T('2', 'in', 1) - .15,
+    s3: SEC.s3[0], back: T('3', '20') - .2, duch: T('3', 'marcel') - .2, fake: T('3', 'fake'), exhib: T('3', 'exhibition'), hid: T('3', 'they'),
+    mag: T('3', 'defended') - .2, chose: T('3', 'chose'), idea3: T('3', 'what') - .5,
+    s4: SEC.s4[0], boxes: T('4', 'boxes'), phil: T('4', 'philosopher'), stock: T('4', 'stockroom'), answer: T('4', 'his') - .15, artworld: T('4', 'art', 2),
+    late: T('4', 'by') + .75,
+    s5: SEC.s5[0], room: T('5', 'salvatore') - .15, sculpt: T('5', 'sculpture'), euros: T('5', 'euros'), invis: T('5', 'invisible'),
+    cert5: T('5', 'certificate'), disp: T('5', 'display'), feet: T('5', 'feet'), yes: T('5', 'yes'), empty: T('5', 'empty'),
+    s6: SEC.s6[0], detail: T('6', 'detail'), cert6: T('6', 'certificate'), replaced: T('6', 'banana', 2) - .2,
+    cols: T('6', 'one') - .25, stand: T('6', 'stand'), cents: T('6', '35'),
+    buy: T('6', 'so') - .15, idea6: T('6', 'idea'), symbol: T('6', 'symbol'),
+    proof: T('6', 'proof') - .15, prestige: T('6', 'prestige'), scarcity: T('6', 'scarcity'), publicity: T('6', 'publicity'), price6: T('6', 'price'),
+    s7: SEC.s7[0], critics: T('7', 'critics'), inst: T('7', 'institutions'), both: T('7', 'both'),
+    s8: SEC.s8[0], voEnd: FILM.vo_end['8'], end: FILM.dur,
+  };
+}
+
+// ── drawing primitives ──
+function txt(s, X, Y, o = {}) {
+  x.save(); x.font = `${o.it ? 'italic ' : ''}${o.w || 400} ${o.s || 24}px ${o.f || F.sans}`; x.fillStyle = o.c || C.text; x.globalAlpha *= (o.a ?? 1);
+  x.textAlign = o.al || 'left'; x.textBaseline = 'alphabetic'; x.letterSpacing = (o.ls || 0) + 'px';
+  if (x.globalAlpha > .001) x.fillText(s, X, Y);
+  const w = x.measureText(s).width; const ga = x.globalAlpha; x.restore();
+  if (REC && o.id && ga > .5) { const sz = o.s || 24, x0 = o.al === 'right' ? X - w : o.al === 'center' ? X - w / 2 : X;
+    REC.push({ id: o.id, text: s, x0, y0: Y - sz * .9, x1: x0 + w, y1: Y + sz * .25 }); }
+  return w;
+}
+function tw(s, o = {}) { x.save(); x.font = `${o.it ? 'italic ' : ''}${o.w || 400} ${o.s || 24}px ${o.f || F.sans}`; x.letterSpacing = (o.ls || 0) + 'px'; const w = x.measureText(s).width; x.restore(); return w; }
+function wrap(s, maxW, o) { const toks = s.split(/(?<= )/); const out = []; let line = '';
+  for (const tk of toks) { if (tw(line + tk, o) > maxW && line) { out.push(line.trimEnd()); line = tk; } else line += tk; } if (line) out.push(line.trimEnd()); return out; }
+function hair(x0, y0, x1, y1, c = C.line, w = 1, dash) { x.save(); x.strokeStyle = c; x.lineWidth = w; if (dash) x.setLineDash(dash); x.beginPath(); x.moveTo(x0, y0); x.lineTo(x1, y1); x.stroke(); x.restore(); }
+function hairK(x0, y0, x1, y1, k, c, w, dash) { if (k <= 0) return; hair(x0, y0, lerp(x0, x1, k), lerp(y0, y1, k), c, w, dash); }
+function rect(X, Y, w, h, c = C.line, lw = 1, dash) { x.save(); x.strokeStyle = c; x.lineWidth = lw; if (dash) x.setLineDash(dash); x.strokeRect(X + .5, Y + .5, w - 1, h - 1); x.restore(); }
+function rectK(X, Y, w, h, k, c = C.line, lw = 1) { if (k <= 0) return; const P = 2 * (w + h); let d = P * k; x.save(); x.strokeStyle = c; x.lineWidth = lw; x.beginPath(); x.moveTo(X, Y);
+  const pts = [[X + w, Y], [X + w, Y + h], [X, Y + h], [X, Y]]; let px = X, py = Y;
+  for (const [qx, qy] of pts) { const L = Math.hypot(qx - px, qy - py); if (d >= L) { x.lineTo(qx, qy); d -= L; px = qx; py = qy; } else { x.lineTo(px + (qx - px) * d / L, py + (qy - py) * d / L); break; } }
+  x.stroke(); x.restore(); }
+function fill(X, Y, w, h, c) { x.fillStyle = c; x.fillRect(X, Y, w, h); }
+function hatch(X, Y, w, h, c = '#1b1e22', step = 22) { x.save(); x.beginPath(); x.rect(X, Y, w, h); x.clip(); for (let q = X - h; q < X + w; q += step) hair(q, Y + h, q + h, Y, c); x.restore(); }
+function flashRect(t, at, X, Y, w, h, d = .12) { if (t < at) return; const k = 1 - seg(t, at, at + d); if (k <= 0) return; x.save(); x.globalAlpha = k * .9; fill(X, Y, w, h, '#fff'); x.restore(); }
+const cut = (t, at) => t >= at ? 1 : 0;   // elements cut in (no fades); a white flash marks the arrival
+// Ring callout: thin circle drawn clockwise; at 60% a leader and label come out
+function ring(cx, cy, r, k, label, side = 1, sub, id) {
+  if (k <= 0) return; x.save(); x.strokeStyle = C.acc; x.lineWidth = 2.5;
+  x.beginPath(); x.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * eo(k)); x.stroke(); x.restore();
+  if (label && k > .6) { const a = seg(k, .6, .75); const lx = cx + side * (r * .72), ly = cy - r * .72, ex = lx + side * 40, ey = ly - 30;
+    x.save(); x.globalAlpha *= a; hair(lx, ly, ex, ey, C.acc, 1.5); hair(ex, ey, ex + side * 14, ey, C.acc, 1.5); x.restore();
+    txt(label, ex + side * 20, ey + 8, { s: 24, w: 700, al: side > 0 ? 'left' : 'right', a, id });
+    if (sub) txt(sub, ex + side * 20, ey + 34, { s: 16, f: F.mono, c: C.dim, al: side > 0 ? 'left' : 'right', a }); }
+}
+// Source plate: one grade for everything (greyscale) — except where the film deliberately keeps colour (sat 0..1)
+function plate(img, sx, sy, sw, sh, X, Y, w, h, o = {}) {
+  x.save(); fill(X, Y, w, h, '#000');
+  if (img) { const sat = o.sat ?? 0;
+    x.filter = o.doc ? 'grayscale(1) contrast(1.05) brightness(0.86)' : sat > 0 ? `grayscale(${1 - sat}) contrast(${lerp(1.22, 1.04, sat)}) brightness(${lerp(.94, .97, sat)})` : 'grayscale(1) contrast(1.22) brightness(0.94)';
+    x.drawImage(img, sx, sy, sw, sh, X, Y, w, h); x.filter = 'none'; }
+  if (GRAIN.length) { x.beginPath(); x.rect(X, Y, w, h); x.clip(); x.globalCompositeOperation = 'overlay'; x.globalAlpha *= o.doc ? .10 : (o.sat ?? 0) > .5 ? .12 : .22;
+    const g = GRAIN[FR % 6]; for (let gy = Y; gy < Y + h; gy += 256) for (let gx = X; gx < X + w; gx += 256) x.drawImage(g, gx, gy); }
+  x.restore();
+  if (!o.noborder) rect(X, Y, w, h, o.border || C.line, o.bw || 1);
+}
+// Fill a cell without stretching; fx/fy pick the crop; z>1 pushes in. Returns source→screen mapping.
+function cover(img, X, Y, w, h, o = {}, fx = .5, fy = .5, z = 1) {
+  if (!img) { fill(X, Y, w, h, C.panel); rect(X, Y, w, h); return () => [X, Y]; }
+  const iw = img.width, ih = img.height; let sw = iw, sh = iw * h / w; if (sh > ih) { sh = ih; sw = ih * w / h; }
+  sw /= z; sh /= z; const sx = (iw - sw) * fx, sy = (ih - sh) * fy; plate(img, sx, sy, sw, sh, X, Y, w, h, o); const k = w / sw;
+  return (px, py) => [X + (px - sx) * k, Y + (py - sy) * k];
+}
+function tag(s, X, Y, o = {}) { const w = txt(s, X + 14, Y, { s: o.s || 17, f: F.mono, c: o.c || C.text, w: 600, ls: 1, a: o.a ?? 1, id: o.id });
+  x.save(); x.globalAlpha *= o.a ?? 1; fill(X, Y - 12, 6, 13, o.chip || C.text); x.restore(); return w; }
+function badge(X, Y, t, at) { const k = seg(t, at, at + .06); if (k <= 0) return; x.save(); x.globalAlpha *= k; x.translate(X, Y);
+  x.fillStyle = 'rgba(11,12,14,0.85)'; x.fillRect(-15, -15, 30, 30); x.strokeStyle = C.acc; x.lineWidth = 2; x.strokeRect(-15, -15, 30, 30);
+  x.beginPath(); x.moveTo(-8, 0); x.lineTo(-2, 7); x.lineTo(9, -7); x.lineWidth = 3; x.stroke(); x.restore(); }
+// highlight wiped left→right (red, multiply) behind a line of text
+function hl(X, Y, w, h, k) { if (k <= 0) return; x.save(); x.globalCompositeOperation = 'multiply'; x.globalAlpha = .6; fill(X, Y, w * eo(k), h, C.acc); x.restore(); }
+function hlOver(X, Y, w, h, k) { if (k <= 0) return; x.save(); x.globalAlpha = .38; fill(X, Y, w * eo(k), h, C.acc); x.restore(); }
+// typewriter (telegram/transcription cards): characters appear at a steady rate
+function typed(s, X, Y, t, t0, o = {}, cps = 55) { const n = Math.floor(clamp((t - t0) * cps, 0, s.length)); if (n <= 0) return 0; return txt(s.slice(0, n), X, Y, n < s.length ? { ...o, id: undefined } : o); }
+// red dashed link drawn progressively
+function link(x0, y0, x1, y1, k) { hairK(x0, y0, x1, y1, eo(k), C.acc, 1.6, [7, 6]); if (k >= 1) { x.save(); x.fillStyle = C.acc; x.beginPath(); x.arc(x1, y1, 4, 0, 7); x.fill(); x.restore(); } }
+function arrow(x0, y0, x1, y1, k, c = C.acc, w = 2) { if (k <= 0) return; const ex = lerp(x0, x1, eo(k)), ey = lerp(y0, y1, eo(k)); hair(x0, y0, ex, ey, c, w);
+  if (k > .9) { const a = Math.atan2(y1 - y0, x1 - x0); x.save(); x.strokeStyle = c; x.lineWidth = w; x.beginPath(); x.moveTo(ex - 14 * Math.cos(a - .45), ey - 14 * Math.sin(a - .45)); x.lineTo(ex, ey); x.lineTo(ex - 14 * Math.cos(a + .45), ey - 14 * Math.sin(a + .45)); x.stroke(); x.restore(); } }
+function panel(X, Y, w, h) { fill(X, Y, w, h, C.panel); rect(X, Y, w, h); }
+function scan(a) { if (a <= 0) return; x.save(); x.globalAlpha = a * .5; for (let y = 0; y < H; y += 4) fill(0, y, W, 1, '#000'); x.restore(); }
+
+// ═════════ picture area y 60–900; subtitles below ═════════
+const STARRY = { sw: 1920, sh: 1000, moon: [3480, 520] };   // the main swirl and the moon, in source pixels (3840×3041 plate)
+const COMED = { cx: 1010, cy: 690, r: 520 };                  // the banana + tape in the supplied photo (2000×1440)
+
+// ── 1 · THE PRICE ──
+function s1(t) {
+  if (t < K.split) { // the price alone, as an inventory total
+    if (t >= K.price) {
+      tag("Sotheby's NY · 20 Nov 2024", 150, 352, { id: 'tag_price' });
+      txt('$6,240,000', 140, 560, { s: 214, f: F.mono, w: 600, ls: -4, id: 'price' });
+      flashRect(t, K.price, 130, 360, 1500, 230, .1);
+      hairK(150, 600, 1530, 600, seg(t, K.six, K.six + .7), C.acc, 3);
+      if (t >= K.item1) { txt('ITEM 01', 150, 690, { s: 24, f: F.mono, c: C.dim }); txt('BANANA', 300, 690, { s: 30, w: 700, id: 'i1' }); }
+      if (t >= K.item2) { txt('ITEM 02', 150, 740, { s: 24, f: F.mono, c: C.dim }); txt('DUCT TAPE', 300, 740, { s: 30, w: 700, id: 'i2' }); }
+    }
+    return;
+  }
+  if (t < K.rewind) { // split: the work (left) · the facts (right)
+    tag('Photo · supplied', 60, 108, { id: 'tag_com' });
+    const m = cover(IM.comedian, 60, 120, 1000, 720);
+    flashRect(t, K.split, 60, 120, 1000, 720);
+    const [cx, cy] = m(COMED.cx, COMED.cy); const r = COMED.r * 1000 / 2000;
+    ring(cx, cy, r, seg(t, K.ring1, K.ring1 + .5), 'BANANA + TAPE', 1, undefined, 'r_bt');
+    panel(1120, 120, 740, 720); flashRect(t, K.split, 1120, 120, 740, 720);
+    const rows = [['ARTIST', 'MAURIZIO CATTELAN'], ['TITLE', 'COMEDIAN'], ['YEAR OF WORK', '2019'], ['AUCTION', "20 NOV 2024 · SOTHEBY'S NEW YORK"], ['PRICE', '$6,240,000 USD']];
+    rows.forEach(([l, v], i) => { const at = K.split + .25 + i * .32; if (t < at) return; const Y = 190 + i * 112;
+      txt(l, 1160, Y, { s: 17, f: F.mono, c: C.dim, ls: 1 }); txt(v, 1160, Y + 44, { s: i === 3 ? 27 : 36, w: 700, c: i === 4 ? C.acc : C.text, id: 'row' + i });
+      flashRect(t, at, 1150, Y - 22, 690, 80, .1); });
+    const pAt = K.split + .25 + 4 * .32 + .3; // leader from the price row to the object
+    if (t >= pAt) link(1150, 190 + 4 * 112 + 30, cx + r * .98, cy + 20, seg(t, pAt, pAt + .6));
+    if (t >= K.grocery) { // grocery inset: same fruit, different object
+      const G = { x: 84, y: 610, w: 300, h: 206 }; fill(G.x - 4, G.y - 30, G.w + 8, G.h + 34, C.bg);
+      tag('Grocery · reported', G.x, G.y - 9, { s: 15, id: 'tag_groc' });
+      if (IM.banana) cover(IM.banana, G.x, G.y, G.w, G.h); else bananaDrawing(G.x, G.y, G.w, G.h);
+      flashRect(t, K.grocery, G.x, G.y, G.w, G.h);
+      fill(G.x, G.y + G.h - 44, G.w, 44, 'rgba(11,12,14,.86)'); txt('≈ $0.35', G.x + 14, G.y + G.h - 12, { s: 30, w: 700, id: 'groc' });
+      if (t >= K.grocery + .3) { txt('× 17,800,000', 1160, 772, { s: 28, f: F.mono, w: 600, c: C.acc, id: 'ratio' }); txt('price ÷ fruit', 1400, 772, { s: 17, f: F.mono, c: C.dim }); }
+    }
+    return;
+  }
+  // rewind 2024 → 1889, then the two works face each other
+  const rw = seg(t, K.rewind, K.rewind + .8);
+  if (rw < 1) { const yr = Math.round(lerp(2024, 1889, eio(rw)));
+    txt(String(yr), W / 2, 560, { s: 220, f: F.mono, w: 600, al: 'center' }); scan(1);
+    const r = rnd(FR); for (let i = 0; i < 8; i++) fill(0, r() * H, W, 1 + r() * 3, 'rgba(236,234,228,.18)'); return; }
+  const A = K.rewind + .8;
+  tag('Painting · MoMA', 60, 88, { id: 'tag_sn' }); tag('Photo · supplied', 980, 88, { id: 'tag_cm' });
+  cover(IM.starry, 60, 100, 880, 690, { sat: 1 }, .5, .35); flashRect(t, A, 60, 100, 880, 690);
+  const m = cover(IM.comedian, 980, 100, 880, 690); flashRect(t, A, 980, 100, 880, 690);
+  txt('1889', 60, 868, { s: 56, f: F.mono, w: 600, id: 'y1889' }); txt('2024', 1860, 868, { s: 56, f: F.mono, w: 600, al: 'right', id: 'y2024' });
+  arrow(240, 850, 1670, 850, seg(t, A + .3, A + 1.2));
+  const [cx, cy] = m(COMED.cx, COMED.cy); ring(cx, cy, COMED.r * 880 / 2000 * .9, seg(t, K.pairRing, K.pairRing + .5));
+}
+function bananaDrawing(X, Y, w, h) { fill(X, Y, w, h, C.panel); x.save(); x.strokeStyle = C.text; x.lineWidth = 2; x.beginPath();
+  x.moveTo(X + w * .2, Y + h * .3); x.quadraticCurveTo(X + w * .45, Y + h * .85, X + w * .82, Y + h * .45); x.quadraticCurveTo(X + w * .5, Y + h * .65, X + w * .2, Y + h * .3); x.stroke(); x.restore(); rect(X, Y, w, h); }
+
+// ── 2 · THE AGE OF PAINTING ──
+function s2(t) {
+  if (t < K.vg) { // full frame, in colour
+    const k = seg(t, K.s2, K.vg); tag('Painting · MoMA · 1889', 60, 80, { id: 'tag_sn2' });
+    cover(IM.starry, 60, 92, 1800, 800, { sat: 1 }, .5, .28, lerp(1, 1.05, k)); flashRect(t, K.s2, 60, 92, 1800, 800);
+    const words = [['SKILL', K.skill], ['OBSERVATION', K.obs], ['IMAGINATION', K.imag]]; let X = 84;
+    if (t >= K.skill) { fill(60, 822, 760, 70, 'rgba(11,12,14,.88)'); }
+    words.forEach(([w_, at], i) => { if (t < at) return; if (i) { fill(X - 22, 852, 8, 8, C.acc); }
+      X += txt(w_, X, 868, { s: 30, f: F.mono, w: 600, ls: 2, id: 'w' + i }) + 40; });
+    return;
+  }
+  if (t < K.pic) { // whole painting + ID + true-pixel magnifier on the main swirl
+    const m = cover(IM.starry, 60, 92, 1000, 792, { sat: 1 }); flashRect(t, K.vg, 60, 92, 1000, 792); tag('Painting · MoMA', 60, 80, { id: 'tag_sn3' });
+    txt('VINCENT VAN GOGH', 1120, 150, { s: 40, w: 700, id: 'vg' }); txt('The Starry Night', 1120, 198, { s: 36, f: F.it, it: 1, id: 'sn' });
+    txt('JUNE 1889 · SAINT-RÉMY-DE-PROVENCE', 1120, 246, { s: 20, f: F.mono, c: C.dim, id: 'vg1' });
+    txt('OIL ON CANVAS · 73.7 × 92.1 CM', 1120, 276, { s: 20, f: F.mono, c: C.dim, id: 'vg2' });
+    txt('view from his asylum window', 1120, 306, { s: 20, f: F.mono, c: C.dim, id: 'vg3' });
+    const sx = STARRY.sw, sy = STARRY.sh; const [cx, cy] = m(sx, sy);
+    ring(cx, cy, 104, seg(t, K.vgRing, K.vgRing + .5));
+    if (t >= K.loupe) { const L = { x: 1120, y: 380, w: 740, h: 480 };
+      plate(IM.starry, sx - L.w / 2, sy - L.h / 2, L.w, L.h, L.x, L.y, L.w, L.h, { sat: 1, border: C.acc, bw: 2 }); flashRect(t, K.loupe, L.x, L.y, L.w, L.h);
+      link(cx + 104, cy, L.x, L.y + L.h / 2, seg(t, K.loupe, K.loupe + .4));
+      fill(L.x, L.y + L.h - 40, 360, 40, 'rgba(11,12,14,.86)'); txt('BRUSHWORK · ×3.8', L.x + 14, L.y + L.h - 12, { s: 22, f: F.mono, w: 600, id: 'bw' }); }
+    return;
+  }
+  if (t < K.gue) { // Les Demoiselles d'Avignon (1907, before the colour drains)
+    tag('Painting · supplied', 60, 80, { id: 'tag_dem' });
+    const m = cover(IM.demoiselles, 60, 92, 760, 784, { sat: 1 }); flashRect(t, K.pic, 60, 92, 760, 784);
+    if (IM.demoiselles) { const s_ = IM.demoiselles.width / 900; const [cx, cy] = m(725 * s_, 415 * s_); ring(cx, cy, 92, seg(t, K.sides, K.sides + .5), 'TWO VIEWS AT ONCE', -1, undefined, 'r_dem'); }
+    txt('PABLO PICASSO', 900, 230, { s: 44, w: 700, id: 'pp' }); txt("Les Demoiselles d'Avignon", 900, 282, { s: 38, f: F.it, it: 1, id: 'lda' });
+    txt('1907 · OIL ON CANVAS · MoMA, NEW YORK', 900, 326, { s: 20, f: F.mono, c: C.dim, id: 'lda2' });
+    if (t >= K.sides) { hair(900, 390, 1860, 390, C.line); flashRect(t, K.sides, 890, 400, 900, 120, .1);
+      txt('several viewpoints', 900, 452, { s: 44, w: 700, id: 'sv1' }); txt('in one picture', 900, 504, { s: 44, w: 700, id: 'sv2' });
+      txt('the figure broken into planes', 900, 556, { s: 20, f: F.mono, c: C.dim, id: 'sv3' }); }
+    return;
+  }
+  // Guernica, measured: the wide frame as a tape measure (1.7 px per cm)
+  const s = 1.7, gw = 776.6 * s, gh = 349.3 * s, GX = 500, GY = 836 - gh, k = seg(t, K.gue, K.gue + 1.2);
+  tag('Painting · supplied', GX, GY - 54, { id: 'tag_gue' }); tag('To scale', 60, GY - 54, { id: 'tag_sc' });
+  cover(IM.guernica, GX, GY, gw, gh); flashRect(t, K.gue, GX, GY, gw, gh);
+  hairK(GX, GY - 22, GX + gw, GY - 22, k, C.dim, 1); if (k > .9) { hair(GX, GY - 30, GX, GY - 14, C.dim); hair(GX + gw, GY - 30, GX + gw, GY - 14, C.dim);
+    txt('776.6 cm', GX + gw / 2, GY - 32, { s: 20, f: F.mono, al: 'center', c: C.dim, id: 'gw' });
+    x.save(); x.translate(GX + gw + 30, GY + gh / 2); x.rotate(-Math.PI / 2); txt('349.3 cm', 0, 0, { s: 20, f: F.mono, al: 'center', c: C.dim }); x.restore();
+    hair(GX + gw + 14, GY, GX + gw + 14, GY + gh, C.dim); }
+  txt('GUERNICA', 60, GY + 40, { s: 60, w: 700, id: 'gue' }); txt('PABLO PICASSO · 1937', 60, GY + 82, { s: 20, f: F.mono, id: 'gue2' });
+  txt('oil on canvas', 60, GY + 112, { s: 18, f: F.mono, c: C.dim }); txt('Spanish Republic pavilion,', 60, GY + 150, { s: 18, f: F.mono, c: C.dim, id: 'gue3' });
+  txt('Paris International Exposition', 60, GY + 176, { s: 18, f: F.mono, c: C.dim, id: 'gue4' });
+  const sw = 92.1 * s, sh = 73.7 * s; if (t >= K.gue + .4) { cover(IM.starry, 290, 836 - sh, sw, sh, { sat: 1 }); flashRect(t, K.gue + .6, 290, 836 - sh, sw, sh);
+    txt('The Starry Night', 290, 866, { s: 16, f: F.mono, c: C.dim, id: 'snsc' }); txt('same scale', 290, 888, { s: 16, f: F.mono, c: C.faint }); }
+  if (t >= K.gue + .9) { hair(60, 836, 60 + 100 * s, 836, C.text, 2); hair(60, 826, 60, 846, C.text, 2); hair(60 + 100 * s, 826, 60 + 100 * s, 846, C.text, 2);
+    txt('1 m', 60, 872, { s: 18, f: F.mono, id: 'onem' }); }
+}
+
+// ── 3 · 1917 ──
+const FOUNT = { sig: [0.256, 0.633] };   // painted "R. MUTT 1917" on the urinal, as a fraction of the Stieglitz photo (set after inspecting the scan)
+const BLIND = { hl: [0.10, 0.535, 0.44, 0.022] }; // "He CHOSE it." on the page scan, as fractions (x, y, w, h)
+function s3(t) {
+  if (t < K.duch) { // timeline: playhead slides back from 1937 to 1917 — and the colour drains
+    const X = y => 160 + (y - 1880) / 65 * 1600, AY = 600;
+    hair(160, AY, 1760, AY, C.line, 1.5); for (let y = 1880; y <= 1945; y += 5) { hair(X(y), AY - (y % 10 ? 6 : 12), X(y), AY + (y % 10 ? 6 : 12), C.faint);
+      if (y % 10 === 0) txt(String(y), X(y), AY + 44, { s: 18, f: F.mono, c: C.faint, al: 'center' }); }
+    const arr = K.back + .8, drain = seg(t, arr, arr + .7);
+    cover(IM.starry, X(1889) - 90, AY - 200, 180, 143, { sat: 1 - drain }); txt('1889 · VAN GOGH', X(1889), AY + 80, { s: 18, f: F.mono, al: 'center', id: 'tl1' });
+    cover(IM.guernica, X(1937) - 140, AY - 150, 280, 126); txt('1937 · GUERNICA', X(1937), AY + 80, { s: 18, f: F.mono, al: 'center', id: 'tl2' });
+    const py = lerp(1937, 1917, eio(seg(t, K.back, arr))), px = X(py);
+    hair(px, AY - 250, px, AY + 20, C.acc, 2); txt(String(Math.round(py)), px, AY - 262, { s: 64, f: F.mono, w: 600, c: C.text, al: 'center', id: t >= arr ? 'ph' : undefined });
+    if (t >= arr) { flashRect(t, arr, 0, 0, W, H, .13); hair(X(1917), AY + 110, X(1937), AY + 110, C.acc, 1.5, [6, 5]); hair(X(1917), AY + 100, X(1917), AY + 120, C.acc, 1.5); hair(X(1937), AY + 100, X(1937), AY + 120, C.acc, 1.5);
+      txt('20 YEARS EARLIER', (X(1917) + X(1937)) / 2, AY + 146, { s: 20, f: F.mono, w: 600, c: C.acc, al: 'center', id: 'tw' }); }
+    return;
+  }
+  if (t < K.mag) { // the stark board
+    tag('Photo · Stieglitz, 1917', 60, 80, { id: 'tag_st' });
+    const m = cover(IM.fountain, 60, 120, 700, 738); flashRect(t, K.duch, 60, 120, 700, 738);
+    txt('1917', 820, 250, { s: 170, f: F.mono, w: 600, ls: -3, id: 'y1917' }); flashRect(t, K.duch, 810, 110, 520, 170, .1);
+    if (t >= K.exhib) { panel(820, 300, 1040, 186); flashRect(t, K.exhib, 820, 300, 1040, 186);
+      txt('SOCIETY OF INDEPENDENT ARTISTS · NEW YORK · 1917', 850, 350, { s: 21, f: F.mono, w: 600, id: 'sia' });
+      const w = txt('NO JURY · ALL WORKS TO BE SHOWN', 850, 400, { s: 30, w: 700, id: 'nojury' });
+      if (t >= K.hid) { hairK(844, 390, 860 + w, 390, seg(t, K.hid, K.hid + .4), C.acc, 3);
+        txt('HIDDEN BEHIND A PARTITION', 850, 452, { s: 30, w: 700, c: C.acc, id: 'hidden' }); txt("Duchamp's recollection", 1330, 452, { s: 16, f: F.mono, c: C.dim }); } }
+    if (IM.fountain && t >= K.fake) { const iw = IM.fountain.width, ih = IM.fountain.height, sx = FOUNT.sig[0] * iw, sy = FOUNT.sig[1] * ih;
+      const [cx, cy] = m(sx, sy); ring(cx, cy, 62, seg(t, K.fake, K.fake + .5));
+      if (t >= K.fake + .35) { const L = { x: 820, y: 540, w: 520, h: 330 }, z = 2.2; const sw = L.w / (738 / ih) / z, sh = L.h / (738 / ih) / z;
+        plate(IM.fountain, sx - sw / 2, sy - sh / 2, sw, sh, L.x, L.y, L.w, L.h, { border: C.acc, bw: 2 }); flashRect(t, K.fake + .35, L.x, L.y, L.w, L.h);
+        link(cx + 62, cy, L.x, L.y + L.h / 2, seg(t, K.fake + .35, K.fake + .75));
+        txt('R. MUTT 1917', 1370, 640, { s: 40, w: 700, id: 'mutt' }); txt('a made-up name', 1370, 680, { s: 20, f: F.mono, c: C.dim, id: 'mutt2' });
+        txt('the signature', 1370, 720, { s: 20, f: F.mono, c: C.acc, id: 'mutt3' }); } }
+    return;
+  }
+  // The Blind Man, No. 2: the line on the page that defended it
+  tag('The Blind Man · No. 2 · 1917', 60, 80, { id: 'tag_bm' });
+  const P = { x: 60, y: 92, w: 600, h: 800 };
+  if (IM.blind) { const m = cover(IM.blind, P.x, P.y, P.w, P.h, { doc: 1 }, 1, .088, 1.7); const s_ = IM.blind.width / 2558;
+    const [a0, b0] = m(1262 * s_, 1318 * s_), [a1, b1] = m(1700 * s_, 1392 * s_); hl(a0, b0, a1 - a0, b1 - b0, seg(t, K.chose, K.chose + .5)); }
+  else { fill(P.x, P.y, P.w, P.h, C.paper); }
+  flashRect(t, K.mag, P.x, P.y, P.w, P.h);
+  const Q = '“Whether Mr. Mutt with his own hands made the fountain or not has no importance.';
+  wrap(Q, 1080, { s: 40, f: F.it, it: 1 }).forEach((l, i) => txt(l, 740, 200 + i * 56, { s: 40, f: F.it, it: 1, id: 'q' + i }));
+  const qy = 200 + wrap(Q, 1080, { s: 40, f: F.it, it: 1 }).length * 56 + 16, qw = tw('He CHOSE it.”', { s: 56, f: F.it, it: 1 });
+  hlOver(736, qy - 50, qw + 12, 66, seg(t, K.chose, K.chose + .5)); txt('He CHOSE it.”', 740, qy, { s: 56, f: F.it, it: 1, id: 'chose' });
+  txt('“The Richard Mutt Case”, May 1917', 740, qy + 46, { s: 18, f: F.mono, c: C.dim });
+  if (t >= K.idea3) { flashRect(t, K.idea3, 730, 560, 1130, 220, .1);
+    txt("THE OBJECT WASN'T THE ENTIRE POINT.", 740, 640, { s: 46, w: 700, c: C.dim, id: 'obj' }); txt('THE IDEA WAS.', 740, 740, { s: 86, w: 700, id: 'idea' }); }
+}
+
+// ── 4 · WHEN THE IDEA BECAME ART ──
+function s4(t) {
+  if (t < K.answer) {
+    tag('Photo · supplied', 60, 80, { id: 'tag_brillo' });
+    const bk = t >= K.boxes - .2; if (bk) { cover(IM.brillo, 60, 92, 600, 768); flashRect(t, K.boxes - .2, 60, 92, 600, 768); }
+    txt('1964', 740, 250, { s: 170, f: F.mono, w: 600, ls: -3, id: 'y64' }); flashRect(t, K.s4, 730, 110, 520, 170, .1);
+    txt('ANDY WARHOL', 740, 320, { s: 40, w: 700, id: 'aw' }); txt('Brillo Box (Soap Pads)', 740, 368, { s: 36, f: F.it, it: 1, id: 'aw1' });
+    txt('STABLE GALLERY, NEW YORK · APRIL 1964', 740, 410, { s: 20, f: F.mono, c: C.dim, id: 'aw2' });
+    if (t >= K.phil) { hair(740, 470, 1860, 470, C.line); flashRect(t, K.phil, 730, 480, 1130, 70, .1);
+      txt('IN THE GALLERY', 740, 530, { s: 34, w: 700, id: 'gal' }); txt('→ ART', 1380, 530, { s: 34, w: 700, c: C.acc, id: 'art' }); }
+    if (t >= K.phil + .5) { flashRect(t, K.phil + .5, 730, 560, 1130, 70, .1);
+      txt('IN A SUPERMARKET STOCKROOM', 740, 610, { s: 34, w: 700, id: 'stk' }); txt('→ NOT ART', 1380, 610, { s: 34, w: 700, c: C.dim, id: 'notart' });
+      txt('WHY?', 740, 760, { s: 110, w: 700, c: C.acc, id: 'why' }); }
+    return;
+  }
+  if (t < K.late) { // Danto's answer, typeset
+    tag('Arthur Danto · “The Artworld” · 1964', 160, 250, { id: 'tag_dan' });
+    const Q = ['“…an atmosphere of artistic theory,', 'a knowledge of the history of art:'];
+    Q.forEach((l, i) => txt(l, 160, 360 + i * 76, { s: 60, f: F.it, it: 1, id: 'dq' + i }));
+    const aw = tw('an artworld.”', { s: 84, f: F.it, it: 1 }); hlOver(152, 540, aw + 20, 100, seg(t, K.artworld, K.artworld + .5));
+    txt('an artworld.”', 160, 620, { s: 84, f: F.it, it: 1, id: 'dq2' }); flashRect(t, K.answer, 150, 280, 1600, 380, .1);
+    cover(IM.brillo, 1560, 500, 300, 384);
+    return;
+  }
+  // craft → choice → idea
+  const cols = [{ x: 60, l: 'TRADITIONAL ART OBJECT', y: '1889', wd: 'CRAFT' }, { x: 680, l: 'READYMADE', y: '1917', wd: 'CHOICE' }, { x: 1300, l: 'CONCEPTUAL ART', y: 'SOL LEWITT', wd: 'IDEA' }];
+  cols.forEach((c, i) => { const at = K.late + i * .35; if (t < at) return; tag(`${c.l} · ${c.y}`, c.x, 150, { id: 'cc' + i });
+    if (i === 0) cover(IM.starry, c.x, 166, 560, 420); else if (i === 1) cover(IM.fountain, c.x, 166, 560, 420, {}, .5, .45);
+    else { cover(IM.lewitt, c.x, 166, 560, 420); if (t >= K.late + .7) { wrap('“…the idea or concept is the most important aspect of the work.”', 560, { s: 24, f: F.it, it: 1 })
+      .forEach((l, j) => txt(l, c.x, 762 + j * 34, { s: 24, f: F.it, it: 1, id: 'lw' + j })); txt('Sol LeWitt · Artforum · 1967', c.x, 870, { s: 16, f: F.mono, c: C.dim }); } }
+    flashRect(t, at, c.x, 166, 560, 420);
+    const wa = K.late + 1.4 + i * .5; if (t >= wa) { txt(c.wd, c.x, 690, { s: 64, w: 700, c: i === 2 ? C.acc : C.text, id: 'wd' + i }); flashRect(t, wa, c.x - 6, 630, 400, 76, .08); }
+    if (i < 2 && t >= at + .3) arrow(c.x + 570, 376, c.x + 610, 376, seg(t, at + .3, at + .6)); });
+}
+
+// ── 5 · THE INVISIBLE SCULPTURE ──
+function s5(t) {
+  if (t < K.room) { // the clock jumps: 1967 ··· 2021
+    hair(200, 600, 760, 600, C.line, 1.5); hair(800, 594, 816, 606, C.faint, 1.5); hair(810, 594, 826, 606, C.faint, 1.5); hair(860, 600, 1720, 600, C.line, 1.5);
+    txt('1967', 200, 650, { s: 22, f: F.mono, c: C.dim }); txt('2021', 1720, 650, { s: 22, f: F.mono, al: 'right', c: C.dim });
+    const k = eio(seg(t, K.s5 + .2, K.s5 + .95)); const px = lerp(200, 1720, k); hair(px, 420, px, 620, C.acc, 2);
+    txt(String(Math.round(lerp(1967, 2021, k))), px, 400, { s: 120, f: F.mono, w: 600, al: 'center', id: k >= 1 ? 'y21' : undefined }); return;
+  }
+  // an almost empty gallery: the emptiness is the evidence (the photo fills the middle; the wide frame stays empty around it)
+  const G = { x: 600, y: 60, w: 672, h: 840 };
+  const m = cover(IM.gallery, G.x, G.y, G.w, G.h); flashRect(t, K.room, G.x, G.y, G.w, G.h);
+  if (t >= K.disp && IM.gallery) { const s_ = IM.gallery.width / 400; const [cx, cy] = m(200 * s_, 300 * s_);
+    ring(cx, cy, 150, seg(t, K.disp, K.disp + .6), 'IO SONO', 1, 'contents: —', 'r_io'); }
+  tag('Illustration · an empty gallery, not the actual display', 60, 880, { id: 'tag_io', s: 15 });
+  if (t >= K.sculpt) { const X = 1560; flashRect(t, K.sculpt, X - 10, 96, 310, 300, .1);
+    tag('Art-Rite, Milan · 2021', X, 120, { s: 14, id: 'tag_ar' }); txt('SALVATORE GARAU', X, 162, { s: 22, w: 700, id: 'sg' }); txt('Io Sono', X, 196, { s: 26, f: F.it, it: 1, id: 'ios' });
+    txt('IMMATERIAL SCULPTURE', X, 226, { s: 15, f: F.mono, c: C.dim }); if (t >= K.euros) txt('€15,000', X, 270, { s: 34, w: 700, id: 'eur' });
+    if (t >= K.cert5) { txt('+ CERTIFICATE', X, 312, { s: 18, f: F.mono, w: 600, id: 'cert5' }); badge(X + 200, 306, t, K.cert5 + .1); }
+    if (t >= K.yes) { hair(X, 342, X + 300, 342, C.line); txt('CONTENTS   —', X, 376, { s: 18, f: F.mono, id: 'cont' }); }
+    if (t >= K.yes) txt('WEIGHT     0 kg', X, 404, { s: 18, f: F.mono, id: 'wt' });
+    if (t >= K.feet) txt('SPACE      5 × 5 ft', X, 432, { s: 18, f: F.mono, c: C.dim, id: 'sp' }); }
+}
+
+// ── 6 · THE BANANA RETURNS ──
+const LOT = ['Maurizio Cattelan, b. 1960', 'Comedian', 'banana and duct tape', '20 × 20 × 5 cm (installation dimensions variable)',
+  'Executed in 2019, this work is number 2 from an', "edition of 3 plus 2 artist's proofs.", 'This work is accompanied by a certificate of', 'authenticity signed by the artist.'];
+function certIcon(X, Y, w, h) { fill(X, Y, w, h, '#1a1c20'); rect(X, Y, w, h, C.dim); rect(X + 10, Y + 10, w - 20, h - 20, C.faint);
+  for (let i = 0; i < 4; i++) hair(X + 30, Y + 50 + i * 26, X + w - 30 - (i % 2) * 60, Y + 50 + i * 26, C.faint, 2);
+  x.save(); x.strokeStyle = C.dim; x.lineWidth = 2; x.beginPath(); x.arc(X + w - 60, Y + h - 56, 28, 0, 7); x.stroke(); x.beginPath(); x.moveTo(X + 30, Y + h - 46);
+  x.bezierCurveTo(X + 60, Y + h - 80, X + 80, Y + h - 20, X + 120, Y + h - 50); x.stroke(); x.restore(); }
+function s6(t) {
+  if (t < K.cols) { // the work as a document
+    tag('Photo · supplied', 60, 108, { id: 'tag_com6' }); const m = cover(IM.comedian, 60, 120, 1000, 720); flashRect(t, K.s6, 60, 120, 1000, 720);
+    fill(1120, 120, 740, 720, C.paper); flashRect(t, K.s6 + .3, 1120, 120, 740, 720);
+    tag("Transcription · Sotheby's lot 10", 1120, 108, { id: 'tag_lot' });
+    txt("SOTHEBY'S · THE NOW AND CONTEMPORARY EVENING AUCTION", 1150, 170, { s: 15, f: F.mono, w: 600, c: C.ink, a: .7 }); hair(1150, 186, 1830, 186, '#9a958a');
+    let at = K.detail - .4; LOT.forEach((l, i) => { const Y = 236 + i * 46 + (i > 3 ? 20 : 0) + (i > 5 ? 20 : 0);
+      if (i >= 6) { const w0 = tw(i === 6 ? 'certificate of' : 'authenticity signed by the artist.', { s: 22, f: F.mono }); const xo = i === 6 ? 1150 + tw('This work is accompanied by a ', { s: 22, f: F.mono }) : 1150;
+        hl(xo - 2, Y - 24, w0 + 4, 32, seg(t, K.cert6 + (i - 6) * .4, K.cert6 + (i - 6) * .4 + .5)); }
+      typed(l, 1150, Y, t, at, { s: i === 1 ? 30 : 22, f: i === 1 ? F.it : F.mono, it: i === 1 ? 1 : 0, c: C.ink, id: 'lot' + i }, 60); at += l.length / 60 + .08; });
+    const [cx, cy] = m(COMED.cx, COMED.cy); ring(cx, cy, 250, seg(t, K.replaced, K.replaced + .5), 'REPLACEABLE', 1, 'every ~7–10 days (reported)', 'r_rep');
+    return;
+  }
+  if (t < K.buy) { // four columns: what was actually sold
+    const C4 = [['MATERIAL', K.cols + .1], ['ARTISTIC IDEA', K.cols + .7], ['AUTHENTICITY', K.cols + 1.3], ['MARKET PRICE', K.cols + 1.9]];
+    C4.forEach(([l, at], i) => { if (t < at) return; const X = 60 + i * 460, Y = 200, w = 420, h = 600; txt(l, X, Y - 20, { s: 20, f: F.mono, w: 600, c: C.dim, ls: 1, id: 'c4' + i });
+      panel(X, Y, w, h); flashRect(t, at, X, Y, w, h);
+      if (i === 0) { if (IM.banana) cover(IM.banana, X + 20, Y + 20, w - 40, 280); else bananaDrawing(X + 20, Y + 20, w - 40, 280);
+        if (t >= at) { txt('≈ $0.35', X + 20, Y + 400, { s: 64, w: 700, id: 'c4p0' }); txt('fruit stand · reported', X + 20, Y + 440, { s: 17, f: F.mono, c: C.dim }); } }
+      if (i === 1) { txt('“a banana,', X + 24, Y + 160, { s: 40, f: F.it, it: 1, id: 'c4i' }); txt('taped to a wall”', X + 24, Y + 212, { s: 40, f: F.it, it: 1, id: 'c4i2' });
+        txt('CATTELAN · 2019', X + 24, Y + 400, { s: 22, f: F.mono, w: 600, id: 'c4i3' }); txt('edition of 3 + 2 AP', X + 24, Y + 432, { s: 17, f: F.mono, c: C.dim }); }
+      if (i === 2) { certIcon(X + 70, Y + 40, 280, 300); txt('illustration', X + 70, Y + 362, { s: 14, f: F.mono, c: C.faint });
+        txt('certificate', X + 24, Y + 420, { s: 34, w: 700, id: 'c4a' }); txt('signed by the artist', X + 24, Y + 458, { s: 22, f: F.mono, id: 'c4a2' }); badge(X + w - 44, Y + 410, t, at + .3); }
+      if (i === 3) { txt('$6,240,000', X + 20, Y + 400, { s: 62, w: 700, c: C.acc, id: 'c4m' }); txt("SOTHEBY'S · 20 NOV 2024", X + 20, Y + 440, { s: 17, f: F.mono, c: C.dim }); }
+    }); return;
+  }
+  if (t < K.proof) { // every conceptual exhibit carries the same evidence: the signed idea
+    const thumbs = [['1917 · signature', 0], ['1967 · instruction', 1], ['2021 · certificate', 2], ['2024 · certificate', 3]];
+    const Z = { x: 560, y: 650, w: 800, h: 190 };
+    thumbs.forEach(([l, i]) => { const X = 60 + i * 460, Y = 130, w = 420, h = 280, at = K.buy + i * .2; if (t < at) return;
+      tag(l, X, Y - 14, { id: 'th' + i, s: 16 });
+      if (i === 0 && IM.fountain) { const iw = IM.fountain.width, ih = IM.fountain.height; const sw = iw * .42, sh = sw * h / w;
+        plate(IM.fountain, FOUNT.sig[0] * iw - sw / 2, FOUNT.sig[1] * ih - sh / 2, sw, sh, X, Y, w, h); }
+      else if (i === 1) { cover(IM.lewitt, X, Y, w, h); }
+      else if (i === 2) { cover(IM.gallery, X, Y, w, h, {}, .5, .55); }
+      else { panel(X, Y, w, h); certIcon(X + 120, Y + 30, 180, 220); }
+      flashRect(t, at, X, Y, w, h); const la = [K.buy + 1.0, K.idea6, K.idea6 + .4, K.symbol][i];
+      link(X + w / 2, Y + h, Z.x + 100 + i * 200, Z.y, seg(t, la, la + .5)); badge(X + w - 26, Y + 26, t, la + .5); });
+    if (t >= K.buy + 1.2) { panel(Z.x, Z.y, Z.w, Z.h); rect(Z.x, Z.y, Z.w, Z.h, C.acc, 2); flashRect(t, K.buy + 1.2, Z.x, Z.y, Z.w, Z.h);
+      txt('THE SIGNED IDEA', Z.x + Z.w / 2, Z.y + 100, { s: 64, w: 700, al: 'center', id: 'signed' }); txt('what the buyer owns', Z.x + Z.w / 2, Z.y + 148, { s: 20, f: F.mono, c: C.dim, al: 'center', id: 'owns' }); }
+    return;
+  }
+  // how a price is made: estimate → hammer → with fees (scale: $6.24 M = 1100 px)
+  tag("Sotheby's · press release, 20 Nov 2024", 60, 140, { id: 'tag_pr' }); const X0 = 520, S = 1100 / 6.24;
+  hair(X0, 200, X0, 820, C.line); txt('$0', X0, 850, { s: 16, f: F.mono, c: C.faint, al: 'center' }); txt('$6.24 M', X0 + 1100, 850, { s: 16, f: F.mono, c: C.faint, al: 'center' });
+  const rows = [['MATERIAL', K.proof + .1, 0, 0, '≈ $0.35 · reported'], ['PRE-SALE ESTIMATE', K.prestige, 1.0, 1.5, '$1.0–1.5 M'], ['HAMMER · 7 BIDDERS', K.scarcity, 0, 5.2, '$5.2 M'], ['WITH FEES', K.publicity, 0, 6.24, '$6,240,000']];
+  rows.forEach(([l, at, a, b, v], i) => { if (t < at) return; const Y = 250 + i * 150; txt(l, 60, Y + 44, { s: 24, f: F.mono, w: 600, id: 'pl' + i });
+    const k = eo(seg(t, at, at + .7)); if (b > 0) { fill(X0 + a * S, Y, (b - a) * S * k, 66, i === 3 ? C.acc : i === 1 ? '#2a2e34' : '#5A5F67'); if (i === 1) rect(X0 + a * S, Y, (b - a) * S, 66, C.dim, 1, [5, 4]); }
+    else hair(X0, Y, X0, Y + 66, C.text, 2);
+    txt(v, X0 + b * S + 18, Y + 46, { s: 30, w: 700, c: i === 3 ? C.acc : C.text, id: 'pv' + i }); });
+}
+
+// ── 7 · WHO DECIDES THE VALUE? ──
+function s7(t) {
+  const L = ['Ideas', 'Expression', 'Historical influence', 'Craftsmanship', 'Emotional response'], R = ['Scarcity', 'Provenance', 'Collector demand', 'Reputation', 'Institutional recognition'];
+  panel(60, 92, 870, 800); flashRect(t, K.s7, 60, 92, 870, 800); if (t >= K.critics - .3) { panel(990, 92, 870, 800); flashRect(t, K.critics - .3, 990, 92, 870, 800); }
+  txt('ARTISTIC VALUE', 100, 170, { s: 48, w: 700, id: 'av' }); if (t >= K.critics - .3) txt('MARKET VALUE', 1030, 170, { s: 48, w: 700, id: 'mv' });
+  L.forEach((s, i) => { if (t >= K.s7 + .5 + i * .3) txt(s, 100, 250 + i * 56, { s: 34, w: 600, id: 'L' + i }); });
+  R.forEach((s, i) => { if (t >= K.critics + i * .3) { const w = txt(s, 1030, 250 + i * 56, { s: 34, w: 600, id: 'R' + i });
+    if (i === 4) hairK(1030, 260 + i * 56, 1030 + w, 260 + i * 56, seg(t, K.inst, K.inst + .5), C.acc, 3); } });
+  if (t >= K.s7 + 2.2) { hair(100, 560, 890, 560, C.line); tag("Sotheby's · the seller", 100, 606, { id: 'tag_gal' });
+    ['“…one of the most brilliant ideas', 'in the history of conceptual art.”'].forEach((q, j) => txt(q, 100, 668 + j * 50, { s: 38, f: F.it, it: 1, id: 'gq' + j }));
+    txt('David Galperin, head of contemporary art, Americas', 100, 790, { s: 17, f: F.mono, c: C.dim }); }
+  if (t >= K.critics + 1.8) { hair(1030, 560, 1820, 560, C.line); tag('Art Basel & UBS · 2026', 1030, 606, { id: 'tag_ab' });
+    txt('AUCTION SALES IN 2025, BY PRICE', 1030, 650, { s: 17, f: F.mono, c: C.dim, id: 'ab0' }); const Z = 1430, sc = 10, at = K.critics + 2.1;
+    hair(Z, 676, Z, 852, C.dim); const k = eo(seg(t, at, at + .7));
+    txt('over $10 M', 1030, 726, { s: 24, w: 600, id: 'ab1' }); fill(Z, 700, 30 * sc * k, 36, C.acc); txt('+30%', Z + 30 * sc * k + 14, 728, { s: 26, w: 700, c: C.acc, id: 'ab2' });
+    txt('under $50,000', 1030, 806, { s: 24, w: 600, id: 'ab3' }); fill(Z - 2 * sc * k * 4, 780, 2 * sc * k * 4, 36, '#5A5F67'); txt('−2%', Z + 14, 808, { s: 26, w: 700, id: 'ab4' });
+    txt('bar for −2% drawn ×4 for visibility', 1030, 872, { s: 13, f: F.mono, c: C.faint }); }
+}
+
+// ── 8 · THE FINAL QUESTION ──
+const TL = [['1889', 'VAN GOGH'], ['1917', 'DUCHAMP'], ['1937', "PICASSO'S GUERNICA"], ['1960s', 'CONCEPTUAL ART'], ['2021', 'INVISIBLE SCULPTURE'], ['2024', '$6.24 MILLION BANANA']];
+function s8(t) {
+  const clr = i => K.voEnd + .5 + (5 - i) * .16; // annotations leave one by one after the last word
+  const tagsOn = t < K.voEnd + .4;
+  if (tagsOn) { tag('Painting · MoMA', 60, 80, { id: 'tag_f1' }); tag('Photo · supplied', 980, 80, { id: 'tag_f2' }); }
+  const bare = t >= clr(0) + .5, Y0 = bare ? 210 : 92;   // once every annotation has left: a quiet cut to the two works, centred
+  cover(IM.starry, 60, Y0, 880, 660, { sat: 1 }, .5, .4); cover(IM.comedian, 980, Y0, 880, 660);
+  flashRect(t, K.s8, 60, 92, 1800, 660, .14);
+  if (bare) return;
+  const X = i => 170 + i * 316, Y = 812;
+  if (t < clr(0) + .2) hairK(150, Y, 1770, Y, seg(t, K.s8 + .2, K.s8 + 1.2), C.line, 1.5);
+  TL.forEach(([y, l], i) => { const at = K.s8 + .5 + i * .55; if (t < at || t >= clr(i)) return; const hot = i === 0 || i === 5;
+    hair(X(i), Y - 10, X(i), Y + 10, hot ? C.acc : C.dim, 2); x.save(); x.fillStyle = hot ? C.acc : C.text; x.beginPath(); x.arc(X(i), Y, 5, 0, 7); x.fill(); x.restore();
+    txt(y, X(i), Y - 24, { s: 24, f: F.mono, w: 600, al: 'center', id: 'tly' + i }); txt(l, X(i), Y + 46, { s: 21, w: 600, al: 'center', c: hot ? C.text : C.dim, id: 'tll' + i }); });
+}
+
+// ── subtitles: max two lines, centred, at the very bottom, never over the picture area ──
+function subs(t) { for (const [a, b, s] of FILM.subs) if (t >= a && t < b) { const L = s.split('\n'); x.save(); x.shadowColor = 'rgba(0,0,0,.95)'; x.shadowBlur = 10;
+  L.forEach((l, i) => txt(l, W / 2, (L.length === 1 ? 1004 : 962 + i * 44), { s: 36, w: 600, al: 'center' })); x.restore(); } }
+
+window.render = function (t) {
+  FR = Math.floor(t * 30); x.setTransform(1, 0, 0, 1, 0, 0); x.globalAlpha = 1; x.filter = 'none'; fill(0, 0, W, H, C.bg);
+  const S = SEC; if (t < S.s1[1]) s1(t); else if (t < S.s2[1]) s2(t); else if (t < S.s3[1]) s3(t); else if (t < S.s4[1]) s4(t);
+  else if (t < S.s5[1]) s5(t); else if (t < S.s6[1]) s6(t); else if (t < S.s7[1]) s7(t); else s8(t);
+  subs(t);
+};
+window.TEXTS = function (t) { REC = []; window.render(t); const r = REC; REC = null; return r; };
+window.SUBCHECK = function () { return FILM.subs.map(([a, b, s], i) => { const ws = s.split('\n').map(l => Math.round(tw(l, { s: 36, w: 600 })));
+  return { i, s, w: Math.max(...ws), lines: ws.length, ok: Math.max(...ws) <= 1500 && ws.length <= 2 }; }); };
+
+// ── sound events for the mix (same key times as the picture) ──
+function events() { const E = [], e = (type, t, o = {}) => E.push({ type, t: +t.toFixed(3), ...o });
+  e('thump', K.price, { g: .9 }); e('tick', K.item1); e('tick', K.item2); e('pencil', K.six);
+  e('shutter', K.split); for (let i = 0; i < 5; i++) e('paper', K.split + .25 + i * .32, { g: .5 }); e('pencil', K.ring1); e('pencil', K.split + .25 + 1.28 + .3);
+  e('shutter', K.grocery); e('rewind', K.rewind); e('shutter', K.rewind + .8); e('pencil', K.pairRing);
+  e('shutter', K.s2); e('shutter', K.vg); e('pencil', K.vgRing); e('loupe', K.loupe);
+  for (let i = 0; i < 3; i++) e('paper', K.pic + i * .45, { g: .5 }); e('pencil', K.sides); e('pencil', K.gue, { g: .8 }); e('shutter', K.gue + .6);
+  e('slide', K.back); e('flash', K.back + .8); e('shutter', K.duch); e('paper', K.exhib); e('pencil', K.fake); e('loupe', K.fake + .35); e('marker', K.hid);
+  e('paper', K.mag); e('marker', K.chose); e('thump', K.idea3, { g: .55 });
+  e('shutter', K.s4); e('paper', K.boxes, { g: .5 }); e('pencil', K.stock); e('keys', K.answer, { d: 1.2 }); e('marker', K.artworld);
+  for (let i = 0; i < 3; i++) e('shutter', K.late + i * .35, { g: .6 }); for (let i = 0; i < 3; i++) e('mallet', K.late + 1.4 + i * .5, { n: [62, 65, 69][i] });
+  e('slide', K.s5 + .3); e('pencil', K.room, { d: .9 }); e('paper', K.sculpt, { g: .4 }); e('mallet', K.cert5 + .1, { n: 74 }); e('pencil', K.disp); e('keys', K.yes, { d: .4 });
+  e('shutter', K.s6); e('keys', K.detail - .4, { d: 6.5 }); e('marker', K.cert6); e('pencil', K.replaced);
+  [K.cols + .1, K.cols + .7, K.cols + 1.3, K.cols + 1.9].forEach(a => e('shutter', a, { g: .6 })); e('mallet', K.cols + 1.6, { n: 74 }); e('tick', K.cents, { g: .8 });
+  for (let i = 0; i < 4; i++) e('paper', K.buy + i * .2, { g: .4 }); [K.buy + 1.0, K.idea6, K.idea6 + .4, K.symbol].forEach((a, i) => e('mallet', a + .5, { n: [62, 65, 69, 74][i] }));
+  [K.proof + .1, K.prestige, K.scarcity, K.publicity].forEach((a, i) => e('tick', a, { g: .7 })); e('thump', K.publicity + .7, { g: .6 });
+  e('shutter', K.s7); e('shutter', K.critics - .3); e('pencil', K.inst);
+  e('shutter', K.s8); for (let i = 0; i < 6; i++) e('mallet', K.s8 + .5 + i * .55, { n: [62, 64, 65, 67, 69, 74][i], g: .5 });
+  // music markers (the score reads these; no sound of their own)
+  for (const k of ['split', 'grocery', 'rewind', 's2', 'vg', 'pic', 'gue', 'back', 'duch', 'hid', 'mag', 'idea3', 's4', 'answer', 'late', 's5', 'room', 'invis', 'yes', 'empty',
+    's6', 'cols', 'buy', 'proof', 'publicity', 's7', 'critics', 'both', 's8', 'voEnd']) e('cue', K[k], { name: k });
+  return E; }
+window.EV = [];
+boot();
+</script></body></html>
