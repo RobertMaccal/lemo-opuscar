@@ -3,24 +3,27 @@
 @font-face{font-family:Anton;src:url(anton.ttf)}
 @font-face{font-family:Sans;src:url(../fonts/sans700.ttf);font-weight:700}
 @font-face{font-family:Mono;src:url(../fonts/mono600.ttf);font-weight:600}</style></head>
-<body><canvas id="c" width="1920" height="1080"></canvas><script>
+<body><canvas id="c"></canvas><script>
 // YouTube thumbnail for "The Death of Beautiful Art?" — t = 0, 1, 2 render three variants (A, B, C).
-const W = 1920, H = 1080, x = document.getElementById('c').getContext('2d'), RED = '#FF2A1A';
+// Designed on a 1920×1080 grid; drawn at the viewport's real size (e.g. --size 3840x2160) so type and lines are native-resolution.
+const W = 1920, H = 1080, cv = document.getElementById('c'); cv.width = innerWidth; cv.height = innerHeight; const S = innerWidth / W;
+const x = cv.getContext('2d'), RED = '#FF2A1A'; x.imageSmoothingQuality = 'high';
 const IM = {}; const load = s => new Promise(r => { const i = new Image(); i.onload = () => r(i); i.src = s; });
 function crop(img, X, Y, w, h, cx, cy, sc, filter) { // draw img so source point (cx,cy) sits at the cell centre, sc = screen px per source px
   x.save(); x.beginPath(); x.rect(X, Y, w, h); x.clip(); if (filter) x.filter = filter;
-  x.drawImage(img, X + w / 2 - cx * sc, Y + h / 2 - cy * sc, img.width * sc, img.height * sc); x.restore(); }
+  const k = img.base ? img.width / img.base : 1; x.imageSmoothingQuality = 'high';
+  x.drawImage(img, X + w / 2 - cx * sc, Y + h / 2 - cy * sc, img.width / k * sc, img.height / k * sc); x.restore(); }
 function text(s, X, Y, size, o = {}) { x.save(); x.font = `${size}px ${o.f || 'Anton'}`; x.textAlign = o.al || 'left'; x.textBaseline = 'alphabetic';
   if (o.rot) { x.translate(X, Y); x.rotate(o.rot); X = 0; Y = 0; }
   if (o.stroke) { x.lineJoin = 'round'; x.lineWidth = o.stroke; x.strokeStyle = o.sc || '#000'; x.strokeText(s, X, Y); }
-  if (o.shadow) { x.shadowColor = 'rgba(0,0,0,.6)'; x.shadowBlur = o.shadow; x.shadowOffsetY = o.shadow / 3; }
+  if (o.shadow) { x.shadowColor = 'rgba(0,0,0,.6)'; x.shadowBlur = o.shadow * S; x.shadowOffsetY = o.shadow / 3 * S; }
   x.fillStyle = o.c || '#fff'; x.fillText(s, X, Y); const w = x.measureText(s).width; x.restore(); return w; }
 function tw(s, size, f = 'Anton') { x.save(); x.font = `${size}px ${f}`; const w = x.measureText(s).width; x.restore(); return w; }
 function ring(cx, cy, rx, ry, lw, rot = -.2) { x.save(); x.strokeStyle = RED; x.lineWidth = lw; x.lineCap = 'round';
-  x.shadowColor = 'rgba(0,0,0,.35)'; x.shadowBlur = 12; x.beginPath(); x.ellipse(cx, cy, rx, ry, rot, -1.9, -1.9 + Math.PI * 2 * 1.04); x.stroke(); x.restore(); }
+  x.shadowColor = 'rgba(0,0,0,.35)'; x.shadowBlur = 12 * S; x.beginPath(); x.ellipse(cx, cy, rx, ry, rot, -1.9, -1.9 + Math.PI * 2 * 1.04); x.stroke(); x.restore(); }
 function sticker(s, cx, cy, size, rot, bg = RED, fg = '#fff', pad = 34) { // a tilted price tag
   const w = tw(s, size) + pad * 2, h = size * 1.12; x.save(); x.translate(cx, cy); x.rotate(rot);
-  x.shadowColor = 'rgba(0,0,0,.55)'; x.shadowBlur = 30; x.shadowOffsetY = 12; x.fillStyle = bg; x.fillRect(-w / 2, -h / 2, w, h); x.shadowColor = 'transparent';
+  x.shadowColor = 'rgba(0,0,0,.55)'; x.shadowBlur = 30 * S; x.shadowOffsetY = 12 * S; x.fillStyle = bg; x.fillRect(-w / 2, -h / 2, w, h); x.shadowColor = 'transparent';
   x.font = `${size}px Anton`; x.fillStyle = fg; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(s, 0, size * .04); x.restore(); return w; }
 function vignette(a = .5) { const g = x.createRadialGradient(W / 2, H / 2, H * .35, W / 2, H / 2, H * 1.0); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(0,0,0,${a})`); x.fillStyle = g; x.fillRect(0, 0, W, H); }
 
@@ -57,7 +60,7 @@ function C() {
   text('VS', W / 2, 790, 150, { al: 'center', c: RED, stroke: 12, shadow: 20 });
   ring(1440, 730, 230, 300, 12, -.55);
 }
-async function boot() { IM.starry = await load('assets/starry.jpg'); IM.comedian = await load('assets/comedian.jpg'); await document.fonts.load('100px Anton'); window.READY = true; }
-window.DUR = 3; window.render = t => { x.setTransform(1, 0, 0, 1, 0, 0); x.filter = 'none'; [A, B, C][Math.min(2, Math.floor(t))](); };
+async function boot() { IM.starry = await load('assets/starry.jpg'); IM.comedian = await load(S > 1.05 ? 'assets/comedian_4k.jpg' : 'assets/comedian.jpg'); IM.comedian.base = 2000; await document.fonts.load('100px Anton'); window.READY = true; }
+window.DUR = 3; window.render = t => { x.setTransform(S, 0, 0, S, 0, 0); x.filter = 'none'; [A, B, C][Math.min(2, Math.floor(t))](); };
 boot();
 </script></body></html>
