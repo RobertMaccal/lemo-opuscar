@@ -1,0 +1,63 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Thumbnail</title>
+<style>html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}
+@font-face{font-family:Anton;src:url(anton.ttf)}
+@font-face{font-family:Sans;src:url(../fonts/sans700.ttf);font-weight:700}
+@font-face{font-family:Mono;src:url(../fonts/mono600.ttf);font-weight:600}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas><script>
+// YouTube thumbnail for "The Death of Beautiful Art?" — t = 0, 1, 2 render three variants (A, B, C).
+const W = 1920, H = 1080, x = document.getElementById('c').getContext('2d'), RED = '#FF2A1A';
+const IM = {}; const load = s => new Promise(r => { const i = new Image(); i.onload = () => r(i); i.src = s; });
+function crop(img, X, Y, w, h, cx, cy, sc, filter) { // draw img so source point (cx,cy) sits at the cell centre, sc = screen px per source px
+  x.save(); x.beginPath(); x.rect(X, Y, w, h); x.clip(); if (filter) x.filter = filter;
+  x.drawImage(img, X + w / 2 - cx * sc, Y + h / 2 - cy * sc, img.width * sc, img.height * sc); x.restore(); }
+function text(s, X, Y, size, o = {}) { x.save(); x.font = `${size}px ${o.f || 'Anton'}`; x.textAlign = o.al || 'left'; x.textBaseline = 'alphabetic';
+  if (o.rot) { x.translate(X, Y); x.rotate(o.rot); X = 0; Y = 0; }
+  if (o.stroke) { x.lineJoin = 'round'; x.lineWidth = o.stroke; x.strokeStyle = o.sc || '#000'; x.strokeText(s, X, Y); }
+  if (o.shadow) { x.shadowColor = 'rgba(0,0,0,.6)'; x.shadowBlur = o.shadow; x.shadowOffsetY = o.shadow / 3; }
+  x.fillStyle = o.c || '#fff'; x.fillText(s, X, Y); const w = x.measureText(s).width; x.restore(); return w; }
+function tw(s, size, f = 'Anton') { x.save(); x.font = `${size}px ${f}`; const w = x.measureText(s).width; x.restore(); return w; }
+function ring(cx, cy, rx, ry, lw, rot = -.2) { x.save(); x.strokeStyle = RED; x.lineWidth = lw; x.lineCap = 'round';
+  x.shadowColor = 'rgba(0,0,0,.35)'; x.shadowBlur = 12; x.beginPath(); x.ellipse(cx, cy, rx, ry, rot, -1.9, -1.9 + Math.PI * 2 * 1.04); x.stroke(); x.restore(); }
+function sticker(s, cx, cy, size, rot, bg = RED, fg = '#fff', pad = 34) { // a tilted price tag
+  const w = tw(s, size) + pad * 2, h = size * 1.12; x.save(); x.translate(cx, cy); x.rotate(rot);
+  x.shadowColor = 'rgba(0,0,0,.55)'; x.shadowBlur = 30; x.shadowOffsetY = 12; x.fillStyle = bg; x.fillRect(-w / 2, -h / 2, w, h); x.shadowColor = 'transparent';
+  x.font = `${size}px Anton`; x.fillStyle = fg; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(s, 0, size * .04); x.restore(); return w; }
+function vignette(a = .5) { const g = x.createRadialGradient(W / 2, H / 2, H * .35, W / 2, H / 2, H * 1.0); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(0,0,0,${a})`); x.fillStyle = g; x.fillRect(0, 0, W, H); }
+
+// A — the split: 1889 masterpiece | 2024 banana, a giant price tag across the seam
+function A() {
+  crop(IM.starry, 0, 0, 900, H, 1480, 1560, .37, 'saturate(1.3) contrast(1.1) brightness(1.05)');
+  { const g = x.createLinearGradient(0, 600, 0, H); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.55)'); x.fillStyle = g; x.fillRect(0, 600, 900, H - 600); }
+  x.fillStyle = '#F4F1EA'; x.fillRect(900, 0, W - 900, H);
+  crop(IM.comedian, 900, 0, W - 900, H, 1010, 700, .84, 'saturate(1.4) contrast(1.08) brightness(1.03)');
+  x.fillStyle = '#0B0C0E'; x.fillRect(894, 0, 14, H);                         // the seam
+  ring(1452, 500, 345, 455, 16, -.5);                                          // the circle around the banana
+  text('1889', 60, 170, 150, { stroke: 14, shadow: 20 });                       // the dates
+  text('2024', 1860, 170, 150, { al: 'right', c: '#111', stroke: 0 });
+  sticker('$6,240,000', 800, 800, 215, -.045);                                  // centred on the seam, clear of the timestamp corner
+  text('FOR A BANANA?!', 800, 1040, 118, { al: 'center', stroke: 18, shadow: 20 });
+}
+// B — the banana as the hero on black, the painting dying behind it
+function B() {
+  x.fillStyle = '#0B0C0E'; x.fillRect(0, 0, W, H);
+  crop(IM.starry, 0, 0, W, H, 2100, 1300, .66, 'saturate(1.25) brightness(.7)'); vignette(.7);
+  x.save(); x.translate(1250, 545); x.rotate(.035); x.shadowColor = 'rgba(0,0,0,.7)'; x.shadowBlur = 50; x.shadowOffsetY = 20;
+  x.fillStyle = '#F4F1EA'; x.fillRect(-380, -470, 760, 940); x.shadowColor = 'transparent'; x.restore();
+  x.save(); x.translate(1250, 545); x.rotate(.035); crop(IM.comedian, -362, -452, 724, 904, 1010, 650, .82, 'saturate(1.35) contrast(1.08)'); x.restore();
+  text('IS THIS', 70, 250, 200, { stroke: 18, shadow: 24 }); text('ART?', 70, 590, 320, { c: RED, stroke: 20, shadow: 24 });
+  sticker('$6,240,000', 470, 800, 150, -.05);
+}
+// C — the price as the headline, the two works as evidence below
+function C() {
+  x.fillStyle = '#0B0C0E'; x.fillRect(0, 0, W, H);
+  text('$6,240,000', W / 2, 330, 330, { al: 'center', c: '#fff', shadow: 30 });
+  x.fillStyle = RED; x.fillRect(W / 2 - tw('$6,240,000', 330) / 2, 360, tw('$6,240,000', 330), 18);
+  crop(IM.starry, 90, 430, 780, 600, 1700, 1300, .5, 'saturate(1.2)'); x.strokeStyle = '#fff'; x.lineWidth = 6; x.strokeRect(90, 430, 780, 600);
+  x.fillStyle = '#F4F1EA'; x.fillRect(1050, 430, 780, 600); crop(IM.comedian, 1050, 430, 780, 600, 1010, 660, .6, 'saturate(1.35)'); x.strokeRect(1050, 430, 780, 600);
+  text('VS', W / 2, 790, 150, { al: 'center', c: RED, stroke: 12, shadow: 20 });
+  ring(1440, 730, 230, 300, 12, -.55);
+}
+async function boot() { IM.starry = await load('assets/starry.jpg'); IM.comedian = await load('assets/comedian.jpg'); await document.fonts.load('100px Anton'); window.READY = true; }
+window.DUR = 3; window.render = t => { x.setTransform(1, 0, 0, 1, 0, 0); x.filter = 'none'; [A, B, C][Math.min(2, Math.floor(t))](); };
+boot();
+</script></body></html>
