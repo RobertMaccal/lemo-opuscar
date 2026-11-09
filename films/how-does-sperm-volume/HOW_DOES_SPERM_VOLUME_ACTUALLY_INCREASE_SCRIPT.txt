@@ -1,0 +1,364 @@
+HOW DOES SPERM VOLUME ACTUALLY INCREASE?
+PRODUCTION SCRIPT + STORYBOARD (aiTrends 2D, 9:16, 90 s)
+==================================================================
+
+1. EPISODE HEADER
+------------------------------------------------------------------
+Primary title:  How Does Sperm Volume Actually Increase?
+Alt titles:     - Your "Sperm Volume" Is 95% Not Sperm
+                - What Actually Increases Sperm Volume? (It's Not Pills)
+                - The Supplement Ads Got Sperm Volume Wrong
+Aspect ratio:   9:16 (Shorts / Reels / TikTok)
+Duration:       ~90 s (212 spoken words, ~2.35 words/s)
+Clips:          15
+Audience:       Adults 18+, curious non-experts. Clinical, non-explicit,
+                no sexual imagery.
+Tone:           Cinematic, smart, playful, myth-busting
+Synopsis:       Max scrolls past an ad promising "MORE VOLUME" and we follow
+                the question inside a blueprint body. The twist: sperm are
+                only 2-5% of the fluid. The real factories are two glands
+                behind and below the bladder, which refill over time and run
+                on hormones. That explains what actually raises volume
+                (time), what shrinks it (age, low testosterone, some drugs,
+                a leaky bladder seal), the trap (taking testosterone shuts
+                sperm production down), and which supplements have real but
+                modest evidence.
+Core surprise:  "Sperm volume" is almost entirely NOT sperm. It's gland
+                output, and the biggest lever is the calendar, not a pill.
+
+2. MECHANISM MAP (full ledger in _MECHANISM_MAP.txt)
+------------------------------------------------------------------
+1. The testes make sperm, which takes ~2.5-3 months, and store them in the
+   epididymis.
+2. The vas deferens carries sperm up and behind the bladder.
+3. The seminal vesicles (behind the bladder) make ~60-70% of the fluid,
+   fructose-rich and androgen-dependent.
+4. The prostate (below the bladder) adds ~20-30%: thin fluid with zinc and
+   enzymes.
+5. Emission: smooth muscle squeezes, the streams merge in the urethra, and
+   the bladder neck closes.
+6. Expulsion: pelvic-floor muscles push semen out. If the bladder neck
+   fails, it goes into the bladder (retrograde).
+7. The glands refill between ejaculations, so longer gaps raise volume and
+   very long gaps lower motility.
+8. Age, low testosterone and 5-alpha-reductase inhibitors (dutasteride)
+   lower gland output.
+9. Hormone loop: taking testosterone makes the brain cut LH and FSH, so
+   testicular testosterone falls and sperm production collapses (usually
+   reversible).
+10. Supplements mostly target sperm quality: zinc (if deficient), CoQ10
+    (motility), ashwagandha (one small trial raised volume). Any change
+    takes about 3 months.
+
+3. CHARACTER & VISUAL REFERENCE (full rules in _STYLE_BIBLE.txt)
+------------------------------------------------------------------
+- MAX (hero): ink #0e0b12 stick figure, cream dot eyes #f4efe6, deep-blue
+  jacket #1e56a0, warm rim light, never lip-synced.
+- DR. ADA: same build with a bun, pale coat, round glasses, violet #9b59b6
+  scarf.
+- AD-SALESMAN: ink silhouette inside a phone-ad frame, orange #e67e22 tie.
+- KEY PROP: "THE VOLUME CYLINDER": tall measuring cylinder; cream sliver =
+  sperm, teal = prostate, amber = seminal vesicles.
+- DIAGRAM KEY: blueprint blue = anatomy; cream = sperm; amber = seminal
+  vesicle fluid; teal = prostate fluid; coral = warning or backflow; white
+  pulses = nerve or hormone signals.
+
+4. CLIP-BY-CLIP SCRIPT + STORYBOARD
+------------------------------------------------------------------
+Times are planned from the word count. Final timing follows the real
+voiceover.
+
+CLIP 01 | 00:00.0-00:05.5 | 13 words
+NARRATION: "Every ad online promises more sperm volume. Here's the twist...
+it's barely sperm."
+EXPLANATION GOAL: Hook. The popular phrase is about to be overturned.
+VISUAL STORY: Max's bedroom at night. Max in bed-edge silhouette, face lit
+blue-white by his phone. Insert: the phone screen shows the ad-salesman
+silhouette with an orange tie, a sparkle and big text "MORE VOLUME!" plus
+"300%!!" stickers flying (generic, no brands). On "the twist...", the
+camera snaps from the phone to a giant-face close-up of Max: eyebrows up,
+"surprised" expression.
+MECHANISM / GRAPHIC: None yet. Pure curiosity gap. The ad text wobbles
+with cheap bounce animation, deliberately tacky.
+CAMERA / TRANSITION: Fast push into the phone (1.0 to 1.2), then a hard
+cut to bigFace on "it's barely sperm". Scope bars flick on for a beat.
+CONTINUITY: The phone's glow colour carries into clip 2's cylinder glow.
+AUDIO: Phone tap, ad jingle sting (tinny, comedic); bass drop under
+"barely sperm".
+FACT CHECK: L1.
+
+CLIP 02 | 00:05.5-00:10.6 | 12 words
+NARRATION: "Sperm make up only about two to five percent of the total."
+EXPLANATION GOAL: Sperm cells are a tiny fraction of the fluid volume.
+VISUAL STORY: Zoom transition into the blueprint void. THE VOLUME
+CYLINDER rises into frame, tall and centred, top label "~1.5-5 mL". A
+thin CREAM sliver fills the bottom (cause), with tiny tadpole dots
+swimming in it. A gold "2-5%" pops beside it with a leader line. The
+remaining 95% of the cylinder glows as an empty dashed outline with a big
+"?" inside (effect: the mystery space).
+MECHANISM / GRAPHIC: Cream layer fills to ~4% height; dashed outline
+above.
+CAMERA / TRANSITION: Slow vertical tilt from the sliver up to the empty
+"?".
+CONTINUITY: The cylinder stays parked at the right edge of the blueprint
+void for later clips.
+AUDIO: Glassy blip on "2-5%", hollow airy tone on the empty space.
+FACT CHECK: L1 (optional tiny footnote text: "same volume after
+vasectomy", L18).
+
+CLIP 03 | 00:10.6-00:15.7 | 12 words
+NARRATION: "So how does that volume actually go up? First, find the factories."
+EXPLANATION GOAL: State the big question, then commit to the investigation.
+VISUAL STORY: TITLE CARD: "HOW DOES SPERM VOLUME ACTUALLY INCREASE?"
+(Fredoka Bold, glowing) over a blurred wide of Max standing at his window,
+city lights behind. On "find the factories", Max turns toward camera and
+clicks a flashlight. Its beam becomes the blueprint scan line that sweeps
+down into the next shot.
+MECHANISM / GRAPHIC: Title glow, then the scan-line wipe.
+CAMERA / TRANSITION: Fade in title; on "factories" a vertical wipe by the
+scan line.
+CONTINUITY: The scan line draws the anatomy outline in clip 4. Captions
+OFF on this clip.
+AUDIO: Title whoosh, flashlight click, scanner hum.
+FACT CHECK: none (framing).
+
+CLIP 04 | 00:15.7-00:21.6 | 14 words
+NARRATION: "Sperm are made in the testes, then stored in a coiled tube, the
+epididymis."
+EXPLANATION GOAL: Where sperm come from and where they wait.
+VISUAL STORY: The full clinical side-view schematic draws itself in
+blueprint line, stacked vertically: bladder at top, prostate below it,
+seminal vesicles behind, testis and epididymis at the bottom. External
+anatomy is a minimal outline or cropped out. A magnifier ring zooms onto
+the testis: cream dots form (cause), then slide into the coiled epididymis
+and gather there (effect). Labels: "TESTIS", "EPIDIDYMIS".
+MECHANISM / GRAPHIC: Cream particles move testis to epididymis, arrows in
+the direction of transport.
+CAMERA / TRANSITION: Start wide on the full schematic, push into the
+magnifier ring at the bottom.
+CONTINUITY: The vas deferens is already drawn, running up from the
+epididymis toward the bladder (used in clip 8).
+AUDIO: Soft bubbling, a micro "tick" as each label pops.
+FACT CHECK: L5, L16.
+
+CLIP 05 | 00:21.6-00:27.6 | 14 words
+NARRATION: "But most of the fluid comes from the seminal vesicles, tucked
+behind the bladder."
+EXPLANATION GOAL: The main volume source is a pair of glands most people
+can't name.
+VISUAL STORY: The camera follows the vas deferens UP the schematic
+(match-cut along the tube) to the back of the bladder. The two seminal
+vesicles light up AMBER behind the bladder (cause). A small "you are
+here" bladder icon pulses for orientation. One label: "SEMINAL VESICLES".
+MECHANISM / GRAPHIC: Amber glow swells inside the glands as if filling.
+CAMERA / TRANSITION: Continuous upward tracking move, then a gentle push-in.
+CONTINUITY: The amber glands stay lit for clips 6 and 8.
+AUDIO: Rising synth pad, warm hum as the glands light.
+FACT CHECK: L2.
+
+CLIP 06 | 00:27.6-00:34.0 | 15 words
+NARRATION: "They supply roughly two thirds of it, packed with fructose, a
+sugar that fuels sperm."
+EXPLANATION GOAL: Seminal vesicles = biggest share; their fluid feeds sperm.
+VISUAL STORY: Split vertical layout. Top: macro inside the gland, amber
+fluid with tiny glowing hexagon "sugar" icons labelled "FRUCTOSE". Bottom:
+THE VOLUME CYLINDER. An amber stream pours in (cause) and the amber band
+rises to about two thirds (effect). Gold "~2/3" pops. A cream sperm dot
+brushes a sugar icon and wiggles faster (playful, obviously symbolic).
+MECHANISM / GRAPHIC: Amber layer fills above the cream sliver.
+CAMERA / TRANSITION: Slow push on the cylinder while the pour completes.
+CONTINUITY: The cylinder now shows cream plus amber. The teal gap remains.
+AUDIO: Liquid pour swell, a tiny "boing" on the sperm wiggle.
+FACT CHECK: L2, L3.
+
+CLIP 07 | 00:34.0-00:39.9 | 14 words
+NARRATION: "The prostate adds most of the rest: a thin, zinc-rich fluid full
+of enzymes."
+EXPLANATION GOAL: The prostate is the second source, with its own chemistry.
+VISUAL STORY: Cut back to the schematic. The prostate, directly below the
+bladder and ringed around the urethra, glows TEAL (cause). Inset: a tiny
+"Zn" element tile and scissor-shaped enzyme icons. The cylinder: a teal
+stream fills the gap (effect), and the cylinder is now nearly full and
+glowing. Label: "PROSTATE".
+MECHANISM / GRAPHIC: Teal layer fills between cream and amber (compositional
+chart, not settling).
+CAMERA / TRANSITION: Lateral drift from the prostate to the cylinder.
+CONTINUITY: All three colours now established, never to change meaning.
+AUDIO: Second, lighter pour, a crisp metallic "ting" on the "Zn" tile.
+FACT CHECK: L4.
+
+CLIP 08 | 00:39.9-00:47.1 | 17 words
+NARRATION: "At release, the streams merge. A muscle ring seals the bladder.
+If it fails, semen flows backward."
+EXPLANATION GOAL: Emission merges the streams; the bladder neck must close;
+failure = retrograde ejaculation.
+VISUAL STORY: Schematic, mid shot of bladder, prostate and urethra. White
+nerve pulses flick along the ducts (cause). Cream, amber and teal streams
+converge into the prostatic urethra and travel DOWN and out of frame
+(effect). At the same moment a ring at the bladder neck snaps shut with a
+blue outline. On "If it fails": a small coral "FAIL" inset shows the ring
+open and the mixed stream curling UP into the bladder with a coral arrow.
+The bottom of the cylinder drains slightly.
+MECHANISM / GRAPHIC: Correct direction (downward and out) in the main
+view; backward flow only in the coral inset.
+CAMERA / TRANSITION: Push-in toward the bladder neck, then the inset pops
+in at the upper right.
+CONTINUITY: The cylinder level drop carries into clip 9.
+AUDIO: Three pulses, a mechanical "clunk" for the seal, a soft error buzz
+for the fail.
+FACT CHECK: L6.
+
+CLIP 09 | 00:47.1-00:53.1 | 14 words
+NARRATION: "So volume is mostly glands refilling. The biggest lever isn't a
+pill. It's time."
+EXPLANATION GOAL: Key insight. Volume depends on gland refill, so time is
+the main lever.
+VISUAL STORY: Kitchen counter, warm pendant lamp. Max stares at a giant
+pill on the counter. On "isn't a pill" he flicks it and it rolls off
+(cause). He looks up at the wall calendar, which glows (effect). A small
+cylinder hologram floats beside him and slowly refills.
+MECHANISM / GRAPHIC: The mini-cylinder level rising, linked by a dotted
+line to the calendar.
+CAMERA / TRANSITION: Medium shot, push toward the calendar on "It's time."
+CONTINUITY: The calendar becomes the hero prop of clip 10.
+AUDIO: Pill rattle and roll, a clock tick starts.
+FACT CHECK: L7.
+
+CLIP 10 | 00:53.1-00:59.0 | 14 words
+NARRATION: "Skip a few days and volume climbs. Wait too long, and sperm get
+sluggish."
+EXPLANATION GOAL: Longer abstinence raises volume; very long reduces
+motility (a trade-off).
+VISUAL STORY: Insert: calendar pages flip DAY 1, 2, 3 (cause). The seminal
+vesicle and prostate icons beside them swell and the cylinder climbs
+(effect). Pages keep flipping to DAY 10+. A cream sperm dot slows, yawns
+(symbolic) and drifts. A simple meter "SWIM SPEED" dips into coral.
+Optional tiny on-screen note: "WHO lab protocol: 2-7 days".
+MECHANISM / GRAPHIC: Volume meter up, motility meter down: two bars moving
+in opposite directions.
+CAMERA / TRANSITION: Locked-centre insert with a slow vertical drift; whip
+to clip 11.
+CONTINUITY: The two meters persist briefly into the next shot.
+AUDIO: Page flips accelerate; a deflating "wah" on sluggish.
+FACT CHECK: L7.
+
+CLIP 11 | 00:59.0-01:04.1 | 12 words
+NARRATION: "Age, low testosterone, and prostate drugs like dutasteride can
+all shrink it."
+EXPLANATION GOAL: Real reducers of volume, each with a cause.
+VISUAL STORY: Three quick vertical cards stack down the frame, each with a
+cause-to-effect micro-animation: (1) Max's silhouette ages, with a grey
+hair tuft and a bent posture, and the gland icon dims slightly. (2) A "T"
+hormone gauge drops and the amber gland dims. (3) A generic pill bottle
+labelled "DUTASTERIDE" and the cylinder shrinks. Coral down-arrows on
+each.
+MECHANISM / GRAPHIC: Each card shows its specific lever acting on the
+glands.
+CAMERA / TRANSITION: Fast vertical pan down the stack.
+CONTINUITY: The "T" gauge carries into clip 12.
+AUDIO: Three descending blips.
+FACT CHECK: L8, L9, L10.
+
+CLIP 12 | 01:04.1-01:10.9 | 16 words
+NARRATION: "But taking testosterone to fix it backfires. Your brain sees
+plenty and shuts sperm production down."
+EXPLANATION GOAL: The counterintuitive feedback loop: external T suppresses
+LH/FSH and sperm production.
+VISUAL STORY: SIGNATURE FREEZE. Max reaches for a generic gel tube or
+syringe labelled "T". Flash, the world freezes with dust hanging and a
+cool tint, and a corner badge reads "TRAP". Vertical blueprint stack: BRAIN
+(pituitary dot) at top, a bloodstream line in the middle, the testis at the
+bottom. Gold "T" particles flood the bloodstream (cause). The pituitary
+sees the flood and its white signal lines "LH/FSH" to the testes fade
+out (effect). The testis sperm-factory icon goes dark and the cream dots
+stop forming. Tiny footnote: "usually reversible after stopping".
+MECHANISM / GRAPHIC: The feedback arrow from the bloodstream back to the
+brain is coral; the signal down to the testes dims.
+CAMERA / TRANSITION: Flash in, slow rotation-drift during the freeze,
+snap back to normal time on the last word.
+CONTINUITY: Max unfreezes and puts the tube down, looking chastened.
+AUDIO: Freeze whoomp, heartbeat-slow ambience, signal lines "power down".
+FACT CHECK: L11.
+
+CLIP 13 | 01:10.9-01:18.1 | 17 words
+NARRATION: "Supplements? Zinc probably only helps if you're low. CoQ10 may help
+sperm swim. Give it three months."
+EXPLANATION GOAL: Honest supplement evidence: zinc conditional, CoQ10
+motility, slow timeline.
+VISUAL STORY: Clinic room. Dr. Ada (violet scarf, glasses) by a lightbox.
+Max holds the phone ad up; it shows the ad-salesman, who shrinks away. Ada
+taps two generic bottles. "ZINC": a gauge reads "LOW" and the bottle helps
+fill it; at "NORMAL" the extra just bounces off (cause, then effect).
+"CoQ10": a cream sperm dot gets a gentle speed-trail. Lightbox calendar:
+"~3 MONTHS" in gold, because new sperm take about that long to build.
+MECHANISM / GRAPHIC: Conditional effect shown visually (works only when
+low).
+CAMERA / TRANSITION: Medium two-shot, push in on the bottles.
+CONTINUITY: The third bottle "ASHWAGANDHA" waits, out of focus, for clip 14.
+AUDIO: Bottle rattles, a soft "boop" on the bounce-off, a light swoosh on
+the speed-trail.
+FACT CHECK: L12, L13, L16.
+
+CLIP 14 | 01:18.1-01:24.1 | 14 words
+NARRATION: "Ashwagandha raised volume in one small trial. A sudden drop? Talk
+to a doctor."
+EXPLANATION GOAL: Promising but limited evidence; red flags warrant
+medical care.
+VISUAL STORY: Ada lifts the "ASHWAGANDHA" bottle. A tiny data card: two
+bars, "PLACEBO" vs "EXTRACT", the extract bar a bit taller, stamped "1
+SMALL STUDY · 46 MEN" in cream (cause, then effect, with honest framing).
+On "A sudden drop?", Max's mini-cylinder flashes coral and Ada gestures to
+the door sign "UROLOGY" with a calm nod. Max nods back.
+MECHANISM / GRAPHIC: Bar chart with the honest caveat label baked in.
+CAMERA / TRANSITION: Insert on the data card, rack to Ada and Max.
+CONTINUITY: Max exits toward the window light; the dip leads to the recap.
+AUDIO: Card pop, gentle reassurance chime.
+FACT CHECK: L14 (on-screen caveat), safety note in SOURCES.
+
+CLIP 15 | 01:24.1-01:30.0 | 14 words
+NARRATION: "So sperm volume is really gland volume. Time, hormones, plumbing...
+and almost no sperm."
+EXPLANATION GOAL: Payoff. Recap the full system and close the opening loop.
+VISUAL STORY: Dip, then back in Max's bedroom at night (same framing as
+clip 1). His phone shows the same ad, but now a transparent blueprint
+overlay of the full system draws over it: glands, ducts and the bladder
+seal, with all three colours flowing correctly. Three gold words pop down
+the frame in time with the narration: "TIME", "HORMONES", "PLUMBING". On
+"almost no sperm": THE VOLUME CYLINDER returns, full, and zooms to the tiny
+cream sliver at the bottom. Max grins and smirks at the camera, then
+swipes the ad away. The end question appears in Playfair Display italic:
+"What should we take apart next?"
+MECHANISM / GRAPHIC: Full-system montage with the same colours and arrows.
+CAMERA / TRANSITION: Pull-back reveal from the phone to the room, final
+macro on the cream sliver.
+CONTINUITY: Mirrors clip 1, closing the loop. Captions OFF over the end
+text.
+AUDIO: Music resolves, a satisfied "ding", soft room tone.
+FACT CHECK: L1, L2, L4, L7, L11 (recap).
+
+5. COMBINED NARRATION (TTS: paste exactly; same text as
+   _NARRATION_ONLY.txt)
+------------------------------------------------------------------
+Every ad online promises more sperm volume. Here's the twist... it's barely sperm. Sperm make up only about two to five percent of the total. So how does that volume actually go up? First, find the factories. Sperm are made in the testes, then stored in a coiled tube, the epididymis. But most of the fluid comes from the seminal vesicles, tucked behind the bladder. They supply roughly two thirds of it, packed with fructose, a sugar that fuels sperm. The prostate adds most of the rest: a thin, zinc-rich fluid full of enzymes. At release, the streams merge. A muscle ring seals the bladder. If it fails, semen flows backward. So volume is mostly glands refilling. The biggest lever isn't a pill. It's time. Skip a few days and volume climbs. Wait too long, and sperm get sluggish. Age, low testosterone, and prostate drugs like dutasteride can all shrink it. But taking testosterone to fix it backfires. Your brain sees plenty and shuts sperm production down. Supplements? Zinc probably only helps if you're low. CoQ10 may help sperm swim. Give it three months. Ashwagandha raised volume in one small trial. A sudden drop? Talk to a doctor. So sperm volume is really gland volume. Time, hormones, plumbing... and almost no sperm.
+
+6. VOICE GENERATION INSTRUCTION
+------------------------------------------------------------------
+Use a warm, clear, expressive, inquisitive male narrator with a human,
+conversational, slightly cinematic delivery. Sound like an exceptionally
+interesting friend explaining a real discovery, not an advertisement. Open
+with quiet fascination; build momentum while unpacking the mechanism; slow
+slightly around crucial scientific turns; deliver the final revelation with
+delighted confidence. Natural English pronunciation, clear technical terms,
+light dry humor, gentle emphasis on contrasting ideas, and pauses only
+where they improve comprehension. Keep consistent vocal identity. No
+yelling, artificial suspense, or robotic speed.
+
+For this episode: punch the hook ("it's barely sperm") with a dry,
+amused beat. Keep the anatomy section clinical and calm, not giggly.
+Pronunciation checks:
+  epididymis   = ep-ih-DID-ih-miss
+  seminal vesicles = SEM-in-ul VESS-ih-kuls
+  dutasteride  = doo-TASS-ter-ide
+  CoQ10        = "co-Q-ten"
+  ashwagandha  = ash-wuh-GAHN-duh
+Target pace ~2.3-2.4 words/s, which lands at 88-92 s.

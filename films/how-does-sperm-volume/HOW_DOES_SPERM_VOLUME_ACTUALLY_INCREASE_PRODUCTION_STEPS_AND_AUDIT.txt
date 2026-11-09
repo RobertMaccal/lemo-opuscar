@@ -1,0 +1,102 @@
+HOW DOES SPERM VOLUME ACTUALLY INCREASE?
+PRODUCTION STEPS (PHASE 2 + 3) AND FINAL QUALITY AUDIT
+==================================================================
+
+PHASE 2: VOICEOVER (your step)
+1. Open HOW_DOES_SPERM_VOLUME_ACTUALLY_INCREASE_NARRATION_ONLY.txt.
+2. Paste it into ElevenLabs (or your preferred TTS) and apply the voice
+   instruction in the SCRIPT file, section 6.
+3. Generate it, then check pronunciation (epididymis, seminal vesicles,
+   dutasteride, CoQ10, ashwagandha), pacing (aim for 88-92 s) and clarity.
+4. Save it in this folder as
+   HOW_DOES_SPERM_VOLUME_ACTUALLY_INCREASE_VOICEOVER.wav (or .mp3).
+5. No manual timestamps needed. The studio aligns the script to the audio
+   with Whisper.
+
+PHASE 3: aiTrends 2D Studio
+Run the make-2d-video skill (or /new-video then /video-styles then
+/render-video) and say:
+
+  "Make a premium cinematic 2D HOW DOES IT WORK? explainer from the
+  voiceover in films/how-does-sperm-volume. Read the SCRIPT,
+  MECHANISM_MAP and STYLE_BIBLE files. Use the narration file as the plain
+  script for alignment. 9:16, 1080p, captions on, subtle generated music,
+  SFX on. Preserve the ink stick figures, the deep-blue #1e56a0 hero
+  jacket, Dr. Ada's violet scarf, the dusk palette and the colour-coded
+  VOLUME CYLINDER (cream sperm, teal prostate, amber seminal vesicles).
+  Every anatomy scene must be a clinical, non-explicit blueprint schematic
+  with correct organ positions and flow directions. Align every reveal and
+  number to the spoken words. Show me a preview first and render the final
+  MP4 only after I approve."
+
+Recommended setup answers:
+- Script: plain text, the NARRATION_ONLY file (it matches the audio
+  exactly).
+- Aspect: 9:16. Resolution: 1080p (720p for a draft).
+- Captions: on (off on clips 3 and 15). Music: generated, subtle.
+  SFX: on.
+- Remove long pauses: only dead air. Keep the "..." beats in clips 1 and 15.
+- Style preset: DUSK, then paste the custom style:
+
+  Cinematic dusk 2D vector animation, no realism, no 3D appearance. Pure
+  ink #0e0b12 rounded-limb stick-figure lead, cream dot eyes #f4efe6,
+  consistent deep-blue jacket #1e56a0, subtle warm rim light; female lead
+  (doctor) in a pale coat with a violet #9b59b6 scarf. Rich navy/plum
+  backgrounds, amber practical light, gentle grain and parallax. When
+  explaining the anatomy, use crystal-clear clinical blueprint cross-
+  sections (non-explicit), correct directional arrows, minimal readable
+  labels and visually continuous ducts. Colour key: cream = sperm, amber =
+  seminal vesicle fluid, teal = prostate fluid, coral = warnings or
+  backflow. Show how each step causes the next. Mobile-safe 9:16
+  composition, no letterboxing. Smooth cinematic camera motion. The
+  external narrator is not lip-synced to characters.
+
+Preview checklist (the preview must include clip 1, a blueprint clip from
+4-8, clip 8 and clip 12):
+- The flow in clip 8 goes down and out in the main view; backward only in
+  the coral inset.
+- Seminal vesicles are behind the bladder and the prostate is below it,
+  around the urethra.
+- The cylinder colours never swap.
+- Max's jacket stays #1e56a0 in every shot.
+- Labels and captions stay inside the 9:16 safe zone.
+- Narration is clear over the music and SFX.
+
+------------------------------------------------------------------
+FINAL QUALITY AUDIT (Phase 1)
+------------------------------------------------------------------
+Clip count:          15 (6-second planning grid; 90 / 6 = 15)
+Spoken words:        212 (checked by script: clip lines join to exactly
+                     the NARRATION_ONLY text)
+Per-clip words:      12-17 (clips 8 and 13 run 17, so those beats are
+                     planned at ~7 s)
+Expected duration:   ~85-92 s at 2.3-2.5 words/s. Not yet measured
+                     against real audio.
+Title:               Starts with "How Does", ends with "?", real mechanism,
+                     not a hypothetical.
+Hook:                The first 3 s carry a concrete contradiction ("it's
+                     barely sperm").
+Answer before CTA:   Yes. Clips 9-15 answer it; the end card is a single
+                     question.
+Payoff loop:         Clip 15 mirrors clip 1 (same room, same ad, cylinder
+                     returns).
+Scientific checks:
+  - Gland shares stated as ranges or rounded midpoints (L1, L2, L4).
+  - Bladder-neck closure and retrograde explained correctly (L6).
+  - Abstinence trade-off with no invented per-day rate (L7).
+  - Testosterone feedback loop correct and flagged as usually reversible
+    (L11).
+  - Supplements framed at their actual evidence level: zinc (null RCT,
+    conditional), CoQ10 (motility), ashwagandha (one small trial)
+    (L12-L14).
+  - No hydration claims, no invented statistics, no brand names.
+  - Safety line spoken ("A sudden drop? Talk to a doctor").
+Visual checks:       Locked cast colours, a colour key with one meaning per
+                     colour, no characters inside the cutaways, clinical
+                     non-explicit anatomy, 9:16 safe zones and caption
+                     clearance specified.
+Not done here:       No voiceover generated, no video rendered, no preview
+                     inspected. Those are Phase 2 and 3.
+Fallback prompts:    Not generated. The aiTrends 2D Studio plugin is
+                     installed in this environment, so the plugin route
+                     applies.

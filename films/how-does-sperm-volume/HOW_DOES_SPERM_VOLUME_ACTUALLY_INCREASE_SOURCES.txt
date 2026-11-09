@@ -1,0 +1,124 @@
+HOW DOES SPERM VOLUME ACTUALLY INCREASE?
+SOURCES & ACCURACY NOTES (not for the spoken script)
+==================================================================
+Research was done with web search on 2026-11-09. The entries below are
+sources that the searches surfaced and whose content was summarized during
+research. Primary papers were not all read in full. Check the full text
+before quoting exact figures in a pinned comment or description.
+
+ANATOMY & COMPOSITION
+- NCI SEER Training Modules, "Accessory Glands" (male reproductive system).
+  https://training.seer.cancer.gov/anatomy/reproductive/male/glands.html
+  Seminal vesicles about 60% of volume; ejaculate about 1.5-6 mL.
+- Encyclopaedia Britannica, "Semen". https://www.britannica.com/topic/semen
+  Seminal vesicles largest share, prostate about 30%, volume about 2-5 mL.
+- PMC review schematic of ejaculate composition (PMC2203235): seminal
+  vesicles 50-80%, prostate 20-40%.
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC2203235/
+
+REFERENCE VALUES
+- WHO Laboratory Manual for the Examination and Processing of Human Semen,
+  6th ed. (2021). Semen volume lower reference limit 1.4 mL (5th centile).
+  As reported by Manchester University NHS FT andrology:
+  https://mft.nhs.uk/app/uploads/sites/4/2023/01/Lower-reference-limits-2021.pdf
+
+EJACULATION PHYSIOLOGY (emission, bladder neck, retrograde)
+- Review of ejaculation physiology, PMC4708301.
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC4708301
+- GPnotebook, "Ejaculation physiology".
+  https://gpnotebook.com/pages/psychiatry/ejaculation-physiology
+
+ABSTINENCE
+- Elzanaty S. et al., "Influence of the abstinence period on human sperm
+  quality", 2004. https://pubmed.ncbi.nlm.nih.gov/15236990/
+- Systematic review of abstinence and semen parameters (28 publications;
+  15 of 17 found significant volume increases), PMC5364080.
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC5364080
+
+AGE
+- Eskenazi B. et al. 2003 (healthy men aged 22-80; volume about -0.03 mL
+  per year). https://www.osti.gov/servlets/purl/802878
+- Counterpoint: 2024 Italian cohort of 2,612 men found no age-volume
+  correlation, Arch Gynecol Obstet.
+  https://link.springer.com/article/10.1007/s00404-024-07448-8
+
+DRUGS
+- Amory J.K. et al., "The effect of 5alpha-reductase inhibition with
+  dutasteride and finasteride on semen parameters and serum hormones in
+  healthy men", J Clin Endocrinol Metab 2007 (RCT; note the published
+  erratum). https://pubmed.ncbi.nlm.nih.gov/17299062/
+- Harvard Health blog, "Do all BPH drugs reduce semen production?"
+  https://www.health.harvard.edu/blog/do-all-bph-drugs-reduce-semen-production-20090402113
+
+TESTOSTERONE & FERTILITY
+- Review summarising AUA and Endocrine Society guidance against
+  testosterone for men wanting fertility within 6-12 months; suppression of
+  LH/FSH and intratesticular testosterone. PMC4708215.
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC4708215
+- AUA Testosterone Deficiency Guideline, J Urol 2018;200(2):423-432 (check
+  exact wording in the primary document).
+
+VASECTOMY (supports "barely sperm")
+- Naelitz B. et al., "Changes in semen volume following vasectomy: a
+  retrospective case-control analysis", Andrology 2025 (doi
+  10.1111/andr.70359).
+
+SUPPLEMENTS
+- FAZST: Schisterman E.F. et al., "Effect of Folic Acid and Zinc
+  Supplementation in Men on Semen Quality and Live Birth Among Couples
+  Undergoing Infertility Treatment", JAMA 2020;323(1):35-48 (n=2,370; no
+  benefit). https://pubmed.ncbi.nlm.nih.gov/31910279/
+- Lafuente R. et al., "Coenzyme Q10 and male infertility: a meta-analysis",
+  2013. https://pubmed.ncbi.nlm.nih.gov/23912751/
+- "Coenzyme Q10 effect on semen parameters: Profound or meagre?", 2020.
+  https://pubmed.ncbi.nlm.nih.gov/32271472/
+- 2025 RCT meta-analysis of CoQ10 (Frontiers in Pharmacology): no
+  significant effect on semen volume. https://pubmed.ncbi.nlm.nih.gov/39830337/
+- Ambiye V.R. et al., "Clinical Evaluation of the Spermatogenic Activity of
+  the Root Extract of Ashwagandha (Withania somnifera) in Oligospermic
+  Males: A Pilot Study", Evid Based Complement Alternat Med 2013
+  (46 men; volume 1.74 to 2.76 mL).
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC3863556/
+- Cochrane: de Ligny W. et al., "Antioxidants for male subfertility",
+  2022 (CD007411.pub5): very-low-certainty evidence.
+  https://pubmed.ncbi.nlm.nih.gov/35506389/
+
+------------------------------------------------------------------
+CAVEATS & HONEST FRAMING
+------------------------------------------------------------------
+1. "Sperm volume" vs semen volume. The title uses the search phrase; the
+   film itself corrects it. Keep that correction. It is the hook.
+2. Percentages are ranges across sources. The script uses "about two to
+   five percent" and "roughly two thirds" on purpose.
+3. Abstinence. The direction is well supported, but no per-day rate is
+   claimed. Very long abstinence lowers motility (and can affect DNA
+   quality in some studies), so the "sweet spot" is a trade-off.
+4. Supplements:
+   - Zinc: no benefit in the large FAZST trial in men in general. The
+     deficiency nuance is plausible but less directly proven, hence
+     "probably".
+   - CoQ10: the most consistent signal is motility. No meaningful volume
+     effect. Hence "may help sperm swim".
+   - Ashwagandha: one small pilot trial, one branded extract, men with low
+     sperm counts. Not replicated at scale. Safety: rare cases of
+     drug-induced liver injury have been reported with ashwagandha, and it
+     can interact with thyroid, sedative, immunosuppressant and diabetes
+     medications. It is generally advised against for people with thyroid
+     or autoimmune conditions. (Background knowledge, not verified in this
+     research pass; confirm before stating in a description.)
+   - Also studied, not in the narration: L-carnitine (motility) and
+     vitamin D (if deficient). Evidence is mixed to modest.
+   - None of these is proven to "super-size" volume in healthy men.
+5. Testosterone. Suppression is strong and common (azoospermia in about
+   65% in one series) and usually reversible, though recovery can take
+   months. Over-the-counter "testosterone boosters" are a different thing
+   (mostly herbal blends) with poor evidence. The film refers to actual
+   testosterone.
+6. Not medical advice. A sudden drop in volume, pain, blood in semen,
+   or trying to conceive for 12 months without success are reasons to see
+   a doctor or urologist.
+7. Not claimed: hydration effects, the order of fractions within an
+   ejaculate, "load size" and fertility links, or any per-pill percentage.
+8. Visual simplifications: sagittal schematic, not to scale; the cylinder
+   layers are a compositional chart, not real sedimentation; the "sluggish
+   sperm yawn" and "sugar fuels sperm wiggle" are symbolic.

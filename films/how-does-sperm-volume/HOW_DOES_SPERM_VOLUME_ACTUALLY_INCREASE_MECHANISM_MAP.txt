@@ -1,0 +1,179 @@
+HOW DOES SPERM VOLUME ACTUALLY INCREASE?
+MECHANISM MAP + ACCURACY LEDGER
+==================================================================
+
+TERMINOLOGY NOTE
+"Sperm volume" is the everyday phrase people search for. Strictly it means
+semen (ejaculate) volume. The film keeps the popular phrase in the title and
+hook, then makes the correction its central reveal: sperm cells are only
+about 2-5% of the volume. The narration says "semen" once it has made that
+correction.
+
+------------------------------------------------------------------
+CAUSAL SPINE (input -> components -> transformation -> output -> control)
+------------------------------------------------------------------
+
+1. PRODUCTION (input). The testes make sperm continuously. One full cycle of
+   sperm development plus transit takes roughly 2.5-3 months, so any change
+   that affects sperm production shows up months later, not days later.
+
+2. STORAGE. Sperm mature and are stored in the epididymis, a tightly coiled
+   tube on the back of each testis. The vas deferens carries them up and
+   behind the bladder to the ejaculatory ducts.
+
+3. THE MAIN SOURCE OF THE FLUID. The two seminal vesicles, behind the bladder,
+   make roughly 50-80% of the volume (most sources: about 60-70%). Their fluid
+   is rich in fructose (an energy source for sperm), plus proteins and
+   prostaglandins. Their secretion depends on androgens (testosterone).
+
+4. SECOND SOURCE. The prostate, below the bladder and wrapped around the
+   urethra, adds about 20-30%: a thin fluid with citrate, zinc and enzymes
+   (for example PSA, which later liquefies the semen).
+   Bulbourethral glands add a small amount (under 1-5%).
+
+5. EMISSION (merge). During ejaculation, sympathetic nerves contract the
+   smooth muscle of the vas deferens, seminal vesicles and prostate. The
+   streams meet in the prostatic urethra. At the same time the bladder neck
+   (a ring of muscle) closes.
+
+6. EXPULSION. A reflex through the pudendal nerve drives rhythmic
+   contractions of the pelvic-floor muscles (bulbospongiosus), pushing semen
+   out through the urethra.
+
+7. FAILURE MODE / FEEDBACK. If the bladder neck doesn't close, semen goes
+   backward into the bladder (retrograde ejaculation), so less or nothing
+   comes out. Recognized causes include diabetes, prostate or pelvic surgery,
+   spinal injury and some medications.
+
+8. REFILL (control). The glands store their secretions and refill between
+   ejaculations. Longer gaps between ejaculations raise volume (and count);
+   very long gaps tend to lower motility. The WHO lab protocol uses 2-7 days
+   of abstinence.
+
+9. HORMONE LOOP (counterintuitive). The brain (hypothalamus and pituitary)
+   releases LH and FSH, which tell the testes to make testosterone and sperm.
+   Taking testosterone from outside makes the brain sense there is plenty, so
+   it cuts LH and FSH. Testosterone inside the testes falls, and sperm
+   production collapses, often to near zero. It usually recovers after
+   stopping, but that can take months.
+
+10. PRACTICAL CONSEQUENCE. Semen volume is mostly gland output. The levers
+    are time between ejaculations, healthy androgen levels, intact ducts and
+    bladder-neck function, age, and medications. It is not sperm count.
+    Supplements mainly target sperm quality, with modest or uncertain
+    evidence.
+
+------------------------------------------------------------------
+ACCURACY LEDGER
+claim | evidence | confidence | simplification risk | required visual
+------------------------------------------------------------------
+
+L1  Sperm cells are about 2-5% of ejaculate volume.
+    Evidence: NCI SEER training module; Britannica; vasectomy literature
+    (vasal contribution under 10%). Confidence: HIGH (sources vary 1-5%).
+    Risk: the exact percentage varies by source, so say "about two to five
+    percent". Visual: measuring cylinder with a thin cream layer.
+
+L2  Seminal vesicles supply roughly two thirds of the fluid.
+    Evidence: SEER (about 60%), Britannica, PMC review schematic (50-80%).
+    Confidence: HIGH that they are the largest share, MODERATE on the exact
+    fraction. Risk: "two thirds" is a rounded midpoint. Visual: amber layer,
+    about 65%.
+
+L3  Seminal vesicle fluid contains fructose that fuels sperm.
+    Evidence: standard physiology texts; SEER. Confidence: HIGH.
+
+L4  The prostate adds most of the remainder: a thin fluid with zinc and
+    enzymes. Evidence: SEER, Britannica (about 20-30%). Confidence: HIGH.
+    Visual: teal layer, about 30%.
+
+L5  Sperm are made in the testes and stored or matured in the epididymis.
+    Confidence: HIGH (textbook anatomy).
+
+L6  During emission the bladder neck closes. Failure gives retrograde
+    ejaculation. Evidence: PMC ejaculation-physiology review; GPnotebook.
+    Confidence: HIGH. Visual: muscle ring closing (cause), then a coral
+    backward arrow in the "fail" inset (effect).
+
+L7  Longer abstinence raises volume. Very long abstinence lowers motility.
+    Evidence: systematic review of 28 publications (15 of 17 volume studies
+    found significant increases); Elzanaty et al. 2004 (PubMed 15236990);
+    2026 observational data (about 1.8 mL at 1 day vs about 3.5 mL at 6 or
+    more days). Confidence: HIGH for direction, LOW for any per-day rate.
+    Risk: individual variation. No per-day number is spoken. Visual: calendar
+    pages flip while the gland reservoirs refill.
+
+L8  Volume tends to decline with age. Evidence: Eskenazi et al. 2003 (about
+    0.03 mL per year); Malaysian cohort of 1,775 men. Confidence: MODERATE.
+    One large 2024 Italian study found no age correlation. Phrase it as "can"
+    and keep it brief.
+
+L9  Low testosterone reduces gland secretion, so it lowers volume.
+    Evidence: androgen dependence of the accessory glands (standard
+    physiology; patient-education sources). Confidence: MODERATE-HIGH.
+
+L10 5-alpha-reductase inhibitors (dutasteride; less so finasteride) reduce
+    semen volume. Evidence: Amory et al., J Clin Endocrinol Metab 2007 RCT
+    (PubMed 17299062); Harvard Health summary. Confidence: HIGH for
+    dutasteride. Risk: magnitudes differ between reports (about 20-30%), so
+    no number is spoken.
+
+L11 Taking external testosterone suppresses LH/FSH and sperm production.
+    Evidence: reviews (PMC4708215) summarising AUA and Endocrine Society
+    advice against testosterone for men wanting fertility within 6-12 months;
+    about 65% of men became azoospermic in one contraceptive series.
+    Confidence: HIGH. Risk: "shuts down" simplifies a strong suppression that
+    is usually reversible. Note it on screen and in the caption. Visual:
+    brain-to-testes signal line dims as a testosterone syringe or gel icon
+    floods the bloodstream.
+
+L12 Zinc plus folic acid did not improve semen quality or live births in men
+    in general. Evidence: FAZST RCT, JAMA 2020 (n=2,370, PubMed 31910279).
+    Confidence: HIGH. The idea that zinc helps if you are deficient is
+    biologically plausible but less directly proven, so the spoken line says
+    "probably".
+
+L13 CoQ10 may improve sperm motility, with no clear effect on volume.
+    Evidence: Lafuente et al. 2013 meta-analysis (PubMed 23912751); 2020
+    pooled analysis (PubMed 32271472): "profound" on motility, "meagre" on
+    volume and count. 2025 Frontiers meta-analysis: no significant effect on
+    volume. Confidence: MODERATE. The film claims only "may help sperm swim".
+
+L14 Ashwagandha raised semen volume in one small trial.
+    Evidence: Ambiye et al. 2013 pilot RCT, 46 oligospermic men, KSM-66 extract
+    675 mg/day for 90 days: volume 1.74 to 2.76 mL, concentration up 167% vs
+    placebo (PMC3863556). Confidence: LOW-MODERATE (small, single extract,
+    men with low counts, not replicated at scale). Visual must say "1 SMALL
+    STUDY". Safety: rare liver-injury reports and interactions; not for
+    everyone (see SOURCES caveats).
+
+L15 Broad antioxidant use for male subfertility: very-low-certainty evidence
+    of benefit. Evidence: Cochrane review CD007411.pub5 (2022). Used for
+    context in notes, not spoken.
+
+L16 New sperm take about 3 months, so supplement trials run about 90 days.
+    Evidence: spermatogenesis about 64-74 days plus epididymal transit; the
+    Ambiye trial lasted 90 days. Confidence: HIGH (rounded).
+
+L17 Typical ejaculate volume is about 1.5-5 mL. The WHO 2021 lower reference
+    limit is 1.4 mL (5th centile, fertile men), not a fertility cutoff.
+    Evidence: WHO Laboratory Manual 6th ed. (reported by NHS MFT andrology);
+    SEER. Confidence: HIGH. On-screen only.
+
+L18 Vasectomy doesn't significantly change semen volume. This supports L1.
+    Evidence: Naelitz et al., Andrology 2025 case-control. Confidence: HIGH.
+    Optional on-screen easter egg in clip 2, not spoken.
+
+------------------------------------------------------------------
+INTENTIONAL SIMPLIFICATIONS (flag in visuals and notes)
+------------------------------------------------------------------
+- Anatomy is drawn as a clinical, non-explicit sagittal schematic. Organ
+  sizes and positions are relative, not to scale.
+- "Muscle ring" means the internal urethral sphincter at the bladder neck.
+- "Shuts sperm production down" means strong suppression, often to near
+  zero, usually reversible after stopping.
+- Zinc and the deficiency nuance: plausible, less directly proven.
+- The order in which each gland's fluid comes out is NOT shown or claimed.
+  It was not verified in this research pass.
+- Hydration is not claimed. Semen is mostly water, but no good evidence was
+  found that drinking extra water increases volume in hydrated men.

@@ -1,0 +1,133 @@
+HOW DOES SPERM VOLUME ACTUALLY INCREASE?
+VISUAL STYLE BIBLE: aiTrends 2D, cinematic ink stick figures, 9:16
+==================================================================
+
+FORMAT
+- Aspect 9:16 vertical, logical stage 1080x1920, deliver 1080p.
+- No letterbox bars (bars: none). Use thin "scope" bars only on the freeze
+  moment (clip 12) if wanted.
+- Safe area: faces, labels and diagrams inside the central ~900x1500.
+  Burned-in captions sit at about 79% of the height. Ground line
+  GY = 0.68 x H, so characters always stand above the captions.
+- Captions ON, except on the title card (clip 3) and the end beat (clip 15),
+  where on-screen text would duplicate them.
+- Style preset: DUSK (closest cinematic-dark preset), then this bible.
+
+THE LOOK IN ONE LINE
+A stick-figure documentary lit like a film. Moody plum/navy rooms with one
+warm practical light, and clean, bright blueprint anatomy whenever the
+mechanism is explained. Clarity beats mood inside diagrams.
+
+------------------------------------------------------------------
+CAST (locked; one signature colour each, never changes)
+------------------------------------------------------------------
+1. HERO, "Max" (male lead, the curious viewer stand-in). On screen in
+   clips 1, 3, 9, 10, 11, 12, 13 and 15.
+   - Round filled head, ink #0e0b12. Two cream dot eyes #f4efe6. Simple
+     mouth, occasional brows. No nose or ears.
+   - ONE garment: deep-blue jacket #1e56a0.
+   - Limbs: thick round-capped ink segments (11-13 rig units), near limbs
+     #0e0b12, far limbs #2b2333. Short forward foot stubs. No fingers at
+     normal zoom.
+   - Thin warm rim light on the side facing the key light, every shot.
+   - Never lip-synced: the narrator is off screen.
+
+2. DR. ADA (scientist/doctor; female lead build, supplement segment,
+   clips 13-14).
+   - Same stick-figure construction, optional bun silhouette.
+   - Signature items: pale coat plus round glasses. A thin violet #9b59b6
+     scarf ties her to the female-lead palette and is her only saturated
+     colour.
+   - Gestures toward graphics. Doesn't speak, so no mouth sync.
+
+3. AD-SALESMAN SILHOUETTE (symbolic, clips 1 and 13). An ink-only figure
+   framed inside a phone-screen ad, with an orange #e67e22 tie as the
+   "hype" colour. Obviously an ad character: flat, inside a rounded phone
+   frame, with a cheesy sparkle. Never in the anatomy shots.
+
+No characters inside the anatomy cutaways (clips 2, 4-8). The mechanism is
+the protagonist there.
+
+------------------------------------------------------------------
+LOCATIONS
+------------------------------------------------------------------
+A. MAX'S BEDROOM AT NIGHT (clips 1, 15). A tall window with mullions and a
+   city skyline of lit windows behind, moonlight key from the window
+   (rim dir [0,-1] or from the left). Warm phone-screen glow on Max's face,
+   dust motes, bed-edge silhouette in the blurred foreground. Mood: night.
+B. KITCHEN COUNTER (clips 9-11). Warm pendant lamp key, wall calendar,
+   glass of water, plant silhouette in the foreground. Mood: interiorWarm.
+C. CLINIC CONSULT ROOM (clips 13-14). Cool window daylight plus a warm desk
+   lamp, a supplement shelf, a lightbox on the wall. Mood: interiorCool with
+   one amber practical light.
+D. THE BLUEPRINT VOID (clips 2, 4-8, 12 insert). Navy grid #0d1b33-ish from
+   the style tokens, light-blue line art, a faint scan-line shimmer. Bright
+   and readable, with no heavy grain over the anatomy.
+
+------------------------------------------------------------------
+DIAGRAM COLOUR KEY (never changes meaning)
+------------------------------------------------------------------
+- Blueprint blue (ui.blueprint): organ outlines, ducts, tubes.
+- CREAM particles (#f4efe6): sperm cells (tiny tadpole dots, only ever tiny).
+- AMBER/GOLD (ui.gold): seminal-vesicle fluid. Also gold for key numbers.
+- TEAL (#1abc9c): prostate fluid.
+- CORAL (ui.accent): warnings, failures, backward flow, "trap" moments.
+- White pulse lines: nerve or hormone signals.
+
+THE SIGNATURE MOTIF: "THE VOLUME CYLINDER"
+A tall lab measuring cylinder (fits a 9:16 frame), labelled only at the top
+"~1.5-5 mL TYPICAL" when first shown. It fills in layers that keep the same
+order and colour all video:
+  bottom cream sliver = sperm (about 2-5%)
+  middle teal band = prostate (about 20-30%)
+  top amber band = seminal vesicles (about 60-70%)
+The layers are a compositional chart, not a claim about how semen settles
+in real life. It appears in clips 2, 6, 7, 9 and the final recap (15), so
+the viewer watches the answer build.
+
+ANATOMY SCHEMATIC RULES (clinical, non-explicit)
+- Simplified side-view (sagittal) pelvic schematic in blueprint line art,
+  like a medical textbook. External genitalia reduced to a minimal neutral
+  outline or cropped out of frame. Nothing sexual or graphic, ever.
+- Correct relationships (stack vertically for 9:16):
+  bladder at top centre; seminal vesicles BEHIND (posterior to) the bladder;
+  prostate directly BELOW the bladder, wrapped around the urethra; testis and
+  epididymis at the bottom; the vas deferens runs from the epididymis UP and
+  over, behind the bladder, joins the seminal vesicle duct to form the
+  ejaculatory duct, which enters the prostatic urethra.
+- Flow arrows always point in the anatomical direction of transport.
+  Backward arrows appear only in the coral "failure" inset.
+- At most 1-3 labels per shot, Nunito Black, cream.
+- Scale changes (zoom into a gland) use a visible circular magnifier ring.
+
+TYPOGRAPHY
+- Titles and big lines: Fredoka Bold, ALL CAPS, warm glow.
+- Labels and numbers: Nunito Black. Key numbers in gold.
+- Final question: Playfair Display Black Italic.
+
+CAMERA AND EDIT GRAMMAR
+- Every shot moves: push-ins (1.00 to 1.08), slow vertical drifts (natural
+  in 9:16), pull-back reveals.
+- Match cuts follow the flow: duct to gland to urethra, cylinder layer to
+  cylinder layer.
+- One freeze-frame signature moment (clip 12, the testosterone trap): flash
+  in, cool tint, particles hanging, corner badge "TRAP".
+- One giant-face close-up (bigFace) for the twist reaction (clip 1 end or
+  clip 2 open).
+- Transitions: mostly hard cuts; "zoom" into blueprint; "flash" into the
+  freeze; "dip" before the final recap.
+
+SOUND PALETTE (separate from narration; narration always wins)
+Low synth pulse under the blueprint segments; soft glassy "blip" when labels
+pop; liquid "pour" swells as cylinder layers fill; a muscle-ring "clunk" for
+the bladder seal; a soft "error" buzz for the coral backflow; a clock tick
+and page flips for the calendar; a freeze "whoomp" for the trap; cash-
+register "ding" mocking the ad. Subtle music, ducked under the voice.
+
+FORBIDDEN
+No realism, 3D-looking characters, photos, emoji or clip-art. No explicit or
+sexual imagery. No anatomy reversed or invented. No sperm drawn huge as if
+they were the volume. No garment colour changes. No static shots. No walls
+of text. No numbers on screen that aren't in the ledger. No brand names or
+real product packaging (supplement bottles are generic, labelled only
+"ZINC", "CoQ10", "ASHWAGANDHA").
