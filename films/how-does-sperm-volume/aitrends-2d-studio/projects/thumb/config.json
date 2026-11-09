@@ -1,0 +1,23 @@
+{
+ "title": "thumb",
+ "aspect": "9:16",
+ "resolution": "1080p",
+ "fps": 24,
+ "style": "dusk",
+ "voiceover": "input/voiceover.wav",
+ "script": "input/script.txt",
+ "duration": 2,
+ "captions": false,
+ "bars": null,
+ "fadeIn": 0,
+ "fadeOut": 0,
+ "music": {
+  "enabled": true,
+  "gainDb": -13
+ },
+ "sfx": {
+  "enabled": true,
+  "gainDb": -6
+ },
+ "loudness": -14
+}

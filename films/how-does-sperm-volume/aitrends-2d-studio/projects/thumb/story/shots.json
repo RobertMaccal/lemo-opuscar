@@ -1,0 +1,20 @@
+{
+ "title": "thumb",
+ "duration": 2,
+ "shots": [
+  {
+   "id": "thumb",
+   "start": 0,
+   "end": 2,
+   "line": "",
+   "scene": "cover",
+   "set": null,
+   "bars": "none",
+   "in": {
+    "type": "cut"
+   },
+   "captions": false
+  }
+ ],
+ "music": []
+}
