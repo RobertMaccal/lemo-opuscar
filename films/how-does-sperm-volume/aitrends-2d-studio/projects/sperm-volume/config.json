@@ -6,14 +6,14 @@
  "style": "dusk",
  "voiceover": "input/voiceover.wav",
  "script": "input/script.txt",
- "duration": 89.92,
+ "duration": 97.06,
  "captions": true,
  "bars": null,
  "fadeIn": 0.5,
  "fadeOut": 0.8,
  "music": {
   "enabled": true,
-  "gainDb": -15
+  "gainDb": -13
  },
  "sfx": {
   "enabled": true,

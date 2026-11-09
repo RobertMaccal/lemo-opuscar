@@ -372,6 +372,13 @@ Pronunciation checks:
   ashwagandha  = ash-wuh-GAHN-duh
 Target pace ~2.3-2.4 words/s, which lands at 88-92 s.
 
+VOICE USED (final): ElevenLabs "Grandpa Spuds Oxley" (warm Southern grandpa
+storyteller), eleven_v4 with expressive tags: amused hook, a chuckle on
+"barely sperm", an excited whisper on "find the factories", an ominous
+backflow line, a grave testosterone trap, and a warm laugh on the payoff.
+Natural pace 92.6 s, so the film runs ~97 s (pauses already tight; no
+speed-up applied, to keep the expression).
+
 
 ##################################################################
 # FILE: HOW_DOES_SPERM_VOLUME_ACTUALLY_INCREASE_MECHANISM_MAP.txt
@@ -993,8 +1000,9 @@ Visual checks:       Locked cast colours, a colour key with one meaning per
                      colour, no characters inside the cutaways, clinical
                      non-explicit anatomy, 9:16 safe zones and caption
                      clearance specified.
-Update (2026-11-09): voiceover generated (ElevenLabs, take A, 83.1 s, padded to
-                     89.9 s) and the soundtrack mixed (see SOUNDTRACK/ and its
+Update (2026-11-09): voiceover regenerated with Grandpa Spuds Oxley (take B,
+                     92.6 s, padded to 97.1 s; the film is now ~97 s, not 90)
+                     and the soundtrack remixed (see SOUNDTRACK/ and its
                      cue sheet). Still to do: render the video, inspect the
                      preview, mux the final MP4.
 Fallback prompts:    Not generated. The aiTrends 2D Studio plugin is

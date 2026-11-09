@@ -362,3 +362,10 @@ Pronunciation checks:
   CoQ10        = "co-Q-ten"
   ashwagandha  = ash-wuh-GAHN-duh
 Target pace ~2.3-2.4 words/s, which lands at 88-92 s.
+
+VOICE USED (final): ElevenLabs "Grandpa Spuds Oxley" (warm Southern grandpa
+storyteller), eleven_v4 with expressive tags: amused hook, a chuckle on
+"barely sperm", an excited whisper on "find the factories", an ominous
+backflow line, a grave testosterone trap, and a warm laugh on the payoff.
+Natural pace 92.6 s, so the film runs ~97 s (pauses already tight; no
+speed-up applied, to keep the expression).
