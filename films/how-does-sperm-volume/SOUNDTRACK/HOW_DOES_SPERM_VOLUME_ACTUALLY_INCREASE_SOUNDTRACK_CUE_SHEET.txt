@@ -1,0 +1,57 @@
+HOW DOES SPERM VOLUME ACTUALLY INCREASE? - SOUNDTRACK CUE SHEET
+==================================================================
+Length 89.92 s (VO 0.8-83.9 s, end card to 89.9 s). Master -14.8 LUFS integrated,
+true-peak limited at -1.5 dBTP. Voice sits ~12-13 dB above the music+SFX bed.
+
+FILES (SOUNDTRACK/)
+  ..._SOUNDTRACK_FULL_MIX.wav / .flac  final mix: voice + music + SFX + ambience
+  ..._SOUNDTRACK_FULL_MIX_preview.mp3  same, for phone listening
+  ..._STEM_VOICE / _STEM_MUSIC / _STEM_SFX_AMBIENCE  level-matched stems (+5 dB,
+     not loudness-mastered). They sum to the pre-master mix, so you can rebalance
+     in any editor.
+
+VOICE  ElevenLabs eleven_v4, voice 'Justin Time - Warm eLearning Explainer', take A of 2
+       (99% script match, keeps the 'twist...' and 'plumbing...' pauses).
+MUSIC  aiTrends studio procedural score (audio/music.py, seed 1), ducked -9 dB under voice:
+    0.00-  7.60s  playful  intensity 0.45
+    7.60- 15.85s  mystery  intensity 0.4
+   15.85- 42.45s  wonder   intensity 0.5
+   42.45- 58.25s  hopeful  intensity 0.55
+   58.25- 65.10s  tension  intensity 0.6
+   65.10- 77.15s  calm     intensity 0.45
+   77.15- 89.92s  triumph  intensity 0.6
+
+SFX   Studio library + 4 custom ElevenLabs sound effects (input/sfx/: jingle, pour, pill, pages).
+      Times are absolute seconds in the mix.
+
+  s001   0.00-  4.45  phonebuzz@0.15, *jingle.mp3@1.00 | amb city
+  s002   4.45-  5.65  riser@4.45 | amb city
+  s003   5.65-  7.65  stinger@6.18
+  s004   7.65- 10.75  whoosh@7.65, *pour.mp3@7.80, pop@8.76 | amb hum
+  s005  10.75- 13.55  shimmer@10.85 | amb city
+  s006  13.55- 15.85  flash@14.40, whoosh@14.74
+  s007  15.85- 20.50  pop@16.82, pop@19.56 | amb hum
+  s008  20.50- 24.75  swish@20.50, shimmer@22.28 | amb hum
+  s009  24.75- 29.60  *pour.mp3@25.12, pop@26.18, blip@27.48 | amb hum
+  s010  29.60- 35.40  *pour.mp3@30.76, ding@32.84 | amb hum
+  s011  35.40- 39.70  whoosh@36.82, hit@38.52 | amb hum
+  s012  39.70- 42.45  glitch@40.14 | amb hum
+  s013  42.45- 48.40  *pill.mp3@46.64, tick@47.54, clock@47.75 | amb roomtone
+  s014  48.40- 53.60  *pages.mp3@48.45, slowmo@52.70 | amb roomtone
+  s015  53.60- 58.25  swish@53.60, blip@53.72, blip@54.48, blip@56.52 | amb roomtone
+  s016  58.25- 61.65  freeze@58.30
+  s017  61.65- 65.10  blip@61.86, impact@64.18 | amb hum
+  s018  65.10- 68.40  pop@66.26, blip@67.78 | amb roomtone
+  s019  68.40- 72.05  whoosh@69.96, ding@71.02 | amb roomtone
+  s020  72.05- 74.90  counter@72.72, pop@73.86 | amb roomtone
+  s021  74.90- 77.15  glitch@75.30, ding@76.56 | amb roomtone
+  s022  77.15- 80.20  shimmer@78.92 | amb city
+  s023  80.20- 82.30  pop@80.30, pop@80.94, pop@81.64 | amb city
+  s024  82.30- 83.90  whoosh@82.30, ding@83.24
+  s025  83.90- 89.92  shimmer@84.20 | amb city
+  (* = custom ElevenLabs SFX)
+
+TO REMIX: edit aitrends-2d-studio/projects/sperm-volume/story/shots.json (sfx, amb, music) or
+config.json (music.gainDb, now -15; sfx.gainDb -6), then run
+  python3 audio/mix.py --project projects/sperm-volume   (from aitrends-2d-studio/)
+Once build/video_silent.mp4 exists (render step), the same command muxes the final MP4.

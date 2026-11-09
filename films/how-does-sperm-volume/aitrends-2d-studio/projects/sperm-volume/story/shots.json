@@ -1,0 +1,758 @@
+{
+ "title": "How Does Sperm Volume Actually Increase?",
+ "duration": 89.92,
+ "shots": [
+  {
+   "id": "s001",
+   "start": 0.0,
+   "end": 4.45,
+   "line": "Every ad online promises more sperm volume.",
+   "scene": "Max's bedroom at night, moonlit window and city skyline; Max sits on the bed edge, face lit by his phone; insert: phone shows a tacky ad - ink salesman in an orange tie, 'MORE VOLUME!' and '300%!!' stickers bouncing",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "fade"
+   },
+   "sfx": [
+    {
+     "at": 0.15,
+     "name": "phonebuzz",
+     "gain": -14
+    },
+    {
+     "at": 1.0,
+     "name": "input/sfx/jingle.mp3",
+     "gain": -9
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "city",
+    "gain": -26
+   }
+  },
+  {
+   "id": "s002",
+   "start": 4.45,
+   "end": 5.65,
+   "line": "Here's the twist...",
+   "scene": "Fast push into the phone; the ad text glitches and freezes",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0,
+     "name": "riser",
+     "gain": -11,
+     "dur": 1.4
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "city",
+    "gain": -26
+   }
+  },
+  {
+   "id": "s003",
+   "start": 5.65,
+   "end": 7.65,
+   "line": "it's barely sperm.",
+   "scene": "Giant face close-up (bigFace) of Max, eyebrows up, 'surprised'; thin scope bars flick on",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.53,
+     "name": "stinger",
+     "gain": -7
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "s004",
+   "start": 7.65,
+   "end": 10.75,
+   "line": "Sperm make up only about two to five percent of the total.",
+   "scene": "Zoom into the blueprint void: the tall VOLUME CYLINDER rises; a thin CREAM sliver fills the bottom with tiny tadpole dots; gold '2-5%' pops; the rest is a dashed outline with a big '?'",
+   "set": "blueprint",
+   "bars": null,
+   "in": {
+    "type": "zoom"
+   },
+   "sfx": [
+    {
+     "at": 0,
+     "name": "whoosh",
+     "gain": -11
+    },
+    {
+     "at": 0.15,
+     "name": "input/sfx/pour.mp3",
+     "gain": -14
+    },
+    {
+     "at": 1.11,
+     "name": "pop",
+     "gain": -10
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -28
+   }
+  },
+  {
+   "id": "s005",
+   "start": 10.75,
+   "end": 13.55,
+   "line": "So how does that volume actually go up?",
+   "scene": "TITLE CARD 'HOW DOES SPERM VOLUME ACTUALLY INCREASE?' (Fredoka, glow) over a blurred wide of Max at his window",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "fade"
+   },
+   "sfx": [
+    {
+     "at": 0.1,
+     "name": "shimmer",
+     "gain": -13
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "city",
+    "gain": -28
+   },
+   "captions": false
+  },
+  {
+   "id": "s006",
+   "start": 13.55,
+   "end": 15.85,
+   "line": "First, find the factories.",
+   "scene": "Max turns and clicks a flashlight; the beam becomes a blueprint scan line that wipes down the frame",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.85,
+     "name": "flash",
+     "gain": -12
+    },
+    {
+     "at": 1.19,
+     "name": "whoosh",
+     "gain": -12
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "s007",
+   "start": 15.85,
+   "end": 20.5,
+   "line": "Sperm are made in the testes, then stored in a coiled tube, the epididymis.",
+   "scene": "Clinical side-view blueprint schematic draws itself (bladder top, prostate below, seminal vesicles behind, testis and epididymis bottom); magnifier ring on the testis: cream dots form and slide into the coiled epididymis",
+   "set": "blueprint",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.97,
+     "name": "pop",
+     "gain": -11
+    },
+    {
+     "at": 3.71,
+     "name": "pop",
+     "gain": -11
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -28
+   }
+  },
+  {
+   "id": "s008",
+   "start": 20.5,
+   "end": 24.75,
+   "line": "But most of the fluid comes from the seminal vesicles, tucked behind the bladder.",
+   "scene": "Track up the vas deferens to the back of the bladder; the two seminal vesicles light up AMBER; label 'SEMINAL VESICLES'",
+   "set": "blueprint",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0,
+     "name": "swish",
+     "gain": -12
+    },
+    {
+     "at": 1.78,
+     "name": "shimmer",
+     "gain": -14
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -28
+   }
+  },
+  {
+   "id": "s009",
+   "start": 24.75,
+   "end": 29.6,
+   "line": "They supply roughly two thirds of it, packed with fructose, a sugar that fuels sperm.",
+   "scene": "Split vertical: top, macro of amber fluid with glowing hexagon 'FRUCTOSE' icons; bottom, the cylinder fills amber to ~2/3, gold '~2/3' pops; a sperm dot touches a sugar icon and wiggles faster",
+   "set": "blueprint",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.37,
+     "name": "input/sfx/pour.mp3",
+     "gain": -9
+    },
+    {
+     "at": 1.43,
+     "name": "pop",
+     "gain": -10
+    },
+    {
+     "at": 2.73,
+     "name": "blip",
+     "gain": -12
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -28
+   }
+  },
+  {
+   "id": "s010",
+   "start": 29.6,
+   "end": 35.4,
+   "line": "The prostate adds most of the rest: a thin, zinc-rich fluid full of enzymes.",
+   "scene": "Prostate below the bladder, ringed around the urethra, glows TEAL; inset 'Zn' tile and enzyme icons; teal stream fills the cylinder gap; label 'PROSTATE'",
+   "set": "blueprint",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 1.16,
+     "name": "input/sfx/pour.mp3",
+     "gain": -11,
+     "pitch": 1.15
+    },
+    {
+     "at": 3.24,
+     "name": "ding",
+     "gain": -18
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -28
+   }
+  },
+  {
+   "id": "s011",
+   "start": 35.4,
+   "end": 39.7,
+   "line": "At release, the streams merge. A muscle ring seals the bladder.",
+   "scene": "White nerve pulses along the ducts; cream, amber and teal streams converge in the urethra and travel down and out; the bladder-neck ring snaps shut",
+   "set": "blueprint",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 1.42,
+     "name": "whoosh",
+     "gain": -11
+    },
+    {
+     "at": 3.12,
+     "name": "hit",
+     "gain": -8
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -28
+   }
+  },
+  {
+   "id": "s012",
+   "start": 39.7,
+   "end": 42.45,
+   "line": "If it fails, semen flows backward.",
+   "scene": "Coral 'FAIL' inset: ring open, mixed stream curls up into the bladder with a coral arrow; cylinder level drops",
+   "set": "blueprint",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.44,
+     "name": "glitch",
+     "gain": -11
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -28
+   }
+  },
+  {
+   "id": "s013",
+   "start": 42.45,
+   "end": 48.4,
+   "line": "So volume is mostly glands refilling. The biggest lever isn't a pill. It's time.",
+   "scene": "Kitchen counter under a warm pendant lamp; Max eyes a giant pill, flicks it off the counter, looks up at the glowing wall calendar; mini cylinder hologram refills",
+   "set": "kitchen",
+   "bars": null,
+   "in": {
+    "type": "dip"
+   },
+   "sfx": [
+    {
+     "at": 4.19,
+     "name": "input/sfx/pill.mp3",
+     "gain": -8
+    },
+    {
+     "at": 5.09,
+     "name": "tick",
+     "gain": -10
+    },
+    {
+     "at": 5.3,
+     "name": "clock",
+     "gain": -18
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -24
+   }
+  },
+  {
+   "id": "s014",
+   "start": 48.4,
+   "end": 53.6,
+   "line": "Skip a few days and volume climbs. Wait too long, and sperm get sluggish.",
+   "scene": "Insert: calendar pages flip DAY 1, 2, 3 while the volume meter climbs; pages keep flipping to DAY 10+, a sperm dot yawns, 'SWIM SPEED' meter dips into coral",
+   "set": "kitchen",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.05,
+     "name": "input/sfx/pages.mp3",
+     "gain": -9
+    },
+    {
+     "at": 4.3,
+     "name": "slowmo",
+     "gain": -15
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -24
+   }
+  },
+  {
+   "id": "s015",
+   "start": 53.6,
+   "end": 58.25,
+   "line": "Age, low testosterone, and prostate drugs like dutasteride can all shrink it.",
+   "scene": "Three vertical cards: Max ages (grey tuft) and gland dims; a 'T' gauge drops; generic 'DUTASTERIDE' bottle and the cylinder shrinks; coral down-arrows",
+   "set": "kitchen",
+   "bars": null,
+   "in": {
+    "type": "whip"
+   },
+   "sfx": [
+    {
+     "at": 0,
+     "name": "swish",
+     "gain": -12
+    },
+    {
+     "at": 0.12,
+     "name": "blip",
+     "gain": -10
+    },
+    {
+     "at": 0.88,
+     "name": "blip",
+     "gain": -10
+    },
+    {
+     "at": 2.92,
+     "name": "blip",
+     "gain": -10
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   }
+  },
+  {
+   "id": "s016",
+   "start": 58.25,
+   "end": 61.65,
+   "line": "But taking testosterone to fix it backfires.",
+   "scene": "SIGNATURE FREEZE: Max reaches for a generic 'T' gel tube; flash; world freezes, dust hangs, cool tint, corner badge 'TRAP'",
+   "set": "kitchen",
+   "bars": null,
+   "in": {
+    "type": "flash"
+   },
+   "sfx": [
+    {
+     "at": 0.05,
+     "name": "freeze",
+     "gain": -6
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "s017",
+   "start": 61.65,
+   "end": 65.1,
+   "line": "Your brain sees plenty and shuts sperm production down.",
+   "scene": "Vertical blueprint: brain/pituitary top, bloodstream middle, testis bottom; gold 'T' floods the blood, coral feedback arrow to the brain, LH/FSH lines fade, sperm factory goes dark; footnote 'usually reversible after stopping'",
+   "set": "blueprint",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.21,
+     "name": "blip",
+     "gain": -12
+    },
+    {
+     "at": 2.53,
+     "name": "impact",
+     "gain": -13
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -26
+   }
+  },
+  {
+   "id": "s018",
+   "start": 65.1,
+   "end": 68.4,
+   "line": "Supplements? Zinc probably only helps if you're low.",
+   "scene": "Clinic room: Dr. Ada (violet scarf, glasses) by a lightbox; Max shows the phone ad, the salesman shrinks away; ZINC bottle fills a 'LOW' gauge, extra bounces off at 'NORMAL'",
+   "set": "clinic",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 1.16,
+     "name": "pop",
+     "gain": -10
+    },
+    {
+     "at": 2.68,
+     "name": "blip",
+     "gain": -12
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -25
+   }
+  },
+  {
+   "id": "s019",
+   "start": 68.4,
+   "end": 72.05,
+   "line": "CoQ10 may help sperm swim. Give it three months.",
+   "scene": "CoQ10 bottle: a sperm dot gains a gentle speed trail; lightbox calendar shows gold '~3 MONTHS'",
+   "set": "clinic",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 1.56,
+     "name": "whoosh",
+     "gain": -13
+    },
+    {
+     "at": 2.62,
+     "name": "ding",
+     "gain": -17
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -25
+   }
+  },
+  {
+   "id": "s020",
+   "start": 72.05,
+   "end": 74.9,
+   "line": "Ashwagandha raised volume in one small trial.",
+   "scene": "Ada lifts the ASHWAGANDHA bottle; data card PLACEBO vs EXTRACT bars, stamped '1 SMALL STUDY - 46 MEN'",
+   "set": "clinic",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.67,
+     "name": "counter",
+     "gain": -16
+    },
+    {
+     "at": 1.81,
+     "name": "pop",
+     "gain": -11
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -25
+   }
+  },
+  {
+   "id": "s021",
+   "start": 74.9,
+   "end": 77.15,
+   "line": "A sudden drop? Talk to a doctor.",
+   "scene": "Max's mini cylinder flashes coral; Ada calmly gestures to a 'UROLOGY' door sign; Max nods",
+   "set": "clinic",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.4,
+     "name": "glitch",
+     "gain": -16
+    },
+    {
+     "at": 1.66,
+     "name": "ding",
+     "gain": -18
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -25
+   }
+  },
+  {
+   "id": "s022",
+   "start": 77.15,
+   "end": 80.2,
+   "line": "So sperm volume is really gland volume.",
+   "scene": "Back in the night bedroom, same framing as the opening; the phone ad gets a transparent blueprint overlay of the whole system, colours flowing correctly",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "dip"
+   },
+   "sfx": [
+    {
+     "at": 1.77,
+     "name": "shimmer",
+     "gain": -11
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "city",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s023",
+   "start": 80.2,
+   "end": 82.3,
+   "line": "Time, hormones, plumbing...",
+   "scene": "Gold words pop down the frame on the beat: TIME / HORMONES / PLUMBING",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.1,
+     "name": "pop",
+     "gain": -9
+    },
+    {
+     "at": 0.74,
+     "name": "pop",
+     "gain": -9
+    },
+    {
+     "at": 1.44,
+     "name": "pop",
+     "gain": -9
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "city",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s024",
+   "start": 82.3,
+   "end": 83.9,
+   "line": "and almost no sperm.",
+   "scene": "The full VOLUME CYLINDER returns and zooms to the tiny cream sliver at the bottom; Max smirks at camera and swipes the ad away",
+   "set": "blueprint",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0,
+     "name": "whoosh",
+     "gain": -12
+    },
+    {
+     "at": 0.94,
+     "name": "ding",
+     "gain": -9
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "s025",
+   "start": 83.9,
+   "end": 89.92,
+   "line": "",
+   "scene": "End screen: 'What should we take apart next?' in Playfair italic, comment bubble, Max and Dr. Ada lined up; loops back to the cylinder",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "shimmer",
+     "gain": -15
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "city",
+    "gain": -28
+   },
+   "captions": false
+  }
+ ],
+ "music": [
+  {
+   "start": 0.0,
+   "end": 7.6,
+   "mood": "playful",
+   "intensity": 0.45
+  },
+  {
+   "start": 7.6,
+   "end": 15.85,
+   "mood": "mystery",
+   "intensity": 0.4
+  },
+  {
+   "start": 15.85,
+   "end": 42.45,
+   "mood": "wonder",
+   "intensity": 0.5
+  },
+  {
+   "start": 42.45,
+   "end": 58.25,
+   "mood": "hopeful",
+   "intensity": 0.55
+  },
+  {
+   "start": 58.25,
+   "end": 65.1,
+   "mood": "tension",
+   "intensity": 0.6
+  },
+  {
+   "start": 65.1,
+   "end": 77.15,
+   "mood": "calm",
+   "intensity": 0.45
+  },
+  {
+   "start": 77.15,
+   "end": 89.92,
+   "mood": "triumph",
+   "intensity": 0.6
+  }
+ ]
+}

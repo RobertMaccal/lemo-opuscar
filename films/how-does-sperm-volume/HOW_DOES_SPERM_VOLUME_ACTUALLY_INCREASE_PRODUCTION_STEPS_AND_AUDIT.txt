@@ -95,8 +95,10 @@ Visual checks:       Locked cast colours, a colour key with one meaning per
                      colour, no characters inside the cutaways, clinical
                      non-explicit anatomy, 9:16 safe zones and caption
                      clearance specified.
-Not done here:       No voiceover generated, no video rendered, no preview
-                     inspected. Those are Phase 2 and 3.
+Update (2026-11-09): voiceover generated (ElevenLabs, take A, 83.1 s, padded to
+                     89.9 s) and the soundtrack mixed (see SOUNDTRACK/ and its
+                     cue sheet). Still to do: render the video, inspect the
+                     preview, mux the final MP4.
 Fallback prompts:    Not generated. The aiTrends 2D Studio plugin is
                      installed in this environment, so the plugin route
                      applies.
