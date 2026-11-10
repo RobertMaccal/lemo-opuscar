@@ -114,7 +114,7 @@ reg('s09', (g, t, info) => {
   const expr = t < 0.16 ? 'neutral' : t < 0.36 ? 'surprised' : t < 0.68 ? 'shocked' : 'angry';
   const cx = lerp(E.W * 0.95, E.W / 2, snap), tilt = lerp(0.35, 0, snap) + (t > 0.14 && t < 0.3 ? Math.sin((t - 0.14) * 40) * 0.03 : 0);
   if (snap < 1) for (let i = 1; i <= 3; i++) { g.save(); g.globalAlpha = 0.15; bigFace(g, cx + i * 50, E.H * 0.48, r, { outfit: NURSE, expr, rimColor: '#b8c6ff', rimSide: -1, tilt }); g.restore(); }
-  bigFace(g, cx, E.H * 0.48, r, { outfit: NURSE, expr, talk, rimColor: '#b8c6ff', rimSide: -1, tilt, look: t > 0.16 ? [-0.6, 0] : [0, 0] });
+  bigFace(g, cx, E.H * 0.48, r, { outfit: NURSE, expr, talk, rimColor: '#b8c6ff', rimSide: -1, tilt, look: t > 0.16 ? [-0.6, 0] : [0, 0], face: expr === 'angry' ? { brows: 'worried', eyes: 'wide' } : null });
   if (talk > 0) FX.rings(g, E.W / 2, E.H * 0.48, t, { count: 3, r0: r * 1.05, r1: r * 1.5, a: 0.3 });
 });
 

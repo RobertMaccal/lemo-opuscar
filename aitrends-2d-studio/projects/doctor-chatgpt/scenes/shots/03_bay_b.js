@@ -88,7 +88,7 @@ reg('s19', (g, t, info) => {
   // the finger
   const fx = mx + 650, fy = sy + 60, k = t < tap ? ease.out(prog(t, 0, tap)) : 1 - 0.3 * ease.out(prog(t, tap, tap + 0.25));
   const tipX = lerp(E.W + 200, fx, k), tipY = lerp(E.H + 200, fy + 10, k);
-  seg(g, [[tipX + 6, tipY + 6], [tipX + 300, tipY + 420]], 70, '#bfe9ff'); seg(g, [[tipX, tipY], [tipX + 300, tipY + 420]], 64, S0());
+  seg(g, [[tipX - 6, tipY - 6], [tipX + 300, tipY + 420]], 112, '#bfe9ff'); seg(g, [[tipX, tipY], [tipX + 300, tipY + 420]], 104, S0()); seg(g, [[tipX + 120, tipY + 200], [tipX + 420, tipY + 470]], 190, S0());
   if (t > tap && t < tap + 0.4) FX.rings(g, fx, fy, t - tap, { count: 2, r0: 30, r1: 120, a: 0.8, speed: 2.5 });
   if (green) glow(g, E.W / 2, E.H * 0.45, 900, '#45ff7a', 0.25 * ease.out(prog(t, tap, tap + 0.2)));
 });
@@ -117,7 +117,7 @@ reg('s21', (g, t, info) => {
   bayBg(g, gt, { z: 1.7, x: 220, y: -60 }, { monitor: { mode: 'green', hr: 160 } }, 14, 0.4);
   g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = alpha('#2aff6a', 0.05); g.fillRect(0, 0, E.W, E.H); g.restore();
   const r = out ? 390 * (1 + 0.02 * (t - burst)) : 300 * (1 + 0.03 * t), talk = talkAmount(gt, 41.9, 43.2);
-  bigFace(g, E.W / 2 + sx, E.H * 0.47 + sy, r, { outfit: NURSE, expr: out ? 'angry' : 'neutral', face: out ? null : { mouth: 'flat', eyes: 'dot' }, talk, rimColor: '#7dff9a', rimSide: 1, look: [0, 0] });
+  bigFace(g, E.W / 2 + sx, E.H * 0.47 + sy, r, { outfit: NURSE, expr: out ? 'angry' : 'neutral', face: out ? { brows: 'worried', eyes: 'wide' } : { mouth: 'flat', eyes: 'dot' }, talk, rimColor: '#7dff9a', rimSide: 1, look: [0, 0] });
   if (out) FX.rings(g, E.W / 2, E.H * 0.47, t, { count: 3, r0: r * 1.05, r1: r * 1.55, a: 0.35 });
 });
 

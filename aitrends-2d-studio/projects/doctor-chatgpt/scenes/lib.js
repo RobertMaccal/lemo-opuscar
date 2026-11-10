@@ -289,7 +289,7 @@ function groups(g) {
   for (const id of Object.keys(byLine)) {
     const ws = byLine[id], bot = ws[0].speaker === 'chatbot'; let cur = [];
     const flush = () => { if (cur.length) _groups.push({ line: id, bot, words: cur, start: cur[0].start, end: cur[cur.length - 1].end }); cur = []; };
-    ws.forEach((w, i) => { cur.push(w); const txt = cur.map(x => x.word).join(' '); const sentence = /[.?!—]$/.test(w.word) && txt.length > (bot ? 22 : 9); if (txt.length > (bot ? 44 : 36) || sentence || i === ws.length - 1) flush(); });
+    ws.forEach((w, i) => { cur.push(w); const txt = cur.map(x => x.word).join(' '); const sentence = /[.?!—]$/.test(w.word) && txt.length > (bot ? 22 : 5); if (txt.length > (bot ? 44 : 36) || sentence || i === ws.length - 1) flush(); });
   }
   _groups.sort((a, b) => a.start - b.start); return _groups;
 }
