@@ -237,7 +237,7 @@ export function phone(g, cx, cy, w, t, msgs, o = {}) {
   rr(g, x + w * 0.06, y + h * 0.135, w * 0.88, h * 0.03, h * 0.015); g.fillStyle = alpha('#ffd47e', 0.14); g.fill();
   text(g, 'FICTIONAL PARODY CHATBOT · NOT MEDICAL ADVICE', cx, y + h * 0.15, { size: w * 0.03, color: '#ffd47e', font: FONTS.ui, weight: 900 });
   // messages, stacked from the bottom up
-  const fs = w * (o.fs || 0.066), lh = fs * 1.28, pad = fs * 0.6, maxW = w * 0.68; let by = y + h * 0.86;
+  const fs = w * (o.fs || 0.066), lh = fs * 1.28, pad = fs * 0.6, maxW = w * 0.68; let by = y + h * 0.86 - (o.chips ? fs * 1.3 : 0);
   const items = [];
   if (o.typing > 0) items.push({ typing: true, show: o.typing });
   for (let i = msgs.length - 1; i >= 0; i--) items.push(msgs[i]);

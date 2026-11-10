@@ -13,7 +13,7 @@ const frozenBg = (g, blur = 18, v = 0.62) => bayBg(g, FROZEN, { z: 1.5, x: -60, 
 function chat(g, t, gt, o = {}) {
   const n = spokenCount('C3', gt);
   const a = A.slice(0, Math.min(n, A.length)).join(' '), b = n > A.length ? B.slice(0, n - A.length).join(' ') : '';
-  const msgs = [{ from: 'user', text: 'was the ibuprofen a bad idea?', show: 1 }];
+  const msgs = o.chips ? [] : [{ from: 'user', text: 'was the ibuprofen a bad idea?', show: 1 }];   // keep the disclaimer header clear
   if (a) msgs.push({ from: 'bot', text: a, show: 1, hl: true });
   if (b) msgs.push({ from: 'bot', text: b, show: 1, hl: true, tag: n >= TOK.length ? 'Confidence: 100%' : null });
   const z = 1 + 0.025 * (o.push ?? 0);
@@ -52,7 +52,7 @@ reg('s28', (g, t, info) => {
   frozenBg(g, 14, 0.5);
   glow(g, E.W / 2, E.H * 0.7, 520, '#bfe9ff', 0.22);
   bigFaceDoc(g, E.W / 2, E.H * 0.47, 360, { expr: 'scared', rimColor: '#bfe9ff', rimSide: 1, look: t < 0.3 ? [0, 0.6] : [0.7, 0.1], blink: false });
-});
+}, { hideBot: true });
 
 // s29 — cut to black
 reg('s29', (g) => { fillRect(g, -E.W, -E.H, E.W * 3, E.H * 3, '#000'); });
