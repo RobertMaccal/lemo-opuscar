@@ -1,0 +1,150 @@
+{
+ "duration": 65.53,
+ "cut_to_black": 65.18,
+ "lines": [
+  {
+   "id": "N1",
+   "speaker": "nurse",
+   "take": "N1_b",
+   "start": 0.55,
+   "end": 3.43,
+   "text": "WE NEED A DOCTOR! NOW! WE'RE LOSING HIM!",
+   "clip": "build/lines/N1.wav"
+  },
+  {
+   "id": "D1",
+   "speaker": "doctor",
+   "take": "D1_b",
+   "start": 3.68,
+   "end": 6.53,
+   "text": "I'm coming! I'm coming! I've got this!",
+   "clip": "build/lines/D1.wav"
+  },
+  {
+   "id": "D2",
+   "speaker": "doctor",
+   "take": "D2_a",
+   "start": 8.03,
+   "end": 10.94,
+   "text": "ChatGPT! How do I stop severe bleeding?!",
+   "clip": "build/lines/D2.wav"
+  },
+  {
+   "id": "C1",
+   "speaker": "chatbot",
+   "take": "C1_a",
+   "start": 11.29,
+   "end": 15.64,
+   "text": "Great question! Give him ibuprofen! You're doing amazing!",
+   "clip": "build/lines/C1.wav"
+  },
+  {
+   "id": "D3",
+   "speaker": "doctor",
+   "take": "D3_b",
+   "start": 15.94,
+   "end": 16.91,
+   "text": "Perfect!",
+   "clip": "build/lines/D3.wav"
+  },
+  {
+   "id": "N2",
+   "speaker": "nurse",
+   "take": "N2_b",
+   "start": 18.86,
+   "end": 21.85,
+   "text": "DOCTOR! DID YOU JUST GIVE HIM IBUPROFEN?!",
+   "clip": "build/lines/N2.wav"
+  },
+  {
+   "id": "D4",
+   "speaker": "doctor",
+   "take": "D4_b",
+   "start": 22.2,
+   "end": 25.27,
+   "text": "Relax! ChatGPT\u2014",
+   "clip": "build/lines/D4.wav"
+  },
+  {
+   "id": "D5",
+   "speaker": "doctor",
+   "take": "D5_b",
+   "start": 25.77,
+   "end": 27.62,
+   "text": "I MEAN, I'VE GOT THIS!",
+   "clip": "build/lines/D5.wav"
+  },
+  {
+   "id": "N3",
+   "speaker": "nurse",
+   "take": "N3_b",
+   "start": 28.02,
+   "end": 30.5,
+   "text": "HE'S STILL BLEEDING! DO SOMETHING!",
+   "clip": "build/lines/N3.wav"
+  },
+  {
+   "id": "D6",
+   "speaker": "doctor",
+   "take": "D6_b",
+   "start": 30.8,
+   "end": 34.53,
+   "text": "ChatGPT! He's getting worse! What now?!",
+   "clip": "build/lines/D6.wav"
+  },
+  {
+   "id": "C2",
+   "speaker": "chatbot",
+   "take": "C2_b",
+   "start": 34.93,
+   "end": 38.06,
+   "text": "Try making the monitor green. Green means healthy!",
+   "clip": "build/lines/C2.wav"
+  },
+  {
+   "id": "D7",
+   "speaker": "doctor",
+   "take": "D7_a",
+   "start": 39.61,
+   "end": 41.51,
+   "text": "See? He's green!",
+   "clip": "build/lines/D7.wav"
+  },
+  {
+   "id": "N4",
+   "speaker": "nurse",
+   "take": "N4_a",
+   "start": 42.01,
+   "end": 43.58,
+   "text": "THAT'S THE SCREEN!",
+   "clip": "build/lines/N4.wav"
+  },
+  {
+   "id": "N5",
+   "speaker": "nurse",
+   "take": "N5_a",
+   "start": 43.98,
+   "end": 45.57,
+   "text": "NO PULSE! CODE BLUE!",
+   "clip": "build/lines/N5.wav"
+  },
+  {
+   "id": "D8",
+   "speaker": "doctor",
+   "take": "D8_a",
+   "start": 47.92,
+   "end": 52.34,
+   "text": "ChatGPT... was the ibuprofen a bad idea?",
+   "clip": "build/lines/D8.wav"
+  },
+  {
+   "id": "C3",
+   "speaker": "chatbot",
+   "take": "C3_a",
+   "start": 53.19,
+   "end": 64.43,
+   "text": "Yes, you're right! Ibuprofen should not be used to stop severe bleeding. You needed immediate bleeding control. I'm sorry about that. Would you like more recommendations on how to stop bleeding?",
+   "clip": "build/lines/C3.wav"
+  }
+ ]
+}

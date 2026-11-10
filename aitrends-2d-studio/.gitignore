@@ -1,0 +1,7 @@
+node_modules/
+projects/*/build/
+projects/*/input/voiceover.*
+projects/*/input/dialogue.wav
+projects/*/input/music.wav
+projects/*/audio/hosp_bed.wav
+examples/*/build/

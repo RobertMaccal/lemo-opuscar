@@ -1,0 +1,24 @@
+{
+ "title": "DOCTOR, ARE YOU USING CHATGPT",
+ "aspect": "9:16",
+ "resolution": "1080p",
+ "fps": 30,
+ "style": "midnight",
+ "voiceover": "input/voiceover.wav",
+ "script": null,
+ "duration": 65.53,
+ "captions": false,
+ "bars": "none",
+ "fadeIn": 0,
+ "fadeOut": 0,
+ "music": {
+  "enabled": true,
+  "gainDb": -19,
+  "file": "input/music.wav"
+ },
+ "sfx": {
+  "enabled": true,
+  "gainDb": -6
+ },
+ "loudness": -14
+}

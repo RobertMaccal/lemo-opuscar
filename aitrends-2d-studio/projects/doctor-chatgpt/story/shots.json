@@ -1,0 +1,619 @@
+{
+ "title": "DOCTOR, ARE YOU USING CHATGPT?!",
+ "duration": 65.53,
+ "shots": [
+  {
+   "id": "s01",
+   "start": 0.0,
+   "end": 2.2,
+   "line": "WE NEED A DOCTOR! NOW!",
+   "scene": "Corridor side view: EMERGENCY doors bang open, stretcher bursts out pushed by paramedic + nurse shouting; satire label",
+   "set": "corridor",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "whoosh",
+     "gain": -12
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -30
+   }
+  },
+  {
+   "id": "s02",
+   "start": 2.2,
+   "end": 3.55,
+   "line": "WE'RE LOSING HIM!",
+   "scene": "Tracking: stretcher racing right, wheels spinning, parallax streaks, nurse running alongside",
+   "set": "corridor",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "whoosh",
+     "gain": -14
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -30
+   }
+  },
+  {
+   "id": "s03",
+   "start": 3.55,
+   "end": 6.55,
+   "line": "I'm coming! I'm coming! I've got this!",
+   "scene": "Doctor sprinting through corridor, coat flapping, thumbs-up on 'got this', tracking cam",
+   "set": "corridor",
+   "bars": null,
+   "in": {
+    "type": "whip",
+    "dur": 0.3,
+    "dir": 1
+   },
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "whoosh",
+     "gain": -9
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "hum",
+    "gain": -30
+   }
+  },
+  {
+   "id": "s04",
+   "start": 6.55,
+   "end": 8.0,
+   "line": "",
+   "scene": "Bay wide: doctor skids in, heroic hands-on-hips, everyone turns expectantly... he pulls out his phone",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "swish",
+     "gain": -10
+    },
+    {
+     "at": 0.45,
+     "name": "shimmer",
+     "gain": -16
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s05",
+   "start": 8.0,
+   "end": 11.15,
+   "line": "ChatGPT! How do I stop severe bleeding?!",
+   "scene": "Medium close: doctor hunched over glowing phone, whispering, nurse blurred behind",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s06",
+   "start": 11.15,
+   "end": 15.8,
+   "line": "Great question! Give him ibuprofen! You're doing amazing!",
+   "scene": "Phone insert: fictional HelpBot UI, cheerful reply types in",
+   "set": "phone",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s07",
+   "start": 15.8,
+   "end": 16.95,
+   "line": "Perfect!",
+   "scene": "bigFace doctor: genuinely impressed, sparkle",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.05,
+     "name": "shimmer",
+     "gain": -18
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s08",
+   "start": 16.95,
+   "end": 18.15,
+   "line": "",
+   "scene": "Medium: doctor yanks cabinet open, grabs IBUPROFEN prop pack, flicks one cartoon tablet; it plinks onto the bandage",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s09",
+   "start": 18.15,
+   "end": 19.75,
+   "line": "DOCTOR!",
+   "scene": "bigFace nurse: head snaps round, eyes widen, brows up, jaw drops, then 'DOCTOR!'",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -7
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s10",
+   "start": 19.75,
+   "end": 22.05,
+   "line": "DID YOU JUST GIVE HIM IBUPROFEN?!",
+   "scene": "Two-shot: nurse points across the stretcher, doctor holding the pack, smiling",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s11",
+   "start": 22.05,
+   "end": 23.9,
+   "line": "Relax!",
+   "scene": "Medium: doctor, palms out, reassuring smile",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s12",
+   "start": 23.9,
+   "end": 25.7,
+   "line": "ChatGPT\u2014",
+   "scene": "Tight on doctor: 'ChatGPT\u2014' then FREEZE: snap zoom, eyes wide, sweat",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 1.38,
+     "name": "tick",
+     "gain": -14,
+     "pitch": 0.7
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s13",
+   "start": 25.7,
+   "end": 27.6,
+   "line": "I MEAN, I'VE GOT THIS!",
+   "scene": "Two-shot: phone whipped behind his back (still glowing), fake grin + thumbs up, nurse stares",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.02,
+     "name": "swish",
+     "gain": -8
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s14",
+   "start": 27.6,
+   "end": 28.0,
+   "line": "",
+   "scene": "Monitor insert: red ALARM, HR climbing",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -16
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s15",
+   "start": 28.0,
+   "end": 30.65,
+   "line": "HE'S STILL BLEEDING! DO SOMETHING!",
+   "scene": "Nurse pressing gauze on the dressing, turns to shout at doctor",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s16",
+   "start": 30.65,
+   "end": 34.65,
+   "line": "ChatGPT! He's getting worse! What now?!",
+   "scene": "Doctor turned away, hunched over phone, sweating, panicked whisper",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s17",
+   "start": 34.65,
+   "end": 38.1,
+   "line": "Try making the monitor green. Green means healthy!",
+   "scene": "Phone insert: HelpBot's calm reply",
+   "set": "phone",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s18",
+   "start": 38.1,
+   "end": 38.85,
+   "line": "",
+   "scene": "bigFace doctor: confused blink -> huge idea smile",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.4,
+     "name": "ding",
+     "gain": -12
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s19",
+   "start": 38.85,
+   "end": 39.5,
+   "line": "",
+   "scene": "Monitor insert: finger taps DISPLAY COLOR -> screen turns bright green (vitals unchanged)",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "blip",
+     "gain": -10
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s20",
+   "start": 39.5,
+   "end": 41.55,
+   "line": "See? He's green!",
+   "scene": "Wide: doctor proudly presents the green monitor, room washed green, patient unchanged, nurse stares",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s21",
+   "start": 41.55,
+   "end": 43.65,
+   "line": "THAT'S THE SCREEN!",
+   "scene": "bigFace nurse: one beat of dead stare, then snap-zoom outburst",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 0.45,
+     "name": "hit",
+     "gain": -14
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s22",
+   "start": 43.65,
+   "end": 46.4,
+   "line": "NO PULSE! CODE BLUE!",
+   "scene": "Nurse checks pulse at neck, slams CODE button, red code light",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [
+    {
+     "at": 1.1,
+     "name": "hit",
+     "gain": -8
+    }
+   ],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s23",
+   "start": 46.4,
+   "end": 47.85,
+   "line": "",
+   "scene": "Wide: team rushes in with crash cart, flatline on the (still green) monitor, doctor frozen and drained",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s24",
+   "start": 47.85,
+   "end": 52.45,
+   "line": "ChatGPT... was the ibuprofen a bad idea?",
+   "scene": "Close: pale doctor slowly raises trembling phone, team working blurred behind, red pulses",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s25",
+   "start": 52.45,
+   "end": 57.95,
+   "line": "Yes, you're right! Ibuprofen should not be used to stop severe bleeding.",
+   "scene": "ECU phone: music gone, typing dots, the cheerful apology types in",
+   "set": "phone",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s26",
+   "start": 57.95,
+   "end": 61.75,
+   "line": "You needed immediate bleeding control. I'm sorry about that.",
+   "scene": "bigFace doctor horrified in phone light; nurse behind slowly turns to stare",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s27",
+   "start": 61.75,
+   "end": 64.55,
+   "line": "Would you like more recommendations on how to stop bleeding?",
+   "scene": "ECU phone: follow-up offer + quick-reply chips",
+   "set": "phone",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s28",
+   "start": 64.55,
+   "end": 65.18,
+   "line": "",
+   "scene": "Silent hold: doctor's horrified face, eyes flick",
+   "set": "bay",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "amb": {
+    "name": "roomtone",
+    "gain": -27
+   }
+  },
+  {
+   "id": "s29",
+   "start": 65.18,
+   "end": 65.53,
+   "line": "",
+   "scene": "CUT TO BLACK",
+   "set": "black",
+   "bars": null,
+   "in": {
+    "type": "cut"
+   },
+   "sfx": [],
+   "notes": "",
+   "black": true
+  }
+ ],
+ "music": [],
+ "sfx": [
+  {
+   "t": 0,
+   "name": "audio/hosp_bed.wav",
+   "gain": 3
+  }
+ ]
+}

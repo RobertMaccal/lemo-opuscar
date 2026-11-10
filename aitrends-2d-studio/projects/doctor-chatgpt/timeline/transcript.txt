@@ -1,0 +1,36 @@
+[00:00.55 -> 00:01.29] WE NEED A DOCTOR!
+[00:01.65 -> 00:02.03] NOW!
+[00:02.39 -> 00:03.23] WE'RE LOSING HIM!
+[00:03.68 -> 00:04.14] I'm coming!
+[00:04.56 -> 00:05.08] I'm coming!
+[00:05.60 -> 00:06.28] I've got this!
+[00:08.03 -> 00:08.77] ChatGPT!
+[00:09.27 -> 00:10.65] How do I stop severe bleeding?!
+[00:11.29 -> 00:12.19] Great question!
+[00:12.59 -> 00:13.71] Give him ibuprofen!
+[00:14.01 -> 00:15.13] You're doing amazing!
+[00:15.94 -> 00:16.46] Perfect!
+[00:18.86 -> 00:19.30] DOCTOR!
+[00:19.80 -> 00:21.68] DID YOU JUST GIVE HIM IBUPROFEN?!
+[00:22.20 -> 00:22.85] Relax!
+[00:24.04 -> 00:24.84] ChatGPT—
+[00:25.77 -> 00:27.33] I MEAN, I'VE GOT THIS!
+[00:28.02 -> 00:29.10] HE'S STILL BLEEDING!
+[00:29.46 -> 00:30.00] DO SOMETHING!
+[00:30.80 -> 00:31.60] ChatGPT!
+[00:32.00 -> 00:32.90] He's getting worse!
+[00:33.36 -> 00:33.90] What now?!
+[00:34.93 -> 00:36.37] Try making the monitor green.
+[00:36.73 -> 00:37.75] Green means healthy!
+[00:39.61 -> 00:39.99] See?
+[00:40.45 -> 00:41.11] He's green!
+[00:42.01 -> 00:43.05] THAT'S THE SCREEN!
+[00:43.98 -> 00:44.46] NO PULSE!
+[00:44.78 -> 00:45.36] CODE BLUE!
+[00:47.92 -> 00:48.86] ChatGPT...
+[00:48.86 -> 00:52.14] was the ibuprofen a bad idea?
+[00:53.19 -> 00:54.39] Yes, you're right!
+[00:55.15 -> 00:57.81] Ibuprofen should not be used to stop severe bleeding.
+[00:58.35 -> 01:00.13] You needed immediate bleeding control.
+[01:00.63 -> 01:01.59] I'm sorry about that.
+[01:02.01 -> 01:04.25] Would you like more recommendations on how to stop bleeding?

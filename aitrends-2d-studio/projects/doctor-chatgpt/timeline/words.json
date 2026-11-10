@@ -1,0 +1,789 @@
+{
+ "source": "elevenlabs-lines+whisper",
+ "words": [
+  {
+   "word": "WE",
+   "start": 0.55,
+   "end": 0.71,
+   "speaker": "nurse",
+   "line": "N1"
+  },
+  {
+   "word": "NEED",
+   "start": 0.71,
+   "end": 0.87,
+   "speaker": "nurse",
+   "line": "N1"
+  },
+  {
+   "word": "A",
+   "start": 0.87,
+   "end": 0.97,
+   "speaker": "nurse",
+   "line": "N1"
+  },
+  {
+   "word": "DOCTOR!",
+   "start": 0.97,
+   "end": 1.29,
+   "speaker": "nurse",
+   "line": "N1"
+  },
+  {
+   "word": "NOW!",
+   "start": 1.65,
+   "end": 2.03,
+   "speaker": "nurse",
+   "line": "N1"
+  },
+  {
+   "word": "WE'RE",
+   "start": 2.39,
+   "end": 2.61,
+   "speaker": "nurse",
+   "line": "N1"
+  },
+  {
+   "word": "LOSING",
+   "start": 2.61,
+   "end": 2.93,
+   "speaker": "nurse",
+   "line": "N1"
+  },
+  {
+   "word": "HIM!",
+   "start": 2.93,
+   "end": 3.23,
+   "speaker": "nurse",
+   "line": "N1"
+  },
+  {
+   "word": "I'm",
+   "start": 3.68,
+   "end": 3.86,
+   "speaker": "doctor",
+   "line": "D1"
+  },
+  {
+   "word": "coming!",
+   "start": 3.86,
+   "end": 4.14,
+   "speaker": "doctor",
+   "line": "D1"
+  },
+  {
+   "word": "I'm",
+   "start": 4.56,
+   "end": 4.8,
+   "speaker": "doctor",
+   "line": "D1"
+  },
+  {
+   "word": "coming!",
+   "start": 4.8,
+   "end": 5.08,
+   "speaker": "doctor",
+   "line": "D1"
+  },
+  {
+   "word": "I've",
+   "start": 5.6,
+   "end": 5.82,
+   "speaker": "doctor",
+   "line": "D1"
+  },
+  {
+   "word": "got",
+   "start": 5.82,
+   "end": 6.0,
+   "speaker": "doctor",
+   "line": "D1"
+  },
+  {
+   "word": "this!",
+   "start": 6.0,
+   "end": 6.28,
+   "speaker": "doctor",
+   "line": "D1"
+  },
+  {
+   "word": "ChatGPT!",
+   "start": 8.03,
+   "end": 8.77,
+   "speaker": "doctor",
+   "line": "D2"
+  },
+  {
+   "word": "How",
+   "start": 9.27,
+   "end": 9.45,
+   "speaker": "doctor",
+   "line": "D2"
+  },
+  {
+   "word": "do",
+   "start": 9.45,
+   "end": 9.55,
+   "speaker": "doctor",
+   "line": "D2"
+  },
+  {
+   "word": "I",
+   "start": 9.55,
+   "end": 9.65,
+   "speaker": "doctor",
+   "line": "D2"
+  },
+  {
+   "word": "stop",
+   "start": 9.65,
+   "end": 9.89,
+   "speaker": "doctor",
+   "line": "D2"
+  },
+  {
+   "word": "severe",
+   "start": 9.89,
+   "end": 10.25,
+   "speaker": "doctor",
+   "line": "D2"
+  },
+  {
+   "word": "bleeding?!",
+   "start": 10.25,
+   "end": 10.65,
+   "speaker": "doctor",
+   "line": "D2"
+  },
+  {
+   "word": "Great",
+   "start": 11.29,
+   "end": 11.67,
+   "speaker": "chatbot",
+   "line": "C1"
+  },
+  {
+   "word": "question!",
+   "start": 11.67,
+   "end": 12.19,
+   "speaker": "chatbot",
+   "line": "C1"
+  },
+  {
+   "word": "Give",
+   "start": 12.59,
+   "end": 12.85,
+   "speaker": "chatbot",
+   "line": "C1"
+  },
+  {
+   "word": "him",
+   "start": 12.85,
+   "end": 12.99,
+   "speaker": "chatbot",
+   "line": "C1"
+  },
+  {
+   "word": "ibuprofen!",
+   "start": 12.99,
+   "end": 13.71,
+   "speaker": "chatbot",
+   "line": "C1"
+  },
+  {
+   "word": "You're",
+   "start": 14.01,
+   "end": 14.27,
+   "speaker": "chatbot",
+   "line": "C1"
+  },
+  {
+   "word": "doing",
+   "start": 14.27,
+   "end": 14.51,
+   "speaker": "chatbot",
+   "line": "C1"
+  },
+  {
+   "word": "amazing!",
+   "start": 14.51,
+   "end": 15.13,
+   "speaker": "chatbot",
+   "line": "C1"
+  },
+  {
+   "word": "Perfect!",
+   "start": 15.94,
+   "end": 16.46,
+   "speaker": "doctor",
+   "line": "D3"
+  },
+  {
+   "word": "DOCTOR!",
+   "start": 18.86,
+   "end": 19.3,
+   "speaker": "nurse",
+   "line": "N2"
+  },
+  {
+   "word": "DID",
+   "start": 19.8,
+   "end": 20.02,
+   "speaker": "nurse",
+   "line": "N2"
+  },
+  {
+   "word": "YOU",
+   "start": 20.02,
+   "end": 20.14,
+   "speaker": "nurse",
+   "line": "N2"
+  },
+  {
+   "word": "JUST",
+   "start": 20.14,
+   "end": 20.36,
+   "speaker": "nurse",
+   "line": "N2"
+  },
+  {
+   "word": "GIVE",
+   "start": 20.36,
+   "end": 20.54,
+   "speaker": "nurse",
+   "line": "N2"
+  },
+  {
+   "word": "HIM",
+   "start": 20.54,
+   "end": 20.66,
+   "speaker": "nurse",
+   "line": "N2"
+  },
+  {
+   "word": "IBUPROFEN?!",
+   "start": 20.66,
+   "end": 21.68,
+   "speaker": "nurse",
+   "line": "N2"
+  },
+  {
+   "word": "Relax!",
+   "start": 22.2,
+   "end": 22.85,
+   "speaker": "doctor",
+   "line": "D4"
+  },
+  {
+   "word": "ChatGPT—",
+   "start": 24.04,
+   "end": 24.84,
+   "speaker": "doctor",
+   "line": "D4"
+  },
+  {
+   "word": "I",
+   "start": 25.77,
+   "end": 25.93,
+   "speaker": "doctor",
+   "line": "D5"
+  },
+  {
+   "word": "MEAN,",
+   "start": 25.93,
+   "end": 26.05,
+   "speaker": "doctor",
+   "line": "D5"
+  },
+  {
+   "word": "I'VE",
+   "start": 26.43,
+   "end": 26.85,
+   "speaker": "doctor",
+   "line": "D5"
+  },
+  {
+   "word": "GOT",
+   "start": 26.85,
+   "end": 27.05,
+   "speaker": "doctor",
+   "line": "D5"
+  },
+  {
+   "word": "THIS!",
+   "start": 27.05,
+   "end": 27.33,
+   "speaker": "doctor",
+   "line": "D5"
+  },
+  {
+   "word": "HE'S",
+   "start": 28.02,
+   "end": 28.3,
+   "speaker": "nurse",
+   "line": "N3"
+  },
+  {
+   "word": "STILL",
+   "start": 28.3,
+   "end": 28.6,
+   "speaker": "nurse",
+   "line": "N3"
+  },
+  {
+   "word": "BLEEDING!",
+   "start": 28.6,
+   "end": 29.1,
+   "speaker": "nurse",
+   "line": "N3"
+  },
+  {
+   "word": "DO",
+   "start": 29.46,
+   "end": 29.74,
+   "speaker": "nurse",
+   "line": "N3"
+  },
+  {
+   "word": "SOMETHING!",
+   "start": 29.74,
+   "end": 30.0,
+   "speaker": "nurse",
+   "line": "N3"
+  },
+  {
+   "word": "ChatGPT!",
+   "start": 30.8,
+   "end": 31.6,
+   "speaker": "doctor",
+   "line": "D6"
+  },
+  {
+   "word": "He's",
+   "start": 32.0,
+   "end": 32.34,
+   "speaker": "doctor",
+   "line": "D6"
+  },
+  {
+   "word": "getting",
+   "start": 32.34,
+   "end": 32.5,
+   "speaker": "doctor",
+   "line": "D6"
+  },
+  {
+   "word": "worse!",
+   "start": 32.5,
+   "end": 32.9,
+   "speaker": "doctor",
+   "line": "D6"
+  },
+  {
+   "word": "What",
+   "start": 33.36,
+   "end": 33.62,
+   "speaker": "doctor",
+   "line": "D6"
+  },
+  {
+   "word": "now?!",
+   "start": 33.62,
+   "end": 33.9,
+   "speaker": "doctor",
+   "line": "D6"
+  },
+  {
+   "word": "Try",
+   "start": 34.93,
+   "end": 35.13,
+   "speaker": "chatbot",
+   "line": "C2"
+  },
+  {
+   "word": "making",
+   "start": 35.13,
+   "end": 35.43,
+   "speaker": "chatbot",
+   "line": "C2"
+  },
+  {
+   "word": "the",
+   "start": 35.43,
+   "end": 35.61,
+   "speaker": "chatbot",
+   "line": "C2"
+  },
+  {
+   "word": "monitor",
+   "start": 35.61,
+   "end": 35.93,
+   "speaker": "chatbot",
+   "line": "C2"
+  },
+  {
+   "word": "green.",
+   "start": 35.93,
+   "end": 36.37,
+   "speaker": "chatbot",
+   "line": "C2"
+  },
+  {
+   "word": "Green",
+   "start": 36.73,
+   "end": 37.21,
+   "speaker": "chatbot",
+   "line": "C2"
+  },
+  {
+   "word": "means",
+   "start": 37.21,
+   "end": 37.47,
+   "speaker": "chatbot",
+   "line": "C2"
+  },
+  {
+   "word": "healthy!",
+   "start": 37.47,
+   "end": 37.75,
+   "speaker": "chatbot",
+   "line": "C2"
+  },
+  {
+   "word": "See?",
+   "start": 39.61,
+   "end": 39.99,
+   "speaker": "doctor",
+   "line": "D7"
+  },
+  {
+   "word": "He's",
+   "start": 40.45,
+   "end": 40.77,
+   "speaker": "doctor",
+   "line": "D7"
+  },
+  {
+   "word": "green!",
+   "start": 40.77,
+   "end": 41.11,
+   "speaker": "doctor",
+   "line": "D7"
+  },
+  {
+   "word": "THAT'S",
+   "start": 42.01,
+   "end": 42.37,
+   "speaker": "nurse",
+   "line": "N4"
+  },
+  {
+   "word": "THE",
+   "start": 42.37,
+   "end": 42.55,
+   "speaker": "nurse",
+   "line": "N4"
+  },
+  {
+   "word": "SCREEN!",
+   "start": 42.55,
+   "end": 43.05,
+   "speaker": "nurse",
+   "line": "N4"
+  },
+  {
+   "word": "NO",
+   "start": 43.98,
+   "end": 44.18,
+   "speaker": "nurse",
+   "line": "N5"
+  },
+  {
+   "word": "PULSE!",
+   "start": 44.18,
+   "end": 44.46,
+   "speaker": "nurse",
+   "line": "N5"
+  },
+  {
+   "word": "CODE",
+   "start": 44.78,
+   "end": 45.04,
+   "speaker": "nurse",
+   "line": "N5"
+  },
+  {
+   "word": "BLUE!",
+   "start": 45.04,
+   "end": 45.36,
+   "speaker": "nurse",
+   "line": "N5"
+  },
+  {
+   "word": "ChatGPT...",
+   "start": 47.92,
+   "end": 48.86,
+   "speaker": "doctor",
+   "line": "D8"
+  },
+  {
+   "word": "was",
+   "start": 48.86,
+   "end": 49.285,
+   "speaker": "doctor",
+   "line": "D8"
+  },
+  {
+   "word": "the",
+   "start": 49.94,
+   "end": 50.14,
+   "speaker": "doctor",
+   "line": "D8"
+  },
+  {
+   "word": "ibuprofen",
+   "start": 50.14,
+   "end": 50.94,
+   "speaker": "doctor",
+   "line": "D8"
+  },
+  {
+   "word": "a",
+   "start": 50.94,
+   "end": 51.215,
+   "speaker": "doctor",
+   "line": "D8"
+  },
+  {
+   "word": "bad",
+   "start": 51.5,
+   "end": 51.76,
+   "speaker": "doctor",
+   "line": "D8"
+  },
+  {
+   "word": "idea?",
+   "start": 51.76,
+   "end": 52.14,
+   "speaker": "doctor",
+   "line": "D8"
+  },
+  {
+   "word": "Yes,",
+   "start": 53.19,
+   "end": 53.57,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "you're",
+   "start": 53.85,
+   "end": 54.07,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "right!",
+   "start": 54.07,
+   "end": 54.39,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "Ibuprofen",
+   "start": 55.15,
+   "end": 55.67,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "should",
+   "start": 55.67,
+   "end": 55.89,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "not",
+   "start": 55.89,
+   "end": 56.25,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "be",
+   "start": 56.25,
+   "end": 56.49,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "used",
+   "start": 56.49,
+   "end": 56.75,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "to",
+   "start": 56.75,
+   "end": 56.95,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "stop",
+   "start": 56.95,
+   "end": 57.13,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "severe",
+   "start": 57.13,
+   "end": 57.47,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "bleeding.",
+   "start": 57.47,
+   "end": 57.81,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "You",
+   "start": 58.35,
+   "end": 58.51,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "needed",
+   "start": 58.51,
+   "end": 58.75,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "immediate",
+   "start": 58.75,
+   "end": 59.27,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "bleeding",
+   "start": 59.27,
+   "end": 59.65,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "control.",
+   "start": 59.65,
+   "end": 60.13,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "I'm",
+   "start": 60.63,
+   "end": 60.81,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "sorry",
+   "start": 60.81,
+   "end": 61.07,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "about",
+   "start": 61.07,
+   "end": 61.29,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "that.",
+   "start": 61.29,
+   "end": 61.59,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "Would",
+   "start": 62.01,
+   "end": 62.15,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "you",
+   "start": 62.15,
+   "end": 62.25,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "like",
+   "start": 62.25,
+   "end": 62.41,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "more",
+   "start": 62.41,
+   "end": 62.63,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "recommendations",
+   "start": 62.63,
+   "end": 63.17,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "on",
+   "start": 63.17,
+   "end": 63.52,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "how",
+   "start": 63.53,
+   "end": 63.71,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "to",
+   "start": 63.71,
+   "end": 63.79,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "stop",
+   "start": 63.79,
+   "end": 63.97,
+   "speaker": "chatbot",
+   "line": "C3"
+  },
+  {
+   "word": "bleeding?",
+   "start": 63.97,
+   "end": 64.25,
+   "speaker": "chatbot",
+   "line": "C3"
+  }
+ ]
+}
