@@ -1,0 +1,14 @@
+{
+ "slug": "golden-hour-stickman",
+ "en": "Golden Hour Stickman",
+ "cn": "暖光火柴人",
+ "based_on": "core",
+ "borrows": [],
+ "size": "1080x1920",
+ "fps": 30,
+ "library_version": "bebbbe1",
+ "created": "2026-11-12",
+ "line": "Nostalgic stick-figure sitcom: doodle-simple characters with huge acting faces in warm, window-lit, flat-shaded rooms.",
+ "line_cn": "怀旧火柴人情景喜剧：简笔角色、夸张表情，置身于窗光温暖的扁平场景中。",
+ "film": "That One Friend at School"
+}

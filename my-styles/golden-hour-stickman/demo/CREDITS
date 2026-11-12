@@ -1,0 +1,25 @@
+THAT ONE FRIEND AT SCHOOL — third-party material
+
+MUSIC
+- Frédéric Chopin, Nocturne in E-flat major, Op. 9 No. 2 (composition: public domain).
+  Recording: "Musopen – The Complete Works of Frédéric Chopin" (Musopen Kickstarter project, 2012), dedicated to the public domain under CC0 1.0.
+  Source: https://archive.org/details/musopen-chopin-complete-works-flac  (file "Nocturne in E flat major, Op. 9 no. 2.flac")
+  Used as recorded for the opening, classroom and ending; time-stretched for the montage; slowed and filtered for the post-exam scene. Level-ridden for small speakers.
+- Montage percussion, the reveal sting, the phone jingle: synthesised in mix.py (original).
+
+VOICES
+- ElevenLabs text to speech, model Eleven v4, generated on the film owner's ElevenLabs account. Voices (voice IDs):
+  YOU — Liam (TX3LPaxmHKxFdv7VOQHJ) · JACK — Will (bIHbv24MWmeRgasZH58o) · PROFESSOR — Grant Gravitas (VC6vCXhVaI8BZefRtXZV)
+  TEACHER — Courtney (xd8j2LFPw16XKmJ5qeBK) · COACH — Charlie (IKne3meq5aSn9XLyUdCD) · STUDENT A — Poppy (84fzuBWFLVJkKssGvKAV) · STUDENT B — Tyler (rPMkKgdwgIwqv4fXgR6N)
+  Use of the generated audio is governed by the account holder's ElevenLabs plan and terms.
+
+SOUND EFFECTS
+- ElevenLabs sound effects (Eleven text-to-sound v2), same account: school bell, pool splash, whistle, applause, pencil.
+- Everything else (clock, footsteps, door, chatter bed built from the dialogue takes, heartbeat, birds, breeze, crowd, water, board flips): synthesised in mix.py with the Lemo-Opuscar foley helpers (MIT).
+
+FONTS (SIL Open Font License 1.1, from github.com/google/fonts)
+- Lilita One — Juan Montoreano · Patrick Hand — Patrick Wagesreiter · Caveat — Impallari Type · Fredoka — Milena Brandão, Hafontia
+
+PICTURE
+- Every frame is drawn by the code in src/ (Canvas 2D), captured with Playwright / Chromium and encoded with ffmpeg. No generated or stock images.
+- Rendering toolkit: Lemo-Opuscar core tools (MIT).
