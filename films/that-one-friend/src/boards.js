@@ -17,4 +17,5 @@ export const FRAMES = {
   b06: sb('storyboard-06-swimming', B.b06),
   b07: sb('storyboard-07-scoreboard', B.b07),
   b08: sb('storyboard-08-final-sunset', B.b08),
+  thumb: sb('../thumbnail', B.bThumb),
 };

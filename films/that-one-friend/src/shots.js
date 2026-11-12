@@ -12,7 +12,7 @@ function layer(ctx, id, fn, blur = 0, alpha = 1) {
   if (blur) { ctx.drawImage(g.canvas, 0, 0); ctx.filter = `blur(${blur}px)`; } ctx.drawImage(g.canvas, 0, 0); ctx.restore();
 }
 function layerSoft(ctx, id, fn, blur) { const g = tmp(id, W, H); fn(g); ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.filter = `blur(${blur}px)`; ctx.drawImage(g.canvas, 0, 0); ctx.restore(); }
-const put = (g, ch, x, y, s, o, L, opt) => drawChar(g, ch, pose(ch, { x, y, s }, o), L, opt);
+const put = (g, ch, x, y, s, o, L, opt) => drawChar(g, ch, { ...pose(ch, o), x, y, s }, L, opt);
 const sitY = ch => (ch.ul + ch.ll) * .992 + 12 - 95;
 const seat = (ch, o = {}) => ({ hipY: sitY(ch), legS: .5, lL: { x: -30 }, lR: { x: 30 }, ...o });
 function finish(ctx, { vig = .5, bl = .2, grade = null, grain = .13, vc = [.5, .5], inner = .35 } = {}) {
@@ -26,14 +26,15 @@ const L_BACK = mkL(.14, .99, { rim: '#FFF2CC', rimW: 6, shadeA: 0, shadow: null 
 
 // ---- captions: a paper label from the school's own stationery ----
 const WHO = { YOU: P.you, JACK: dark(P.jack, .28), PROFESSOR: '#6E648F', TEACHER: '#B4553F', COACH: P.tealDeep, 'STUDENT A': P.burg, 'STUDENT B': '#B8923C' };
-export function caption(c, str, y, { who = null, think = false, size = 60, rot = -.014, maxW = 900 } = {}) {
-  c.save(); c.setTransform(1, 0, 0, 1, 0, 0);
+export function caption(c, str, y, { who = null, think = false, size = 60, rot = -.014, maxW = 900, k = 1 } = {}) {
+  if (k <= 0.01) return;
+  c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = Math.min(1, k * 1.6);
   const font = `${size}px ${F.title}`; c.font = font;
   const words = str.split(' ').map(w => ({ s: w.replace(/\*/g, ''), hot: w.includes('*') }));
   const sp = c.measureText(' ').width, lines = [[]]; let lw = 0;
   for (const w of words) { const ww = c.measureText(w.s).width; if (lw + ww > maxW - 90 && lines[lines.length - 1].length) { lines.push([]); lw = 0; } lines[lines.length - 1].push({ ...w, ww }); lw += ww + sp; }
   const lws = lines.map(l => l.reduce((a, w) => a + w.ww, 0) + sp * (l.length - 1)), bw = Math.max(...lws) + 96, lh = size * 1.14, bh = lines.length * lh + 46;
-  c.translate(W / 2, y); c.rotate(rot);
+  c.translate(W / 2, y + (1 - k) * 26); c.rotate(rot); c.scale(.86 + .14 * k, .86 + .14 * k);
   fillRR(c, -bw / 2 + 8, -bh / 2 + 11, bw, bh, 16, rgba(P.night, .4));
   fillRR(c, -bw / 2, -bh / 2, bw, bh, 16, think ? '#E7DFF1' : P.paper);
   c.lineWidth = 5; c.strokeStyle = P.ink; if (think) c.setLineDash([16, 11]); rr(c, -bw / 2, -bh / 2, bw, bh, 16); c.stroke(); c.setLineDash([]);
@@ -83,7 +84,7 @@ export function b01(ctx, t) {
 // =============== EXAM ROOM (shared staging) ===============
 const ROWS = [{ y: 1040, s: .42 }, { y: 1160, s: .54 }, { y: 1335, s: .70 }, { y: 1600, s: .92 }];
 const colX = (s, c) => 540 + c * 375 * s;
-const writing = (ch, k = 0) => seat(ch, { head: { nod: 1, tilt: (k % 3 - 1) * .05, oy: 8 }, e: { gy: .9, lidT: .5, mS: 0, mW: .55 }, aL: { to: [-58, -168], k: 1 }, aR: { to: [34 + (k % 2) * 16, -170], k: -1, prop: { n: 'pencil', r: -.5, dy: -18 } } });
+const writing = (ch, k = 0, t = 0) => { const w = Math.sin(t * 7 + k * 2.1) * (Math.sin(t * .9 + k) > -.3 ? 1 : 0); return seat(ch, { head: { nod: 1, tilt: (k % 3 - 1) * .05 + Math.sin(t * .6 + k) * .015, oy: 8 }, e: { gy: .9, lidT: .5, mS: 0, mW: .55, eyeOpen: (t * .31 + k * .37) % 1 < .035 ? .05 : 1 }, aL: { to: [-58, -168], k: 1 }, aR: { to: [34 + (k % 2) * 16 + w * 5, -170 + Math.abs(w) * 2], k: -1, prop: { n: 'pencil', r: -.5 + w * .08, dy: -18 } } }); };
 function examScene(g, t, { rows = [0, 1, 2, 3], you = null, jack = null, prof = null, noYou = false, jackDesk = {}, bg = true, light = true } = {}) {
   if (bg) {
     S.room(g, t, { mode: 'exam' });
@@ -98,7 +99,7 @@ function examScene(g, t, { rows = [0, 1, 2, 3], you = null, jack = null, prof = 
       const x = colX(s, c), chr = who[r][c + 1], isYou = chr === YOU, isJack = chr === JACK;
       if (isYou && noYou) continue;
       if (!(r === 2 && c === 0)) ell(g, x + 6 * s, y + 6 * s, 200 * s, 24 * s, rgba(P.plum, .2));
-      const o = chr ? (isYou ? you : isJack ? jack : null) || writing(chr, r * 3 + c) : null;
+      const o = chr ? (isYou ? you : isJack ? jack : null) || writing(chr, r * 3 + c, t) : null;
       const opt = { noShadow: true, tint: [P.plum, .04 + (3 - r) * .05] };
       if (chr) put(g, chr, x, y, s, o, L_BACK, { ...opt, only: [0, 1, 2] });
       if (r === 2 && c === 0) continue;   // the aisle the professor walks
@@ -289,4 +290,18 @@ export function b08(ctx, t) {
   });
   finish(ctx, { vig: .5, bl: .34 });
   caption(ctx, "I'm just *chill.*", 1600, { who: 'JACK', size: 66 });
+}
+
+export { cam, layer, layerSoft, put, sitY, seat, finish, mkL, L_HALL, L_RIGHT, L_BACK, examScene, ROWS, colX, writing, youStuck, jackAsk, youBack, profBring, J1, Y7, Y_SWIM, WHO };
+
+// =============== THUMBNAIL / POSTER ===============
+export function bThumb(ctx, t) {
+  S.clubWall(ctx, t);
+  S.resultBoard(ctx, 540, 500, 700, 'EVERYTHING', [['1ST', 'JACK', dark(P.jack, .35)], ['2ND', 'YOU', P.you]], { sub: 'FINAL STANDINGS · AGAIN' });
+  const L = mkL(.72, .62, { shadow: { kx: .6, ky: .15, a: .3, blur: 6, col: P.plum } });
+  put(ctx, JACK, 800, 2120, 1.75, { face: -.2, lean: .03, head: { nod: .55, tilt: .07 }, e: { ...X.chill, gy: .75, gx: -.2 }, aL: { to: [-22, -322], k: 1, z: 1, prop: { n: 'phone', r: .2, back: 1, glow: .4 } }, aR: { a: .1, b: -.4 } }, L, { noShadow: true });
+  put(ctx, YOU, 290, 2270, 2.25, { face: .3, head: { turn: .35, tilt: -.07 }, shrug: 1.2, sq: -.15, e: { ...X.how, gx: .8, sweat: .9 }, aL: { a: -.1, b: .1 }, aR: { a: .2, b: -.1 } }, L, { noShadow: true });
+  S.titleCard(ctx, 540, 262, .58);
+  finish(ctx, { vig: .5, bl: .24 });
+  caption(ctx, "“I'm just *chill.*”", 1790, { who: 'JACK', size: 70 });
 }

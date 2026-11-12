@@ -335,7 +335,7 @@ export function resultBoard(g, x, y, w, title, rows, { sub = 'FINAL STANDINGS', 
     g.save(); g.translate(0, yy + rh / 2); g.scale(1, sy);
     fillRR(g, -w * .44, -rh / 2, w * .88, rh, 8, i === 0 ? P.gold : P.paper); fillR(g, -w * .44, -3, w * .88, 6, rgba(P.night, .1));
     fillRR(g, -w * .425, -rh / 2 + rh * .1, w * .24, rh * .8, 6, i === 0 ? P.amber : P.lavLight);
-    text(g, pl, -w * .305, 4, { size: rh * .52, col: P.ink }); text(g, name, w * .1, 5, { size: rh * .7, col: col || P.ink, ls: w * .006 });
+    text(g, pl, -w * .305, 4, { size: rh * .52, col: P.ink }); if (!(flip && flip[i] !== undefined && flip[i] < .5)) text(g, name, w * .1, 5, { size: rh * .7, col: col || P.ink, ls: w * .006 });
     g.restore();
   });
   for (const sx of [-1, 1]) circ(g, sx * (w / 2 - w * .028), w * .028, w * .012, P.gold);

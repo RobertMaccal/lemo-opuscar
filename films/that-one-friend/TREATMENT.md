@@ -83,3 +83,11 @@ Two real silences: after "answer booklet, please?" and after "ligaments." Two so
 ## 9. Voices (after visual approval; nothing generated yet)
 
 ElevenLabs, real voice IDs from the connected account: YOU (young, expressive), JACK (lower, soft, deadpan), PROFESSOR, TEACHER, COACH, STUDENT A, STUDENT B. YOUR thoughts use the same voice, closer and drier. One take per line, mouths driven by each clip's loudness and timing.
+
+## 10. As built
+
+- Running time 2:37.7 at 30 fps, 1080×1920, H.264 + AAC, −14 LUFS. 45 dialogue lines (ElevenLabs, Eleven v4), every line checked by speech-to-text on the takes and again on the final mix.
+- Two lines were re-taken for clarity ("Second?" and "Yeah. After Jack."). One short line was added to the script: the professor's "Alright, everyone. In you come."
+- Music: the CC0 Musopen recording of the nocturne throughout (opening, classroom, ending as played; time-stretched 1.55× → 2.5× with added percussion for the montage; slowed and low-passed for the spiral). The MIDI edition considered for a re-performance is CC BY-SA, so it was not used.
+- Staging changes from the storyboard: in the corridor the door now sits between Jack and YOU, so the professor can open it between them; the pool-side deck chair became a bench.
+- Not built from a library style or its demo: the look follows the brief, the engine is this folder's `src/`.

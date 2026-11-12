@@ -5,7 +5,7 @@ const LIB = process.env.LIB || process.cwd();
 const { openDemo, closeServer } = await import(pathToFileURL(path.join(LIB, 'core/render/page.mjs')).href);
 const want = process.argv.slice(2).filter(a => !a.startsWith('--'));
 const outDir = path.join(HERE, 'preproduction'); fs.mkdirSync(outDir, { recursive: true });
-let { browser, page } = await openDemo(HERE, { w: 400, h: 400 });
+let { browser, page } = await openDemo(HERE, { w: 400, h: 400, q: 'boards=1' });
 const list = await page.evaluate(() => window.FRAME_LIST); await browser.close();
 for (const f of list) {
   if (want.length && !want.includes(f.id)) continue;
