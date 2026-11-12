@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>That One Friend at School</title>
+<style>
+@font-face{font-family:'Lilita One';src:url(fonts/LilitaOne-Regular.ttf)}
+@font-face{font-family:'Patrick Hand';src:url(fonts/PatrickHand-Regular.ttf)}
+@font-face{font-family:'Caveat';src:url(fonts/Caveat.ttf);font-weight:400 700}
+@font-face{font-family:'Fredoka';src:url(fonts/Fredoka.ttf);font-weight:300 700}
+html,body{margin:0;background:#15131f;overflow:hidden}canvas{display:block}
+</style></head><body><canvas id="c"></canvas>
+<script type="module">
+// Preproduction page: ?frame=<id> draws one board with the film's real drawing code.
+import { FRAMES } from './src/boards.js';
+const q = new URLSearchParams(location.search), id = q.get('frame') || Object.keys(FRAMES)[0], fr = FRAMES[id];
+const cv = document.getElementById('c'); cv.width = fr.w; cv.height = fr.h;
+const ctx = cv.getContext('2d');
+window.DUR = 1;
+window.FRAME_LIST = Object.entries(FRAMES).map(([k, v]) => ({ id: k, w: v.w, h: v.h, file: v.file, t: v.t ?? 0 }));
+window.render = t => {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.filter = 'none'; ctx.globalCompositeOperation = 'source-over';
+  ctx.clearRect(0, 0, fr.w, fr.h); fr.draw(ctx, t, fr.w, fr.h);
+};
+await Promise.all(['Lilita One', 'Patrick Hand', 'Caveat', 'Fredoka'].map(f => document.fonts.load(`600 40px '${f}'`)));
+await document.fonts.ready; window.READY = true;
+</script></body></html>
