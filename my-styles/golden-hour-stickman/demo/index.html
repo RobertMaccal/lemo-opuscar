@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>That One Friend at School</title>
+<style>
+@font-face{font-family:'Lilita One';src:url(fonts/LilitaOne-Regular.ttf)}
+@font-face{font-family:'Patrick Hand';src:url(fonts/PatrickHand-Regular.ttf)}
+@font-face{font-family:'Caveat';src:url(fonts/Caveat.ttf);font-weight:400 700}
+@font-face{font-family:'Fredoka';src:url(fonts/Fredoka.ttf);font-weight:300 700}
+html,body{margin:0;background:#15131f;overflow:hidden}canvas{display:block}
+</style></head><body><canvas id="c"></canvas>
+<script type="module">
+// The film: window.render(t) draws the frame at second t.  ?frame=<id> draws one preproduction board instead.
+const q = new URLSearchParams(location.search), cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const reset = () => { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.filter = 'none'; ctx.globalCompositeOperation = 'source-over'; };
+await Promise.all(['Lilita One', 'Patrick Hand', 'Caveat', 'Fredoka'].map(f => document.fonts.load(`600 40px '${f}'`)));
+await document.fonts.ready;
+if (q.get('frame') || q.get('boards')) {
+  const { FRAMES } = await import('./src/boards.js'), id = q.get('frame') || Object.keys(FRAMES)[0], fr = FRAMES[id];
+  cv.width = fr.w; cv.height = fr.h; window.DUR = 1;
+  window.FRAME_LIST = Object.entries(FRAMES).map(([k, v]) => ({ id: k, w: v.w, h: v.h, file: v.file, t: v.t ?? 0 }));
+  window.render = t => { reset(); ctx.clearRect(0, 0, fr.w, fr.h); fr.draw(ctx, t, fr.w, fr.h); };
+} else {
+  const VO = await (await fetch('audio/vo.json')).json();
+  const { initTimeline } = await import('./src/anim.js'), TL = initTimeline(VO), { renderFilm } = await import('./src/film.js');
+  cv.width = 1080; cv.height = 1920; window.DUR = TL.DUR; window.EV = TL.EV; window.MARKS = TL.M;
+  window.render = t => { reset(); ctx.fillStyle = '#15131f'; ctx.fillRect(0, 0, 1080, 1920); renderFilm(ctx, Math.min(t, TL.DUR - 1e-3)); };
+}
+window.READY = true;
+</script></body></html>
