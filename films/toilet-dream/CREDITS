@@ -1,0 +1,17 @@
+THE TOILET DREAM — THE ULTIMATE BETRAYAL — third-party material
+
+MUSIC
+- Original score composed for this film (theme, variations, stings, final chord, the last note). Written as note events in mix.py.
+- Performed with samples: Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+
+SOUND EFFECTS
+- All foley and room tones (footsteps, blanket, mattress creaks, breathing, gasps, heartbeat, cheek taps, light switch,
+  toilet lid, water stream, crickets) are synthesised in mix.py with the Lemo-Opuscar foley helpers (MIT). No recorded or stock sounds.
+
+VOICE
+- None. The film has no dialogue, narration or text.
+
+PICTURE
+- Every frame is drawn by the code in src/ (Canvas 2D) in the owner's own "Golden Hour Stickman" style
+  (my-styles/golden-hour-stickman), captured with Playwright / Chromium and encoded with ffmpeg. No generated or stock images.
+- Rendering toolkit: Lemo-Opuscar core tools (MIT).

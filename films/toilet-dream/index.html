@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>The Toilet Dream</title>
+<style>
+html,body{margin:0;background:#15131f;overflow:hidden}canvas{display:block}
+</style></head><body><canvas id="c"></canvas>
+<script type="module">
+// The film: window.render(t) draws the frame at second t.  ?board=<id> draws one look-test board instead.
+const q = new URLSearchParams(location.search), cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const reset = () => { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.filter = 'none'; ctx.globalCompositeOperation = 'source-over'; };
+cv.width = 1080; cv.height = 1920;
+if (q.get('board')) {
+  const { BOARDS } = await import('./src/boards.js'), fn = BOARDS[q.get('board')];
+  window.DUR = 1; window.render = t => { reset(); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, 1080, 1920); fn(ctx, t); };
+} else {
+  const { renderFilm } = await import('./src/film.js'), { DUR, EV } = await import('./src/timeline.js');
+  window.DUR = DUR; window.EV = EV;
+  window.render = t => { reset(); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, 1080, 1920); renderFilm(ctx, Math.min(t, DUR - 1e-3)); };
+}
+window.READY = true;
+</script></body></html>
