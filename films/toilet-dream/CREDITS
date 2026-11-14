@@ -15,3 +15,6 @@ PICTURE
 - Every frame is drawn by the code in src/ (Canvas 2D) in the owner's own "Golden Hour Stickman" style
   (my-styles/golden-hour-stickman), captured with Playwright / Chromium and encoded with ffmpeg. No generated or stock images.
 - Rendering toolkit: Lemo-Opuscar core tools (MIT).
+
+FONTS (thumbnail only; SIL Open Font License 1.1, from github.com/google/fonts)
+- Lilita One — Juan Montoreano · Fredoka — Milena Brandão, Hafontia

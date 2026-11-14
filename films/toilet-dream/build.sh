@@ -17,3 +17,5 @@ node core/render/video.mjs "$HERE" --fps 30 --workers ${WORKERS:-4} --size 1080x
 rm -f "$HERE/the-toilet-dream.mp4"
 sh core/render/mux.sh "$HERE/out/video.mp4" "$HERE/out/mix.wav" "$HERE/the-toilet-dream.mp4" 30 1
 ffmpeg -v error -y -ss 40.35 -i "$HERE/the-toilet-dream.mp4" -frames:v 1 -q:v 2 "$HERE/poster.jpg"
+# the cover / thumbnail (no spoiler), drawn with the same engine
+node core/render/still.mjs "$HERE" 0 --size 1080x1920 --q board=thumb --prefix thumb_ --out "$HERE/out/thumb" && cp "$HERE/out/thumb/thumb_0.jpg" "$HERE/thumbnail.jpg"

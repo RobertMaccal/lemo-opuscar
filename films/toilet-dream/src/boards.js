@@ -15,3 +15,5 @@ export const BOARDS = {
   bathCU: (ctx, t) => SC.bathroom(ctx, t, { c: { x: 690, y: 1200, z: 2.6 }, x: 660, dof: 9, p: P_(D, { face: .55, e: X.bliss, shrug: -.3, aR: { to: [60, -200], k: -1, z: 1 }, aL: { to: [40, -200], k: 1 } }), lid: 1 }),
   pov: (ctx, t) => SC.hallPOV(ctx, t, {}),
 };
+import { thumb } from './thumb.js';
+BOARDS.thumb = (ctx, t) => thumb(ctx, t);
