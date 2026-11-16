@@ -1,0 +1,37 @@
+CPR CLASS GONE WRONG — third-party material
+
+MUSIC
+- None. There is no score, no backing track and no instrument in this film.
+- The class's chant ("Ah, ah, ah, ah — keep him alive, keep him alive! Hundred and ten, do it again! Push, push, push, push! Hey!")
+  is an ORIGINAL chant written for this film (110 BPM, A-minor chord tones), sung by the ElevenLabs voices below and assembled
+  in audio/chant.py. It is not "Stayin' Alive" or "I Will Survive" and uses neither song's melody or recording.
+- The volunteer briefly sings two lines of lyric ("First I was afraid… I was petrified…") to a melody the voice model improvised,
+  and the teacher says the title "Stayin' Alive" — as written in the commissioning script. If you publish the film commercially,
+  check with your own advisers whether that short lyric quotation needs clearance where you publish.
+
+VOICES — ElevenLabs text to speech, model Eleven v4, generated on the film owner's ElevenLabs account (flow "CPR Class Gone Wrong — voices").
+  TEACHER — Mario - Confident Entrepreneur (WtFpVTQlSmPhgfIPa9QC)
+  KYLE (the volunteer) — Hurker - Confident, Playful & Warm (AgWmGPmoY5bWqnxOVd0j)
+  GUS (the parking-lot student) — Will - Relaxed Optimist (bIHbv24MWmeRgasZH58o)
+  CHRISTOPHER — Timmy - Anxious Nerd (mrQhZWGbb2k9qWJb5qeA)
+  VICTOR (the organ-donor student) — Daniel's Voice - Warm, Low, Confident (rFhx8PVgXxOyaeAGq9fq)
+  Chant only: MAYA — Jessica (cgSgspJ2msm6clMCkdW9) · LENA — Laura (FGY2WhTYpPnrIDTdsKH5) · PRIYA — Amelia (7i54CD3SCtmwp1S5OmZA)
+              BEN — Liam (TX3LPaxmHKxFdv7VOQHJ) · TOM — Jordan - Warm & Gritty (OwEAPhTFInN6VSRT9QXm) · SAM — Max - Energetic Creator (wjSx1htPXMhP5clAfXOT)
+              GUS — Will (above) · KYLE — Hurker (above)
+  Use of the generated audio is governed by the account holder's ElevenLabs plan and terms.
+  Every dialogue take was checked with faster-whisper (small.en) speech-to-text.
+
+SOUND EFFECTS
+- All synthesised in mix.py with the Lemo-Opuscar foley helpers (MIT): manikin clicks, foot taps, claps, snaps, desk knocks,
+  chair scrapes, footsteps, cloth, shoe squeak, pen drop, room tone, birds, clock. No laugh track.
+
+FONTS (SIL Open Font License 1.1, from github.com/google/fonts)
+- Lilita One — Juan Montoreano · Patrick Hand — Patrick Wagesreiter · Caveat — Impallari Type · Fredoka — Milena Brandão, Hafontia
+
+PICTURE
+- Every frame is drawn by the code in src/ (Canvas 2D), captured with Playwright / Chromium and encoded with ffmpeg. No generated or stock images.
+- Style: Golden Hour Stickman (the owner's own style, my-styles/golden-hour-stickman/). Rendering toolkit: Lemo-Opuscar core tools (MIT).
+
+MEDICAL NOTE
+- Fiction. The poster and chalkboard show the real adult sequence (check, call 911, get an AED, 100–120 compressions/min).
+  The organ-donation line is deliberately false dialogue; organ donation does not work that way.
