@@ -13,7 +13,11 @@ const q = new URLSearchParams(location.search), cv = document.getElementById('c'
 const reset = () => { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.filter = 'none'; ctx.globalCompositeOperation = 'source-over'; };
 await Promise.all(['Lilita One', 'Patrick Hand', 'Caveat', 'Fredoka'].map(f => document.fonts.load(`600 40px '${f}'`)));
 await document.fonts.ready;
-if (q.get('frame') || q.get('boards')) {
+if (q.get('thumb')) {
+  const VO = await (await fetch('audio/vo.json')).json(); const { initTimeline } = await import('./src/anim.js'); initTimeline(VO);
+  const { renderThumb } = await import('./src/thumb.js'); cv.width = 1080; cv.height = 1920; window.DUR = 1;
+  window.render = t => { reset(); ctx.fillStyle = '#15131f'; ctx.fillRect(0, 0, 1080, 1920); renderThumb(ctx, t); };
+} else if (q.get('frame') || q.get('boards')) {
   const { FRAMES } = await import('./src/boards.js'), id = q.get('frame') || Object.keys(FRAMES)[0], fr = FRAMES[id];
   cv.width = fr.w; cv.height = fr.h; window.DUR = 1;
   window.FRAME_LIST = Object.entries(FRAMES).map(([k, v]) => ({ id: k, w: v.w, h: v.h, file: v.file, t: v.t ?? 0 }));

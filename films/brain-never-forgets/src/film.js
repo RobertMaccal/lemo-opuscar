@@ -339,7 +339,7 @@ function shotBed(ctx, t) {
 // 4–5. NIGHT: the sleeping face (overhead), the mind-space, the reveal
 // =====================================================================
 const FACE_S = 3.6;
-function sleepFace(g, t, e, { cx = 540, cy = 860, s = FACE_S, lift = 0, breathe = 0, tint = null } = {}) {
+export function sleepFace(g, t, e, { cx = 540, cy = 860, s = FACE_S, lift = 0, breathe = 0, tint = null } = {}) {
   const p0 = P_(YOU_NIGHT, { e, head: { oy: 0 } }), J = solve(YOU_NIGHT, p0);
   const sc = s * (1 + lift * .06), gx = cx - J.hc[0] * sc, gy = cy - lift * 46 - J.hc[1] * sc;
   S2.pillowBed(g, t, cx, cy + 40, 1.25 + lift * .03);
