@@ -1,0 +1,23 @@
+1
+00:00:11,550 --> 00:00:13,694
+Hey, how was the exam?
+
+2
+00:00:13,744 --> 00:00:16,197
+Easy, bro. Piece of cake.
+
+3
+00:00:31,897 --> 00:00:34,132
+Hey... you sleeping?
+
+4
+00:00:34,382 --> 00:00:36,795
+Yeah... I'm sleeping.
+
+5
+00:00:37,195 --> 00:00:39,506
+The correct answer wasn't hypotension...
+
+6
+00:00:39,556 --> 00:00:41,809
+...it was dyspnea.
