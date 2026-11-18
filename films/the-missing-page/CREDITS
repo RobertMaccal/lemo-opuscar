@@ -1,0 +1,34 @@
+THE MISSING PAGE — third-party material
+
+MUSIC
+- Original piano-and-strings score ("ambition" cue and the elevator cue): generated with ElevenLabs Music (model eleven_music_v2_5)
+  on the film owner's ElevenLabs account. Use of the generated music is governed by that account's ElevenLabs plan and terms.
+  Cut, ducked and level-ridden in mix.py.
+- Sergei Rachmaninoff, Prelude in C-sharp minor, Op. 3 No. 2 (composition: public domain, composed 1892).
+  New rendering made for this film: the opening bell octaves (A–G#–C#), the hushed chords over the tolling C#, and the fff return
+  of the theme, programmed in mix.py and played on the sampled grand below. No existing recording was used.
+- Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+- Sub-bass impact, the low atmospheric drop, heartbeat, clock ticks: synthesised in mix.py (original).
+
+VOICES
+- ElevenLabs text to speech, model Eleven v4, generated on the film owner's ElevenLabs account. Voices (voice IDs):
+  EXAMINER — Jerry B. - Authoritative Explainer Voice (oHB9Xhox1bqMl1Tvkmel)
+  CANDIDATE — Hurker - Confident, Playful & Warm (AgWmGPmoY5bWqnxOVd0j)
+  SECOND CANDIDATE — Matt - Real, Hyper-Conversational, Natural, Chatty, Friendly American Male (pwMBn0SsmN1220Aorv15)
+  Every line was checked with faster-whisper (small.en); the takes used are in audio/vo/.
+  Use of the generated audio is governed by the account holder's ElevenLabs plan and terms.
+
+SOUND EFFECTS
+- ElevenLabs sound effects (Eleven text-to-sound v2), same account: elevator chime, elevator doors (open / close), heavy and light
+  dress-shoe footsteps, office door, paper on desk, papers shuffled, pen writing, pens clicking, chair, signature, exam-hall room tone,
+  corporate hallway ambience, elevator hum, gasp, lunge + palm on metal.
+- Everything else (clock, heartbeat, fabric, thumps, muffling, rooms): synthesised or processed in mix.py with the Lemo-Opuscar
+  foley helpers (MIT).
+
+FONTS (SIL Open Font License 1.1, from github.com/google/fonts)
+- Lilita One — Juan Montoreano · Patrick Hand — Patrick Wagesreiter · Caveat — Impallari Type · Fredoka — Milena Brandão, Hafontia
+
+PICTURE
+- Every frame is drawn by the code in src/ (Canvas 2D), captured with Playwright / Chromium and encoded with ffmpeg.
+  No generated or stock images.
+- Style: Golden Hour Stickman (the owner's own style, my-styles/golden-hour-stickman/). Rendering toolkit: Lemo-Opuscar core tools (MIT).

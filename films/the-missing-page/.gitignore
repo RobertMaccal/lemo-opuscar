@@ -1,0 +1,6 @@
+out/
+audio/src/
+audio/takes/
+audio/*.tsv
+audio/music_raw/*.wav
+audio/sfx_raw/*.wav
