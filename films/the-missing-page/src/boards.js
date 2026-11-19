@@ -5,6 +5,7 @@ import { X, EXAM, CAND, SECOND, EXTRAS, C } from './cast.js';
 import { mkL, finish, caption } from './shots.js';
 import { renderFilm } from './film.js';
 import { M } from './anim.js';
+import { thumbV, thumbH } from './thumbs.js';
 
 const L = mkL(-.7, .65, { shadow: { kx: -.6, ky: .14, a: .26, blur: 6, col: P.plum } });
 function head(g, ch, e, x, y, R, o = {}) { const p = pose(ch, { e: { ...ch.face, ...e }, ...o }), s = R / ch.R, J = solve(ch, p); drawChar(g, ch, { ...p, x: x - J.hc[0] * s, y: y - J.hc[1] * s, s }, L, { only: [2], noShadow: true }); }
@@ -32,4 +33,6 @@ function poster(g, t, W, H) {
 export const FRAMES = {
   sheet: { file: 'model-sheet', w: 2400, h: 1700, draw: sheet },
   poster: { file: '../poster', w: 1080, h: 1920, draw: poster },
+  thumbV: { file: '../thumbnail-vertical', w: 1080, h: 1920, draw: thumbV },
+  thumbH: { file: '../thumbnail-youtube', w: 1280, h: 720, draw: thumbH },
 };
