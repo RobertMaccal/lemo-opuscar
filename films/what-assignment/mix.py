@@ -102,6 +102,28 @@ put(FX, filt(sfx.whoosh(.35, .5), 'low', 2500), M['heads'] - .02, db(-24))
 # the hit: a low thump under the choir
 put(FX, sfx.thump(1, 46), M['hit'], db(-9)); put(FX, filt(sfx.rumble(1.4, .6), 'low', 200), M['hit'], db(-18))
 
+# ---------------- the skeletons ----------------
+EVJ = json.load(open(os.path.join(HERE, 'events.json')))['ev']
+def bonk(pitch, v):        # dry bone on wood: a short bright clack with a hollow body
+    x = sfx.clack(pitch, v); t = sfx.t_(.09); body = np.sin(2 * np.pi * 420 * pitch * t) * np.exp(-t / .018) * .6
+    y = np.zeros(max(len(x), len(body))); y[:len(x)] += x; y[:len(body)] += body; return filt(y, 'high', 220)
+for e in EVJ:
+    if e['type'] == 'xray':                # the flicker: a buzzing zap gated with the picture (15 Hz)
+        d = M['skel'] - e['t']; z = filt(sfx.noise(d), 'band', [300, 3200]) * (np.sin(2 * np.pi * 15 * sfx.t_(d)) > 0) + np.sign(np.sin(2 * np.pi * 120 * sfx.t_(d))) * .25
+        put(FX, fade(z, .005, .04), e['t'], db(-27))
+    elif e['type'] == 'rattle':            # teeth and joints chattering
+        t = e['t']
+        while t < M['crumble']: put(FX, bonk(rng.uniform(1.6, 2.4), .5), t, db(-26 + rng.uniform(-3, 0)), rng.uniform(-.4, .4)); t += rng.uniform(.03, .05)
+    elif e['type'] == 'bone':
+        pan = -.25 if e['c'] == 0 else .25
+        put(FX, bonk(rng.uniform(1.1, 1.9), .9), e['t'], db(-15 + 6 * (e['v'] - 1) + rng.uniform(-2, 1)), pan + rng.uniform(-.1, .1))
+        put(FX, bonk(rng.uniform(1.4, 2.2), .6), e['t'] + rng.uniform(.07, .13), db(-25), pan)       # the small bounce
+    elif e['type'] == 'skull':
+        pan = -.3 if e['c'] == 0 else .3
+        put(FX, bonk(.75, 1), e['t'], db(-9), pan); put(FX, sfx.thump(.8, 95), e['t'], db(-14), pan); put(FX, bonk(.85, .6), e['t'] + .16, db(-19), pan)
+# let the bones be heard over the choir
+MUS *= env_gain([(0, 0), (M['crumble'] + .1, 0), (M['crumble'] + .25, -5), (DUR, -5)])[:, None]
+
 mix = VO + MUS + FX + AMB
 mix = fade(mix, .02, .03)
 pk = np.abs(mix).max(); mix = mix / max(1, pk / .95)

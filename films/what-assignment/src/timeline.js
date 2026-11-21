@@ -6,6 +6,17 @@ export const TEXT = {
   a4: ['Huh? What assignment?', 'Huh? What *assignment?*'],
 };
 export const LEN = 15.0;
+// the bones: shared by the picture (skeleton.js) and, through window.EV, the mixer
+export const BONE = { g: 5200, rest: .3, floor: 1428 };
+const fr = k => { const x = Math.sin(k * 12.9898 + 4.1) * 43758.5453; return x - Math.floor(x); };
+export function boneSpec(c, i) {
+  const h = j => fr(c * 97 + i * 13 + j * 5.3), skull = i === 16, jaw = i === 15;
+  return {
+    delay: skull ? .1 + c * .06 : jaw ? .05 : h(1) * .09 + (i < 8 ? 0 : .03),
+    v0: skull ? -380 - c * 60 : jaw ? -160 : -h(2) * 120,
+    vx: skull ? 26 : 30 + h(3) * 140, w: skull ? 0 : (h(4) - .5) * 15, depth: skull ? 34 : h(5) * 46, roll: skull ? 120 + c * 50 : jaw ? 40 : 0,
+  };
+}
 export function build(VO) {
   const D = id => VO[id].dur, L = [], M = {}, EV = [];
   let c = 0;
@@ -23,8 +34,12 @@ export function build(VO) {
   wait(.12); mark('s4'); wait(.7);
   // ---- 5. eyes, then heads, to camera. Lacrimosa. ----
   mark('eyes'); wait(.42); mark('heads'); ev('turn'); wait(.3); mark('hit'); ev('lacrimosa');
+  // ---- 5b. x-ray flicker into skeletons; the stare; a rattle; they crumble ----
+  M.skel = M.hit + .4; EV.push({ t: +M.hit.toFixed(3), type: 'xray' });
+  M.rattle = M.hit + 2.45; EV.push({ t: +M.rattle.toFixed(3), type: 'rattle' });
+  M.crumble = M.hit + 2.75;
   // ---- 6. cut to black, and it's over ----
-  M.black = LEN - .6;
+  M.black = LEN - .6;   // the pile holds a beat, then black
   M.end = LEN;
   return { DUR: LEN, L, M, EV };
 }

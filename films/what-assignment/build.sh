@@ -22,6 +22,7 @@ cmp -s "$OUT/vo.json" "$HERE/audio/vo.json" || cp "$OUT/vo.json" "$HERE/audio/vo
 node "$HERE/tools/timeline.mjs"                       # timeline → $OUT/timeline.json
 node "$HERE/tools/srt.mjs"                            # subtitles → $HERE/what-assignment.srt
 node core/render/video.mjs "$HERE" --fps 30 --workers ${WORKERS:-4} --size 1080x1920 --out "$OUT/video.mp4"
+node core/render/events.mjs "$HERE" --size 1080x1920   # bone landings etc. → $HERE/events.json
 "$PY" "$HERE/mix.py"                                  # dialogue, music, foley → $OUT/mix.wav
 rm -f "$HERE/what-assignment.mp4"
 sh core/render/mux.sh "$OUT/video.mp4" "$OUT/mix.wav" "$HERE/what-assignment.mp4" 30 1

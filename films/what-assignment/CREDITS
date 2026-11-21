@@ -17,7 +17,7 @@ VOICES
   Use of the generated audio is governed by the account holder's ElevenLabs plan and terms.
 
 SOUND EFFECTS
-- Everything else (clock ticks, whoosh, thump, rumble, room tone, birds, hallway chatter built from the dialogue takes): synthesised in mix.py with the Lemo-Opuscar foley helpers (MIT).
+- Everything else (clock ticks, whoosh, x-ray zap, bone rattle and clatter, skull bonks, thump, rumble, room tone, birds, hallway chatter built from the dialogue takes): synthesised in mix.py with the Lemo-Opuscar foley helpers (MIT).
 
 FONTS (SIL Open Font License 1.1, from github.com/google/fonts)
 - Lilita One — Juan Montoreano · Patrick Hand — Patrick Wagesreiter · Caveat — Impallari Type · Fredoka — Milena Brandão, Hafontia

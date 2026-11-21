@@ -2,6 +2,7 @@
 import { P, F, rgba, fillR, text, clamp, lerp, dust, wash, vignette, circ, ell, line } from './kit.js';
 import { X, RAY, KAI } from './cast.js';
 import * as S from './sets.js';
+import { skeletonPieces, drawSkeleton, drawCrumble, landings } from './skeleton.js';
 import { W, H, cam, layer, finish, mkL, seat, caption } from './shots.js';
 import { TL, M, kf, pk, P_, idle, talk, lineT, captions, EASE, drawP } from './anim.js';
 
@@ -58,15 +59,40 @@ function drawScene(g, t, { sun = 1, only = null, blurBg = 0 } = {}) {
   S.backpack(g, 190, 1468, 1.2, '#7E4B78', -.04);
   S.backpack(g, 905, 1480, 1.15, '#2F6B5E', .05);
 }
-function figures(g, t) {
+function figures(g, t, o = {}) {
   const k = keys();
   let rp = pk(RAY, t, k.ray), kp = pk(KAI, t, k.kai);
   rp = talk(idle(rp, t, 0, t > M.heads ? .3 : 1), 'RAY', t); kp = talk(idle(kp, t, 1.7, t > M.heads ? .3 : 1), 'KAI', t);
-  // after the hit: a tremble
-  if (t > M.hit) { const tr = Math.sin(t * 61) * 1.6, tr2 = Math.cos(t * 57) * 1.6; rp = { ...rp, hipX: (rp.hipX || 0) + tr, head: { ...rp.head, ox: (rp.head.ox || 0) + tr } }; kp = { ...kp, hipX: (kp.hipX || 0) + tr2, head: { ...kp.head, ox: (kp.head.ox || 0) + tr2 } }; }
+  // after the hit: a tremble (harder in the rattle just before they fall apart)
+  if (t > M.hit) {
+    const a = t > M.rattle ? 4.2 : 1.6, tr = Math.sin(t * 61) * a, tr2 = Math.cos(t * 57) * a;
+    rp = { ...rp, hipX: (rp.hipX || 0) + tr, head: { ...rp.head, ox: (rp.head.ox || 0) + tr * 1.4 } }; kp = { ...kp, hipX: (kp.hipX || 0) + tr2, head: { ...kp.head, ox: (kp.head.ox || 0) + tr2 * 1.4 } };
+  }
   const R = POS.RAY, Kp = POS.KAI;
-  drawP(g, RAY, rp, R.x, R.y, R.s, L_SUN);
-  drawP(g, KAI, kp, Kp.x, Kp.y, Kp.s, L_SUN);
+  const xray = !o.faces && t >= M.hit && t < M.skel && Math.floor((t - M.hit) * 15) % 2 === 0;
+  if (t < M.skel || o.faces) {
+    drawP(g, RAY, rp, R.x, R.y, R.s, L_SUN, xray ? { tint: [P.night, .86], noShadow: true } : undefined);
+    drawP(g, KAI, kp, Kp.x, Kp.y, Kp.s, L_SUN, xray ? { tint: [P.night, .86], noShadow: true } : undefined);
+    if (!xray) return;
+  }
+  if (t < M.crumble) {
+    drawSkeleton(g, skeletonPieces(RAY, rp, R.x, R.y, R.s, 0), t); drawSkeleton(g, skeletonPieces(KAI, kp, Kp.x, Kp.y, Kp.s, 2), t);
+    return;
+  }
+  const [sr, sk] = restSkeletons(), u = t - M.crumble;
+  drawCrumble(g, sr, 0, u); drawCrumble(g, sk, 1, u);
+}
+// the skeletons as they are at the moment they fall apart (no tremble), cached: the same every frame
+let RS = null;
+function restSkeletons() {
+  if (RS) return RS; const k = keys(), R = POS.RAY, Kp = POS.KAI;
+  return (RS = [skeletonPieces(RAY, pk(RAY, M.crumble, k.ray), R.x, R.y, R.s, 0), skeletonPieces(KAI, pk(KAI, M.crumble, k.kai), Kp.x, Kp.y, Kp.s, 2)]);
+}
+// bone landings → sound events
+export function boneEvents() {
+  const [sr, sk] = restSkeletons(), out = [];
+  [[sr, 0], [sk, 1]].forEach(([s, c]) => landings(s, c).forEach(l => out.push({ t: +(M.crumble + l.t).toFixed(3), type: l.id === 'skull' ? 'skull' : 'bone', v: +l.v.toFixed(2), c })));
+  return out.sort((a, b) => a.t - b.t);
 }
 
 // camera for every shot
@@ -77,11 +103,12 @@ function shotCam(t) {
   if (t < m.s4) return { x: 386, y: 892, z: kf(t, [[m.s3, 2.55], [lineT('a4').t0 + .8, 2.62, 'lin'], [lineT('a4').t0 + 1.05, 2.86, 'o'], [m.s4, 2.9, 'lin']]) };
   if (t < m.hit) return { x: 528, y: 1010, z: kf(t, [[m.s4, 1.32], [m.hit, 1.36, 'lin']]) };
   // the crash push on the double stare, with a shake that settles
-  const u = t - m.hit, z = kf(t, [[m.hit, 1.36], [m.hit + .32, 1.8, 'o'], [m.black, 2.12, 'lin']]);
-  const sh = Math.exp(-u * 3.2) * 9; return { x: 526 + Math.sin(u * 47) * sh, y: kf(t, [[m.hit, 1010], [m.hit + .32, 900, 'o'], [m.black, 868, 'lin']]) + Math.cos(u * 41) * sh, z, r: Math.sin(u * 29) * sh * .0016 };
+  const u = t - m.hit, z = kf(t, [[m.hit, 1.36], [m.hit + .32, 1.8, 'o'], [m.crumble, 1.98, 'lin'], [m.crumble + .45, 1.3, 'o'], [m.black, 1.34, 'lin']]);
+  const uc = Math.max(0, t - m.crumble - .3), sh = Math.exp(-u * 3.2) * 9 + (t > m.crumble + .3 ? Math.exp(-uc * 5) * 5 : 0);
+  return { x: 526 + Math.sin(u * 47) * sh, y: kf(t, [[m.hit, 1010], [m.hit + .32, 900, 'o'], [m.crumble, 862, 'lin'], [m.crumble + .45, 1075, 'o'], [m.black, 1080, 'lin']]) + Math.cos(u * 41) * sh, z, r: Math.sin(u * 29) * sh * .0016 };
 }
 
-export function renderFilm(ctx, t) {
+export function renderFilm(ctx, t, o = {}) {
   const m = M;
   if (t >= m.black) { fillR(ctx, 0, 0, W, H, '#000'); return; }
   const c = shotCam(t);
@@ -89,10 +116,10 @@ export function renderFilm(ctx, t) {
   const closeUp = t >= m.s2 && t < m.s4;
   // depth of field in the close-ups: the set goes soft, the face stays sharp
   layer(ctx, 'bg', g => cam(g, c, () => drawScene(g, t, { sun })), closeUp ? 7 : 0);
-  cam(ctx, c, () => { figures(ctx, t); dust(ctx, t, 60, 300, 1000, 1100, 46, 2, '#FFF2CF', .7 * sun); });
+  cam(ctx, c, () => { figures(ctx, t, o); dust(ctx, t, 60, 300, 1000, 1100, 46, 2, '#FFF2CF', .7 * sun); });
   // grade: warm morning; the doom drains it to lavender
   if (t >= m.heads) {
-    const d = kf(t, [[m.heads, 0], [m.hit, .12], [m.hit + .4, .42, 'o'], [m.black, .5]]);
+    const d = kf(t, [[m.heads, 0], [m.hit, .12], [m.hit + .4, .34, 'o'], [m.black, .38]]);
     wash(ctx, W, H, '#6E648F', d, 'multiply');
   }
   const vig = t >= m.hit ? kf(t, [[m.hit, .5], [m.hit + .4, .9, 'o']]) : closeUp ? .5 : .44;

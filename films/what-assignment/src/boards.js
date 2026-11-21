@@ -46,7 +46,7 @@ function shout(c, s, x, y, size, rot, fill, { sw = 22 } = {}) {
 function doomPoses() { const k = keys(); return { rp: pk(RAY, M.hit + 1.2, k.ray), kp: pk(KAI, M.hit + 1.2, k.kai) }; }
 // vertical thumbnail: the double stare, the clock, the question
 function thumb(c, t, W, H) {
-  renderFilm(c, M.hit + 1.0);                // the film's own frame of the stare, without captions in that window
+  renderFilm(c, M.hit + 1.0, { faces: true });                // the film's own frame of the stare, without captions in that window
   c.save(); c.globalCompositeOperation = 'screen'; c.globalAlpha = .18; c.fillStyle = lg(c, 0, 0, 0, 700, ['#FFB867', 'rgba(0,0,0,0)']); c.fillRect(0, 0, W, 700); c.restore();
   shout(c, 'WHAT', 540, 300, 190, -.05, '#FFD84A');
   shout(c, 'ASSIGNMENT?!', 540, 470, 148, -.05, '#FFFFFF');

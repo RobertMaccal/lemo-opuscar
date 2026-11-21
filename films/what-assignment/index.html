@@ -22,7 +22,7 @@ if (q.get('frame') || q.get('boards')) {
   window.render = t => { reset(); ctx.clearRect(0, 0, fr.w, fr.h); fr.draw(ctx, t, fr.w, fr.h); };
 } else {
   const { renderFilm } = await import('./src/film.js');
-  cv.width = 1080; cv.height = 1920; window.DUR = TL.DUR; window.EV = TL.EV; window.MARKS = TL.M;
+  cv.width = 1080; cv.height = 1920; window.DUR = TL.DUR; window.EV = [...TL.EV, ...(await import('./src/film.js')).boneEvents()]; window.MARKS = TL.M;
   window.render = t => { reset(); ctx.fillStyle = '#15131f'; ctx.fillRect(0, 0, 1080, 1920); renderFilm(ctx, Math.min(t, TL.DUR - 1e-3)); };
 }
 window.READY = true;

@@ -77,3 +77,10 @@ Easter eggs for rewatchers: "ASSIGNMENT 3 due TODAY" on the notice board, "FINAL
 - No subtitles on the picture: the dialogue plays on its own (the .srt stays as a separate file, not burned in).
 - No paper: Kai just drops his arms, turns to Ray and says it, with one easy open-hand gesture.
 - Ending: the double stare to camera, then straight to black (14.40). No bell, no falling paper. Lacrimosa runs 10.19–14.40.
+
+## Revision 2 (user notes): skeletons
+After "What assignment?" they look at each other, then at the camera. On the Lacrimosa hit (10.19) they flicker x-ray style
+(dark body + bones, every other 2 frames) into skeletons (10.59) built on the rig's own joints, so the pose is identical.
+The terrified skeletons stare (sockets with trembling pupils), rattle (12.64), then crumble (12.94): 17 rigid pieces each,
+analytic fall → one bounce → rest; skulls pop up and land last (≈13.6) and roll apart. Camera pulls back to show the pile. Black at 14.40.
+Sound: x-ray zap gated at 15 Hz, chattering rattle, one bone clack per landing (times exported from the picture via events.json), skull bonks.
