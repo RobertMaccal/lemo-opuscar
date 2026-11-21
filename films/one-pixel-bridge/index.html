@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The One-Pixel Bridge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="stage"><canvas id="c" width="1080" height="1920"></canvas></main>
+<nav id="ui">
+  <button id="play" title="Play / pause (space)">▶</button>
+  <input id="scrub" type="range" min="0" max="2699" value="0" aria-label="Timeline">
+  <span id="time">00.00 s</span>
+  <button id="mute" title="Mute (M)">🔊</button>
+  <label>seed <input id="seed" type="number" min="1" step="1"></label>
+  <button id="go">run</button>
+  <div id="stats"></div>
+</nav>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

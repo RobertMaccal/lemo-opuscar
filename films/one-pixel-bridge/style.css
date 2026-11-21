@@ -1,0 +1,21 @@
+@font-face { font-family: "Inter"; src: url("fonts/Inter-Medium.otf") format("opentype"); font-weight: 500; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter-SemiBold.otf") format("opentype"); font-weight: 600; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter-Bold.otf") format("opentype"); font-weight: 700; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter-ExtraBold.otf") format("opentype"); font-weight: 800; }
+:root { --ui: #9fefff; --bg: #000; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ui); font: 500 13px "Inter", system-ui, sans-serif; overflow: hidden; }
+#stage { position: fixed; inset: 0 0 56px 0; display: grid; place-items: center; }
+#c { height: 100%; max-width: 100vw; aspect-ratio: 9 / 16; object-fit: contain; background: #000; display: block; }
+#ui { position: fixed; left: 0; right: 0; bottom: 0; height: 56px; display: flex; gap: 10px; align-items: center; padding: 0 16px;
+      background: #05080c; border-top: 1px solid #0f2a36; flex-wrap: wrap; }
+#ui button { background: #0b1d27; color: var(--ui); border: 1px solid #1d4656; border-radius: 6px; padding: 6px 10px; cursor: pointer; font: inherit; }
+#ui input[type=range] { flex: 1; min-width: 120px; accent-color: #5ff0ff; }
+#ui input[type=number] { width: 80px; background: #0b1d27; color: var(--ui); border: 1px solid #1d4656; border-radius: 6px; padding: 5px; font: inherit; }
+#time { font-variant-numeric: tabular-nums; min-width: 64px; }
+#stats { width: 100%; font-size: 11px; opacity: .7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: none; }
+@media (min-width: 900px) { #stats { display: block; width: auto; flex: 0 1 auto; } }
+/* export mode: native 1080×1920, no chrome */
+body.export #ui { display: none; }
+body.export #stage { inset: 0; display: block; }
+body.export #c { width: 1080px; height: 1920px; max-width: none; }

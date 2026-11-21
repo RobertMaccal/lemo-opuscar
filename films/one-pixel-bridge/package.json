@@ -1,0 +1,1 @@
+{"type":"module","private":true,"name":"one-pixel-bridge","scripts":{"export":"node export.js","seeds":"node tools/seeds.mjs 1 2000 out/seeds.jsonl"}}
