@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/SpaceGrotesk.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: block;
+}
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #000; color: #cfe3ec; font-family: "Space Grotesk", Inter, system-ui, sans-serif; }
+#app { display: flex; gap: 20px; height: 100%; padding: 16px; align-items: center; justify-content: center; }
+#stageWrap { position: relative; height: 100%; aspect-ratio: 9 / 16; max-width: 100%; }
+#stage { width: 100%; height: 100%; display: block; background: #000; border-radius: 6px; box-shadow: 0 0 0 1px #0d2a33; }
+#busy { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; font-size: 18px; letter-spacing: 3px; background: rgba(0,0,0,.6); }
+#busy.on { display: flex; }
+#controls { width: 300px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+#controls .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+button, select, input[type=number] { background: #071019; color: #cfe3ec; border: 1px solid #1d4c58; border-radius: 6px; padding: 7px 10px; font: inherit; }
+button:hover { border-color: #12e8ff; }
+input[type=number] { width: 90px; }
+input[type=range] { width: 100%; accent-color: #12e8ff; }
+#readout { font-variant-numeric: tabular-nums; color: #86aebf; }
+#stats { white-space: pre-line; color: #6f97a8; font-size: 12.5px; line-height: 1.5; font-variant-numeric: tabular-nums; }
+@media (max-width: 760px) {
+  #app { flex-direction: column; height: auto; padding: 16px; }
+  #stageWrap { height: auto; width: 100%; }
+  #controls { width: 100%; }
+}
+/* render mode: exactly 1080x1920, no chrome */
+body.render #app { padding: 0; display: block; }
+body.render #stageWrap { width: 1080px; height: 1920px; }
+body.render #stage { width: 1080px; height: 1920px; border-radius: 0; box-shadow: none; }
+body.render #controls { display: none; }

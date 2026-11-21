@@ -1,0 +1,46 @@
+{
+  "file": "output/the_last_safe_tile_45s.mp4",
+  "seed": 326,
+  "checksum": "250558a6",
+  "frames": 2700,
+  "fps": 60,
+  "stats": {
+    "alive10": 70,
+    "alive20": 41,
+    "alive30": 24,
+    "alive39": 6,
+    "alive41": 2,
+    "alive43": 1,
+    "survivors": 1,
+    "survivorIds": [
+      43
+    ],
+    "rollingAtReveal": 1,
+    "stable": true,
+    "winner": {
+      "id": 43,
+      "family": "GOLD",
+      "color": "#FFD34D"
+    },
+    "goldAlive": true,
+    "goldFallT": null,
+    "goldId": 43,
+    "nearMisses": 10,
+    "escapes": 6,
+    "firstElim": 1.5708333333333333,
+    "maxGap": 2.5166666666666693,
+    "elimsLate": 7,
+    "finalTile": 4
+  },
+  "audio": {
+    "events": 586,
+    "gainDb": 8.2,
+    "wavLUFS": -17.4,
+    "encodedLUFS": -17.8,
+    "encodedTruePeak": -2.8,
+    "ceilingDb": -4.1,
+    "remuxed": "2026-11-21T11:01:48.853Z"
+  },
+  "renderSeconds": 171.236,
+  "rendered": "2026-11-21T10:50:49.382Z"
+}

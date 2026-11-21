@@ -1,0 +1,6 @@
+node_modules/
+output/dbg/
+output/.render/
+output/*.log
+output/audio_mix.wav
+output/seed-report.json

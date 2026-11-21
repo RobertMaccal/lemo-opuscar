@@ -1,0 +1,17 @@
+{
+  "name": "the-last-safe-tile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "THE LAST SAFE TILE: 100 balls, 100 tiles, one last safe spot. Deterministic Canvas 2D physics short, 1080x1920, 45 s, 60 fps.",
+  "scripts": {
+    "preview": "node scripts/serve.js",
+    "seeds": "node scripts/test-seeds.js",
+    "render": "node scripts/render-video.js",
+    "verify": "node scripts/verify-output.js"
+  },
+  "dependencies": {
+    "playwright": "^1.50.0"
+  },
+  "license": "MIT"
+}
