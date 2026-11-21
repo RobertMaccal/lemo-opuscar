@@ -1,4 +1,4 @@
-"""Sound for WHAT ASSIGNMENT?: dialogue, an original pizzicato cue, Mozart's Lacrimosa (Bruno Walter 1956, public domain), foley → out/mix.wav
+"""Sound for WHAT ASSIGNMENT?: dialogue, an original pizzicato cue, Mozart's Lacrimosa (Bruno Walter 1956, public domain), foley → out/mix.wav (no subtitles, no props, straight cut to black)
 Run from the library root after tools/timeline.mjs:  .venv/bin/python films/what-assignment/mix.py"""
 import os, sys, json, numpy as np, soundfile as sf
 from scipy.signal import fftconvolve, resample_poly, butter, sosfilt
@@ -95,17 +95,12 @@ for k in range(16):
     if m > 0: walla[at:at + m] += x[:m] * rng.uniform(.4, 1)
 walla = reverb(filt(walla, 'low', 1500), 1.3, .6, seed=5); put(AMB, fade(walla[:int((M['musicCut'] + .1) * SR)], .4, .25), 0, db(-37))
 chirps(0, M['musicCut'], 7, -36)
-# the paper, out of the jacket
-put(FX, paper(.3), M['b3pre'] + .1, db(-22), .15); put(FX, paper(.18), line['b3']['t0'] + .3, db(-24), .1)
 # silence: the clock ticks, then the heads turn
-ss_t = [M['bell'] - k for k in range(1, 12) if M['musicCut'] + .1 < M['bell'] - k < M['hit']]
+ss_t = [M['black'] - k for k in range(1, 12) if M['musicCut'] + .1 < M['black'] - k < M['hit']]
 for t in ss_t: put(FX, reverb(sfx.click(1.6, .6), .4, .2), t, db(-23), -.05)
 put(FX, filt(sfx.whoosh(.35, .5), 'low', 2500), M['heads'] - .02, db(-24))
-# the hit: a low thump under the choir; the paper lands
+# the hit: a low thump under the choir
 put(FX, sfx.thump(1, 46), M['hit'], db(-9)); put(FX, filt(sfx.rumble(1.4, .6), 'low', 200), M['hit'], db(-18))
-put(FX, paper(.12), M['hit'] + 1.58, db(-30), -.1)
-# black: the bell. 9:00.
-bell = load(A('sfx_raw', 'bell.wav')); bell = fade(bell[:int((DUR - M['bell']) * SR)], .005, .35); put(FX, reverb(bell, .9, .25, seed=12)[:len(bell)], M['bell'], db(-6) / (np.abs(bell).max() + 1e-9) * .9)
 
 mix = VO + MUS + FX + AMB
 mix = fade(mix, .02, .03)

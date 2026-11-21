@@ -4,7 +4,7 @@ MUSIC
 - Wolfgang Amadeus Mozart, Requiem in D minor, K. 626, VIII. Lacrimosa (composition: public domain).
   Recording: Bruno Walter, Wiener Philharmoniker, Wiener Staatsopernchor, live at the Salzburg Festival, 26 July 1956.
   Source: https://archive.org/details/MozartRequiemBruno (marked Public Domain Mark 1.0 there; also hosted on Wikimedia Commons as public domain).
-  Used: 3.7 s from the "judicandus homo reus" forte, compressed, lightly reverberated, cut dead on the cut to black.
+  Used: 4.2 s from the "judicandus homo reus" forte, compressed, lightly reverberated, cut dead on the cut to black.
   Note: a 1956 recording is public domain in the EU and under the uploader's marking, but sound-recording terms differ by country
   (in the US, pre-1972 recordings are protected until 2067 at the latest). Check your platform's rules before monetising.
 - Opening cue (pizzicato strings, clarinet, bassoon, flute): original, written in mix.py and played with the
@@ -17,8 +17,7 @@ VOICES
   Use of the generated audio is governed by the account holder's ElevenLabs plan and terms.
 
 SOUND EFFECTS
-- School bell: ElevenLabs sound effects, generated on the same account for the owner's earlier film (audio/sfx_raw/bell.wav).
-- Everything else (clock ticks, paper, whoosh, thump, rumble, room tone, birds, hallway chatter built from the dialogue takes): synthesised in mix.py with the Lemo-Opuscar foley helpers (MIT).
+- Everything else (clock ticks, whoosh, thump, rumble, room tone, birds, hallway chatter built from the dialogue takes): synthesised in mix.py with the Lemo-Opuscar foley helpers (MIT).
 
 FONTS (SIL Open Font License 1.1, from github.com/google/fonts)
 - Lilita One — Juan Montoreano · Patrick Hand — Patrick Wagesreiter · Caveat — Impallari Type · Fredoka — Milena Brandão, Hafontia

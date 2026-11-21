@@ -72,3 +72,8 @@ Six of six differ. (The "two friends before an exam" premise is the user's scrip
 ## As built
 Lines measured from the recorded takes: a1 0.40–2.69 · b2 3.03–4.28 · b3 4.66–6.40 · a4 6.62–8.65. Music cut 7.40 (on "What"). Two-shot 8.77. Eyes 9.47, heads 9.89, Lacrimosa 10.19, black 13.85, bell 14.07, end 15.00.
 Easter eggs for rewatchers: "ASSIGNMENT 3 due TODAY" on the notice board, "FINAL EXAM today · 9:00" on the door, the clock reaching 9:00 on the bell.
+
+## Revision 1 (user notes)
+- No subtitles on the picture: the dialogue plays on its own (the .srt stays as a separate file, not burned in).
+- No paper: Kai just drops his arms, turns to Ray and says it, with one easy open-hand gesture.
+- Ending: the double stare to camera, then straight to black (14.40). No bell, no falling paper. Lacrimosa runs 10.19–14.40.
