@@ -18,6 +18,7 @@ export function serve(port = 0) {
       res.writeHead(200, { 'Content-Type': TYPES[path.extname(p)] || 'application/octet-stream', 'Cache-Control': 'no-store' });
       fs.createReadStream(p).pipe(res);
     });
+    server.keepAliveTimeout = 1000;
     server.listen(port, '127.0.0.1', () => resolve({ server, port: server.address().port }));
   });
 }

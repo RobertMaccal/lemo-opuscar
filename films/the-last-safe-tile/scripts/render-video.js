@@ -142,3 +142,4 @@ const info = {
 };
 fs.writeFileSync(path.join(outDir, 'render-info.json'), JSON.stringify(info, null, 2));
 console.log(`done → ${out}  [${secs()}]`);
+process.exit(0);   // don't wait on idle keep-alive sockets of the local page server
