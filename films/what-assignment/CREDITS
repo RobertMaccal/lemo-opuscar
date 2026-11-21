@@ -1,14 +1,11 @@
 WHAT ASSIGNMENT? — third-party material
 
 MUSIC
-- Wolfgang Amadeus Mozart, Requiem in D minor, K. 626, VIII. Lacrimosa (composition: public domain).
-  Recording: Bruno Walter, Wiener Philharmoniker, Wiener Staatsopernchor, live at the Salzburg Festival, 26 July 1956.
-  Source: https://archive.org/details/MozartRequiemBruno (marked Public Domain Mark 1.0 there; also hosted on Wikimedia Commons as public domain).
-  Used: 4.2 s from the "judicandus homo reus" forte, compressed, lightly reverberated, cut dead on the cut to black.
-  Note: a 1956 recording is public domain in the EU and under the uploader's marking, but sound-recording terms differ by country
-  (in the US, pre-1972 recordings are protected until 2067 at the latest). Check your platform's rules before monetising.
-- Opening cue (pizzicato strings, clarinet, bassoon, flute): original, written in mix.py and played with the
-  VSCO 2 Community Edition samples (Versilian Studios), CC0 1.0 — https://vis.versilian.com/ (via the Lemo-Opuscar sample packs).
+- Léo Delibes, Lakmé (1883), Act 1, "Sous le dôme épais" (the Flower Duet) — composition: public domain.
+  Recording: Joan Sutherland & Marilyn Horne, supplied by the film's owner (file "Lakme_s_Flower_Duet_Sutherland__Horne_-_UNVEILING_the_SECRET_Harmony.mp3").
+  This commercial recording is very likely still under copyright (label and performers). It is used at the owner's request and on
+  the owner's responsibility; platforms may claim, mute or block it. Not kept in git: build.sh expects it at audio/src/flower_duet.mp3.
+  Used: one continuous take, source 8.8–23.2 s, under the whole film; ducked under the dialogue, lowered in the silent look, up on the skeletons.
 
 VOICES
 - ElevenLabs text to speech, model Eleven v4, generated on the film owner's ElevenLabs account. Voices (voice IDs):

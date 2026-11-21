@@ -84,3 +84,8 @@ After "What assignment?" they look at each other, then at the camera. On the Lac
 The terrified skeletons stare (sockets with trembling pupils), rattle (12.64), then crumble (12.94): 17 rigid pieces each,
 analytic fall → one bounce → rest; skulls pop up and land last (≈13.6) and roll apart. Camera pulls back to show the pile. Black at 14.40.
 Sound: x-ray zap gated at 15 Hz, chattering rattle, one bone clack per landing (times exported from the picture via events.json), skull bonks.
+
+## Revision 3 (user notes): the Flower Duet, start to finish
+Replaces the pizzicato cue and the Lacrimosa. One continuous take (no edits): film 0 = source 8.81 s, so the source's breath falls
+between the first two lines, its hush in the silent look, and the big swell (source ≈19–20.5 s) lands on the x-ray transformation.
+Ducked ~5 dB under speech, −6 dB in the look (clock ticks), +4 dB from the hit; cut dead on the black. The soprano peaks are limited.
