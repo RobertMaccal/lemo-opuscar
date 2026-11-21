@@ -1,0 +1,15 @@
+1
+00:00:00,400 --> 00:00:02,976
+Yo bro, did you study for the exam?
+
+2
+00:00:03,026 --> 00:00:04,606
+What exam?
+
+3
+00:00:04,656 --> 00:00:06,574
+I was doing the assignment.
+
+4
+00:00:06,624 --> 00:00:09,100
+Huh? What assignment?

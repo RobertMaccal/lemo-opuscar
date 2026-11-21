@@ -1,0 +1,6 @@
+[
+ {"id": "a1", "who": "RAY", "voice": "OwEAPhTFInN6VSRT9QXm", "prompt": "[casual] Yo bro, did you study for the exam?", "take": "vo_raw/a1_t1.mp3"},
+ {"id": "b2", "who": "KAI", "voice": "gBDv2oGht23KfZZMSUEi", "prompt": "[deadpan] What exam? [relaxed] I was doing the assignment.", "take": "vo_raw/b2_t1.mp3, 0–1.25 s"},
+ {"id": "b3", "who": "KAI", "voice": "gBDv2oGht23KfZZMSUEi", "prompt": "(same take as b2)", "take": "vo_raw/b2_t1.mp3, 1.25 s–end"},
+ {"id": "a4", "who": "RAY", "voice": "OwEAPhTFInN6VSRT9QXm", "prompt": "[confused] Huh? [surprised] What assignment?", "take": "vo_raw/a3_t2.mp3"}
+]
