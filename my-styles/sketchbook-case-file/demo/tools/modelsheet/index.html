@@ -1,0 +1,46 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../page/fonts/fonts.css">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+</head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>/* model sheet: cast + props drawn by the style's kit (page/draw.js). Render: node core/render/still.mjs <this folder> 0 --size 1920x1080 */</script>
+<script>
+// draw.js expects a 1080x1920 canvas; we only use its functions, so widen after load
+</script>
+<script src="../../page/draw.js"></script>
+<script>
+CANVAS.width = 1920; CANVAS.height = 1080; setCtx(CANVAS.getContext('2d'));
+window.render = function () {
+  X.setTransform(1, 0, 0, 1, 0, 0);
+  X.fillStyle = PAPER; X.fillRect(0, 0, 1920, 1080);
+  X.fillStyle = '#cfcdc3'; for (let y = 18; y < 1080; y += 46) for (let x = 18; x < 1920; x += 46) { X.beginPath(); X.arc(x, y, 2.6, 0, 6.283); X.fill(); }
+  banner(960, 80, 'Sketchbook Case File · cast & kit', { size: 44 });
+  const fy = 640; line([[40, fy], [1880, fy]], { lw: 3, stroke: '#7d7c76', seed: 3 });
+  student(170, fy, .8, { mouth: 'smile' });
+  student(370, fy, .8, { mouth: 'worry', brow: 'worry', sweat: true });
+  student(570, fy, .8, { pose: 'hold', mouth: 'line', brow: 'angry' });
+  student(770, fy, .8, { pose: 'back' });
+  nurse(970, fy, .8, { pose: 'point', mouth: 'talk', t: .05 });
+  nurse(1180, fy, .8, { pose: 'lean', shock: true, mouth: 'o' });
+  mother(1380, fy, .8, { pose: 'hold' });
+  father(1560, fy, .8, {});
+  student(1760, fy, .8, { hair: 'senior', glasses: true, mouth: 'o', shock: true, badge: 'Dr' });
+  const labels = ['student', 'worried', 'holding', 'back view', 'nurse · talk', 'nurse · shock', 'mother + baby', 'father', 'senior doctor'];
+  [170, 370, 570, 770, 970, 1180, 1380, 1560, 1760].forEach((x, i) => txt(labels[i], x, fy + 34, { size: 26, fam: SANS, weight: 800, color: '#444' }));
+  // props row
+  const py = 900;
+  syringe(180, py, .38, { label: true, needle: true });
+  syringe(500, py, .38, { fill: 'milk', label: true });
+  syringe(820, py, .38, { oral: true, amber: true, text: 'ORAL' });
+  monitor(1080, py - 10, .5, .4, { nostand: true, badge: '!' });
+  clock(1290, py - 10, 70, 9.1);
+  calendar(1460, py - 10, .55, {});
+  baby(1640, py, .9, {}); baby(1800, py, .9, { blue: true, gasp: true });
+  tag(300, 1020, 'grey tag', { fill: 'grey', size: 30 }); tag(520, 1020, 'yellow tag', { size: 30 });
+  stamp(800, 1015, .55, 'GUILTY', '§ 222 StGB');
+  checkbox(1040, 1020, 1, 1); wordBox(1180, 1020, 160, 80, "What's", { size: 40 }); wordBox(1350, 1020, 160, 80, 'it?', { yel: true, size: 40 });
+};
+(async () => { await document.fonts.load("700 40px Kalam"); await document.fonts.load("900 40px Nunito"); await document.fonts.ready; render(0); window.READY = true; window.DUR = 1; })();
+</script>
+</body></html>
