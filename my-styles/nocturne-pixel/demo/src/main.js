@@ -74,4 +74,4 @@ window.render = render;
 window.TEXTS = t => LASTBOX(t);
 function LASTBOX(t) { text.clear(0); const bx = []; for (const k of CARDS) if (t > k.t0 && t < k.t1) { const b = drawText(text, k.text, W / 2, k.y, k.scale, 1); bx.push({ id: k.id, text: k.text, x0: b.x0 * 3, y0: b.y0 * 3, x1: b.x1 * 3, y1: b.y1 * 3 }); } return bx; }
 window.EV = buildEvents();
-document.fonts.ready.then(() => { render(0); window.READY = true; if (location.search.includes('preview')) import('./preview.js').then(m => m.start(render, DUR)); });
+document.fonts.ready.then(async () => { if (location.search.includes('thumb')) { const m = await import('./thumb.js'); window.render = m.renderThumb; window.render(0); window.READY = true; return; } render(0); window.READY = true; if (location.search.includes('preview')) import('./preview.js').then(m => m.start(render, DUR)); });

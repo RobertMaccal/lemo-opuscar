@@ -25,9 +25,13 @@ const G = {
   3: ['11110', '00001', '00001', '01110', '00001', '00001', '11110'],
   ':': ['0', '1', '1', '0', '1', '1', '0'],
   '.': ['0', '0', '0', '0', '0', '0', '1'],
+  X: ['10001', '10001', '01010', '00100', '01010', '10001', '10001'],
+  C: ['01111', '10000', '10000', '10000', '10000', '10000', '01111'],
+  '!': ['1', '1', '1', '1', '1', '0', '1'],
   ' ': ['000', '000', '000', '000', '000', '000', '000'],
 };
 const TRACK = 2;
+export const GLYPHS = G;
 export function textWidth(s, sc = 1) { let w = 0; for (const ch of s) w += (G[ch] || G[' '])[0].length + TRACK; return (w - TRACK) * sc; }
 // p: 0..1 dissolve; returns the box in native pixels
 export function drawText(buf, s, cx, y, sc, p, col = C.w9, sh = C.n0) {
