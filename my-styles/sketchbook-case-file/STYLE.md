@@ -91,6 +91,7 @@ Default size: 1080×1920 (vertical, 30 fps).
 - `demo/tools/asr.py` (faster-whisper word timings) → `demo/tools/trim_pauses.py` (natural voice, shorter silences, caption words).
 - `demo/audio/sfx_track.py`, `score.py`, `mix.py` — foley from cues, sampled score, ducked mix. `demo/build.sh` rebuilds the demo end to end.
 - `demo/tools/modelsheet/` — renders the cast & kit sheet (`modelsheet.jpg`).
+- `demo/tools/cover/` — the Instagram Reel cover (1080×1920, `cover.jpg`): big Kalam headline with one yellow block, hero character with the key prop, stamp, danger detail. **Keep everything essential inside the centre ≈800×1066** (x 140–940, y 427–1493): Instagram's profile grid crops that tightly.
 - Library tools: `core/render/{still,video,events}.mjs`, `core/render/mux.sh`, `core/audio/{sampler,sfx}.py`.
 
 ## 11. Variation space

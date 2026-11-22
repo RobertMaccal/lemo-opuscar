@@ -1,0 +1,51 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../page/fonts/fonts.css">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+</head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<!-- Instagram Reel cover, 1080x1920. Everything essential sits inside the centre ~800x1066 so the profile-grid crop keeps it. Render: node core/render/still.mjs <this folder> 0 --size 1080x1920 -->
+<script src="../../page/draw.js"></script>
+<script>
+function hl(parts, cx, y, size) {
+  // parts: [[text, yellow?], ...] centred on one line, yellow = highlight box behind
+  font(size); const gap = size * .28;
+  const ws = parts.map(([s]) => X.measureText(s).width);
+  const tot = ws.reduce((a, b) => a + b, 0) + gap * (parts.length - 1);
+  let x = cx - tot / 2;
+  parts.forEach(([s, y2], i) => {
+    if (y2) { shadowShape(RR(x - 18, y - size * .58, ws[i] + 36, size * 1.12, size * .3), 6, 7, .16); shape(RR(x - 18, y - size * .58, ws[i] + 36, size * 1.12, size * .3), { fill: YEL, lw: 5, seed: 900 + i }); }
+    txt(s, x, y + size * .04, { size, align: 'left' });
+    x += ws[i] + gap;
+  });
+}
+window.render = function () {
+  X.setTransform(1, 0, 0, 1, 0, 0);
+  paper();
+  // decorative, non-essential (outside the grid-safe zone)
+  for (const [x, y, sz, a] of [[90, 200, 1.1, .25], [990, 170, .8, .2], [120, 1730, .9, .2], [960, 1760, 1.2, .25]]) qmark(x, y, sz, a);
+  // everything that matters fits the Instagram profile-grid crop (centre ~800x1066)
+  X.save(); X.translate(540, 960); X.scale(.78, .78); X.translate(-528, -915);
+  // soft spotlight behind the hero
+  const g = X.createRadialGradient(600, 1150, 80, 600, 1150, 620); g.addColorStop(0, 'rgba(244,200,74,.28)'); g.addColorStop(1, 'rgba(244,200,74,0)');
+  X.fillStyle = g; X.fillRect(0, 500, 1080, 1300);
+  // headline
+  tag(540, 300, 'TRUE CASE · Germany 2011', { fill: 'grey', size: 40 });
+  hl([['ONE', false], ['QUESTION', true]], 540, 455, 138);
+  hl([['could have saved', false]], 540, 605, 96);
+  hl([['this baby.', false]], 540, 720, 96);
+  // hero
+  floorLine(1560);
+  student(560, 1560, 1.55, { pose: 'hold', mouth: 'worry', brow: 'worry', sweat: true });
+  // thought cloud
+  at(225, 905, 1, 0, () => { cloud(0, 0, 380, 175, 150, 150); txt("What's in it?", 0, 2, { size: 50 }); });
+  // guilty stamp
+  stamp(235, 1395, .85, 'GUILTY', '§ 222 StGB');
+  // baby in the corner, blue = danger
+  crib(905, 1560, 300, .74, { blue: true, gasp: true });
+  alarmLines(880, 1340, 1);
+  X.restore();
+};
+(async () => { await document.fonts.load("700 40px Kalam"); await document.fonts.load("900 40px Nunito"); await document.fonts.ready; render(0); window.READY = true; window.DUR = 1; })();
+</script>
+</body></html>
