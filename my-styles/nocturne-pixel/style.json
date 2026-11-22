@@ -1,0 +1,14 @@
+{
+ "slug": "nocturne-pixel",
+ "en": "Nocturne Pixel",
+ "cn": "夜曲像素",
+ "based_on": "pixel-rpg",
+ "borrows": [],
+ "size": "1080x1920",
+ "fps": 30,
+ "library_version": "fe2b14c",
+ "created": "2026-11-22",
+ "line": "Rainy-night pixel cinema: blue-black facades, small warm windows with little lives inside, wet streets and a camera that moves like a film's.",
+ "line_cn": "雨夜像素电影：蓝黑色楼面、亮着暖光的小窗与窗内的小小生活、湿漉漉的街道，镜头像电影一样运动。",
+ "film": "The Last Window"
+}

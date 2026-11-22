@@ -1,0 +1,11 @@
+THE LAST WINDOW — credits and licences
+
+Picture: drawn entirely in code (HTML5 Canvas, JavaScript) in this folder. No images, no generated imagery.
+Type: an original 5x7 pixel font defined in src/font.js.
+Music and sound: synthesised entirely in code (audio/mix.py: numpy, scipy). No samples, no recordings, no voice.
+
+Tools (not in the film): Lemo-Opuscar core render tools (core/render/*, core/lib.js), MIT licence;
+Chromium / Playwright (headless rendering); FFmpeg (H.264 + AAC encoding, LGPL/GPL); Python numpy, scipy, soundfile (BSD).
+Design references (grammar only, nothing copied): three reference images supplied by the user.
+
+Code copied from the Lemo-Opuscar library: src/rng.js re-exports core/lib.js (MIT licence, see the repository LICENSE).
