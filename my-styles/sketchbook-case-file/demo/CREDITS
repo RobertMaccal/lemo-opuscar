@@ -1,0 +1,23 @@
+THE SYRINGE (Sketchbook Case File demo) — third-party material
+
+STORY
+- Based on the user's own reference video (Darija/German case explainer about the 2011 Bielefeld syringe case); script translated and rewritten in English. The original creator's handle/watermark is not reproduced.
+
+VOICE
+- ElevenLabs text to speech, model Eleven v4, generated on the film owner's ElevenLabs account. Narrator: Spuds Oxley (voice ID NOpBlnGInO9m6vDvFkFC).
+  Use of the generated audio is governed by the account holder's ElevenLabs plan and terms.
+
+MUSIC
+- Original score written for the film (audio/score.py), rendered with the Lemo-Opuscar sampler from:
+  Salamander Grand Piano (Alexander Holm, CC BY 3.0) · VSCO 2 Community Edition (Versilian Studios, CC0) · VCSL (Versilian Community Sample Library, CC0).
+  Exact per-instrument credit lines: run audio/score.py, it writes MUSIC_CREDITS.txt (core/audio/sampler.py credits()).
+
+SOUND EFFECTS
+- Synthesised in audio/sfx_track.py with the Lemo-Opuscar foley helpers (core/audio/sfx.py, MIT).
+
+FONTS (SIL Open Font License 1.1, Google Fonts)
+- Kalam — Indian Type Foundry · Nunito — Vernon Adams, Cyreal, Jacques Le Bailly
+
+PICTURE
+- Every frame is drawn by page/draw.js and page/film.js (Canvas 2D), captured with Playwright / Chromium and encoded with ffmpeg. No generated or stock images.
+- Rendering toolkit: Lemo-Opuscar core tools (MIT).
