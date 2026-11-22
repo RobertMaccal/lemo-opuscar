@@ -1,0 +1,5 @@
+build/
+input/
+audio/raw/
+audio/music/*.wav
+*.mp4

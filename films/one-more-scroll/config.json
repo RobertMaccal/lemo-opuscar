@@ -1,0 +1,16 @@
+{
+ "title": "One More Scroll",
+ "aspect": "16:9",
+ "resolution": "1080p",
+ "fps": 24,
+ "style": "midnight",
+ "voiceover": "input/voiceover.wav",
+ "script": null,
+ "captions": false,
+ "bars": "wide",
+ "fadeIn": 0.6,
+ "fadeOut": 0.01,
+ "music": {"enabled": true},
+ "sfx": {"enabled": true},
+ "loudness": -14
+}

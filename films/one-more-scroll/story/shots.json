@@ -1,0 +1,1937 @@
+{
+ "title": "One More Scroll",
+ "duration": 265.3,
+ "shots": [
+  {
+   "id": "s01",
+   "start": 0.0,
+   "end": 8.6,
+   "line": "",
+   "scene": "3D: Earth in darkness, night side lit by city networks, sun limb; slow push in",
+   "set": "space",
+   "bars": "scope",
+   "sfx": [
+    {
+     "at": 5.6,
+     "name": "riser",
+     "gain": -12,
+     "dur": 3
+    }
+   ],
+   "amb": {
+    "name": "hum",
+    "gain": -30
+   },
+   "notes": ""
+  },
+  {
+   "id": "s02",
+   "start": 8.6,
+   "end": 11.6,
+   "line": "",
+   "scene": "dive through a cloud layer, city lights appear through gaps (hidden cut)",
+   "set": "clouds",
+   "bars": "scope",
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "whoosh",
+     "gain": -6,
+     "dur": 1.4
+    },
+    {
+     "at": 1.2,
+     "name": "wind",
+     "gain": -14,
+     "dur": 2
+    }
+   ],
+   "amb": {
+    "name": "wind",
+    "gain": -22
+   },
+   "notes": ""
+  },
+  {
+   "id": "s03",
+   "start": 11.6,
+   "end": 20.2,
+   "line": "",
+   "scene": "3D: aerial city at night, traffic streams, tilt from top-down to skyline, glide toward one apartment block",
+   "set": "city3d",
+   "bars": "wide",
+   "sfx": [
+    {
+     "at": 0.6,
+     "name": "carpass",
+     "gain": -14
+    },
+    {
+     "at": 4.2,
+     "name": "carpass",
+     "gain": -12
+    },
+    {
+     "at": 6.8,
+     "name": "carpass",
+     "gain": -16
+    }
+   ],
+   "amb": {
+    "name": "city",
+    "gain": -18
+   },
+   "notes": ""
+  },
+  {
+   "id": "s04",
+   "start": 20.2,
+   "end": 22.8,
+   "line": "",
+   "scene": "apartment facade, grid of windows, one warm window; push until the window frame passes the lens",
+   "set": "facade",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 1.4,
+     "name": "whoosh",
+     "gain": -12,
+     "dur": 1
+    }
+   ],
+   "amb": {
+    "name": "city",
+    "gain": -20
+   },
+   "notes": ""
+  },
+  {
+   "id": "s05",
+   "start": 22.8,
+   "end": 26.2,
+   "line": "",
+   "scene": "inside: Jeff lies in bed, face lit by the phone; camera settles",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -24
+   },
+   "notes": ""
+  },
+  {
+   "id": "s06",
+   "start": 26.2,
+   "end": 28.8,
+   "line": "",
+   "scene": "insert: bedside clock 12:00 AM, rack focus from Jeff to the clock",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "tick",
+     "gain": -16
+    },
+    {
+     "at": 1.3,
+     "name": "tick",
+     "gain": -16
+    },
+    {
+     "at": 2.3,
+     "name": "tick",
+     "gain": -16
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -24
+   },
+   "notes": ""
+  },
+  {
+   "id": "s07",
+   "start": 28.8,
+   "end": 31.8,
+   "line": "",
+   "scene": "OTS on the phone: INSTICKRAM app opens, logo animation",
+   "set": "phone",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "pop",
+     "gain": -12
+    },
+    {
+     "at": 0.9,
+     "name": "shimmer",
+     "gain": -16
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s08",
+   "start": 31.8,
+   "end": 36.4,
+   "line": "As a doctor, I strongly recommend eight hours of sleep! Anyway, I haven't slept in three days. Follow for more!",
+   "scene": "push into the phone: video 1, stickman doctor in a clinic lecturing about sleep",
+   "set": "vid",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -12
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s09",
+   "start": 36.4,
+   "end": 38.4,
+   "line": "",
+   "scene": "giant face: Jeff smirks, phone light on his face",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s10",
+   "start": 38.4,
+   "end": 40.6,
+   "line": "",
+   "scene": "doctor video ends: hearts burst, follow button",
+   "set": "vid",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 1.2,
+     "name": "blip",
+     "gain": -14
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s11",
+   "start": 40.6,
+   "end": 43.8,
+   "line": "",
+   "scene": "swipe: video 2, a cat pushes a glass off a table and stares at camera",
+   "set": "vid",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -10
+    },
+    {
+     "at": 1.7,
+     "name": "hit",
+     "gain": -12,
+     "pitch": 1.8
+    },
+    {
+     "at": 1.8,
+     "name": "glass",
+     "gain": -10
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s12",
+   "start": 43.8,
+   "end": 46.0,
+   "line": "",
+   "scene": "time-lapse: clock spins to 12:45, the lamp clicks off",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "clockspin",
+     "gain": -12,
+     "dur": 1.4
+    },
+    {
+     "at": 1.4,
+     "name": "click",
+     "gain": -8
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s13",
+   "start": 46.0,
+   "end": 50.8,
+   "line": "Twelve chairs. One jump. Let's GO!",
+   "scene": "video 3: stickman tries to jump over twelve chairs, runs, leaps, crashes",
+   "set": "vid",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -10
+    },
+    {
+     "at": 3.55,
+     "name": "impact",
+     "gain": -10
+    },
+    {
+     "at": 3.7,
+     "name": "crash",
+     "gain": -10
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s14",
+   "start": 50.8,
+   "end": 53.0,
+   "line": "",
+   "scene": "medium side: Jeff raises his eyebrows, phone glow",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s15",
+   "start": 53.0,
+   "end": 54.6,
+   "line": "",
+   "scene": "clock 1:30, moonlight shifts across the wall",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "clockspin",
+     "gain": -14,
+     "dur": 1
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s16",
+   "start": 54.6,
+   "end": 57.0,
+   "line": "",
+   "scene": "video 4: a stickman dances, looping",
+   "set": "vid",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -10
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s17",
+   "start": 57.0,
+   "end": 59.0,
+   "line": "",
+   "scene": "extreme close-up: Jeff eyes, the dancing video reflected in them",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s18",
+   "start": 59.0,
+   "end": 61.0,
+   "line": "",
+   "scene": "clock races 2:15 to 2:50, faster",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "clockspin",
+     "gain": -12,
+     "dur": 1.8
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s19",
+   "start": 61.0,
+   "end": 64.6,
+   "line": "POOL DAY, BABY!",
+   "scene": "video 5: a guy cannonballs into a muddy puddle like a swimming pool",
+   "set": "vid",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -10
+    },
+    {
+     "at": 2.55,
+     "name": "splash",
+     "gain": -6
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s20",
+   "start": 64.6,
+   "end": 70.4,
+   "line": "Okay... I think it's time to sleep.",
+   "scene": "medium in bed: Jeff laughs, the laugh fades; \"time to sleep\"; clock 3:00 AM in frame",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.1,
+     "name": "chuckle",
+     "gain": -12
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s21",
+   "start": 70.4,
+   "end": 72.6,
+   "line": "",
+   "scene": "he puts the phone face down, the glow dies; darkness",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.5,
+     "name": "thud",
+     "gain": -14,
+     "pitch": 1.6
+    },
+    {
+     "at": 0.7,
+     "name": "click",
+     "gain": -14
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -30
+   },
+   "notes": ""
+  },
+  {
+   "id": "s22",
+   "start": 72.6,
+   "end": 76.6,
+   "line": "",
+   "scene": "black: ONE MORE SCROLL title in the silence",
+   "set": "title",
+   "bars": "none",
+   "sfx": [],
+   "amb": null,
+   "notes": ""
+  },
+  {
+   "id": "s23",
+   "start": 76.6,
+   "end": 79.2,
+   "line": "",
+   "scene": "SMASH: extreme close-up phone alarm 4:30 AM buzzing across the nightstand",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "flash",
+    "dur": 0.35
+   },
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "alarm",
+     "gain": -4,
+     "dur": 2.6
+    },
+    {
+     "at": 0.0,
+     "name": "phonebuzz",
+     "gain": -8,
+     "dur": 2.6
+    }
+   ],
+   "amb": null,
+   "notes": ""
+  },
+  {
+   "id": "s24",
+   "start": 79.2,
+   "end": 82.2,
+   "line": "",
+   "scene": "giant face sideways on the pillow: one puffy eye opens",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "alarm",
+     "gain": -9,
+     "dur": 3.0
+    },
+    {
+     "at": 1.0,
+     "name": "groan",
+     "gain": -12
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s25",
+   "start": 82.2,
+   "end": 85.2,
+   "line": "",
+   "scene": "arm flops out, slaps the nightstand twice, finds the phone, alarm stops",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "alarm",
+     "gain": -8,
+     "dur": 2.1
+    },
+    {
+     "at": 0.7,
+     "name": "slap",
+     "gain": -8
+    },
+    {
+     "at": 1.3,
+     "name": "slap",
+     "gain": -8
+    },
+    {
+     "at": 2.1,
+     "name": "click",
+     "gain": -6
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s26",
+   "start": 85.2,
+   "end": 88.2,
+   "line": "",
+   "scene": "wide, cold blue: Jeff sits up like a zombie, hair wrecked, slumps",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.4,
+     "name": "cloth",
+     "gain": -14
+    },
+    {
+     "at": 1.8,
+     "name": "sigh",
+     "gain": -14
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s27",
+   "start": 88.2,
+   "end": 90.8,
+   "line": "",
+   "scene": "bathroom: light switch, fluorescent flickers on, Jeff squints",
+   "set": "bath",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "click",
+     "gain": -6
+    },
+    {
+     "at": 0.4,
+     "name": "flicker",
+     "gain": -10,
+     "dur": 1.4
+    },
+    {
+     "at": 1.0,
+     "name": "buzz",
+     "gain": -22,
+     "dur": 1.6
+    }
+   ],
+   "amb": {
+    "name": "hum",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s28",
+   "start": 90.8,
+   "end": 94.4,
+   "line": "",
+   "scene": "mirror: Jeff and his reflection, eye bags; he stares at himself",
+   "set": "bath",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "buzz",
+     "gain": -24,
+     "dur": 3.6
+    }
+   ],
+   "amb": {
+    "name": "hum",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s29",
+   "start": 94.4,
+   "end": 98.6,
+   "line": "",
+   "scene": "faucet, he splashes water into his face twice, droplets fly, blinks: still tired",
+   "set": "bath",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.2,
+     "name": "water",
+     "gain": -10,
+     "dur": 3.6
+    },
+    {
+     "at": 1.2,
+     "name": "splash",
+     "gain": -14,
+     "pitch": 1.4
+    },
+    {
+     "at": 2.4,
+     "name": "splash",
+     "gain": -14,
+     "pitch": 1.4
+    }
+   ],
+   "amb": {
+    "name": "hum",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s30",
+   "start": 98.6,
+   "end": 101.2,
+   "line": "",
+   "scene": "kitchen insert: toast pops, he grabs it with his mouth, the door slams",
+   "set": "kitchen",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "pop",
+     "gain": -6,
+     "pitch": 0.6
+    },
+    {
+     "at": 2.2,
+     "name": "doorslam",
+     "gain": -6
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s31",
+   "start": 101.2,
+   "end": 105.4,
+   "line": "",
+   "scene": "side tracking down a grey dawn street, Jeff shuffles with toast",
+   "set": "street",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 0.95,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 1.6,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 2.25,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 2.9,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 3.55,
+     "name": "footstep",
+     "gain": -16
+    }
+   ],
+   "amb": {
+    "name": "city",
+    "gain": -22
+   },
+   "notes": ""
+  },
+  {
+   "id": "s32",
+   "start": 105.4,
+   "end": 109.8,
+   "line": "",
+   "scene": "bus stop wide: a jogger bounces, a woman with coffee, Jeff sways in the middle",
+   "set": "busstop",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "city",
+    "gain": -20
+   },
+   "notes": ""
+  },
+  {
+   "id": "s33",
+   "start": 109.8,
+   "end": 112.4,
+   "line": "",
+   "scene": "the bus arrives, brakes hiss, doors fold open",
+   "set": "busstop",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "bus",
+     "gain": -6,
+     "dur": 2.6
+    },
+    {
+     "at": 1.6,
+     "name": "hiss",
+     "gain": -8
+    }
+   ],
+   "amb": {
+    "name": "city",
+    "gain": -20
+   },
+   "notes": ""
+  },
+  {
+   "id": "s34",
+   "start": 112.4,
+   "end": 118.8,
+   "line": "",
+   "scene": "inside by the window, city reflections slide over the glass; head drops, snaps up, drops, thunk on the glass",
+   "set": "bus",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "busrumble",
+     "gain": -12,
+     "dur": 6.4
+    },
+    {
+     "at": 5.0,
+     "name": "thunk",
+     "gain": -6
+    }
+   ],
+   "amb": {
+    "name": "city",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s35",
+   "start": 118.8,
+   "end": 122.8,
+   "line": "",
+   "scene": "3D: open-plan office, grey and beige desk rows, ceiling panels; Jeff walks in",
+   "set": "office3d",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.5,
+     "name": "footstep",
+     "gain": -18
+    },
+    {
+     "at": 1.1,
+     "name": "footstep",
+     "gain": -18
+    },
+    {
+     "at": 1.7,
+     "name": "footstep",
+     "gain": -18
+    },
+    {
+     "at": 2.3,
+     "name": "footstep",
+     "gain": -18
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s36",
+   "start": 122.8,
+   "end": 127.0,
+   "line": "Morning, Jeff! ...morning.",
+   "scene": "coworkers wave \"Morning, Jeff!\"; Jeff lifts two fingers, \"...morning.\"",
+   "set": "office",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "murmur",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s37",
+   "start": 127.0,
+   "end": 129.4,
+   "line": "",
+   "scene": "Jeff sits, presses the power button, the monitor boots",
+   "set": "desk",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "chair",
+     "gain": -12
+    },
+    {
+     "at": 1.2,
+     "name": "click",
+     "gain": -8
+    },
+    {
+     "at": 1.5,
+     "name": "boot",
+     "gain": -12
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s38",
+   "start": 129.4,
+   "end": 132.6,
+   "line": "",
+   "scene": "OTS on the screen: a spreadsheet, slow typing, backspace",
+   "set": "desk",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.4,
+     "name": "key",
+     "gain": -12
+    },
+    {
+     "at": 1.1,
+     "name": "key",
+     "gain": -12
+    },
+    {
+     "at": 1.9,
+     "name": "key",
+     "gain": -12
+    },
+    {
+     "at": 2.6,
+     "name": "key",
+     "gain": -10
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s39",
+   "start": 132.6,
+   "end": 136.2,
+   "line": "",
+   "scene": "time-lapse: wall clock 9 to 11, coworkers blur around a frozen Jeff",
+   "set": "office",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "clockspin",
+     "gain": -14,
+     "dur": 3.4
+    },
+    {
+     "at": 0.0,
+     "name": "typing",
+     "gain": -16,
+     "dur": 3.6
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s40",
+   "start": 136.2,
+   "end": 138.8,
+   "line": "",
+   "scene": "close: his head sinks to the keyboard, jjjjjjj fills the cell",
+   "set": "desk",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 1.4,
+     "name": "thunk",
+     "gain": -12,
+     "pitch": 1.3
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s41",
+   "start": 138.8,
+   "end": 144.2,
+   "line": "Jeff, the boss needs you. He wants to see you in his office.",
+   "scene": "Priya taps his shoulder: \"the boss needs you\"; Jeff turns slowly, deadpan",
+   "set": "office",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.2,
+     "name": "tap",
+     "gain": -10
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s42",
+   "start": 144.2,
+   "end": 146.8,
+   "line": "",
+   "scene": "Jeff stands and shuffles toward the boss office door",
+   "set": "office",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.2,
+     "name": "chair",
+     "gain": -14
+    },
+    {
+     "at": 0.9,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 1.6,
+     "name": "footstep",
+     "gain": -16
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s43",
+   "start": 146.8,
+   "end": 150.2,
+   "line": "",
+   "scene": "wide from behind the boss desk: the door opens, Jeff enters, window blinds stripe the room",
+   "set": "boss",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "door",
+     "gain": -8
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s44",
+   "start": 150.2,
+   "end": 153.8,
+   "line": "Jeff! Do you have any idea what you're doing?",
+   "scene": "boss medium, low angle, backlit by the blinds",
+   "set": "boss",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s45",
+   "start": 153.8,
+   "end": 155.4,
+   "line": "",
+   "scene": "Jeff medium, flat framing, barely reacts",
+   "set": "boss",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s46",
+   "start": 155.4,
+   "end": 161.4,
+   "line": "Your work has been terrible lately. You come here every single day looking like you're dead!",
+   "scene": "boss medium-close, big gestures",
+   "set": "boss",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s47",
+   "start": 161.4,
+   "end": 168.7,
+   "line": "The sales are going down. You're barely doing anything! Honestly, I'm going to have to fire you, Jeff.",
+   "scene": "boss close; the sales chart on the wall drops behind him",
+   "set": "boss",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s48",
+   "start": 168.7,
+   "end": 171.5,
+   "line": "Whatever, boss...",
+   "scene": "Jeff close, half-lidded",
+   "set": "boss",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s49",
+   "start": 171.5,
+   "end": 172.9,
+   "line": "",
+   "scene": "giant face: the boss boils, brows dive, face reddens",
+   "set": "boss",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "riser",
+     "gain": -12,
+     "dur": 1.4
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s50",
+   "start": 172.9,
+   "end": 175.3,
+   "line": "",
+   "scene": "SLAM: hand hits the desk, time freezes with papers, pens and coffee hanging in the air",
+   "set": "boss",
+   "bars": "scope",
+   "in": {
+    "type": "flash",
+    "dur": 0.35
+   },
+   "sfx": [
+    {
+     "at": 0.12,
+     "name": "impact",
+     "gain": -2
+    },
+    {
+     "at": 0.14,
+     "name": "slam",
+     "gain": -2
+    },
+    {
+     "at": 0.16,
+     "name": "freeze",
+     "gain": -10
+    }
+   ],
+   "amb": null,
+   "notes": ""
+  },
+  {
+   "id": "s51",
+   "start": 175.3,
+   "end": 180.1,
+   "line": "ARE YOU EVEN LISTENING TO ME, JEFF?! I SAID I MIGHT HAVE TO FIRE YOU!",
+   "scene": "boss extreme close-up, shouting, slight roll",
+   "set": "boss",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s52",
+   "start": 180.1,
+   "end": 183.5,
+   "line": "Yeah... whatever, boss.",
+   "scene": "Jeff close, identical framing: deadpan",
+   "set": "boss",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s53",
+   "start": 183.5,
+   "end": 187.3,
+   "line": "GET OUT! We'll talk later. Go!",
+   "scene": "boss stands, low angle, arm across frame pointing to the door",
+   "set": "boss",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.1,
+     "name": "chair",
+     "gain": -10
+    },
+    {
+     "at": 0.3,
+     "name": "swish",
+     "gain": -14
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s54",
+   "start": 187.3,
+   "end": 190.3,
+   "line": "",
+   "scene": "Jeff turns and shuffles out; the boss fumes; the door clicks",
+   "set": "boss",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.4,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 1.1,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 2.3,
+     "name": "door",
+     "gain": -8
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s55",
+   "start": 190.3,
+   "end": 193.3,
+   "line": "",
+   "scene": "cafeteria: Jeff at the microwave, it hums, it beeps",
+   "set": "cafeteria",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "microwave",
+     "gain": -12,
+     "dur": 2.2
+    },
+    {
+     "at": 2.2,
+     "name": "beep",
+     "gain": -8
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -22
+   },
+   "notes": ""
+  },
+  {
+   "id": "s56",
+   "start": 193.3,
+   "end": 198.3,
+   "line": "",
+   "scene": "wide, slow pull back: Jeff eats alone at a long table, other tables chatter in blur",
+   "set": "cafeteria",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 1.0,
+     "name": "fork",
+     "gain": -18
+    },
+    {
+     "at": 2.6,
+     "name": "fork",
+     "gain": -18
+    },
+    {
+     "at": 4.0,
+     "name": "fork",
+     "gain": -18
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -22
+   },
+   "notes": ""
+  },
+  {
+   "id": "s57",
+   "start": 198.3,
+   "end": 204.3,
+   "line": "",
+   "scene": "office time-lapse: wall clock 1 to 6 PM, light swings to orange sunset, desks empty out around him",
+   "set": "office",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "clockspin",
+     "gain": -14,
+     "dur": 5.6
+    },
+    {
+     "at": 0.0,
+     "name": "typing",
+     "gain": -20,
+     "dur": 3.0
+    }
+   ],
+   "amb": {
+    "name": "murmur",
+    "gain": -30
+   },
+   "notes": ""
+  },
+  {
+   "id": "s58",
+   "start": 204.3,
+   "end": 208.3,
+   "line": "",
+   "scene": "monitor off, he grabs his bag and walks out, sunset to blue",
+   "set": "office",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.4,
+     "name": "blip",
+     "gain": -12,
+     "pitch": 0.6
+    },
+    {
+     "at": 1.2,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 1.9,
+     "name": "footstep",
+     "gain": -16
+    },
+    {
+     "at": 2.6,
+     "name": "footstep",
+     "gain": -16
+    }
+   ],
+   "amb": {
+    "name": "hum",
+    "gain": -30
+   },
+   "notes": ""
+  },
+  {
+   "id": "s59",
+   "start": 208.3,
+   "end": 212.3,
+   "line": "",
+   "scene": "apartment door opens, keys and bag drop, he falls face-first onto the bed in his clothes",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "dip",
+    "dur": 0.6
+   },
+   "sfx": [
+    {
+     "at": 0.2,
+     "name": "door",
+     "gain": -10
+    },
+    {
+     "at": 0.9,
+     "name": "keys",
+     "gain": -10
+    },
+    {
+     "at": 1.3,
+     "name": "thud",
+     "gain": -10
+    },
+    {
+     "at": 2.3,
+     "name": "bedflop",
+     "gain": -6
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s60",
+   "start": 212.3,
+   "end": 214.7,
+   "line": "",
+   "scene": "his hand finds the phone; Instickram opens again",
+   "set": "phone",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.6,
+     "name": "pop",
+     "gain": -12
+    },
+    {
+     "at": 1.0,
+     "name": "shimmer",
+     "gain": -18
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -26
+   },
+   "notes": ""
+  },
+  {
+   "id": "s61",
+   "start": 214.7,
+   "end": 216.7,
+   "line": "",
+   "scene": "montage: video flash, face in blue light, clock 10:30 PM",
+   "set": "montage",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -12
+    },
+    {
+     "at": 1.0,
+     "name": "blip",
+     "gain": -16
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s62",
+   "start": 216.7,
+   "end": 218.7,
+   "line": "",
+   "scene": "montage: clock 11:45 PM, phone reflected in eyes",
+   "set": "montage",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -12
+    },
+    {
+     "at": 1.0,
+     "name": "blip",
+     "gain": -16
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s63",
+   "start": 218.7,
+   "end": 220.5,
+   "line": "",
+   "scene": "montage: clock 12:30 AM, faster",
+   "set": "montage",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -12
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s64",
+   "start": 220.5,
+   "end": 222.3,
+   "line": "",
+   "scene": "montage: clock 1:30 AM, eyes heavy",
+   "set": "montage",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "swish",
+     "gain": -12
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s65",
+   "start": 222.3,
+   "end": 226.1,
+   "line": "",
+   "scene": "his eyes close; the phone stays on in his hand, still playing, lighting his sleeping face",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.5,
+     "name": "phonevid",
+     "gain": -22,
+     "dur": 3.2
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s66",
+   "start": 226.1,
+   "end": 232.9,
+   "line": "",
+   "scene": "the alarm rings and rings, each ring the frame tightens; he slaps it off and sinks back",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.0,
+     "name": "alarm",
+     "gain": -8,
+     "dur": 1.3
+    },
+    {
+     "at": 1.7,
+     "name": "alarm",
+     "gain": -8,
+     "dur": 1.3
+    },
+    {
+     "at": 3.4,
+     "name": "alarm",
+     "gain": -7,
+     "dur": 1.4
+    },
+    {
+     "at": 4.9,
+     "name": "slap",
+     "gain": -8
+    },
+    {
+     "at": 5.0,
+     "name": "click",
+     "gain": -8
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -28
+   },
+   "notes": ""
+  },
+  {
+   "id": "s67",
+   "start": 232.9,
+   "end": 235.9,
+   "line": "",
+   "scene": "black-blue room. KNOCK KNOCK KNOCK. Jeff does not move",
+   "set": "bedroom",
+   "bars": null,
+   "in": {
+    "type": "dip",
+    "dur": 0.6
+   },
+   "sfx": [
+    {
+     "at": 0.6,
+     "name": "knock",
+     "gain": -4
+    },
+    {
+     "at": 0.95,
+     "name": "knock",
+     "gain": -4
+    },
+    {
+     "at": 1.3,
+     "name": "knock",
+     "gain": -4
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -30
+   },
+   "notes": ""
+  },
+  {
+   "id": "s68",
+   "start": 235.9,
+   "end": 239.3,
+   "line": "",
+   "scene": "KNOCK KNOCK KNOCK, louder; the camera tracks down the dark hallway toward the bedroom door",
+   "set": "hall",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.3,
+     "name": "knock",
+     "gain": -1
+    },
+    {
+     "at": 0.62,
+     "name": "knock",
+     "gain": -1
+    },
+    {
+     "at": 0.94,
+     "name": "knock",
+     "gain": -1
+    },
+    {
+     "at": 2.4,
+     "name": "creak",
+     "gain": -14
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -30
+   },
+   "notes": ""
+  },
+  {
+   "id": "s69",
+   "start": 239.3,
+   "end": 242.3,
+   "line": "",
+   "scene": "the bedroom door swings open, a slab of cold light, a silhouette in it",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.2,
+     "name": "creak",
+     "gain": -8,
+     "dur": 2.2
+    },
+    {
+     "at": 2.4,
+     "name": "footstep",
+     "gain": -14
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -30
+   },
+   "notes": ""
+  },
+  {
+   "id": "s70",
+   "start": 242.3,
+   "end": 246.7,
+   "line": "Who the hell are you? What are you doing in my place?",
+   "scene": "giant face: Jeff turns his head, eyes barely open, confused",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -30
+   },
+   "notes": ""
+  },
+  {
+   "id": "s71",
+   "start": 246.7,
+   "end": 250.3,
+   "line": "I was like that yesterday, Jeff.",
+   "scene": "the silhouette stands still; a short silence; then it speaks",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [],
+   "amb": {
+    "name": "roomtone",
+    "gain": -32
+   },
+   "notes": ""
+  },
+  {
+   "id": "s72",
+   "start": 250.3,
+   "end": 252.7,
+   "line": "Who the hell are you?",
+   "scene": "Jeff sits up",
+   "set": "bedroom",
+   "bars": null,
+   "sfx": [
+    {
+     "at": 0.1,
+     "name": "cloth",
+     "gain": -14
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -32
+   },
+   "notes": ""
+  },
+  {
+   "id": "s73",
+   "start": 252.7,
+   "end": 258.7,
+   "line": "I am you. And you're in trouble.",
+   "scene": "the stranger steps into the light: giant close-up, Jeff face but steady and cold. \"I am you.\" pause \"And you're in trouble.\"",
+   "set": "bedroom",
+   "bars": "scope",
+   "sfx": [
+    {
+     "at": 0.35,
+     "name": "footstep",
+     "gain": -10
+    }
+   ],
+   "amb": {
+    "name": "roomtone",
+    "gain": -34
+   },
+   "notes": ""
+  },
+  {
+   "id": "s74",
+   "start": 258.7,
+   "end": 260.3,
+   "line": "",
+   "scene": "cut to black, silence",
+   "set": "title",
+   "bars": "none",
+   "sfx": [],
+   "amb": null,
+   "notes": ""
+  },
+  {
+   "id": "s75",
+   "start": 260.3,
+   "end": 265.3,
+   "line": "",
+   "scene": "TO BE CONTINUED...",
+   "set": "title",
+   "bars": "none",
+   "in": {
+    "type": "fade",
+    "dur": 0.6
+   },
+   "sfx": [],
+   "amb": null,
+   "notes": ""
+  }
+ ],
+ "music": [
+  {
+   "file": "audio/music/m1_orbit.wav",
+   "start": 0.0,
+   "end": 28.8,
+   "offset": 0.0,
+   "fadeIn": 0.5,
+   "fadeOut": 1.5,
+   "gain": 2
+  },
+  {
+   "file": "audio/music/m2_feed.wav",
+   "start": 28.8,
+   "end": 70.4,
+   "offset": 0.0,
+   "fadeIn": 0.3,
+   "fadeOut": 0.4,
+   "gain": -4
+  },
+  {
+   "file": "audio/music/m3_morning.wav",
+   "start": 79.2,
+   "end": 118.8,
+   "offset": 0.0,
+   "fadeIn": 2.0,
+   "fadeOut": 2.0,
+   "gain": -3
+  },
+  {
+   "file": "audio/music/m4_office.wav",
+   "start": 118.8,
+   "end": 146.8,
+   "offset": 0.0,
+   "fadeIn": 1.0,
+   "fadeOut": 1.5,
+   "gain": -5
+  },
+  {
+   "file": "audio/music/m5_tension.wav",
+   "start": 146.8,
+   "end": 190.3,
+   "offset": 0.0,
+   "fadeIn": 1.0,
+   "fadeOut": 2.0,
+   "gain": -4
+  },
+  {
+   "file": "audio/music/m6_sunset.wav",
+   "start": 190.3,
+   "end": 208.3,
+   "offset": 0.0,
+   "fadeIn": 1.0,
+   "fadeOut": 1.5,
+   "gain": -4
+  },
+  {
+   "file": "audio/music/m7_loop.wav",
+   "start": 212.3,
+   "end": 232.9,
+   "offset": 0.0,
+   "fadeIn": 0.5,
+   "fadeOut": 1.2,
+   "gain": -5
+  },
+  {
+   "file": "audio/music/m8_visitor.wav",
+   "start": 235.9,
+   "end": 252.7,
+   "offset": 0.0,
+   "fadeIn": 1.5,
+   "fadeOut": 1.4,
+   "gain": -3
+  }
+ ]
+}

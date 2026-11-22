@@ -1,0 +1,289 @@
+{
+ "duration": 265.3,
+ "lines": [
+  {
+   "id": "v1",
+   "who": "PHONE",
+   "t0": 32.1,
+   "t1": 39.914,
+   "text": "As a doctor, I strongly recommend eight hours of sleep! Anyway, I haven't slept in three days. Follow for more!"
+  },
+  {
+   "id": "v3",
+   "who": "PHONE",
+   "t0": 46.15,
+   "t1": 49.485,
+   "text": "Twelve chairs. One jump. Let's GO!"
+  },
+  {
+   "id": "v5",
+   "who": "PHONE",
+   "t0": 62.0,
+   "t1": 63.639,
+   "text": "POOL DAY, BABY!"
+  },
+  {
+   "id": "j01",
+   "who": "JEFF",
+   "t0": 66.3,
+   "t1": 69.912,
+   "text": "Okay... I think it's time to sleep."
+  },
+  {
+   "id": "m02",
+   "who": "MARK",
+   "t0": 123.15,
+   "t1": 124.19,
+   "text": "Morning, Jeff!"
+  },
+  {
+   "id": "j03",
+   "who": "JEFF",
+   "t0": 124.8,
+   "t1": 126.505,
+   "text": "...morning."
+  },
+  {
+   "id": "p04",
+   "who": "PRIYA",
+   "t0": 139.3,
+   "t1": 143.023,
+   "text": "Jeff, the boss needs you. He wants to see you in his office."
+  },
+  {
+   "id": "b05",
+   "who": "BOSS",
+   "t0": 150.45,
+   "t1": 153.513,
+   "text": "Jeff! Do you have any idea what you're doing?"
+  },
+  {
+   "id": "b06",
+   "who": "BOSS",
+   "t0": 155.6,
+   "t1": 161.118,
+   "text": "Your work has been terrible lately. You come here every single day looking like you're dead!"
+  },
+  {
+   "id": "b07",
+   "who": "BOSS",
+   "t0": 161.6,
+   "t1": 168.452,
+   "text": "The sales are going down. You're barely doing anything! Honestly, I'm going to have to fire you, Jeff."
+  },
+  {
+   "id": "j08",
+   "who": "JEFF",
+   "t0": 169.2,
+   "t1": 170.503,
+   "text": "Whatever, boss..."
+  },
+  {
+   "id": "b09",
+   "who": "BOSS",
+   "t0": 175.45,
+   "t1": 179.871,
+   "text": "ARE YOU EVEN LISTENING TO ME, JEFF?! I SAID I MIGHT HAVE TO FIRE YOU!"
+  },
+  {
+   "id": "j10",
+   "who": "JEFF",
+   "t0": 180.7,
+   "t1": 182.807,
+   "text": "Yeah... whatever, boss."
+  },
+  {
+   "id": "b11",
+   "who": "BOSS",
+   "t0": 183.75,
+   "t1": 186.897,
+   "text": "GET OUT! We'll talk later. Go!"
+  },
+  {
+   "id": "j12",
+   "who": "JEFF",
+   "t0": 242.7,
+   "t1": 246.503,
+   "text": "Who the hell are you? What are you doing in my place?"
+  },
+  {
+   "id": "s13",
+   "who": "STRANGER",
+   "t0": 248.0,
+   "t1": 249.999,
+   "text": "I was like that yesterday, Jeff."
+  },
+  {
+   "id": "j14",
+   "who": "JEFF",
+   "t0": 250.75,
+   "t1": 252.383,
+   "text": "Who the hell are you?"
+  },
+  {
+   "id": "s15",
+   "who": "STRANGER",
+   "t0": 253.7,
+   "t1": 254.874,
+   "text": "I am you."
+  },
+  {
+   "id": "s16",
+   "who": "STRANGER",
+   "t0": 255.7,
+   "t1": 257.834,
+   "text": "And you're in trouble."
+  }
+ ],
+ "music": [
+  {
+   "file": "audio/music/m1_orbit.wav",
+   "start": 0.0,
+   "end": 28.8,
+   "offset": 0.0,
+   "fadeIn": 0.5,
+   "fadeOut": 1.5,
+   "gain": 2
+  },
+  {
+   "file": "audio/music/m2_feed.wav",
+   "start": 28.8,
+   "end": 70.4,
+   "offset": 0.0,
+   "fadeIn": 0.3,
+   "fadeOut": 0.4,
+   "gain": -4
+  },
+  {
+   "file": "audio/music/m3_morning.wav",
+   "start": 79.2,
+   "end": 118.8,
+   "offset": 0.0,
+   "fadeIn": 2.0,
+   "fadeOut": 2.0,
+   "gain": -3
+  },
+  {
+   "file": "audio/music/m4_office.wav",
+   "start": 118.8,
+   "end": 146.8,
+   "offset": 0.0,
+   "fadeIn": 1.0,
+   "fadeOut": 1.5,
+   "gain": -5
+  },
+  {
+   "file": "audio/music/m5_tension.wav",
+   "start": 146.8,
+   "end": 190.3,
+   "offset": 0.0,
+   "fadeIn": 1.0,
+   "fadeOut": 2.0,
+   "gain": -4
+  },
+  {
+   "file": "audio/music/m6_sunset.wav",
+   "start": 190.3,
+   "end": 208.3,
+   "offset": 0.0,
+   "fadeIn": 1.0,
+   "fadeOut": 1.5,
+   "gain": -4
+  },
+  {
+   "file": "audio/music/m7_loop.wav",
+   "start": 212.3,
+   "end": 232.9,
+   "offset": 0.0,
+   "fadeIn": 0.5,
+   "fadeOut": 1.2,
+   "gain": -5
+  },
+  {
+   "file": "audio/music/m8_visitor.wav",
+   "start": 235.9,
+   "end": 252.7,
+   "offset": 0.0,
+   "fadeIn": 1.5,
+   "fadeOut": 1.4,
+   "gain": -3
+  }
+ ],
+ "starts": {
+  "s01": 0.0,
+  "s02": 8.6,
+  "s03": 11.6,
+  "s04": 20.2,
+  "s05": 22.8,
+  "s06": 26.2,
+  "s07": 28.8,
+  "s08": 31.8,
+  "s09": 36.4,
+  "s10": 38.4,
+  "s11": 40.6,
+  "s12": 43.8,
+  "s13": 46.0,
+  "s14": 50.8,
+  "s15": 53.0,
+  "s16": 54.6,
+  "s17": 57.0,
+  "s18": 59.0,
+  "s19": 61.0,
+  "s20": 64.6,
+  "s21": 70.4,
+  "s22": 72.6,
+  "s23": 76.6,
+  "s24": 79.2,
+  "s25": 82.2,
+  "s26": 85.2,
+  "s27": 88.2,
+  "s28": 90.8,
+  "s29": 94.4,
+  "s30": 98.6,
+  "s31": 101.2,
+  "s32": 105.4,
+  "s33": 109.8,
+  "s34": 112.4,
+  "s35": 118.8,
+  "s36": 122.8,
+  "s37": 127.0,
+  "s38": 129.4,
+  "s39": 132.6,
+  "s40": 136.2,
+  "s41": 138.8,
+  "s42": 144.2,
+  "s43": 146.8,
+  "s44": 150.2,
+  "s45": 153.8,
+  "s46": 155.4,
+  "s47": 161.4,
+  "s48": 168.7,
+  "s49": 171.5,
+  "s50": 172.9,
+  "s51": 175.3,
+  "s52": 180.1,
+  "s53": 183.5,
+  "s54": 187.3,
+  "s55": 190.3,
+  "s56": 193.3,
+  "s57": 198.3,
+  "s58": 204.3,
+  "s59": 208.3,
+  "s60": 212.3,
+  "s61": 214.7,
+  "s62": 216.7,
+  "s63": 218.7,
+  "s64": 220.5,
+  "s65": 222.3,
+  "s66": 226.1,
+  "s67": 232.9,
+  "s68": 235.9,
+  "s69": 239.3,
+  "s70": 242.3,
+  "s71": 246.7,
+  "s72": 250.3,
+  "s73": 252.7,
+  "s74": 258.7,
+  "s75": 260.3
+ }
+}

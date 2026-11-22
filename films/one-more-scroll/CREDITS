@@ -1,0 +1,26 @@
+ONE MORE SCROLL — Episode 1 · credits for third-party material
+
+Picture
+- Every frame is drawn in code (HTML canvas + three.js) with the aiTrends 2D Studio engine (the user's own plugin),
+  extended for this film (engine-patches/rig2d.js). No image or video generation models were used.
+- three.js r169 (MIT) — 3D shots (Earth, city, office).
+- Fonts: Fredoka, Nunito, Playfair Display (SIL Open Font License), via @fontsource.
+- The planet's continents, clouds and city lights are procedural noise, not real map data (no borders drawn).
+- "Instickram" and its logo are fictional, designed for this film.
+
+Dialogue — ElevenLabs (eleven_v4), generated on the user's ElevenLabs account
+- Jeff and The Stranger: "Matt Marlow - Easygoing American" (voice id jnqK4oKgAruCsCiylRIB)
+- The Boss: "Thaddeus - Strong Leader, Authoritative, Powerful" (gVh6lddROTbOaOz9AAnY)
+- Priya: "Kleo - Casual and Conversational" (fZboLjcdZSF1lt1yyuXM)
+- Mark: "Rich - Casual, Natural, and Conversational" (UL7YtIO1odGIVqCrjI0U)
+- Phone videos: "James- Conversational, Energetic, Punchy" (QhpsGjDKZmM9qRYdMhBD), "Topher" (4ekZwrbiRoxmeg5thP3K),
+  "Bryan - Clear, Conversational Host" (K60rGfHNsqGiO3nscQV3)
+  Use is governed by the user's ElevenLabs plan terms.
+
+Music — ElevenLabs Music (eleven_music_v2_5), eight instrumental cues generated for this film on the user's account
+  (audio/music/m1_orbit … m8_visitor). Use is governed by the user's ElevenLabs plan terms.
+
+Sound effects and ambience
+- Procedural (synthesised in code): the aiTrends 2D Studio SFX library (audio/sfx.py) plus this film's foley in mix_film.py.
+
+Tools: Node.js, Playwright + Chromium, ffmpeg, numpy/scipy, faster-whisper (dialogue check).
