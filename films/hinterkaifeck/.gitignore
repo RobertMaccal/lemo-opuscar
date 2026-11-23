@@ -1,0 +1,5 @@
+out/*
+!out/the-footprints-share.mp4
+audio/*.wav
+audio/sfx/*.wav
+audio/*.16.wav
