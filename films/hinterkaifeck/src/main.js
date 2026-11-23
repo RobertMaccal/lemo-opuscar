@@ -5,6 +5,7 @@ import * as S from './sets.js';
 import { Char } from './chars.js';
 import { drawCaptions } from './captions.js';
 import { makeShots } from './shots.js';
+import { makeThumb } from './thumb.js';
 
 await document.fonts.load('900 76px Montserrat'); await document.fonts.load('700 30px Montserrat'); await document.fonts.ready;
 E.init();
@@ -66,7 +67,8 @@ const H = {
   windows(lit) { ext.farm.userData.windows.forEach((w, i) => { const on = typeof lit === 'function' ? lit(i) : lit; w.glass.material = on ? w.lit : w.dark; }); },
 };
 
-const SHOTS = makeShots(H);
+const THUMB = q.has('thumb') ? makeThumb(H) : null;
+const SHOTS = THUMB ? [THUMB.shot] : makeShots(H);
 const DUR = 87.5;
 const FROM = +(q.get('from') || 0), TO = +(q.get('to') || DUR);
 window.DUR = TO - FROM;
@@ -87,8 +89,9 @@ window.render = (T) => {
   const nxt = SHOTS[i + 1];
   if (nxt && nxt.tr === 'black' && T > nxt.t0 - .3) fr.fx.fade = Math.min(fr.fx.fade ?? 1, E.ss((nxt.t0 - T) / .3));
   if (s.fx) Object.assign(fr.fx, s.fx(T - s.t0, T));
-  if (T > DUR - 1.4) fr.fx.fade = Math.min(fr.fx.fade ?? 1, E.ss((DUR - T) / 1.4));
+  if (!THUMB && T > DUR - 1.4) fr.fx.fade = Math.min(fr.fx.fade ?? 1, E.ss((DUR - T) / 1.4));
   E.renderFrame(fr);
-  if (!q.has('nocap')) drawCaptions(ov, T);
+  if (THUMB) { if (!q.has('nocap')) THUMB.overlay(ov); else ov.clearRect(0, 0, 1080, 1920); }
+  else if (!q.has('nocap')) drawCaptions(ov, T);
 };
 window.READY = true;
