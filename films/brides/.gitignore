@@ -1,0 +1,5 @@
+out/*
+!out/brides-in-the-bath-share.mp4
+!out/cover.png
+audio/*.wav
+audio/sfx/*.wav
