@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>One-Pixel Bridge Thumbnail</title>
+<link rel="stylesheet" href="style.css">
+<style>html,body{margin:0;background:#000;overflow:hidden}#t{display:block;width:1080px;height:1920px}</style>
+</head>
+<body>
+<canvas id="t" width="1080" height="1920"></canvas>
+<script type="module">
+// Key art for the YouTube Short: the climax of the film (seed 6783, t ≈ 40.2 s) restaged in perspective.
+// The gold ball hangs off the 1 px rail; its last rival falls into the void; the finish glows ahead.
+import { mulberry32 } from './src/physics.js';
+const W = 1080, H = 1920, c = document.getElementById('t'), g = c.getContext('2d');
+const rnd = mulberry32(6783);
+const FONT = '"Inter", system-ui, sans-serif';
+const VP = { x: 600, y: 700 };                 // vanishing point: where the rail meets the finish
+const RB = { x: 455, y: 2050 };                // where the rail leaves the frame (near the camera)
+const railX = y => RB.x + (VP.x - RB.x) * (RB.y - y) / (RB.y - VP.y);
+const depth = y => (y - VP.y) / (RB.y - VP.y);  // 0 at the horizon → 1 at the camera
+
+function sphere(x, y, r, base, hi, lo, alpha = 1, rim = null) {
+  g.save(); g.globalAlpha = alpha;
+  const gr = g.createRadialGradient(x - r * 0.36, y - r * 0.42, r * 0.04, x, y, r);
+  gr.addColorStop(0, hi); gr.addColorStop(0.42, base); gr.addColorStop(1, lo);
+  g.fillStyle = gr; g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+  if (rim) { g.strokeStyle = rim; g.lineWidth = Math.max(1.5, r * 0.06); g.beginPath(); g.arc(x, y, r * 0.95, Math.PI * 0.05, Math.PI * 0.7); g.stroke(); }
+  const s = g.createRadialGradient(x - r * 0.38, y - r * 0.45, 0, x - r * 0.38, y - r * 0.45, r * 0.38);
+  s.addColorStop(0, 'rgba(255,255,255,0.95)'); s.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = s; g.beginPath(); g.arc(x - r * 0.38, y - r * 0.45, r * 0.38, 0, Math.PI * 2); g.fill();
+  g.restore();
+}
+function glow(x, y, r, col, a) {
+  g.save(); g.globalCompositeOperation = 'lighter';
+  const gr = g.createRadialGradient(x, y, 0, x, y, r);
+  gr.addColorStop(0, col.replace('A', a)); gr.addColorStop(0.35, col.replace('A', a * 0.4)); gr.addColorStop(1, col.replace('A', 0));
+  g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); g.restore();
+}
+const hsl = (h, s, l) => `hsl(${h} ${s}% ${l}%)`;
+function trail(x0, y0, x1, y1, w, rgb, a) {           // tapered comet tail from head (x0,y0) to tail (x1,y1)
+  const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L;
+  const gr = g.createLinearGradient(x0, y0, x1, y1);
+  gr.addColorStop(0, `rgba(${rgb},${a})`); gr.addColorStop(0.5, `rgba(${rgb},${a * 0.35})`); gr.addColorStop(1, `rgba(${rgb},0)`);
+  g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = gr; g.beginPath();
+  g.moveTo(x0 + nx * w / 2, y0 + ny * w / 2); g.lineTo(x1, y1); g.lineTo(x0 - nx * w / 2, y0 - ny * w / 2);
+  g.arc(x0, y0, w / 2, Math.atan2(-ny, -nx), Math.atan2(ny, nx), true); g.fill(); g.restore();
+}
+const hslRgb = (h, s, l) => { s /= 100; l /= 100; const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l), f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1))); return [f(0), f(8), f(4)].map(v => Math.round(v * 255)).join(','); };
+
+async function draw() {
+  await document.fonts.load('800 100px Inter'); await document.fonts.load('700 100px Inter');
+  // ---- void ----
+  g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
+  const sky = g.createRadialGradient(VP.x, VP.y, 0, VP.x, VP.y, 1300);
+  sky.addColorStop(0, 'rgba(20,80,140,0.40)'); sky.addColorStop(0.22, 'rgba(6,24,50,0.22)'); sky.addColorStop(1, 'rgba(0,0,0,0)');
+  g.fillStyle = sky; g.fillRect(0, 0, W, H);
+  // drifting dust
+  for (let i = 0; i < 260; i++) { const x = rnd() * W, y = rnd() * H, r = 0.6 + rnd() * 2.2; glow(x, y, r * 4, 'rgba(120,210,255,A)', 0.08 + rnd() * 0.25); }
+
+  // finish gate glow at the vanishing point
+  glow(VP.x, VP.y, 260, 'rgba(255,200,80,A)', 0.45);
+  glow(VP.x, VP.y, 120, 'rgba(255,240,200,A)', 0.9);
+  g.save(); g.globalCompositeOperation = 'lighter';
+  g.strokeStyle = 'rgba(255,225,140,0.95)'; g.lineWidth = 5; g.beginPath(); g.moveTo(VP.x - 150, VP.y); g.lineTo(VP.x + 150, VP.y); g.stroke();
+  g.strokeStyle = 'rgba(255,200,90,0.35)'; g.lineWidth = 18; g.beginPath(); g.moveTo(VP.x - 160, VP.y); g.lineTo(VP.x + 160, VP.y); g.stroke();
+  for (let k = -5; k < 5; k++) { g.fillStyle = 'rgba(255,255,255,0.18)'; if ((k & 1) === 0) g.fillRect(VP.x + k * 30, VP.y - 22, 30, 11); else g.fillRect(VP.x + k * 30, VP.y - 11, 30, 11); }
+  g.restore();
+
+  // ---- falling competitors (below the rail plane, shrinking into the dark) ----
+  const fallers = [
+    { x: 175, y: 1430, r: 44, h: 330, d: 0.85 }, { x: 905, y: 1180, r: 34, h: 200, d: 0.8 }, { x: 260, y: 980, r: 22, h: 280, d: 0.65 },
+    { x: 905, y: 1760, r: 50, h: 5, d: 0.9 }, { x: 95, y: 1780, r: 30, h: 190, d: 0.55 }, { x: 700, y: 1880, r: 26, h: 300, d: 0.5 },
+    { x: 380, y: 860, r: 14, h: 170, d: 0.5 }, { x: 760, y: 900, r: 16, h: 345, d: 0.55 }, { x: 960, y: 760, r: 10, h: 230, d: 0.45 },
+    { x: 140, y: 760, r: 11, h: 15, d: 0.4 }, { x: 1010, y: 1400, r: 20, h: 270, d: 0.5 },
+  ];
+  for (const f of fallers) {
+    const base = hsl(f.h, 95, 58), hi = hsl(f.h, 100, 82), lo = hsl(f.h, 90, 22);
+    { const ang = Math.atan2(-(f.y - VP.y) * 0.9 - 300, railX(f.y) - f.x) ; const L = f.r * 9;
+      trail(f.x, f.y, f.x + Math.cos(ang) * L * 0.35, f.y - L, f.r * 1.7, hslRgb(f.h, 100, 62), 0.42 * f.d); }
+    glow(f.x, f.y, f.r * 3, `hsla(${f.h} 100% 60% / A)`, 0.45 * f.d);
+    sphere(f.x, f.y, f.r, base, hi, lo, f.d);
+    // sparks
+    for (let k = 0; k < 6; k++) glow(f.x + (rnd() - 0.5) * f.r * 5, f.y - rnd() * f.r * 4, 2 + rnd() * 5, `hsla(${f.h} 100% 70% / A)`, 0.6 * f.d);
+  }
+
+  // ---- the one-pixel rail ----
+  g.save(); g.globalCompositeOperation = 'lighter'; g.lineCap = 'butt';
+  const railPass = (w0, w1, col, a) => {
+    for (let i = 0; i < 40; i++) {
+      const y0 = VP.y + (RB.y - VP.y) * i / 40, y1 = VP.y + (RB.y - VP.y) * (i + 1) / 40, dd = depth((y0 + y1) / 2);
+      g.strokeStyle = col.replace('A', a * (0.35 + 0.65 * dd)); g.lineWidth = w0 + (w1 - w0) * dd;
+      g.beginPath(); g.moveTo(railX(y0), y0); g.lineTo(railX(y1), y1); g.stroke();
+    }
+  };
+  railPass(14, 90, 'rgba(30,110,255,A)', 0.12);
+  railPass(6, 34, 'rgba(50,190,255,A)', 0.30);
+  railPass(2, 9, 'rgba(120,240,255,A)', 0.75);
+  railPass(1, 3.2, 'rgba(240,255,255,A)', 1);
+  g.restore();
+
+  // ---- the gold ball, hanging off the rail ----
+  const by = 1290, rx = railX(by), R = 170, bx = rx - R * 0.80, bcy = by - R * 0.60;
+  // speed trail toward the camera
+  trail(bx, bcy, bx - 40, bcy + 520, R * 1.55, '255,185,50', 0.22);
+  g.save(); g.globalCompositeOperation = 'lighter'; g.lineCap = 'round';   // speed streaks
+  for (const [ox, len, w] of [[-120, 300, 6], [-60, 420, 4], [10, 360, 5], [80, 250, 3]]) {
+    const gr = g.createLinearGradient(0, bcy + R * 0.7, 0, bcy + R * 0.7 + len); gr.addColorStop(0, 'rgba(255,215,120,0.7)'); gr.addColorStop(1, 'rgba(255,215,120,0)');
+    g.strokeStyle = gr; g.lineWidth = w; g.beginPath(); g.moveTo(bx + ox, bcy + R * 0.75); g.lineTo(bx + ox - len * 0.08, bcy + R * 0.75 + len); g.stroke();
+  }
+  g.restore();
+  glow(bx, bcy, R * 2.4, 'rgba(255,185,50,A)', 0.42);
+  sphere(bx, bcy, R, '#ffcf3d', '#fff8d8', '#6e4204', 1, 'rgba(255,240,190,0.55)');
+  g.save(); g.globalCompositeOperation = 'lighter';
+  const sheen = g.createLinearGradient(bx - R, bcy + R, bx + R, bcy - R);
+  sheen.addColorStop(0, 'rgba(255,140,20,0)'); sheen.addColorStop(0.55, 'rgba(255,200,80,0.16)'); sheen.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = sheen; g.beginPath(); g.arc(bx, bcy, R, 0, 7); g.fill(); g.restore();
+  // the rail passes in front of the ball's lower edge: redraw its core there, then the red-hot contact point
+  g.save(); g.globalCompositeOperation = 'lighter'; g.lineCap = 'round';
+  for (const [w, col] of [[14, 'rgba(60,200,255,0.35)'], [4, 'rgba(240,255,255,1)']]) { g.strokeStyle = col; g.lineWidth = w; g.beginPath(); g.moveTo(railX(by - 170), by - 170); g.lineTo(railX(by + 60), by + 60); g.stroke(); }
+  g.restore();
+  glow(rx, by - 8, 120, 'rgba(255,50,30,A)', 0.9);
+  glow(rx, by - 8, 34, 'rgba(255,240,220,A)', 1);
+  for (let k = 0; k < 14; k++) { const a2 = -0.3 + rnd() * 1.9, d2 = 20 + rnd() * 90; glow(rx + Math.cos(a2) * d2, by - 8 - Math.sin(a2) * d2 * 0.6, 3 + rnd() * 6, 'rgba(255,180,90,A)', 0.9); }
+  // tension marks on the falling side
+  g.save(); g.strokeStyle = 'rgba(255,230,160,0.85)'; g.lineWidth = 8; g.lineCap = 'round';
+  for (const [a0, a1, rr] of [[2.5, 3.25, 1.2], [2.58, 3.15, 1.36]]) { g.beginPath(); g.arc(bx, bcy, R * rr, a0, a1); g.stroke(); }
+  g.restore();
+
+  // vignette (under the type)
+  const vg = g.createRadialGradient(W / 2, H * 0.55, H * 0.32, W / 2, H * 0.55, H * 0.78);
+  vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,0.6)');
+  g.fillStyle = vg; g.fillRect(0, 0, W, H);
+  // ---- callout: "1 PIXEL" with an arrow to the rail ----
+  const ax = 870, ay = 1530, tx = railX(1640) + 14, ty = 1640;
+  g.save(); g.lineCap = 'round'; g.lineJoin = 'round';
+  const arrow = (col, w) => {
+    g.strokeStyle = col; g.lineWidth = w; g.beginPath(); g.moveTo(ax - 40, ay + 40);
+    g.quadraticCurveTo(ax - 90, ty + 10, tx + 34, ty); g.stroke();
+    g.beginPath(); g.moveTo(tx + 34 + 42, ty - 32); g.lineTo(tx + 30, ty); g.lineTo(tx + 34 + 46, ty + 30); g.stroke();
+  };
+  arrow('rgba(0,0,0,0.9)', 26); arrow('#ff3b4f', 14);
+  g.restore();
+  const label = (s, x, y, size, fill, stroke, sw, spacing = 0, glowCol = null) => {
+    g.save(); g.font = `800 ${size}px ${FONT}`; g.textAlign = 'center'; g.letterSpacing = `${spacing}px`; g.lineJoin = 'round';
+    if (glowCol) { g.shadowColor = glowCol; g.shadowBlur = size * 0.35; }
+    g.strokeStyle = stroke; g.lineWidth = sw; g.strokeText(s, x, y); g.shadowBlur = 0;
+    g.fillStyle = fill; g.fillText(s, x, y); g.restore();
+  };
+  label('1 PIXEL', 845, 1520, 92, '#ffffff', '#000', 18, 2, 'rgba(255,60,80,0.8)');
+
+  // ---- headline ----
+  const goldFill = (() => { const gr = g.createLinearGradient(0, 230, 0, 470); gr.addColorStop(0, '#fff3b0'); gr.addColorStop(0.45, '#ffd34d'); gr.addColorStop(1, '#ff9f1a'); return gr; })();
+  label('100 BALLS', W / 2, 205, 96, '#7ff3ff', '#000', 18, 6, 'rgba(60,200,255,0.7)');
+  label('ONLY 1', W / 2, 470, 285, goldFill, '#000', 30, 0, 'rgba(255,170,40,0.85)');
+  label('SURVIVES', W / 2, 615, 132, '#ffffff', '#000', 22, 8, 'rgba(255,255,255,0.35)');
+
+  window.READY = true;
+}
+draw();
+</script>
+</body>
+</html>
