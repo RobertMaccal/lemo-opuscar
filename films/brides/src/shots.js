@@ -139,9 +139,9 @@ export function makeShots(H) {
     // the pull arrow at the feet
     const a = clamp(p * 3); x.globalAlpha = a; x.strokeStyle = '#b3141c'; x.lineWidth = 14; x.beginPath(); x.moveTo(foot[0] + 40, foot[1] + 10); x.quadraticCurveTo(foot[0] - 20, foot[1] - 60, foot[0] - 60, foot[1] - 130); x.stroke();
     x.fillStyle = '#b3141c'; x.beginPath(); x.moveTo(foot[0] - 60, foot[1] - 160); x.lineTo(foot[0] - 90, foot[1] - 110); x.lineTo(foot[0] - 30, foot[1] - 115); x.closePath(); x.fill();
-    x.font = '900 46px Montserrat'; x.fillText('PULL', foot[0] + 60, foot[1] - 130); x.globalAlpha = 1;
+    x.font = '900 46px Montserrat'; x.fillText('PULL', foot[0] + 95, Math.max(190, foot[1] - 100)); x.globalAlpha = 1;
     x.fillStyle = '#1e1812'; x.font = '800 32px Montserrat'; x.textAlign = 'center';
-    const lab = ['NO STRUGGLE', 'NO MARKS', 'ONE SUDDEN PULL']; lab.forEach((l, i) => { x.globalAlpha = clamp((p - .35 - i * .18) * 6); x.fillStyle = i === 2 ? '#b3141c' : '#1e1812'; x.fillText(l, w / 2, 700 + i * 70); }); x.globalAlpha = 1;
+    const lab = ['NO STRUGGLE', 'NO MARKS', 'ONE SUDDEN PULL']; lab.forEach((l, i) => { x.globalAlpha = clamp((p - .35 - i * .18) * 6); x.fillStyle = i === 2 ? '#b3141c' : '#1e1812'; x.fillText(l, w / 2, 612 + i * 56); }); x.globalAlpha = 1;
   });
   const easelPaper = (lt) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(.84, 1.12), new THREE.MeshLambertMaterial({ map: lt.tex, emissive: 0xffffff, emissiveMap: lt.tex, emissiveIntensity: .18 })); E.ink(m, { px: 2.4 }); m.position.set(0, 1.29, .07); m.rotation.x = -.06; st.easel.add(m); m.visible = false; return m; };
   P.anat = easelPaper(anatT); P.trick = easelPaper(trickT);
@@ -525,8 +525,8 @@ export function makeShots(H) {
   add_(75.3, 'station', 'trick', (lt, T) => {
     stationAmb(T); P.trick.visible = true; trickT.set(seg(lt, .1, 4.4));
     P.trick.updateMatrixWorld(); const c = P.trick.getWorldPosition(new THREE.Vector3()), n = new THREE.Vector3(0, 0, 1).applyQuaternion(P.trick.getWorldQuaternion(new THREE.Quaternion()));
-    const d = fitDist(.84, 1.12, 36, .12);
-    move(lt, 4.75, [c.clone().addScaledVector(n, d * 1.12).toArray(), c.toArray(), 36], [c.clone().addScaledVector(n, d * .98).toArray(), c.toArray(), 36]);
+    const d = fitDist(.84, 1.12, 36, .16), aim = c.clone().add(new THREE.Vector3(0, -.08, 0));
+    move(lt, 4.75, [c.clone().addScaledVector(n, d * 1.12).add(new THREE.Vector3(0, -.08, 0)).toArray(), aim.toArray(), 36], [c.clone().addScaledVector(n, d * .98).add(new THREE.Vector3(0, -.08, 0)).toArray(), aim.toArray(), 36]);
     focusOn(c.toArray(), 2, 6);
   }, { tr: 'long', keep: () => ({ paper: P.trick }) });
 
