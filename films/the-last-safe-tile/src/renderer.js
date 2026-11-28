@@ -691,11 +691,13 @@ export function createRenderer(canvas, B) {
     }
   }
 
-  function renderFrame(f) {
+  // opts (stills / thumbnails only): { cam: {x, y, s, shx, shy}, ui: false }. Default call = the film frame.
+  function renderFrame(f, opts = {}) {
     f = Math.max(0, Math.min(FRAMES - 1, f | 0));
     const t = f / FPS;
     const reset = t > T_RESET;
-    const cam = cameraAt(B, f);
+    const cam = opts.cam ? { shx: 0, shy: 0, ...opts.cam } : cameraAt(B, f);
+    const ui = opts.ui !== false;
     ctx.save();
     ctx.globalCompositeOperation = 'source-over';
     ctx.globalAlpha = 1;
@@ -709,11 +711,13 @@ export function createRenderer(canvas, B) {
     drawGoldIntro(cam, t, f);
     if (reset) { resetOverlay(t, cam, f); ctx.restore(); }
     bloom();
-    title();
-    caption(t);
-    counters(t, f, reset);
-    drawGoldLabel(cam, t, f);
-    reveal(t, cam);
+    if (ui) {
+      title();
+      caption(t);
+      counters(t, f, reset);
+      drawGoldLabel(cam, t, f);
+      reveal(t, cam);
+    }
     ctx.restore();
   }
 
